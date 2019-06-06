@@ -11,15 +11,20 @@
     "gatsby-plugin-offline": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.1.3",
+    "gatsby-plugin-typescript": "^2.0.15",
     "gatsby-source-filesystem": "^2.0.38",
     "gatsby-transformer-sharp": "^2.1.21",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "use-debounce": "^2.1.0"
   },
   "devDependencies": {
-    "prettier": "^1.17.1"
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^6.1.2",
+    "prettier": "^1.17.1",
+    "tailwindcss": "^1.0.3"
   },
   "keywords": [
     "gatsby"
@@ -27,6 +32,8 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build:css": "postcss index.css -o src/components/layout.css",
+    "watch:css": "postcss index.css -o src/components/layout.css -w",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
