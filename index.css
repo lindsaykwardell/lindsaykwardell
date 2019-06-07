@@ -11,3 +11,20 @@ body {
 p {
   @apply py-2;
 }
+
+h1 {
+  font-size: 1.5rem;
+  font-family: "Rokkitt", serif;
+  color: white;
+}
+
+label {
+  font-size: 0.75rem;
+  font-family: "Lato", sans-serif;
+}
+
+hr {
+  background-color: rgb(68, 68, 68);
+  height: 1px;
+  width: 80%;
+}

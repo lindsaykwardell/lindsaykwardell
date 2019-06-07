@@ -27,7 +27,7 @@ const IndexPage = (props: Props) => (
       fluid={props.data.homeImage.childImageSharp.fluid}
       style={{ maxWidth: "700px", margin: "0 auto" }}
     />
-    <p className="p-6">
+    <p className="p-6 italic">
       Before all else, there were but two substances – the Void, and the Light.
       In the Dawn of All, the Light descended into the Void, piercing it to the
       core. From the place where the two touched came the Seven, tasked with the
