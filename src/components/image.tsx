@@ -13,7 +13,11 @@ import Img from "gatsby-image"
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const Image = () => (
+interface Props {
+  img: string;
+}
+
+const Image = (props: Props) => (
   <StaticQuery
     query={graphql`
       query {

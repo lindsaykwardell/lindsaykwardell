@@ -1,19 +1,25 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { CSSProperties, ReactNode } from "react"
 
 interface Props {
-  children?: ReactNode;
-  style?: CSSProperties;
+  children?: ReactNode
+  style?: CSSProperties
+  className?: string
 }
 
 const Container = (props: Props) => {
   return (
     <div
-      className="container mx-auto px-2"
-      style={{ maxWidth: "1200px", ...props.style }}
+      className={`container mx-auto px-2`}
+      style={{
+        maxWidth: "1000px",
+        marginBottom: "70px"
+      }}
     >
-      {props.children}
+      <div className={`mx-2 ${props.className}`} style={{ ...props.style }}>
+        {props.children}
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container
