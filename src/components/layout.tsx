@@ -41,7 +41,7 @@ const Layout = ({ children }) => (
               style={{
                 position: "fixed",
                 bottom: "0px",
-                padding: "0.75em 7.4074%",
+                padding: "0.30em 7.4074%",
                 background: "#D9D9D9",
                 color: "#3E4145",
                 textAlign: "center",
