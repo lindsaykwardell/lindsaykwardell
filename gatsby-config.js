@@ -45,6 +45,21 @@ module.exports = {
               bioHTML
               isHireable
               location
+              url
+              avatarUrl
+              repositories(first:5, orderBy:{
+                field:UPDATED_AT, direction: DESC
+              }){
+                nodes{
+                  name
+                  url
+                  description
+                  isFork
+                  licenseInfo{
+                    name
+                  }
+                }
+              }
             }
           }
         `,
