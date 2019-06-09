@@ -40,39 +40,39 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-source-github-api`,
-    //   options: {
-    //     token: process.env.GATSBY_GITHUB_TOKEN,
-    //     variables: {},
-    //     graphQLQuery: `
-    //       query {
-    //         user(login:"lindsaykwardell"){
-    //           name
-    //           bio
-    //           bioHTML
-    //           isHireable
-    //           location
-    //           url
-    //           avatarUrl
-    //           repositories(first:5, orderBy:{
-    //             field:UPDATED_AT, direction: DESC
-    //           }){
-    //             nodes{
-    //               name
-    //               url
-    //               description
-    //               isFork
-    //               licenseInfo{
-    //                 name
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }
-    //     `,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        token: process.env.GATSBY_GITHUB_TOKEN,
+        variables: {},
+        graphQLQuery: `
+          query {
+            user(login:"lindsaykwardell"){
+              name
+              bio
+              bioHTML
+              isHireable
+              location
+              url
+              avatarUrl
+              repositories(first:5, orderBy:{
+                field:UPDATED_AT, direction: DESC
+              }){
+                nodes{
+                  name
+                  url
+                  description
+                  isFork
+                  licenseInfo{
+                    name
+                  }
+                }
+              }
+            }
+          }
+        `,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
