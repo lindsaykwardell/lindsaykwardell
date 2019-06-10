@@ -45,42 +45,44 @@ const BlogPostTemplate = ({ data }) => {
           className="pt-6 m-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-        <div className="p-6">
-          <h2>Tags</h2>
-          {post.frontmatter.tags.map((tag, index) => (
-            <Pill
-              color="gray-800"
-              size="md"
-              className="m-1 font-bold"
-              style={{ userSelect: "none", fontSize: "0.8rem" }}
-              key={index}
-            >
-              {tag}
-            </Pill>
-          ))}
+        <div className="bg-gray-200 p-6">
+          <div className="mb-4">
+            <h2>Tags</h2>
+            {post.frontmatter.tags.map((tag, index) => (
+              <Pill
+                color="gray-800"
+                size="md"
+                className="m-1 font-bold"
+                style={{ userSelect: "none", fontSize: "0.8rem" }}
+                key={index}
+              >
+                {tag}
+              </Pill>
+            ))}
+          </div>
+          <Row>
+            <Col className="text-left flex-1">
+              {prevPost && (
+                <>
+                  Previous:{" "}
+                  <Link to={prevPost.frontmatter.path} className="underline">
+                    {prevPost.frontmatter.title}
+                  </Link>
+                </>
+              )}
+            </Col>
+            <Col className="text-right flex-1">
+              {nextPost && (
+                <>
+                  Next:{" "}
+                  <Link to={nextPost.frontmatter.path} className="underline">
+                    {nextPost.frontmatter.title}
+                  </Link>
+                </>
+              )}
+            </Col>
+          </Row>
         </div>
-        <Row>
-          <Col className="text-left flex-1">
-            {prevPost && (
-              <>
-                Previous:{" "}
-                <Link to={prevPost.frontmatter.path} className="underline">
-                  {prevPost.frontmatter.title}
-                </Link>
-              </>
-            )}
-          </Col>
-          <Col className="text-right flex-1">
-            {nextPost && (
-              <>
-                Next:{" "}
-                <Link to={nextPost.frontmatter.path} className="underline">
-                  {nextPost.frontmatter.title}
-                </Link>
-              </>
-            )}
-          </Col>
-        </Row>
       </div>
     </Layout>
   )
