@@ -1,6 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 
 import Pill from "../components/Pill/Pill"
 import Row from "../components/Row/Row"
@@ -29,6 +30,13 @@ const BlogPostTemplate = ({ data }) => {
         title={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`}
       />
       <div>
+        {post.frontmatter.image && (
+          <Img
+            sizes={post.frontmatter.image.childImageSharp.sizes}
+            className="mx-auto"
+            style={{ maxWidth: "900px" }}
+          />
+        )}
         <h1 className="text-center">{post.frontmatter.title}</h1>
         <div className="text-center pt-2">
           Published by {post.frontmatter.author} on {post.frontmatter.date}
@@ -95,6 +103,13 @@ export const pageQuery = graphql`
         title
         author
         tags
+        image {
+          childImageSharp {
+            sizes(maxWidth: 900) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
     allMarkdownRemark {
