@@ -10,7 +10,7 @@ tags:
 ---
 The sun rose brilliant in the sky that first morning, its rays bursting through the clouds in all of nature’s glory. The room was still, brimming with boxed potential, with room for curious imaginations to roam free. Outside the blurry windows stood a slice of paradise amidst the bleak cityscape, green pastures sheltered from bitter cement.
 
-On thought fills my essence – I want to stay here forever.
+One thought fills my essence – I want to stay here forever.
 
 Of course, it can never truly be mine. The room, the pastures, all of it was beyond possession. And yet I had been graced by fate, and was allowed to stay here. As the sun rose and fell, and the Earth moved along its course, the potential of that small room was unleashed, filling our lives with joy and sorrow. But as clear as the first revelation, came the second – It is not right.
 
