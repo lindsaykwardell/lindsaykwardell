@@ -1,14 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
-import Button from "../components/Button/Button"
-import Row from "../components/Row/Row"
-import Col from "../components/Col/Col"
-import Card from "../components/Card/Card"
-import Tooltip from "../components/Tooltip/Tooltip"
 
 interface Props {
   data: {

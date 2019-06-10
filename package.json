@@ -14,7 +14,9 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.38",
     "gatsby-source-github-api": "^0.1.0",
+    "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.21",
+    "natural-order": "^0.2.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -23,6 +25,7 @@
     "use-debounce": "^2.1.0"
   },
   "devDependencies": {
+    "@types/react-helmet": "^5.0.8",
     "cssnano": "^4.1.10",
     "dotenv": "^8.0.0",
     "postcss-cli": "^6.1.2",

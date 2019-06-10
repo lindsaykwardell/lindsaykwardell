@@ -30,16 +30,16 @@ const Pill = (props: Props) => {
       pillSize = "py-1 px-2 text-xs";
   }
 
-  const className = `bg-${props.color ? props.color : "grey"} hover:bg-${
-    props.color ? props.color : "grey"
-  }-dark text-${
+  const className = `bg-${props.color ? props.color : "gray-500"} hover:bg-${
+    props.color ? props.color : "gray-700"
+  } text-${
     props.text ? props.text : props.color === "none" ? "black" : "white"
   } ${
     props.color !== "none"
       ? "shadow hover:shadow-md"
       : props.text
       ? `hover:text-${props.text}-darker`
-      : "hover:text-grey-dark"
+      : "hover:text-gray-700"
   } font-light ${
     props.underline ? "underline" : "no-underline"
   } ${pillSize} rounded-full ${props.className ? props.className : ""}`;

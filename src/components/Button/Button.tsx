@@ -40,12 +40,12 @@ const Button = (props: Props) => {
 
   const className = `bg-${
     props.disabled
-      ? "grey-500"
+      ? "gray-500"
       : props.color
       ? `${props.color}-500`
       : "blue-500"
   } hover:bg-${
-    props.disabled ? "grey" : props.color ? props.color : "blue"
+    props.disabled ? "gray" : props.color ? props.color : "blue"
   }-700 text-${
     props.text ? props.text : props.color === "none" ? "black" : "white"
   } ${
@@ -55,7 +55,7 @@ const Button = (props: Props) => {
       ? `hover:text-${props.text}${
           props.text && props.text.indexOf("dark") > -1 ? "er" : "-dark"
         }`
-      : "hover:text-grey-700"
+      : "hover:text-gray-700"
   } font-light ${
     props.underline ? "underline" : "no-underline"
   } ${buttonSize} rounded ${props.className ? props.className : ""}`

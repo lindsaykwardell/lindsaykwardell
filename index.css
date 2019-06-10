@@ -13,14 +13,23 @@ p {
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 3.25rem;
   font-family: "Rokkitt", serif;
-  color: white;
 }
 
-label {
+h2 {
+  font-size: 1.5rem;
+  font-family: "Rokkitt", serif;
+}
+
+label,
+a.recent-post {
   font-size: 0.75rem;
   font-family: "Lato", sans-serif;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 hr {
