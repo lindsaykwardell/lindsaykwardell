@@ -4,6 +4,7 @@ import {
   FaFacebookSquare,
   FaTwitterSquare,
   FaGithubSquare,
+  FaRssSquare,
 } from "react-icons/fa"
 import Row from "../Row/Row"
 import Col from "../Col/Col"
@@ -102,11 +103,17 @@ const LeftBar = () => {
                 <FaGithubSquare />
               </Button>
             </Col>
+            <Col>
+              <Button size="na" color="none" text="na" href="/rss.xml">
+                <FaRssSquare />
+              </Button>
+            </Col>
           </Row>
           <hr />
           <div>
             <MenuItem to="/">Home</MenuItem>
             <MenuItem to="/about">About</MenuItem>
+            <MenuItem to="/blog">Blog</MenuItem>
           </div>
           <hr />
           <div className="text-left">
