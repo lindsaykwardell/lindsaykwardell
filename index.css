@@ -12,14 +12,29 @@ p {
   @apply py-2;
 }
 
-h1 {
-  font-size: 3.25rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Rokkitt", serif;
 }
 
+h1 {
+  font-size: 3.25rem;
+}
+
 h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.0rem;
+}
+
+h4 {
   font-size: 1.5rem;
-  font-family: "Rokkitt", serif;
 }
 
 label,
@@ -36,4 +51,15 @@ hr {
   background-color: rgb(68, 68, 68);
   height: 1px;
   width: 80%;
+}
+
+.home-card{
+  @apply shadow-md;
+  transition: 0.3s;
+}
+
+.home-card:hover {
+  @apply shadow-xl;
+  border: 1px solid black;
+  margin: 10px;
 }
