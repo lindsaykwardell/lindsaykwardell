@@ -7,7 +7,7 @@ module.exports = {
     title: `Lindsay Wardell`,
     description: `Blog and Portfolio`,
     author: `Lindsay Wardell`,
-    siteUrl: `https://lindsaykwardell.com`
+    siteUrl: `https://lindsaykwardell.com`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -63,7 +63,7 @@ module.exports = {
               location
               url
               avatarUrl
-              repositories(first:5, orderBy:{
+              repositories(first:6, orderBy:{
                 field:UPDATED_AT, direction: DESC
               }){
                 nodes{
@@ -72,6 +72,10 @@ module.exports = {
                   description
                   isFork
                   licenseInfo{
+                    name
+                  }
+                  primaryLanguage {
+                    color
                     name
                   }
                 }

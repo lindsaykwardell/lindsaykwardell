@@ -6,6 +6,20 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import Row from "../components/Row/Row"
 import Col from "../components/Col/Col"
+import Card from "../components/Card/Card"
+
+interface Repository {
+  description: string
+  name: string
+  url: string
+  licenseInfo: {
+    name: string
+  }
+  primaryLanguage: {
+    name: string
+    color: string
+  }
+}
 
 interface Props {
   data: {
@@ -15,6 +29,9 @@ interface Props {
           name: string
           bio: string
           avatarUrl: string
+          repositories: {
+            nodes: Repository[]
+          }
         }
       }
     }
@@ -24,6 +41,16 @@ interface Props {
       }
     }
     project: {
+      childImageSharp: {
+        fluid: any
+      }
+    }
+    nan: {
+      childImageSharp: {
+        fluid: any
+      }
+    }
+    mp: {
       childImageSharp: {
         fluid: any
       }
@@ -45,14 +72,41 @@ const IndexPage = (props: Props) => {
         <h3 className="my-4">I'm a software developer and IT professional</h3>
         <h4 className="my-6">
           Helping people get the most out of technology is my passion. I build
-          web applications and IT solutions that drive your business.
+          web applications and IT solutions to help people get things done.
         </h4>
+        <hr className="m-16" />
+        <h2 className="text-center">Examples</h2>
         <Row gutter={2}>
           <Col>
-            <Img fluid={props.data.project.childImageSharp.fluid} className="home-card" />
+            <a href="https://warsofthejuriels.netlify.com" target="_blank">
+              <Img fluid={props.data.project.childImageSharp.fluid} className="home-card" />
+            </a>
           </Col>
-          <Col />
-          <Col />
+          <Col>
+            <a href="https://noadjustmentsneeded.com" target="_blank">
+              <Img fluid={props.data.nan.childImageSharp.fluid} className="home-card" />
+            </a>
+          </Col>
+          <Col>
+            <a href="https://maryspixels.herokuapp.com" target="_blank">
+              <Img fluid={props.data.mp.childImageSharp.fluid} className="home-card" />
+            </a>
+          </Col>
+        </Row>
+        <hr className="m-16" />
+        <h2 className="text-center">Current Projects</h2>
+        <Row gutter={2} className="flex-wrap">
+          {props.data.githubData.data.user.repositories.nodes.map(node =>
+            <Col className="w-1/2">
+              <Card style={{ border: `2px solid ${node.primaryLanguage.color}`, minHeight: "200px" }}>
+                <span className="float-right">{node.licenseInfo ? node.licenseInfo.name : ""}</span>
+                <h4 className="underline mb-3">
+                  <a href={node.url} target="_blank">{node.name}</a>
+                </h4>
+                <span className="italic font-bold">{node.primaryLanguage.name}</span>
+                <p className="p-5">{node.description}</p>
+              </Card>
+            </Col>)}
         </Row>
       </div>
     </Layout>
@@ -69,6 +123,20 @@ export const pageQuery = graphql`
           name
           avatarUrl
           bio
+          repositories {
+            nodes {
+              description
+              name
+              url
+              licenseInfo {
+                name
+              }
+              primaryLanguage {
+                name
+                color
+              }
+            }
+          }
         }
       }
     }
@@ -80,6 +148,20 @@ export const pageQuery = graphql`
       }
     }
     project: file(relativePath: { eq: "juralen.PNG" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    nan: file(relativePath: { eq: "nan.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    mp: file(relativePath: { eq: "mp.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
