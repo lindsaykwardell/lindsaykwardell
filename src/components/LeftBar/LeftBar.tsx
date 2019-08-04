@@ -12,6 +12,7 @@ import Button from "../Button/Button"
 import MenuItem from "./../MenuItem/MenuItem"
 import { StaticQuery, graphql, Link } from "gatsby"
 import naturalOrder from "natural-order"
+import Mailchimp from "../Mailchimp/Mailchimp";
 
 const LeftBar = () => {
   return (
@@ -134,6 +135,8 @@ const LeftBar = () => {
                 </Link>
               ))}
           </div>
+          <hr />
+          <Mailchimp />
         </div>
       )}
     />

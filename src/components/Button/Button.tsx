@@ -16,6 +16,7 @@ interface Props {
   disabled?: boolean
   label?: boolean
   htmlFor?: string
+  submit?: boolean
 }
 
 const Button = (props: Props) => {
@@ -104,6 +105,21 @@ const Button = (props: Props) => {
       >
         {props.children}
       </label>
+    )
+  }
+
+  if (props.submit) {
+    return (
+      <input
+        type="submit"
+        id={props.id}
+        className={className}
+        onClick={props.onClick}
+        onMouseDown={e => e.stopPropagation()}
+        style={{ ...props.style, transition: "0.2s" }}
+        disabled={props.disabled}
+        value={props.children.toString()}
+      />
     )
   }
 

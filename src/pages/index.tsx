@@ -96,8 +96,8 @@ const IndexPage = (props: Props) => {
         <hr className="m-16" />
         <h2 className="text-center">Current Projects</h2>
         <Row gutter={2} className="flex-wrap">
-          {props.data.githubData.data.user.repositories.nodes.map(node =>
-            <Col className="w-1/2">
+          {props.data.githubData.data.user.repositories.nodes.map((node, index) =>
+            <Col className="w-1/2" key={index}>
               <Card style={{ border: `2px solid ${node.primaryLanguage.color}`, minHeight: "200px" }}>
                 <span className="float-right">{node.licenseInfo ? node.licenseInfo.name : ""}</span>
                 <h4 className="underline mb-3">
@@ -110,7 +110,7 @@ const IndexPage = (props: Props) => {
         </Row>
       </div>
     </Layout>
-  )
+  ) 
 }
 
 export default IndexPage
