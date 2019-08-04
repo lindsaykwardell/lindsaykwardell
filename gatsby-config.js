@@ -1,8 +1,13 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  // path: `.env.${process.env.NODE_ENV}`,
+  path: `.env`,
 })
 
 module.exports = {
+  proxy: {
+    prefix: "/.netlify/functions",
+    url: "http://localhost:9000",
+  },
   siteMetadata: {
     title: `Lindsay Wardell`,
     description: `Blog and Portfolio`,

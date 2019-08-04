@@ -113,7 +113,7 @@ const LeftBar = () => {
           <hr />
           <div>
             <MenuItem to="/">Home</MenuItem>
-            <MenuItem to="/about">About</MenuItem>
+            {/* <MenuItem to="/about">About</MenuItem> */}
             <MenuItem to="/blog">Blog</MenuItem>
           </div>
           <hr />
