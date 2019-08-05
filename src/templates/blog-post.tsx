@@ -8,7 +8,6 @@ import Row from "../components/Row/Row"
 import Col from "../components/Col/Col"
 import Layout from "../components/layout"
 import naturalOrder from "natural-order"
-// import '../css/blog-post.css'; // make it pretty!
 
 const BlogPostTemplate = ({ data }) => {
   const { markdownRemark: post, allMarkdownRemark } = data // data.markdownRemark holds our post data
@@ -32,7 +31,12 @@ const BlogPostTemplate = ({ data }) => {
           <Img
             sizes={post.frontmatter.image.childImageSharp.sizes}
             className="mx-auto"
-            style={{ maxWidth: "900px" }}
+            style={{
+              maxWidth: "900px",
+              maxHeight: "450px",
+              objectFit: "none",
+              objectPosition: "center",
+            }}
           />
         )}
         <h1 className="text-center">{post.frontmatter.title}</h1>
