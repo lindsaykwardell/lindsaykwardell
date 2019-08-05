@@ -59,58 +59,88 @@ interface Props {
 }
 
 const IndexPage = (props: Props) => {
-  console.log(props)
   return (
     <Layout>
       <SEO title="Home" />
       <div className="clearfix">
-        <Img
-          fluid={props.data.hero.childImageSharp.fluid}
-          className="shadow-lg"
-        />
-        <h1>Hi, I'm Lindsay Wardell</h1>
-        <h3 className="my-4">I'm a software developer and IT professional</h3>
-        <h4 className="my-6">
-          Helping people get the most out of technology is my passion. I build
-          web applications and IT solutions to help people get things done.
-        </h4>
-        <hr className="m-16" />
-        <h2 className="text-center">Examples</h2>
-        <Row gutter={2}>
-          <Col>
-            <a href="https://warsofthejuriels.netlify.com" target="_blank">
-              <Img fluid={props.data.project.childImageSharp.fluid} className="home-card" />
-            </a>
-          </Col>
-          <Col>
-            <a href="https://noadjustmentsneeded.com" target="_blank">
-              <Img fluid={props.data.nan.childImageSharp.fluid} className="home-card" />
-            </a>
-          </Col>
-          <Col>
-            <a href="https://maryspixels.herokuapp.com" target="_blank">
-              <Img fluid={props.data.mp.childImageSharp.fluid} className="home-card" />
-            </a>
-          </Col>
-        </Row>
-        <hr className="m-16" />
-        <h2 className="text-center">Current Projects</h2>
-        <Row gutter={2} className="flex-wrap">
-          {props.data.githubData.data.user.repositories.nodes.map((node, index) =>
-            <Col className="w-1/2" key={index}>
-              <Card style={{ border: `2px solid ${node.primaryLanguage.color}`, minHeight: "200px" }}>
-                <span className="float-right">{node.licenseInfo ? node.licenseInfo.name : ""}</span>
-                <h4 className="underline mb-3">
-                  <a href={node.url} target="_blank">{node.name}</a>
-                </h4>
-                <span className="italic font-bold">{node.primaryLanguage.name}</span>
-                <p className="p-5">{node.description}</p>
-              </Card>
-            </Col>)}
-        </Row>
+        <div>
+          <Img
+            fluid={props.data.hero.childImageSharp.fluid}
+            className="shadow-lg"
+          />
+          <h1>Hi, I'm Lindsay Wardell</h1>
+          <h3 className="my-4">I'm a software developer and IT professional</h3>
+          <h4 className="my-6 text-xl md:text-2xl">
+            Helping people get the most out of technology is my passion. I build
+            web applications and IT solutions to help people get things done.
+          </h4>
+        </div>
+        <hr className="my-16" />
+        <div>
+          <div style={{ marginTop: "10vh" }}>
+            <h2 className="text-center">Examples</h2>
+            <Row gutter={2} default="inline" className="md:flex">
+              <Col className="w-full m-auto my-6 md:my-0 md:flex-1" style={{ maxWidth: "400px" }}>
+                <a href="https://warsofthejuriels.netlify.com" target="_blank">
+                  <Img
+                    fluid={props.data.project.childImageSharp.fluid}
+                    className="home-card"
+                  />
+                </a>
+              </Col>
+              <Col className="w-full m-auto my-6 md:my-0 md:flex-1" style={{ maxWidth: "400px" }}>
+                <a href="https://noadjustmentsneeded.com" target="_blank">
+                  <Img
+                    fluid={props.data.nan.childImageSharp.fluid}
+                    className="home-card"
+                  />
+                </a>
+              </Col>
+              <Col className="w-full m-auto my-6 md:my-0 md:flex-1" style={{ maxWidth: "400px" }}>
+                <a href="https://maryspixels.herokuapp.com" target="_blank">
+                  <Img
+                    fluid={props.data.mp.childImageSharp.fluid}
+                    className="home-card"
+                  />
+                </a>
+              </Col>
+            </Row>
+          </div>
+        </div>
+        <hr className="my-16" />
+        <div>
+          <h2 className="text-center">Current Projects</h2>
+          <Row gutter={2} className="flex-wrap">
+            {props.data.githubData.data.user.repositories.nodes.map(
+              (node, index) => (
+                <Col className="w-full md:w-1/2" key={index}>
+                  <Card
+                    style={{
+                      border: `2px solid ${node.primaryLanguage.color}`,
+                      minHeight: "200px",
+                    }}
+                  >
+                    <span className="md:float-right">
+                      {node.licenseInfo ? node.licenseInfo.name : ""}
+                    </span>
+                    <h4 className="underline mb-3">
+                      <a href={node.url} target="_blank">
+                        {node.name}
+                      </a>
+                    </h4>
+                    <span className="italic font-bold">
+                      {node.primaryLanguage.name}
+                    </span>
+                    <p className="p-5">{node.description}</p>
+                  </Card>
+                </Col>
+              )
+            )}
+          </Row>
+        </div>
       </div>
     </Layout>
-  ) 
+  )
 }
 
 export default IndexPage

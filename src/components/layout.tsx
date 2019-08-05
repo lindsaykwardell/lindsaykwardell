@@ -14,6 +14,7 @@ import Col from "./Col/Col"
 import Container from "./Container/Container"
 import "./layout.css"
 import LeftBar from "./LeftBar/LeftBar"
+import TopBar from "./TopBar/TopBar";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -28,8 +29,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Row>
-          <Col className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+        <div className="md:hidden">
+          <TopBar />
+        </div>
+        <Row className="mt-10 md:mt-0">
+          <Col className="hidden md:block md:w-1/3 lg:w-1/4 xl:w-1/5">
             <LeftBar />
           </Col>
           <Col style={{ background: "rgb(240, 241, 242)" }}>

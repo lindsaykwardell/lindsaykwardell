@@ -19,8 +19,6 @@ const BlogPostTemplate = ({ data }) => {
     ({ node }) => node.frontmatter.path === post.frontmatter.path
   )
 
-  console.log(postIndex)
-
   const prevPost = postIndex > 0 ? posts[postIndex - 1].node : null
   const nextPost = posts[postIndex + 1] ? posts[postIndex + 1].node : null
 

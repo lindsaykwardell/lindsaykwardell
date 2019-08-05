@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, KeyboardEvent } from "react"
 import Button from "../Button/Button"
 import Input from "../Input/Input"
 import axios from "axios"
@@ -24,6 +24,10 @@ const Mailchimp = () => {
       })
   }
 
+  const keyPressedHandler = (e: KeyboardEvent) => {
+    if (e.keyCode === 13) subscribe();
+  }
+
   return (
     <div className="text-left">
       <span className="text-white px-4 py-2">Subscribe via Email</span>
@@ -34,6 +38,7 @@ const Mailchimp = () => {
             className="text-black"
             style={{ width: "80%", margin: "10px auto" }}
             onChange={setEmail}
+            onKeyDown={e => keyPressedHandler(e)}
           />
         </div>
         <Button onClick={subscribe} size="sm">
