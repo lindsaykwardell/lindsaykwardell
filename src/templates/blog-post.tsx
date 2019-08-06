@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
+import { globalHistory } from "@reach/router"
 
 import Pill from "../components/Pill/Pill"
 import Row from "../components/Row/Row"
@@ -25,7 +26,7 @@ const BlogPostTemplate = ({ data }) => {
   const disqusConfig = {
     shortname: process.env.GATSBY_DISQUS_NAME,
     config: {
-      url: window.location.href,
+      url: globalHistory.location.href,
       identifier: post.frontmatter.path,
       title: post.frontmatter.title
     }
