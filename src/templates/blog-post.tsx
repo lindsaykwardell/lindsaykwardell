@@ -8,6 +8,7 @@ import Row from "../components/Row/Row"
 import Col from "../components/Col/Col"
 import Layout from "../components/layout"
 import naturalOrder from "natural-order"
+import { DiscussionEmbed } from "disqus-react"
 
 const BlogPostTemplate = ({ data }) => {
   const { markdownRemark: post, allMarkdownRemark } = data // data.markdownRemark holds our post data
@@ -20,6 +21,15 @@ const BlogPostTemplate = ({ data }) => {
 
   const prevPost = postIndex > 0 ? posts[postIndex - 1].node : null
   const nextPost = posts[postIndex + 1] ? posts[postIndex + 1].node : null
+
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME,
+    config: {
+      url: window.location.href,
+      identifier: post.frontmatter.path,
+      title: post.frontmatter.title
+    }
+  }
 
   return (
     <Layout>
@@ -85,6 +95,7 @@ const BlogPostTemplate = ({ data }) => {
             </Col>
           </Row>
         </div>
+        <DiscussionEmbed {...disqusConfig} />
       </div>
     </Layout>
   )
