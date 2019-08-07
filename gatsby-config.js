@@ -171,5 +171,13 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-load-script",
+      options: {
+        disable: !process.env.GATSBY_SENTRY_DSN, // When do you want to disable it ?
+        src: "https://browser.sentry-cdn.com/5.5.0/bundle.min.js",
+        onLoad: `() => Sentry.init({dsn:"${process.env.GATSBY_SENTRY_DSN}"})`,
+      },
+    },
   ],
 }
