@@ -176,7 +176,11 @@ module.exports = {
       options: {
         disable: !process.env.GATSBY_SENTRY_DSN, // When do you want to disable it ?
         src: "https://browser.sentry-cdn.com/5.5.0/bundle.min.js",
-        onLoad: `() => Sentry.init({dsn:"${process.env.GATSBY_SENTRY_DSN}"})`,
+        onLoad: `() => Sentry.init(
+          { dsn: "${process.env.GATSBY_SENTRY_DSN}",
+            environment: "${process.env.NODE_ENV}"
+          }
+        )`,
       },
     },
   ],
