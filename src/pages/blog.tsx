@@ -2,12 +2,9 @@ import React, { useState } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Card from "../components/Card/Card"
 import { graphql, Link } from "gatsby"
-import Row from "../components/Row/Row"
-import Col from "../components/Col/Col"
-import Button from "../components/Button/Button"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
+import {Row, Col, Card, Button} from "react-tailwind-lib"
 
 interface Props {
   data: {

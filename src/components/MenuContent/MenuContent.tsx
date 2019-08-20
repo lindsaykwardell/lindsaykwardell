@@ -7,9 +7,7 @@ import {
   FaGithubSquare,
   FaRssSquare,
 } from "react-icons/fa"
-import Button from "../Button/Button"
-import Row from "../Row/Row"
-import Col from "../Col/Col"
+import {Button, Row, Col} from "react-tailwind-lib"
 import naturalOrder from "natural-order"
 import { Link, StaticQuery, graphql } from "gatsby"
 import Mailchimp from "../Mailchimp/Mailchimp"

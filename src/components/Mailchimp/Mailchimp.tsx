@@ -1,6 +1,5 @@
 import React, { useState, KeyboardEvent } from "react"
-import Button from "../Button/Button"
-import Input from "../Input/Input"
+import {Button, Input} from "react-tailwind-lib"
 import axios from "axios"
 
 const Mailchimp = () => {

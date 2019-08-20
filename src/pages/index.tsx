@@ -4,9 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
-import Row from "../components/Row/Row"
-import Col from "../components/Col/Col"
-import Card from "../components/Card/Card"
+import {Row, Col, Card} from "react-tailwind-lib"
 
 interface Repository {
   description: string

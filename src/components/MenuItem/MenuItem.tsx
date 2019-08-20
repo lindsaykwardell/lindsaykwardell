@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react"
-import Button from "../Button/Button"
+import {Button} from "react-tailwind-lib"
+import { Link } from "gatsby"
 
 interface Props {
   children: ReactNode
@@ -20,19 +21,20 @@ const MenuItem = (props: Props) => {
 
   return (
     <div onClick={closeMenuCheck}>
-      <Button
-        color="none"
-        text={props.text ? props.text : "white"}
-        className={`block hover:underline w-full text-${
-          props.align ? props.align : "left"
-        }`}
-        style={{ whiteSpace: "nowrap", fontFamily: "Lato" }}
-        to={props.to}
-        href={props.href}
-        onClick={props.onClick}
-      >
-        {props.children}
-      </Button>
+      <Link to={props.to}>
+        <Button
+          color="none"
+          text={props.text ? props.text : "white"}
+          className={`block hover:underline w-full text-${
+            props.align ? props.align : "left"
+          }`}
+          style={{ whiteSpace: "nowrap", fontFamily: "Lato" }}
+          href={props.href}
+          onClick={props.onClick}
+        >
+          {props.children}
+        </Button>
+      </Link>
     </div>
   )
 }

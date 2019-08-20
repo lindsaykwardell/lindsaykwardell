@@ -1,10 +1,8 @@
 import React, { useState } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import MenuContent from "../MenuContent/MenuContent"
-import {
-  FaBars,
-} from "react-icons/fa"
-import Button from "../Button/Button"
+import { FaBars } from "react-icons/fa"
+import { Button } from "react-tailwind-lib"
 
 const TopBar = () => {
   const [showMenu, toggleMenu] = useState<boolean>(false)

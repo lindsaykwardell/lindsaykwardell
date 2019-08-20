@@ -9,9 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
-import Row from "./Row/Row"
-import Col from "./Col/Col"
-import Container from "./Container/Container"
+import {Row, Col, Container} from "react-tailwind-lib"
 import "./layout.css"
 import LeftBar from "./LeftBar/LeftBar"
 import TopBar from "./TopBar/TopBar";
