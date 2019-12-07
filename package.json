@@ -27,7 +27,7 @@
     "netlify-lambda": "^1.5.1"
   },
   "keywords": [
-    "gatsby"
+    "gridsome"
   ],
   "license": "MIT",
   "scripts": {
