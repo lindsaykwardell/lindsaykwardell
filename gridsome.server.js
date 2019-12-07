@@ -4,10 +4,10 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const fetcher = require("graphql-fetch");
+const fetcher = require("graphql-fetch")
 
 const githubOptions = {
-  token: "1841e70d2d0c3f2602b24b3e5668ac99fb49dabd",
+  token: "...",
   variables: {},
   graphQLQuery: `
       query {
@@ -38,50 +38,50 @@ const githubOptions = {
           }
         }
       }
-    `
-};
+    `,
+}
 
 class GitHubSource {
   static defaultOptions = {
     token: null,
     variables: {},
-    graphQLQuery: `query {}`
-  };
+    graphQLQuery: `query {}`,
+  }
 
-  url = "https://api.github.com/graphql";
+  url = "https://api.github.com/graphql"
 
   constructor(api, options) {
     const { token, variables, graphQLQuery } = {
       ...this.defaultOptions,
-      ...options
-    };
+      ...options,
+    }
 
-    if (!token) throw new Error("Missing GitHub API token!");
+    if (!token) throw new Error("Missing GitHub API token!")
 
     api.loadSource(async actions => {
-      const {data} = await this.fetchFromGitHub(token, graphQLQuery, variables)
+      const { data } = await this.fetchFromGitHub(
+        token,
+        graphQLQuery,
+        variables
+      )
 
       actions.addMetadata("githubData", data)
     })
   }
 
-  fetchFromGitHub = (
-    token,
-    graphQLQuery,
-    variables
-  ) => {
-    const fetch = fetcher(this.url);
-    return this.fetchJSON(fetch, token, graphQLQuery, variables);
-  };
-  
+  fetchFromGitHub = (token, graphQLQuery, variables) => {
+    const fetch = fetcher(this.url)
+    return this.fetchJSON(fetch, token, graphQLQuery, variables)
+  }
+
   fetchJSON = async (fetch, token, query, variables) => {
-    const headers = new Headers();
-    headers.set("Authorization", `Bearer ${token}`);
+    const headers = new Headers()
+    headers.set("Authorization", `Bearer ${token}`)
     return await fetch(query, variables, {
       headers,
       method: "POST",
-      mode: "cors"
-    });
+      mode: "cors",
+    })
   }
 }
 
@@ -92,17 +92,15 @@ module.exports = function(api) {
     addSchemaResolvers({
       Post: {
         excerpt(obj) {
-          var longText = obj.content.length > 300 ? "..." : "";
-          return obj.content.substring(0, 300) + longText;
+          var longText = obj.content.length > 300 ? "..." : ""
+          return obj.content.substring(0, 300) + longText
           // return obj.content.replace(/^(.{200}[^\s]*).*/, "$1"+longText);
-        }
-      }
-    });
-  });
+        },
+      },
+    })
+  })
 
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  });
-};
-
-
+  })
+}
