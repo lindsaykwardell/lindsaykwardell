@@ -18,7 +18,7 @@ module.exports = {
     {
       use: "gridsome-source-github-api",
       options: {
-        token: process.env.GRIDSOME_GITHUB_API_TOKEN,
+        token: process.env.GITHUB_API_TOKEN,
         variables: {},
         graphQLQuery: `
             query {
