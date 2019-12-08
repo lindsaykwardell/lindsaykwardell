@@ -15,6 +15,16 @@
   </nav>
 </template>
 
+<script>
+import MenuContent from '../MenuContent/MenuContent'
+
+export default {
+  components: {
+    MenuContent
+  }
+}
+</script>
+
 <style lang="postcss" scoped>
 #left-nav {
   position: sticky;
