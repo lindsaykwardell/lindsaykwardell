@@ -3,7 +3,8 @@ module.exports = {
     require("tailwindcss"),
     require("autoprefixer"),
     require("cssnano")({
-      preset: "default",
+      preset: "default"
     }),
-  ],
-}
+    require("postcss-nested")
+  ]
+};
