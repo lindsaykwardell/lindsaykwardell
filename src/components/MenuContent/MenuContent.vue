@@ -1,6 +1,6 @@
 <template>
-  <vstack>
-    <hstack class="mx-auto text-xl w-4/5 sm:w-3/4 md:w-2/3 lg:w-1/2">
+  <div>
+    <div class="flex mx-auto text-xl w-4/5 sm:w-3/4 md:w-2/3 lg:w-1/2">
       <a
         class="social-media"
         href="https://www.facebook.com/lindsaykwardell.writer/"
@@ -22,11 +22,11 @@
       <a class="social-media" href="/rss.xml">
         <v-icon name="rss-square" label="RSS Feed" scale="1.3" />
       </a>
-    </hstack>
-    <divider />
+    </div>
+    <hr class="my-4 mx-auto" />
     <MenuItem to="/">Home</MenuItem>
     <MenuItem to="/blog/">Blog</MenuItem>
-    <divider />
+    <hr class="my-4 mx-auto" />
     <div class="text-left">
       <span class="text-white px-4 py-2">Recent Posts</span>
       <g-link
@@ -38,7 +38,7 @@
         {{ post.node.title }}
       </g-link>
     </div>
-  </vstack>
+  </div>
 </template>
 
 <script>

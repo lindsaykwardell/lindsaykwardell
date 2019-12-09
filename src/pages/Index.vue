@@ -1,64 +1,89 @@
 <template>
   <Layout>
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-      excepturi labore tempore expedita, et iste tenetur suscipit explicabo!
-      Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener"
-        >Gridsome Docs</a
-      >
-      <a
-        href="https://github.com/gridsome/gridsome"
-        target="_blank"
-        rel="noopener"
-        >GitHub</a
-      >
-    </p>
-
-    <input
-      id="search"
-      v-model="searchTerm"
-      class="input"
-      type="text"
-      placeholder="Search"
-    />
-
-    <div v-for="result in searchResults" :key="result.id">
-      <g-link :to="result.path" class="navbar-item">
-        {{ result.title }}
-      </g-link>
-      <p>By {{ result.author }} {{ generateExcerpt(result.content, 300) }}</p>
+    <div class="clearfix">
+      <div>
+        <g-image src="~/images/lindsay-2.jpg" width="968" class="shadow-lg mx-auto block" />
+        <h1>Hi, I'm Lindsay Wardell</h1>
+        <h3 class="my-4">I'm a software developer and IT professional</h3>
+        <h4 class="my-6 text-xl md:text-2xl">
+          Helping people get the most out of technology is my passion. I build
+          web applications and IT solutions to help people get things done.
+        </h4>
+      </div>
+      <hr class="my-16 mx-auto" />
+      <div>
+        <div style="margin-top: 10vh">
+          <h2 class="text-center">Examples</h2>
+          <div class="md:flex">
+            <div class="w-full m-auto my-6 md:my-0 md:flex-1" style="max-width: 400px">
+              <a href="https://warsofthejuriels.netlify.com">
+                <g-image src="~/images/juralen.png" width="400" class="home-card" />
+              </a>
+            </div>
+            <div class="w-full m-auto my-6 md:my-0 md:flex-1" style="max-width: 400px">
+              <a href="https://noadjustmentsneeded.com">
+                <g-image src="~/images/nan.png" width="400" class="home-card" />
+              </a>
+            </div>
+            <div class="w-full m-auto my-6 md:my-0 md:flex-1" style="max-width: 400px">
+              <a href="https://maryspixels.herokuapp.com">
+                <g-image src="~/images/marys-pixels.jpg" width="400" class="home-card" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-16 mx-auto" />
+      <div>
+        <h2 class="text-center">Current Projects</h2>
+        <div class="flex flex-wrap">
+          <div
+            v-for="(node, index) in $page.metadata.githubData.user.repositories.nodes"
+            :key="index"
+            class="p-2 w-full md:w-1/2"
+          >
+            <div
+              class="p-2 rounded shadow-md bg-white"
+              :style="`border: 2px solid ${node.primaryLanguage.color}; min-height: 200px`"
+            >
+              <span class="md:float-right">{{node.licenseInfo ? node.licenseInfo.name : ""}}</span>
+              <h4 class="underline mb-3">
+                <a :href="node.url" target="_blank">{{node.name}}</a>
+              </h4>
+              <span class="italic font-bold">{{node.primaryLanguage.name}}</span>
+              <p class="p-5">{{node.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </Layout>
 </template>
 
-<script>
-import Search from "gridsome-plugin-flexsearch/SearchMixin";
-
-export default {
-  mixins: [Search],
-  metaInfo: {
-    title: "Hello, world!"
-  },
-  methods: {
-    generateExcerpt(textToStrip, length) {
-      let regex = /(<([^>]+)>)/gi;
-      return textToStrip.replace(regex, "").slice(0, length);
+<page-query>
+query {
+  metadata {
+    githubData {
+      user {
+        name
+        avatarUrl
+        bio
+        repositories {
+          nodes {
+            description
+            name
+            url
+            licenseInfo {
+              name
+            }
+            primaryLanguage {
+              name
+              color
+            }
+          }
+        }
+      }
     }
   }
-};
-</script>
-
-<style>
-.home-links a {
-  margin-right: 1rem;
 }
-</style>
+</page-query>

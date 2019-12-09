@@ -4,8 +4,12 @@
   "version": "0.2.0",
   "author": "Lindsay Wardell",
   "dependencies": {
+    "@gridsome/plugin-google-analytics": "^0.1.0",
     "axios": "^0.19.0",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-rss": "^1.2.0",
+    "gridsome-plugin-sentry": "^1.0.0",
+    "http-proxy-middleware": "^0.20.0",
     "pyloncss": "^0.1.1",
     "vue-awesome": "^4.0.2",
     "vuetensils": "^0.4.3"

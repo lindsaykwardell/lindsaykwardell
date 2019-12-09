@@ -1,27 +1,19 @@
 <template>
   <div>
-    <!-- <LeftBar /> -->
-    <!-- <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
-      </nav>
-    </header> -->
     <VResize>
       <template #default="{ width }">
-        <hstack>
+        <div class="flex">
           <div class="md:w-1/3 lg:w-1/4 xl:w-1/5">
             <LeftBar v-if="width > 768" />
           </div>
-          <vstack class="w-full md:w-2/3 lg:w-3/4 xl:w-4/5">
-            <main class="bg-white my-5 p-2">
-              <slot/>
-            </main>
-          </vstack>
-        </hstack>
+          <div class="body w-full md:w-2/3 lg:w-3/4 xl:w-4/5">
+            <div class="container">
+              <main class="bg-white my-5 p-2">
+                <slot />
+              </main>
+            </div>
+          </div>
+        </div>
       </template>
     </VResize>
   </div>
@@ -34,10 +26,22 @@ import LeftBar from "../components/LeftBar/LeftBar"
 export default {
   components: {
     LeftBar,
-    VResize
-  }
+    VResize,
+  },
 }
 </script>
+
+<style lang="postcss" scoped>
+.body {
+  background: rgb(240, 241, 242);
+}
+
+.container {
+  @apply mx-auto px-2;
+  max-width: 1000px;
+  margin-bottom: 70px;
+}
+</style>
 
 <static-query>
 query {

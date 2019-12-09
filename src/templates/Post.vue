@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <br />
-    <g-link to="/" class="link">&larr; Go Back</g-link>
+    <g-link to="/blog/" class="link">&larr; Go Back</g-link>
     <div class="post-title">
       <g-image class="hero" v-if="$page.post.image" :src="$page.post.image" />
       <h1>{{$page.post.title}}</h1>
@@ -43,19 +43,20 @@ export default {
     postIndex() {
       return this.$page.allPost.edges.findIndex(
         ({ node }) => node.path === this.$page.post.path
-      )},
+      )
+    },
     nextPost() {
       return this.postIndex > 0
         ? this.$page.allPost.edges[this.postIndex - 1].node
-        : null;
+        : null
     },
     prevPost() {
       return this.$page.allPost.edges[this.postIndex + 1]
         ? this.$page.allPost.edges[this.postIndex + 1].node
-        : null;
-    }
-  }
-};
+        : null
+    },
+  },
+}
 </script>
 
 <style lang="postcss" scoped>

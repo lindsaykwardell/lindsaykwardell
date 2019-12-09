@@ -30,7 +30,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2.0rem;
+  font-size: 2rem;
 }
 
 h4 {
@@ -48,12 +48,13 @@ a:hover {
 }
 
 hr {
+  @apply border-0 mx-auto my-4;
   background-color: rgb(68, 68, 68);
   height: 1px;
   width: 80%;
 }
 
-.home-card{
+.home-card {
   @apply shadow-md;
   transition: 0.3s;
 }
@@ -62,4 +63,18 @@ hr {
   @apply shadow-xl;
   border: 1px solid black;
   margin: 10px;
+}
+
+.pagination-container {
+  @apply flex mx-auto;
+  width: 30%;
+  max-width: 200px;
+
+  .pagination-elem {
+    @apply flex-1;
+
+    &.active {
+      @apply underline;
+    }
+  }
 }
