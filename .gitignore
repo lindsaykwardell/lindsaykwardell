@@ -8,3 +8,4 @@ dist
 .env.*
 gatsby-*/*
 rss.xml
+lambda/*
