@@ -93,7 +93,7 @@ export default {
   },
   methods: {
     addComment() {
-      axios.post('/', {
+      axios.post(this.$page.post.path, {
         'bot-field': this.botField,
         author: this.author,
         email: this.email,
