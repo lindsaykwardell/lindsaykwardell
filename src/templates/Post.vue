@@ -34,11 +34,46 @@
         </div>
       </div>
     </div>
+    <div class="border-2 rounded m-4 shadow bg-gray-100">
+      <h4>Add a Comment</h4>
+      <div class="p-2">
+        <form
+          name="new-comment"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          @submit.prevent="addComment"
+        >
+          <input type="hidden" name="bot-field" v-model="botField" />
+          <label>Name</label>
+          <input type="text" name="author" v-model="author" />
+          <label>Email</label>
+          <input type="email" name="email" v-model="email" />
+
+          <label>Comment</label>
+          <textarea name="message" rows="5" v-model="comment" />
+
+          <div class="text-center">
+            <button type="submit" @click="addComment">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </Layout>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+  data() {
+    return {
+      botField: "",
+      author: "",
+      email: "",
+      comment: "",
+    }
+  },
   computed: {
     postIndex() {
       return this.$page.allPost.edges.findIndex(
@@ -54,6 +89,18 @@ export default {
       return this.$page.allPost.edges[this.postIndex + 1]
         ? this.$page.allPost.edges[this.postIndex + 1].node
         : null
+    },
+  },
+  methods: {
+    addComment() {
+      axios.post('/', {
+        'bot-field': this.botField,
+        author: this.author,
+        email: this.email,
+        comment: this.comment,
+        postTitle: this.$page.post.title,
+        postPath: this.$page.post.path
+      }).then(() => alert("Comment posted!")).catch(err => console.error(err))
     },
   },
 }
@@ -73,6 +120,22 @@ export default {
 
 .pill {
   @apply bg-gray-800 text-white shadow font-light no-underline py-2 px-4 rounded-full m-1 font-bold select-none text-sm inline-block;
+}
+
+input,
+textarea {
+  @apply p-2 my-3 border-2 rounded w-full text-lg;
+  resize: none;
+}
+
+button[type="submit"] {
+  @apply py-2 px-3 bg-blue-500 text-white rounded w-1/6;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    @apply bg-blue-700;
+  }
 }
 </style>
 
