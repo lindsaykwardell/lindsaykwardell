@@ -42,7 +42,6 @@
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          @submit.prevent="addComment"
         >
           <input type="hidden" name="bot-field" v-model="botField" />
           <label>Name</label>
@@ -54,7 +53,7 @@
           <textarea name="message" rows="5" v-model="comment" />
 
           <div class="text-center">
-            <button type="submit" @click="addComment">Submit</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </div>
