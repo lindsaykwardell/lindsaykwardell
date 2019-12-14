@@ -43,12 +43,11 @@
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="bot-field" v-model="botField" />
+          <input type="hidden" name="form-name" value="new-comment" />
           <label>Name</label>
           <input type="text" name="author" v-model="author" />
           <label>Email</label>
           <input type="email" name="email" v-model="email" />
-
           <label>Comment</label>
           <textarea name="message" rows="5" v-model="comment" />
 
