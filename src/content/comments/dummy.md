@@ -1,5 +1,5 @@
 ---
-path: "dummy"
+postPath: "dummy"
 date: 2019-12-15
 author: "Lindsay Wardell"
 authorId: ""

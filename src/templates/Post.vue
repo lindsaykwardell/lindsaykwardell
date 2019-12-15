@@ -43,9 +43,24 @@
       </div>
     </div>
     <div>
-      <div v-for="{ node } in $page.allComment.edges" :key="node.id">
-        <strong>{{ node.author }}</strong> - posted {{ formatDate(node.date) }}
-        <div v-html="node.content" />
+      <div
+        v-for="{ node } in $page.allComment.edges"
+        :key="node.id"
+        class="flex m-2 p-2 border-2 rounded"
+      >
+        <div class="flex-shrink pr-2 border-r-2">
+          <img
+            :src="`https://www.gravatar.com/avatar/${node.authorId}`"
+            class="rounded-full"
+          />
+        </div>
+        <div class="flex-grow">
+          <div class="border-b-2 pl-2">
+            <strong>{{ node.author }}</strong> - posted
+            {{ formatDate(node.date) }}
+          </div>
+          <div class="pl-2"><div v-html="node.content" /></div>
+        </div>
       </div>
     </div>
     <div class="border-2 rounded m-4 shadow bg-gray-100">
@@ -112,7 +127,9 @@ export default {
   },
   methods: {
     formatDate(dateString) {
-      return moment(dateString).local().format("MMMM DD, YYYY, h:mm a")
+      return moment(dateString)
+        .local()
+        .format("MMMM DD, YYYY, h:mm a")
     },
     addComment() {
       const formData = new FormData()
@@ -176,7 +193,7 @@ query Post ($path: String!) {
     date(format: "MMMM DD, YYYY")
     image(width: 900)
   }
-  allComment (filter: {path: {eq: $path}}) {
+  allComment (order: ASC, filter: {postPath: {eq: $path}}) {
     edges {
       node {
         id
