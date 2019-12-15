@@ -42,6 +42,7 @@
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          @submit.prevent="addComment"
         >
           <input type="hidden" name="form-name" value="new-comment" />
           <label>Name</label>
@@ -91,14 +92,15 @@ export default {
   },
   methods: {
     addComment() {
-      axios.post(this.$page.post.path, {
-        'bot-field': this.botField,
-        author: this.author,
-        email: this.email,
-        comment: this.comment,
-        postTitle: this.$page.post.title,
-        postPath: this.$page.post.path
-      }).then(() => alert("Comment posted!")).catch(err => console.error(err))
+      const formData = new FormData();
+      formData.append("form-name", "new-comment")
+      formData.append("author", this.author)
+      formData.append("email", this.email)
+      formData.append("comment", this.comment)
+      formData.append("postTitle", this.$page.post.title)
+      formData.append("postPath", this.$page.post.path)
+
+      axios.post(this.$page.post.path, formData).then(() => alert("Comment posted!")).catch(err => console.error(err))
     },
   },
 }
