@@ -44,7 +44,7 @@
     </div>
     <div>
       <div v-for="{ node } in $page.allComment.edges" :key="node.id">
-        <strong>{{ node.author }}</strong> - posted {{ node.date }}
+        <strong>{{ node.author }}</strong> - posted {{ formatDate(node.date) }}
         <div v-html="node.content" />
       </div>
     </div>
@@ -82,6 +82,7 @@
 
 <script>
 import axios from "axios"
+import moment from "moment"
 
 export default {
   data() {
@@ -110,6 +111,9 @@ export default {
     },
   },
   methods: {
+    formatDate(dateString) {
+      return moment(dateString).local().format("MMMM DD, YYYY, h:mm a")
+    },
     addComment() {
       const formData = new FormData()
       formData.append("form-name", "new-comment")
@@ -178,7 +182,7 @@ query Post ($path: String!) {
         id
         author
         authorId
-        date(format: "MMMM DD, YYYY")
+        date
         path
         content
       }
