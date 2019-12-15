@@ -9,3 +9,5 @@ dist
 gatsby-*/*
 rss.xml
 lambda
+# Local Netlify folder
+.netlify

@@ -34,11 +34,46 @@
         </div>
       </div>
     </div>
+    <div class="border-2 rounded m-4 shadow bg-gray-100">
+      <h4>Add a Comment</h4>
+      <div class="p-2">
+        <form
+          name="new-comment"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          @submit.prevent="addComment"
+        >
+          <input type="hidden" name="form-name" value="new-comment" />
+          <input type="hidden" name="postTitle" :value="this.$page.post.title" />
+          <input type="hidden" name="postPath" :value="this.$page.post.path" />
+          <label>Name</label>
+          <input type="text" name="author" v-model="author" />
+          <label>Email</label>
+          <input type="email" name="email" v-model="email" />
+          <label>Comment</label>
+          <textarea name="message" rows="5" v-model="message" />
+          <div class="text-center">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </Layout>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+  data() {
+    return {
+      botField: "",
+      author: "",
+      email: "",
+      message: "",
+    }
+  },
   computed: {
     postIndex() {
       return this.$page.allPost.edges.findIndex(
@@ -54,6 +89,19 @@ export default {
       return this.$page.allPost.edges[this.postIndex + 1]
         ? this.$page.allPost.edges[this.postIndex + 1].node
         : null
+    },
+  },
+  methods: {
+    addComment() {
+      const formData = new FormData();
+      formData.append("form-name", "new-comment")
+      formData.append("author", this.author)
+      formData.append("email", this.email)
+      formData.append("message", this.message)
+      formData.append("postTitle", this.$page.post.title)
+      formData.append("postPath", this.$page.post.path)
+
+      axios.post(this.$page.post.path, formData).then(() => alert("Comment posted!")).catch(err => console.error(err))
     },
   },
 }
@@ -73,6 +121,22 @@ export default {
 
 .pill {
   @apply bg-gray-800 text-white shadow font-light no-underline py-2 px-4 rounded-full m-1 font-bold select-none text-sm inline-block;
+}
+
+input,
+textarea {
+  @apply p-2 my-3 border-2 rounded w-full text-lg;
+  resize: none;
+}
+
+button[type="submit"] {
+  @apply py-2 px-3 bg-blue-500 text-white rounded w-1/6;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    @apply bg-blue-700;
+  }
 }
 </style>
 
