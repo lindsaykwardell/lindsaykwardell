@@ -4,8 +4,10 @@
     <g-link to="/blog/" class="link">&larr; Go Back</g-link>
     <div class="post-title">
       <g-image class="hero" v-if="$page.post.image" :src="$page.post.image" />
-      <h1>{{$page.post.title}}</h1>
-      <div class="text-center pt-2">Published by {{$page.post.author}} on {{$page.post.date}}</div>
+      <h1>{{ $page.post.title }}</h1>
+      <div class="text-center pt-2">
+        Published by {{ $page.post.author }} on {{ $page.post.date }}
+      </div>
     </div>
     <article class="pt-6 m-4" v-html="$page.post.content"></article>
     <div class="bg-gray-200 p-6">
@@ -17,21 +19,33 @@
           color="gray-800"
           size="md"
           class="pill"
-        >{{tag}}</div>
+        >
+          {{ tag }}
+        </div>
         <div class="flex">
           <div class="text-left flex-1">
             <span v-if="prevPost">
-              Previous:{{" "}}
-              <g-link :to="prevPost.path" class="underline">{{prevPost.title}}</g-link>
+              Previous:{{ " " }}
+              <g-link :to="prevPost.path" class="underline">{{
+                prevPost.title
+              }}</g-link>
             </span>
           </div>
           <div class="text-right flex-1">
             <span v-if="nextPost">
-              Next:{{" "}}
-              <g-link :to="nextPost.path" class="underline">{{nextPost.title}}</g-link>
+              Next:{{ " " }}
+              <g-link :to="nextPost.path" class="underline">{{
+                nextPost.title
+              }}</g-link>
             </span>
           </div>
         </div>
+      </div>
+    </div>
+    <div>
+      <div v-for="{ node } in $page.allComment.edges" :key="node.id">
+        <strong>{{ node.author }}</strong> - posted {{ node.date }}
+        <div v-html="node.content" />
       </div>
     </div>
     <div class="border-2 rounded m-4 shadow bg-gray-100">
@@ -45,7 +59,11 @@
           @submit.prevent="addComment"
         >
           <input type="hidden" name="form-name" value="new-comment" />
-          <input type="hidden" name="postTitle" :value="this.$page.post.title" />
+          <input
+            type="hidden"
+            name="postTitle"
+            :value="this.$page.post.title"
+          />
           <input type="hidden" name="postPath" :value="this.$page.post.path" />
           <label>Name</label>
           <input type="text" name="author" v-model="author" />
@@ -63,7 +81,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios"
 
 export default {
   data() {
@@ -93,7 +111,7 @@ export default {
   },
   methods: {
     addComment() {
-      const formData = new FormData();
+      const formData = new FormData()
       formData.append("form-name", "new-comment")
       formData.append("author", this.author)
       formData.append("email", this.email)
@@ -101,7 +119,10 @@ export default {
       formData.append("postTitle", this.$page.post.title)
       formData.append("postPath", this.$page.post.path)
 
-      axios.post(this.$page.post.path, formData).then(() => alert("Comment posted!")).catch(err => console.error(err))
+      axios
+        .post(this.$page.post.path, formData)
+        .then(() => alert("Comment posted!"))
+        .catch(err => console.error(err))
     },
   },
 }
@@ -151,12 +172,24 @@ query Post ($path: String!) {
     date(format: "MMMM DD, YYYY")
     image(width: 900)
   }
+  allComment (filter: {path: {eq: $path}}) {
+    edges {
+      node {
+        id
+        author
+        authorId
+        date(format: "MMMM DD, YYYY")
+        path
+        content
+      }
+    }
+  }
   allPost {
     edges {
       node {
         path
         title
-        date
+        date(format: "MMMM DD, YYYY")
       }
     }
   }

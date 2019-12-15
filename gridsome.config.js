@@ -63,6 +63,13 @@ module.exports = {
       },
     },
     {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "src/content/comments/**/*.md",
+        typeName: "Comment",
+      },
+    },
+    {
       use: "gridsome-plugin-flexsearch",
       options: {
         collections: [
@@ -107,15 +114,15 @@ module.exports = {
     {
       use: "gridsome-plugin-sentry",
       options: {
-        dsn: process.env.SENTRY_DSN
+        dsn: process.env.SENTRY_DSN,
       },
     },
     {
-      use: '@gridsome/plugin-google-analytics',
+      use: "@gridsome/plugin-google-analytics",
       options: {
-        id: process.env.GOOGLE_ANALYTICS
-      }
-    }
+        id: process.env.GOOGLE_ANALYTICS,
+      },
+    },
   ],
   css: {
     loaderOptions: {
