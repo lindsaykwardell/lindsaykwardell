@@ -4,13 +4,13 @@ const moment = require("moment")
 
 exports.handler = (event, context, callback) => {
   const payload = JSON.parse(event.body).payload
-  const { postTitle, postPath, name, email, message } = payload.data
+  const { postTitle, postPath, author, email, message } = payload.data
 
   const filePath = `src/content/comments/${uuid()}.md`
   const content = `---
   path: "${postPath}"
   date: ${moment().format("YYYY-MM-DD")}
-  author: "${name}"
+  author: "${author}"
   email: "${email}"
   ---
   ${message}`
