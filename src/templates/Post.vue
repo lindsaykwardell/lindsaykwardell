@@ -45,13 +45,14 @@
           @submit.prevent="addComment"
         >
           <input type="hidden" name="form-name" value="new-comment" />
+          <input type="hidden" name="postTitle" :value="this.$page.post.title" />
+          <input type="hidden" name="postPath" :value="this.$page.post.path" />
           <label>Name</label>
           <input type="text" name="author" v-model="author" />
           <label>Email</label>
           <input type="email" name="email" v-model="email" />
           <label>Comment</label>
-          <textarea name="message" rows="5" v-model="comment" />
-
+          <textarea name="message" rows="5" v-model="message" />
           <div class="text-center">
             <button type="submit">Submit</button>
           </div>
@@ -70,7 +71,7 @@ export default {
       botField: "",
       author: "",
       email: "",
-      comment: "",
+      message: "",
     }
   },
   computed: {
@@ -96,7 +97,7 @@ export default {
       formData.append("form-name", "new-comment")
       formData.append("author", this.author)
       formData.append("email", this.email)
-      formData.append("comment", this.comment)
+      formData.append("message", this.message)
       formData.append("postTitle", this.$page.post.title)
       formData.append("postPath", this.$page.post.path)
 
