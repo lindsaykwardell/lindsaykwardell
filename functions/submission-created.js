@@ -10,7 +10,7 @@ exports.handler = (event, context, callback) => {
   const filePath = `src/content/comments/${uuid()}.md`
   const content = `---
 path: "${postPath}"
-date: ${moment().format("YYYY-MM-DD")}
+date: ${moment.utc()}
 author: "${author}"
 authorId: "${crypto.createHash('md5').update(email).digest("hex")}"
 ---
