@@ -5,9 +5,7 @@
     <div class="post-title">
       <g-image class="hero" v-if="$page.post.image" :src="$page.post.image" />
       <h1>{{ $page.post.title }}</h1>
-      <div class="text-center pt-2">
-        Published by {{ $page.post.author }} on {{ $page.post.date }}
-      </div>
+      <div class="text-center pt-2">Published by {{ $page.post.author }} on {{ $page.post.date }}</div>
     </div>
     <article class="pt-6 m-4" v-html="$page.post.content"></article>
     <div class="bg-gray-200 p-6">
@@ -19,24 +17,26 @@
           color="gray-800"
           size="md"
           class="pill"
-        >
-          {{ tag }}
-        </div>
-        <div class="flex">
+        >{{ tag }}</div>
+        <div class="flex mt-6">
           <div class="text-left flex-1">
             <span v-if="prevPost">
               Previous:{{ " " }}
-              <g-link :to="prevPost.path" class="underline">{{
+              <g-link :to="prevPost.path" class="underline">
+                {{
                 prevPost.title
-              }}</g-link>
+                }}
+              </g-link>
             </span>
           </div>
           <div class="text-right flex-1">
             <span v-if="nextPost">
               Next:{{ " " }}
-              <g-link :to="nextPost.path" class="underline">{{
+              <g-link :to="nextPost.path" class="underline">
+                {{
                 nextPost.title
-              }}</g-link>
+                }}
+              </g-link>
             </span>
           </div>
         </div>
@@ -46,26 +46,25 @@
       <div
         v-for="{ node } in $page.allComment.edges"
         :key="node.id"
-        class="flex m-2 p-2 border-2 rounded"
+        class="flex my-4 p-2 border-2 rounded"
       >
-        <div class="flex-shrink pr-2 border-r-2">
-          <img
-            :src="`https://www.gravatar.com/avatar/${node.authorId}`"
-            class="rounded-full"
-          />
+        <div class="flex-shrink px-3 border-r-2">
+          <img :src="`https://www.gravatar.com/avatar/${node.authorId}`" class="rounded-full" />
         </div>
         <div class="flex-grow">
-          <div class="border-b-2 pl-2">
-            <strong>{{ node.author }}</strong> - posted
-            {{ formatDate(node.date) }}
+          <div class="border-b-2 pl-4 pb-2 flex">
+            <div class="flex-1 font-bold">{{ node.author }}</div>
+            <div class="flex-1 text-right text-gray-600">{{ formatDate(node.date) }}</div>
           </div>
-          <div class="pl-2"><div v-html="node.content" /></div>
+          <div class="pl-2">
+            <div v-html="node.content" />
+          </div>
         </div>
       </div>
     </div>
     <div class="border-2 rounded m-4 shadow bg-gray-100">
-      <h4>Add a Comment</h4>
-      <div class="p-2">
+      <h4 class="p-4 pb-0">Add a Comment</h4>
+      <div class="p-4">
         <form
           name="new-comment"
           method="post"
@@ -74,21 +73,47 @@
           @submit.prevent="addComment"
         >
           <input type="hidden" name="form-name" value="new-comment" />
-          <input
-            type="hidden"
-            name="postTitle"
-            :value="this.$page.post.title"
-          />
+          <input type="hidden" name="postTitle" :value="this.$page.post.title" />
           <input type="hidden" name="postPath" :value="this.$page.post.path" />
-          <label>Name</label>
-          <input type="text" name="author" v-model="author" />
-          <label>Email</label>
-          <input type="email" name="email" v-model="email" />
-          <label>Comment</label>
-          <textarea name="message" rows="5" v-model="message" />
+          <label>
+            Name
+            <input
+              type="text"
+              name="author"
+              v-model="author"
+              required
+              :disabled="isCommentFormDisabled"
+            />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" v-model="email" :disabled="isCommentFormDisabled" />
+          </label>
+
+          <label>
+            Comment
+            <textarea
+              name="message"
+              rows="5"
+              v-model="message"
+              required
+              :disabled="isCommentFormDisabled"
+            />
+          </label>
+
           <div class="text-center">
-            <button type="submit">Submit</button>
+            <button type="submit" :disabled="isCommentFormDisabled">{{submitButtonText}}</button>
           </div>
+          <VAlert
+            class="success"
+            v-model="accepted"
+            transition="fade"
+          >Your comment has been posted! It will appear after it is approved.</VAlert>
+          <VAlert
+            class="error"
+            v-model="error"
+            transition="fade"
+          >An error occurred. Please try again.</VAlert>
         </form>
       </div>
     </div>
@@ -98,6 +123,7 @@
 <script>
 import axios from "axios"
 import moment from "moment"
+import { VAlert } from "vuetensils"
 
 export default {
   data() {
@@ -106,6 +132,9 @@ export default {
       author: "",
       email: "",
       message: "",
+      submitting: false,
+      error: false,
+      accepted: false,
     }
   },
   computed: {
@@ -124,6 +153,14 @@ export default {
         ? this.$page.allPost.edges[this.postIndex + 1].node
         : null
     },
+    submitButtonText() {
+      if (this.submitting) return "Submitting..."
+      else if (this.accepted) return "Submitted!"
+      else return "Submit"
+    },
+    isCommentFormDisabled() {
+      return this.accepted || this.submitting
+    },
   },
   methods: {
     formatDate(dateString) {
@@ -132,6 +169,10 @@ export default {
         .format("MMMM DD, YYYY, h:mm a")
     },
     addComment() {
+      this.submitting = true
+      this.accepted = false
+      this.error = false
+
       const formData = new FormData()
       formData.append("form-name", "new-comment")
       formData.append("author", this.author)
@@ -142,9 +183,19 @@ export default {
 
       axios
         .post(this.$page.post.path, formData)
-        .then(() => alert("Comment posted!"))
-        .catch(err => console.error(err))
+        .then(() => {
+          this.submitting = false
+          this.accepted = true
+        })
+        .catch(err => {
+          this.submitting = false
+          this.error = true
+          console.error(err)
+        })
     },
+  },
+  components: {
+    VAlert,
   },
 }
 </script>
@@ -179,6 +230,18 @@ button[type="submit"] {
   &:hover {
     @apply bg-blue-700;
   }
+
+  &[disabled] {
+    @apply bg-blue-300;
+  }
+}
+
+.success {
+  @apply bg-green-200 p-2 rounded mt-4 text-center;
+}
+
+.error {
+  @apply bg-red-200 p-2 rounded mt-4 text-center;
 }
 </style>
 
