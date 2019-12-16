@@ -2,7 +2,7 @@
   <Layout>
     <br />
     <g-link to="/blog/" class="link">&larr; Go Back</g-link>
-    <div class="post-title">
+    <div class="post-title mt-6">
       <g-image class="hero" v-if="$page.post.image" :src="$page.post.image" />
       <h1>{{ $page.post.title }}</h1>
       <div class="text-center pt-2">Published by {{ $page.post.author }} on {{ $page.post.date }}</div>
@@ -49,7 +49,7 @@
         class="flex my-4 p-2 border-2 rounded"
       >
         <div class="flex-shrink px-3 border-r-2">
-          <img :src="`https://www.gravatar.com/avatar/${node.authorId}`" class="rounded-full" />
+          <g-image :src="`https://www.gravatar.com/avatar/${node.authorId}`" class=" h-20 w-20 rounded-full" />
         </div>
         <div class="flex-grow">
           <div class="border-b-2 pl-4 pb-2 flex">

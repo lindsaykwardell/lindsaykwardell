@@ -55,14 +55,23 @@ hr {
 }
 
 .home-card {
-  @apply shadow-md;
-  transition: 0.3s;
-}
+  max-width: 400px;
 
-.home-card:hover {
-  @apply shadow-xl;
-  border: 1px solid black;
-  margin: 10px;
+  & img {
+    @apply shadow-md;
+    height: 300px;
+    object-fit: none;
+    object-position: center;
+    transition: 0.3s;
+
+    &:hover {
+      @apply shadow-xl p-3;
+      background: #27292b;
+      border-top-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      /* border: 1px solid black; */
+    }
+  }
 }
 
 .pagination-container {

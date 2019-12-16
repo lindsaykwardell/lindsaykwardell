@@ -15,19 +15,19 @@
         <div style="margin-top: 10vh">
           <h2 class="text-center">Examples</h2>
           <div class="md:flex">
-            <div class="w-full m-auto my-6 md:my-0 md:flex-1" style="max-width: 400px">
+            <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
               <a href="https://warsofthejuriels.netlify.com">
-                <g-image src="~/images/juralen.png" width="400" class="home-card" />
+                <g-image src="~/images/juralen.png" width="400" />
               </a>
             </div>
-            <div class="w-full m-auto my-6 md:my-0 md:flex-1" style="max-width: 400px">
+            <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
               <a href="https://noadjustmentsneeded.com">
-                <g-image src="~/images/nan.png" width="400" class="home-card" />
+                <g-image src="~/images/nan.png" width="400" />
               </a>
             </div>
-            <div class="w-full m-auto my-6 md:my-0 md:flex-1" style="max-width: 400px">
+            <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
               <a href="https://maryspixels.herokuapp.com">
-                <g-image src="~/images/marys-pixels.jpg" width="400" class="home-card" />
+                <g-image src="~/images/marys-pixels.jpg" width="400" />
               </a>
             </div>
           </div>
