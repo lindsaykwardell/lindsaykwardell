@@ -2,9 +2,12 @@
   <div>
     <VResize>
       <template #default="{ width }">
+        <div v-if="width <= 750" class="pb-10">
+          <TopBar />
+        </div>
         <div class="flex">
           <div class="md:w-1/3 lg:w-1/4 xl:w-1/5">
-            <LeftBar v-if="width > 768" />
+            <LeftBar v-if="width > 750" />
           </div>
           <div class="body w-full md:w-2/3 lg:w-3/4 xl:w-4/5">
             <div class="container">
@@ -22,10 +25,12 @@
 <script>
 import { VResize } from "vuetensils"
 import LeftBar from "../components/LeftBar/LeftBar"
+import TopBar from "../components/TopBar/TopBar"
 
 export default {
   components: {
     LeftBar,
+    TopBar,
     VResize,
   },
 }

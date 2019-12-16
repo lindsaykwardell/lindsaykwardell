@@ -1,7 +1,7 @@
 <template>
   <nav id="left-nav">
     <div class="py-5">
-      <img
+      <g-image
         :src="$static.metadata.githubData.user.avatarUrl"
         class="mx-auto rounded-full"
         style="width: 40%"

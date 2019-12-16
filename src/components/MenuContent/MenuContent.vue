@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex mx-auto text-xl w-4/5 sm:w-3/4 md:w-2/3 lg:w-1/2">
+    <div class="flex mx-auto text-xl text-center w-4/5 sm:w-3/4 md:w-2/3 lg:w-1/2">
       <a
         class="social-media"
         href="https://www.facebook.com/lindsaykwardell.writer/"
@@ -27,7 +27,7 @@
     <MenuItem to="/">Home</MenuItem>
     <MenuItem to="/blog/">Blog</MenuItem>
     <hr class="my-4 mx-auto" />
-    <div class="text-left">
+    <div class="text-center md:text-left">
       <span class="text-white px-4 py-2">Recent Posts</span>
       <g-link
         v-for="post in $static.allPost.edges"

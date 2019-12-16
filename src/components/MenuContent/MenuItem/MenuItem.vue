@@ -1,5 +1,5 @@
 <template>
-  <g-link :to="to" class="text-white font-light no-underline py-2 px-4 rounded block hover:underline w-full text-left">
+  <g-link :to="to" class="text-white font-light no-underline py-2 px-4 rounded block hover:underline w-full text-center md:text-left">
     <slot />
   </g-link>
 </template>
