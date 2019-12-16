@@ -102,7 +102,7 @@
           </label>
 
           <div class="text-center">
-            <button type="submit" :disabled="isCommentFormDisabled">{{submitButtonText}}</button>
+            <button type="submit" class="w-1/3 md:w-1/4 lg:w-1/5" :disabled="isCommentFormDisabled">{{submitButtonText}}</button>
           </div>
           <VAlert
             class="success"
@@ -223,7 +223,7 @@ textarea {
 }
 
 button[type="submit"] {
-  @apply py-2 px-3 bg-blue-500 text-white rounded w-1/3 md:w-1/4 lg:w-1/5;
+  @apply py-2 px-3 bg-blue-500 text-white rounded;
   cursor: pointer;
   transition: 0.3s;
 

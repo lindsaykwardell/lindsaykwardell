@@ -1,5 +1,5 @@
 <template>
-  <div id="top-bar" :style="showMenu ? 'max-height: 500px' : 'max-height: 50px'">
+  <div id="top-bar" :style="showMenu ? 'height: 450px' : 'height: 50px'">
     <div class="flex items-center">
       <div class="flex-grow">
         <g-image :src="$static.metadata.githubData.user.avatarUrl" class="avatar" />
@@ -11,7 +11,7 @@
         </button>
       </div>
     </div>
-    <MenuContent class="mt-16" v-if="showMenu" />
+    <MenuContent class="my-8" />
   </div>
 </template>
 
@@ -41,7 +41,7 @@ export default {
   background: rgb(39, 41, 43);
   color: rgb(204, 204, 204);
   z-index: 100;
-  transition: 1s;
+  transition: 0.5s;
   overflow: hidden;
 
   .menu-closed {
