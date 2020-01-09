@@ -26,6 +26,7 @@
     "http-proxy-middleware": "^0.20.0",
     "moment": "^2.24.0",
     "pyloncss": "^0.1.1",
+    "unfetch": "^4.1.0",
     "uuid": "^3.3.3",
     "vue-awesome": "^4.0.2",
     "vuetensils": "^0.4.3"
@@ -36,7 +37,6 @@
     "concurrently": "^4.1.1",
     "cssnano": "^4.1.10",
     "dotenv-webpack": "^1.7.0",
-    "gridsome-plugin-flexsearch": "^0.1.4",
     "gridsome-plugin-tailwindcss": "^2.2.27",
     "gridsome-plugin-typescript": "^0.4.0",
     "gridsome-source-github-api": "^0.1.1",

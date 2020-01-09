@@ -70,19 +70,6 @@ module.exports = {
       },
     },
     {
-      use: "gridsome-plugin-flexsearch",
-      options: {
-        collections: [
-          {
-            typeName: "Post",
-            indexName: "Post",
-            fields: ["title", "content", "tags", "author", "date"],
-          },
-        ],
-        searchFields: ["title", "tags"],
-      },
-    },
-    {
       use: "gridsome-plugin-rss",
       options: {
         contentTypeName: "Post",
