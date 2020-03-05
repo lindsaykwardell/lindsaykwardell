@@ -1,7 +1,7 @@
 const axios = require("axios")
 const uuid = require("uuid/v4")
 const moment = require("moment")
-const crypto = require('crypto')
+const crypto = require("crypto")
 
 exports.handler = (event, context, callback) => {
   const payload = JSON.parse(event.body).payload
@@ -12,7 +12,10 @@ exports.handler = (event, context, callback) => {
 postPath: "${postPath}"
 date: ${moment.utc().format("YYYY-MM-DD HH:mm:ss")}
 author: "${author}"
-authorId: "${crypto.createHash('md5').update(email).digest("hex")}"
+authorId: "${crypto
+    .createHash("md5")
+    .update(email)
+    .digest("hex")}"
 ---
 ${message}`
 
