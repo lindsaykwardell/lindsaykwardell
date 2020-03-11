@@ -26,6 +26,7 @@
     <hr class="my-4 mx-auto" />
     <MenuItem to="/">Home</MenuItem>
     <MenuItem to="/blog/">Blog</MenuItem>
+    <MenuItem to="/uses/">What I Use</MenuItem>
     <hr class="my-4 mx-auto" />
     <div class="text-center md:text-left">
       <span class="text-white px-4 py-2">Recent Posts</span>
