@@ -16,7 +16,7 @@
           <h2 class="text-center">Examples</h2>
           <div class="md:flex">
             <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
-              <a href="https://warsofthejuriels.netlify.com">
+              <a href="https://warsofthejuriels.netlify.app">
                 <g-image src="~/images/juralen.png" width="400" />
               </a>
             </div>
