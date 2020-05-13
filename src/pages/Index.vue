@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="clearfix">
+    <div class="clearfix index">
       <div class="flex flex-col">
         <div>
           <h1 class="leading-none mt-6 ml-2 text-center">
@@ -75,9 +75,17 @@
 
 <style lang="postcss" scoped>
 .hero {
-  @apply shadow-lg mx-auto block;
-  object-fit: none;
-  object-position: center;
+  @apply shadow-lg mx-auto block rounded-lg;
+}
+
+.index {
+  background-image: linear-gradient(
+      to bottom right,
+      #edf2f7 2%,
+      10%,
+      rgba(255, 255, 255, 0) 30%
+    ),
+    linear-gradient(to bottom left, #edf2f7 2%, 10%, white 30%);
 }
 </style>
 
