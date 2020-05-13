@@ -101,7 +101,7 @@ module.exports = {
     {
       use: "gridsome-plugin-sentry",
       options: {
-        dsn: process.env.SENTRY_DSN,
+        dsn: process.env.NODE_ENV === "production" && process.env.SENTRY_DSN,
       },
     },
     {
