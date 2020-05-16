@@ -1,5 +1,5 @@
 <template>
-  <nav id="left-nav">
+  <nav id="left-nav" class="shadow-xl">
     <div class="py-5">
       <g-image
         :src="$static.metadata.githubData.user.avatarUrl"

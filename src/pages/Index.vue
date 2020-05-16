@@ -18,8 +18,31 @@
       </h4>
       <hr class="my-16 mx-auto" />
       <div>
-        <div style="margin-top: 10vh">
-          <h2 class="text-center">Examples</h2>
+        <div class="my-32">
+          <h2 class="text-center mb-5">Technologies I Love</h2>
+          <div class="md:flex">
+            <div class="flex-1 flex justify-center items-center">
+              <g-image src="~/images/vue.png" width="100" />
+            </div>
+            <div class="flex-1 flex justify-center items-center">
+              <g-image src="~/images/postcss.png" width="100" />
+            </div>
+            <div class="flex-1 flex justify-center items-center">
+              <g-image src="~/images/typescript.jpg" width="100" />
+            </div>
+            <div class="flex-1 flex justify-center items-center">
+              <g-image src="~/images/nodejs.png" width="100" />
+            </div>
+            <div class="flex-1 flex justify-center items-center">
+              <g-image src="~/images/postgres.png" width="100" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-16 mx-auto" />
+      <div>
+        <div class="my-32">
+          <h2 class="text-center mb-5">Examples</h2>
           <div class="md:flex">
             <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
               <a href="https://warsofthejuriels.netlify.app">
@@ -51,9 +74,7 @@
           >
             <div
               class="p-2 rounded shadow-md bg-white"
-              :style="
-                `border: 2px solid ${node.primaryLanguage.color}; min-height: 200px`
-              "
+              :style="`border: 2px solid ${node.primaryLanguage.color}; min-height: 200px`"
             >
               <span class="md:float-right">{{
                 node.licenseInfo ? node.licenseInfo.name : ""
@@ -69,9 +90,20 @@
           </div>
         </div>
       </div>
+      <!-- <Mailchimp /> -->
     </div>
   </Layout>
 </template>
+
+<script>
+import Mailchimp from '~/components/Mailchimp/Mailchimp'
+
+export default {
+  components: {
+    Mailchimp
+  }
+}
+</script>
 
 <style lang="postcss" scoped>
 .hero {
@@ -81,11 +113,11 @@
 .index {
   background-image: linear-gradient(
       to bottom right,
-      #edf2f7 2%,
-      10%,
+      #cfe4f8 2%,
+      15%,
       rgba(255, 255, 255, 0) 30%
     ),
-    linear-gradient(to bottom left, #edf2f7 2%, 10%, white 30%);
+    linear-gradient(to bottom left, #f2edf7 1%, 7%, white 30%);
 }
 </style>
 

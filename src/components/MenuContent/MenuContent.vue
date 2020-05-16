@@ -1,26 +1,26 @@
 <template>
   <div>
-    <div class="flex mx-auto text-xl text-center w-4/5 sm:w-3/4 md:w-2/3 lg:w-1/2">
+    <div class="flex mx-auto text-xl text-center w-5/6 sm:w-4/5 md:w-3/4 lg:w-2/3">
       <a
         class="social-media"
         href="https://www.facebook.com/lindsaykwardell.writer/"
       >
-        <v-icon name="brands/facebook-square" label="Facebook" scale="1.3" />
+        <v-icon name="brands/facebook-square" label="Facebook" scale="1.7" />
       </a>
       <a class="social-media" href="https://twitter.com/Yagaboosh">
-        <v-icon name="brands/twitter-square" label="Twitter" scale="1.3" />
+        <v-icon name="brands/twitter-square" label="Twitter" scale="1.7" />
       </a>
       <a
         class="social-media"
         href="https://www.linkedin.com/in/lindsaykwardell/"
       >
-        <v-icon name="brands/linkedin" label="LinkedIn" scale="1.3" />
+        <v-icon name="brands/linkedin" label="LinkedIn" scale="1.7" />
       </a>
       <a class="social-media" href="https://github.com/lindsaykwardell">
-        <v-icon name="brands/github-square" label="GitHub" scale="1.3" />
+        <v-icon name="brands/github-square" label="GitHub" scale="1.7" />
       </a>
       <a class="social-media" href="/rss.xml">
-        <v-icon name="rss-square" label="RSS Feed" scale="1.3" />
+        <v-icon name="rss-square" label="RSS Feed" scale="1.7" />
       </a>
     </div>
     <hr class="my-4 mx-auto" />
