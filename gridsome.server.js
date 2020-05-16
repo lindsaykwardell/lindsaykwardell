@@ -9,8 +9,8 @@ var { createProxyMiddleware: proxy } = require("http-proxy-middleware")
 
 console.log(proxy)
 
-module.exports = function(api) {
-  api.configureServer(app => {
+module.exports = function (api) {
+  api.configureServer((app) => {
     app.use(
       "/.netlify/functions/",
       proxy({

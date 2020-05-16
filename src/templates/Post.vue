@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <br />
-    <g-link to="/blog/" class="link">&larr; Go Back</g-link>
+    <button class="link hover:underline" @click="$router.go(-1)">&larr; Go Back</button >
     <div class="post-title mt-6">
       <g-image class="hero" v-if="$page.post.image" :src="$page.post.image" />
       <h1>{{ $page.post.title }}</h1>

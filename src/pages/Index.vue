@@ -6,7 +6,9 @@
           <h1 class="leading-none mt-6 ml-2 text-center">
             Hi, I'm Lindsay Wardell
           </h1>
-          <g-image src="~/images/lindsay-3.jpg" width="550" class="hero" />
+          <div class="p-2">
+            <g-image src="~/images/lindsay-3.jpg" width="550" class="hero" />
+          </div>
           <h3 class="mt-8 text-center">
             I'm a software developer and IT professional
           </h3>
@@ -20,20 +22,20 @@
       <div>
         <div class="my-32">
           <h2 class="text-center mb-5">Technologies I Love</h2>
-          <div class="md:flex">
-            <div class="flex-1 flex justify-center items-center">
+          <div class="flex">
+            <div class="flex-1 flex justify-center items-center p-2">
               <g-image src="~/images/vue.png" width="100" />
             </div>
-            <div class="flex-1 flex justify-center items-center">
+            <div class="flex-1 flex justify-center items-center p-2">
               <g-image src="~/images/postcss.png" width="100" />
             </div>
-            <div class="flex-1 flex justify-center items-center">
+            <div class="flex-1 flex justify-center items-center p-2">
               <g-image src="~/images/typescript.jpg" width="100" />
             </div>
-            <div class="flex-1 flex justify-center items-center">
+            <div class="flex-1 flex justify-center items-center p-2">
               <g-image src="~/images/nodejs.png" width="100" />
             </div>
-            <div class="flex-1 flex justify-center items-center">
+            <div class="flex-1 flex justify-center items-center p-2">
               <g-image src="~/images/postgres.png" width="100" />
             </div>
           </div>
@@ -60,6 +62,21 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+      <hr class="my-16 mx-auto" />
+      <h2 class="text-center">Recent Posts</h2>
+      <div class="flex">
+        <div
+          v-for="{ node } in $page.allPost.edges"
+          :key="node.id"
+          class="blog-item"
+        >
+          <g-link :to="node.path">
+            <g-image class="blog-image" v-if="node.image" :src="node.image" />
+            <h4 class="blog-title">{{ node.title }}</h4>
+            <p class="blog-excerpt">{{ node.excerpt.substring(0, 150) }}...</p>
+          </g-link>
         </div>
       </div>
       <hr class="my-16 mx-auto" />
@@ -90,20 +107,9 @@
           </div>
         </div>
       </div>
-      <!-- <Mailchimp /> -->
     </div>
   </Layout>
 </template>
-
-<script>
-import Mailchimp from '~/components/Mailchimp/Mailchimp'
-
-export default {
-  components: {
-    Mailchimp
-  }
-}
-</script>
 
 <style lang="postcss" scoped>
 .hero {
@@ -118,6 +124,41 @@ export default {
       rgba(255, 255, 255, 0) 30%
     ),
     linear-gradient(to bottom left, #f2edf7 1%, 7%, white 30%);
+}
+
+.blog-item {
+  @apply flex-1 shadow-md m-2 rounded-lg relative overflow-hidden;
+  height: 315px;
+
+  .blog-image {
+    @apply transition duration-500;
+  }
+
+  &:hover {
+    .blog-image {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.blog-title {
+  @apply p-2 rounded shadow;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.blog-excerpt {
+  @apply p-2 rounded shadow;
+  /* white-space: pre; */
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+  width: 90%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 </style>
 
@@ -143,6 +184,17 @@ query {
             }
           }
         }
+      }
+    }
+  }
+  allPost(limit:2){
+    edges {
+      node {
+        id
+        title
+        image
+        excerpt
+        path
       }
     }
   }
