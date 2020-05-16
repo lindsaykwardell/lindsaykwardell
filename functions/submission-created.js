@@ -1,5 +1,5 @@
 const axios = require("axios")
-const uuid = require("uuid/v4")
+const uuid = require("uuid").v4
 const moment = require("moment")
 const crypto = require("crypto")
 
