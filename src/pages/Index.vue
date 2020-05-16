@@ -24,19 +24,35 @@
           <h2 class="text-center mb-5">Technologies I Love</h2>
           <div class="flex">
             <div class="flex-1 flex justify-center items-center p-2">
-              <g-image src="~/images/vue.png" width="100" />
+              <g-image class="tech-logo" src="~/images/vue.png" width="100" />
             </div>
             <div class="flex-1 flex justify-center items-center p-2">
-              <g-image src="~/images/postcss.png" width="100" />
+              <g-image
+                class="tech-logo"
+                src="~/images/postcss.png"
+                width="100"
+              />
             </div>
             <div class="flex-1 flex justify-center items-center p-2">
-              <g-image src="~/images/typescript.jpg" width="100" />
+              <g-image
+                class="tech-logo"
+                src="~/images/typescript.jpg"
+                width="100"
+              />
             </div>
             <div class="flex-1 flex justify-center items-center p-2">
-              <g-image src="~/images/nodejs.png" width="100" />
+              <g-image
+                class="tech-logo"
+                src="~/images/nodejs.png"
+                width="100"
+              />
             </div>
             <div class="flex-1 flex justify-center items-center p-2">
-              <g-image src="~/images/postgres.png" width="100" />
+              <g-image
+                class="tech-logo"
+                src="~/images/postgres.png"
+                width="100"
+              />
             </div>
           </div>
         </div>
@@ -45,7 +61,7 @@
       <div>
         <div class="my-32">
           <h2 class="text-center mb-5">Examples</h2>
-          <div class="md:flex">
+          <div class="lg:flex">
             <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
               <a href="https://warsofthejuriels.netlify.app">
                 <g-image src="~/images/juralen.png" width="400" />
@@ -66,7 +82,7 @@
       </div>
       <hr class="my-16 mx-auto" />
       <h2 class="text-center">Recent Posts</h2>
-      <div class="flex">
+      <div class="flex flex-col lg:flex-row">
         <div
           v-for="{ node } in $page.allPost.edges"
           :key="node.id"
@@ -87,7 +103,7 @@
             v-for="(node, index) in $page.metadata.githubData.user.repositories
               .nodes"
             :key="index"
-            class="p-2 w-full md:w-1/2"
+            class="p-2 w-full lg:w-1/2"
           >
             <div
               class="p-2 rounded shadow-md bg-white"
@@ -119,7 +135,7 @@
 .index {
   background-image: linear-gradient(
       to bottom right,
-      #cfe4f8 2%,
+      #dbe8f5 2%,
       15%,
       rgba(255, 255, 255, 0) 30%
     ),
@@ -159,6 +175,14 @@
   width: 90%;
   background: rgba(0, 0, 0, 0.7);
   color: white;
+}
+
+.tech-logo {
+  @apply transition duration-200;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 </style>
 

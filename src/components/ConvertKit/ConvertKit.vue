@@ -83,10 +83,9 @@
           </div>
           <button
             data-element="submit"
-            class="formkit-submit formkit-submit"
+            class="formkit-submit formkit-submit bg-blue-500 hover:bg-blue-700"
             style="
               color: rgb(255, 255, 255);
-              background-color: rgb(22, 119, 190);
               border-radius: 24px;
               font-weight: 700;
             "
@@ -205,12 +204,6 @@
 .formkit-form[data-uid="a521392b4d"] .formkit-button:focus,
 .formkit-form[data-uid="a521392b4d"] .formkit-submit:focus {
   outline: none;
-}
-.formkit-form[data-uid="a521392b4d"] .formkit-button:hover > span,
-.formkit-form[data-uid="a521392b4d"] .formkit-submit:hover > span,
-.formkit-form[data-uid="a521392b4d"] .formkit-button:focus > span,
-.formkit-form[data-uid="a521392b4d"] .formkit-submit:focus > span {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 .formkit-form[data-uid="a521392b4d"] .formkit-button > span,
 .formkit-form[data-uid="a521392b4d"] .formkit-submit > span {

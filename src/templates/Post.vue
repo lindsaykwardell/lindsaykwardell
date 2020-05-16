@@ -62,7 +62,7 @@
         </div>
       </div>
     </div>
-    <div class="border-2 rounded m-4 shadow bg-gray-100">
+    <div class="rounded m-4 shadow-md bg-gray-100">
       <h4 class="p-4 pb-0">Add a Comment</h4>
       <div class="p-4">
         <form
@@ -205,7 +205,6 @@ export default {
   text-align: center;
 }
 .hero {
-  max-width: 900px;
   max-height: 450px;
   object-fit: none;
   object-position: center;
