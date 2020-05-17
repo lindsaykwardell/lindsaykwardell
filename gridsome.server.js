@@ -5,10 +5,12 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-var proxy = require("http-proxy-middleware")
+var { createProxyMiddleware: proxy } = require("http-proxy-middleware")
 
-module.exports = function(api) {
-  api.configureServer(app => {
+console.log(proxy)
+
+module.exports = function (api) {
+  api.configureServer((app) => {
     app.use(
       "/.netlify/functions/",
       proxy({

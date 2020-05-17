@@ -70,19 +70,6 @@ module.exports = {
       },
     },
     {
-      use: "gridsome-plugin-flexsearch",
-      options: {
-        collections: [
-          {
-            typeName: "Post",
-            indexName: "Post",
-            fields: ["title", "content", "tags", "author", "date"],
-          },
-        ],
-        searchFields: ["title", "tags"],
-      },
-    },
-    {
       use: "gridsome-plugin-rss",
       options: {
         contentTypeName: "Post",
@@ -114,7 +101,7 @@ module.exports = {
     {
       use: "gridsome-plugin-sentry",
       options: {
-        dsn: process.env.SENTRY_DSN,
+        dsn: process.env.NODE_ENV === "production" && process.env.SENTRY_DSN,
       },
     },
     {

@@ -3,6 +3,7 @@ path: "/new-website"
 date: 2019-08-04
 title: "New Website"
 author: "Lindsay Wardell"
+image: "./img/code.png"
 tags:
   - Web Development
   - Personal

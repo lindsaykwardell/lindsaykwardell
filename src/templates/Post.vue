@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <br />
-    <g-link to="/blog/" class="link">&larr; Go Back</g-link>
+    <button class="link hover:underline" @click="$router.go(-1)">&larr; Go Back</button >
     <div class="post-title mt-6">
       <g-image class="hero" v-if="$page.post.image" :src="$page.post.image" />
       <h1>{{ $page.post.title }}</h1>
@@ -62,7 +62,7 @@
         </div>
       </div>
     </div>
-    <div class="border-2 rounded m-4 shadow bg-gray-100">
+    <div class="rounded m-4 shadow-md bg-gray-100">
       <h4 class="p-4 pb-0">Add a Comment</h4>
       <div class="p-4">
         <form
@@ -102,7 +102,7 @@
           </label>
 
           <div class="text-center">
-            <button type="submit" :disabled="isCommentFormDisabled">{{submitButtonText}}</button>
+            <button type="submit" class="w-1/3 md:w-1/4 lg:w-1/5" :disabled="isCommentFormDisabled">{{submitButtonText}}</button>
           </div>
           <VAlert
             class="success"
@@ -205,7 +205,6 @@ export default {
   text-align: center;
 }
 .hero {
-  max-width: 900px;
   max-height: 450px;
   object-fit: none;
   object-position: center;
@@ -223,7 +222,7 @@ textarea {
 }
 
 button[type="submit"] {
-  @apply py-2 px-3 bg-blue-500 text-white rounded w-1/6;
+  @apply py-2 px-3 bg-blue-500 text-white rounded;
   cursor: pointer;
   transition: 0.3s;
 
