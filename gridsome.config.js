@@ -83,7 +83,7 @@ module.exports = {
           return {
             title: node.title,
             description:
-              node.content.substring(0, 300) + node.content.length > 300
+              node.content.substring(0, 200) + node.content.length > 200
                 ? "..."
                 : "",
             url: "https://lindsaykwardell.com" + node.path,
