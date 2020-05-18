@@ -1,11 +1,15 @@
 <template>
   <Layout>
     <br />
-    <button class="link hover:underline" @click="$router.go(-1)">&larr; Go Back</button >
+    <button class="link hover:underline" @click="$router.go(-1)">
+      &larr; Go Back
+    </button>
     <div class="post-title mt-6">
       <g-image class="hero" v-if="$page.post.image" :src="$page.post.image" />
       <h1>{{ $page.post.title }}</h1>
-      <div class="text-center pt-2">Published by {{ $page.post.author }} on {{ $page.post.date }}</div>
+      <div class="text-center pt-2">
+        Published by {{ $page.post.author }} on {{ $page.post.date }}
+      </div>
     </div>
     <article class="pt-6 m-4" v-html="$page.post.content"></article>
     <div class="bg-gray-200 p-6">
@@ -17,15 +21,15 @@
           color="gray-800"
           size="md"
           class="pill"
-        >{{ tag }}</div>
+        >
+          {{ tag }}
+        </div>
         <div class="flex mt-6">
           <div class="text-left flex-1">
             <span v-if="prevPost">
               Previous:{{ " " }}
               <g-link :to="prevPost.path" class="underline">
-                {{
-                prevPost.title
-                }}
+                {{ prevPost.title }}
               </g-link>
             </span>
           </div>
@@ -33,9 +37,7 @@
             <span v-if="nextPost">
               Next:{{ " " }}
               <g-link :to="nextPost.path" class="underline">
-                {{
-                nextPost.title
-                }}
+                {{ nextPost.title }}
               </g-link>
             </span>
           </div>
@@ -49,12 +51,17 @@
         class="flex my-4 p-2 border-2 rounded"
       >
         <div class="flex-shrink px-3 border-r-2">
-          <g-image :src="`https://www.gravatar.com/avatar/${node.authorId}`" class=" h-20 w-20 rounded-full" />
+          <g-image
+            :src="`https://www.gravatar.com/avatar/${node.authorId}`"
+            class="h-20 w-20 rounded-full"
+          />
         </div>
         <div class="flex-grow">
           <div class="border-b-2 pl-4 pb-2 flex">
             <div class="flex-1 font-bold">{{ node.author }}</div>
-            <div class="flex-1 text-right text-gray-600">{{ formatDate(node.date) }}</div>
+            <div class="flex-1 text-right text-gray-600">
+              {{ formatDate(node.date) }}
+            </div>
           </div>
           <div class="pl-2">
             <div v-html="node.content" />
@@ -73,7 +80,11 @@
           @submit.prevent="addComment"
         >
           <input type="hidden" name="form-name" value="new-comment" />
-          <input type="hidden" name="postTitle" :value="this.$page.post.title" />
+          <input
+            type="hidden"
+            name="postTitle"
+            :value="this.$page.post.title"
+          />
           <input type="hidden" name="postPath" :value="this.$page.post.path" />
           <label>
             Name
@@ -87,7 +98,12 @@
           </label>
           <label>
             Email
-            <input type="email" name="email" v-model="email" :disabled="isCommentFormDisabled" />
+            <input
+              type="email"
+              name="email"
+              v-model="email"
+              :disabled="isCommentFormDisabled"
+            />
           </label>
 
           <label>
@@ -102,18 +118,21 @@
           </label>
 
           <div class="text-center">
-            <button type="submit" class="w-1/3 md:w-1/4 lg:w-1/5" :disabled="isCommentFormDisabled">{{submitButtonText}}</button>
+            <button
+              type="submit"
+              class="w-1/3 md:w-1/4 lg:w-1/5"
+              :disabled="isCommentFormDisabled"
+            >
+              {{ submitButtonText }}
+            </button>
           </div>
-          <VAlert
-            class="success"
-            v-model="accepted"
-            transition="fade"
-          >Your comment has been posted! It will appear after it is approved.</VAlert>
-          <VAlert
-            class="error"
-            v-model="error"
-            transition="fade"
-          >An error occurred. Please try again.</VAlert>
+          <VAlert class="success" v-model="accepted" transition="fade"
+            >Your comment has been posted! It will appear after it is
+            approved.</VAlert
+          >
+          <VAlert class="error" v-model="error" transition="fade"
+            >An error occurred. Please try again.</VAlert
+          >
         </form>
       </div>
     </div>
@@ -164,9 +183,7 @@ export default {
   },
   methods: {
     formatDate(dateString) {
-      return moment(dateString)
-        .local()
-        .format("MMMM DD, YYYY, h:mm a")
+      return moment(dateString).local().format("MMMM DD, YYYY, h:mm a")
     },
     addComment() {
       this.submitting = true
@@ -187,7 +204,7 @@ export default {
           this.submitting = false
           this.accepted = true
         })
-        .catch(err => {
+        .catch((err) => {
           this.submitting = false
           this.error = true
           console.error(err)
@@ -200,7 +217,16 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
+li {
+  @apply ml-5;
+
+  &:before {
+    @apply mr-2;
+    content: " - ";
+  }
+}
+
 .post-title {
   text-align: center;
 }
@@ -209,6 +235,16 @@ export default {
   object-fit: none;
   object-position: center;
   margin: 0 auto;
+}
+
+article {
+  img {
+    @apply m-auto w-2/3 shadow-md my-4;
+  }
+
+  a {
+    @apply underline;
+  }
 }
 
 .pill {

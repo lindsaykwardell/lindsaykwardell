@@ -73,19 +73,19 @@ module.exports = {
       use: "gridsome-plugin-rss",
       options: {
         contentTypeName: "Post",
+        latest: true,
         feedOptions: {
           title: "Lindsay Wardell",
           description: "Blog and Portfolio",
           feed_url: "https://lindsaykwardell.com/rss.xml",
           site_url: "https://lindsaykwardell.com",
         },
-        feedItemOptions: node => {
+        feedItemOptions: (node) => {
           return {
             title: node.title,
-            description:
-              node.content.substring(0, 300) + node.content.length > 300
-                ? "..."
-                : "",
+            description: `${node.content.substring(0, 200)}${
+              node.content.length > 200 ? "..." : ""
+            }`,
             url: "https://lindsaykwardell.com" + node.path,
             author: node.author,
             date: node.date,
