@@ -69,35 +69,35 @@ module.exports = {
         typeName: "Comment",
       },
     },
-    // {
-    //   use: "gridsome-plugin-rss",
-    //   options: {
-    //     contentTypeName: "Post",
-    //     feedOptions: {
-    //       title: "Lindsay Wardell",
-    //       description: "Blog and Portfolio",
-    //       feed_url: "https://lindsaykwardell.com/rss.xml",
-    //       site_url: "https://lindsaykwardell.com",
-    //     },
-    //     feedItemOptions: node => {
-    //       return {
-    //         title: node.title,
-    //         description:
-    //           node.content.substring(0, 300) + node.content.length > 300
-    //             ? "..."
-    //             : "",
-    //         url: "https://lindsaykwardell.com" + node.path,
-    //         author: node.author,
-    //         date: node.date,
-    //         custom_elements: [{ content: node.content }],
-    //       }
-    //     },
-    //     output: {
-    //       dir: "./static",
-    //       name: "rss.xml",
-    //     },
-    //   },
-    // },
+    {
+      use: "gridsome-plugin-rss",
+      options: {
+        contentTypeName: "Post",
+        feedOptions: {
+          title: "Lindsay Wardell",
+          description: "Blog and Portfolio",
+          feed_url: "https://lindsaykwardell.com/rss.xml",
+          site_url: "https://lindsaykwardell.com",
+        },
+        feedItemOptions: node => {
+          return {
+            title: node.title,
+            description:
+              node.content.substring(0, 300) + node.content.length > 300
+                ? "..."
+                : "",
+            url: "https://lindsaykwardell.com" + node.path,
+            author: node.author,
+            date: node.date,
+            custom_elements: [{ content: node.content }],
+          }
+        },
+        output: {
+          dir: "./static",
+          name: "rss.xml",
+        },
+      },
+    },
     {
       use: "gridsome-plugin-sentry",
       options: {
