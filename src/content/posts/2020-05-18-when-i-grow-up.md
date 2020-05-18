@@ -1,6 +1,6 @@
 ---
 path: "/when-i-grow-up"
-date: 2020-05-17
+date: 2020-05-18
 title: "When I Grow Up..."
 author: "Lindsay Wardell"
 image: "./img/mp.jpg"
@@ -17,6 +17,7 @@ This age-old question, asked of children before they can know what 'grow up' eve
 - Mathematician _(due to a TV show we watched in 1st grade)_
 - Teacher
 - Office Max employee _(well, I got to do that one!)_
+- Author
 
 One theme popped out from an early age, though: whatever I was going to do, it was going to revolve around computers.
 
