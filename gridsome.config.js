@@ -104,12 +104,12 @@ module.exports = {
         dsn: process.env.NODE_ENV === "production" && process.env.SENTRY_DSN,
       },
     },
-    {
-      use: "@gridsome/plugin-google-analytics",
-      options: {
-        id: process.env.GOOGLE_ANALYTICS,
-      },
-    },
+    // {
+    //   use: "@gridsome/plugin-google-analytics",
+    //   options: {
+    //     id: process.env.GOOGLE_ANALYTICS,
+    //   },
+    // },
   ],
   css: {
     loaderOptions: {
