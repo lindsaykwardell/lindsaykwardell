@@ -11,3 +11,4 @@ rss.xml
 lambda
 # Local Netlify folder
 .netlify
+.vscode
