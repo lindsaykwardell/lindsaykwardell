@@ -237,6 +237,14 @@ li {
   margin: 0 auto;
 }
 
+blockquote {
+  @apply p-6 mx-16 bg-gray-100 shadow italic;
+}
+
+pre {
+  @apply rounded bg-gray-800 text-white p-6 mx-16 my-6;
+}
+
 article {
   img {
     @apply m-auto w-2/3 shadow-md my-4;
