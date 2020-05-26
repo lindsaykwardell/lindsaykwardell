@@ -60,6 +60,9 @@ module.exports = {
       options: {
         path: "src/content/posts/**/*.md",
         typeName: "Post",
+        remark: {
+          plugins: ["@gridsome/remark-prismjs"],
+        },
       },
     },
     {
