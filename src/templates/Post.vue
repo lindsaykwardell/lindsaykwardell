@@ -241,8 +241,8 @@ blockquote {
   @apply p-6 mx-16 bg-gray-100 shadow italic;
 }
 
-pre {
-  @apply rounded bg-gray-800 text-white p-6 mx-16 my-6;
+pre[class*=language] {
+  @apply rounded shadow-md p-6 mx-16 my-6;
 }
 
 article {

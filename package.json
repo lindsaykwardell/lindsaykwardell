@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.0",
+    "@gridsome/remark-prismjs": "^0.3.0",
     "axios": "^0.19.2",
     "faunadb": "^2.14.1",
     "gh-commit": "^1.0.1",
