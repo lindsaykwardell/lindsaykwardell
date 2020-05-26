@@ -55,7 +55,7 @@ const s = listenAndServe({ port: 8000 }, (req: ServerRequest) => {
 
 ```
 
-Pretty straightforward, then. Although this method of writing an API is probably not the most ideal. Lots of if-statements means you probably aren't scaling your server very much. If you need to build a larger application, this can become unwieldy very quickly.
+Pretty straightforward. However, this method of writing an API could get pretty verbose: multiple if-statements, no simple solution to break out different endpoints into their own scope or module, and no clear way to scale your application as your routes grow. A large application could become unwieldy pretty fast using this format to write your API.
 
 There are already a lot of libraries out there for managing routes (Oak and Drash come to mind). From what I can tell, though, these libraries wrap the default `ServerRequest` object in their own formats, making them incompatible with other built-in methods (like web sockets). I really love how simple it is to get started, there must be a way to just wrap the default `listenAndServe` and `ServerRequest` objects in a router-based solution.
 
