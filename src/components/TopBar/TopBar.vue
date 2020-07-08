@@ -1,5 +1,5 @@
 <template>
-  <div id="top-bar" class="shadow-xl" :style="showMenu ? 'height: 450px' : 'height: 50px'">
+  <div id="top-bar" class="shadow-xl" :style="showMenu ? 'height: 500px' : 'height: 50px'">
     <div class="flex items-center">
       <div class="flex-grow">
         <g-image :src="$static.metadata.githubData.user.avatarUrl" class="avatar" />
