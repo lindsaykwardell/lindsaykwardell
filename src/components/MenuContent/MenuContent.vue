@@ -39,7 +39,6 @@
         {{ post.node.title }}
       </g-link>
     </div>
-    <div id="wcb" class="wcb carbonbadge mt-3" />
   </div>
 </template>
 

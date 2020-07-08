@@ -14,10 +14,6 @@ export default function(Vue, { router, head, isClient }) {
   head.script.push({
     src: "https://f.convertkit.com/ckjs/ck.5.js"
   })
-  head.script.push({
-    src: "https://unpkg.com/website-carbon-badges@^1/b.min.js",
-    defer: true
-  })
 
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
