@@ -23,31 +23,41 @@
         <div class="my-32">
           <h2 class="text-center mb-5">Technologies I Love</h2>
           <div class="flex">
-            <div class="flex-1 flex justify-center items-center p-2">
+            <div
+              class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+            >
               <g-image class="tech-logo" src="~/images/vue.png" width="100" />
             </div>
-            <div class="flex-1 flex justify-center items-center p-2">
+            <div
+              class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+            >
               <g-image
                 class="tech-logo"
                 src="~/images/postcss.png"
                 width="100"
               />
             </div>
-            <div class="flex-1 flex justify-center items-center p-2">
+            <div
+              class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+            >
               <g-image
                 class="tech-logo"
                 src="~/images/typescript.jpg"
                 width="100"
               />
             </div>
-            <div class="flex-1 flex justify-center items-center p-2">
+            <div
+              class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+            >
               <g-image
                 class="tech-logo"
                 src="~/images/nodejs.png"
                 width="100"
               />
             </div>
-            <div class="flex-1 flex justify-center items-center p-2">
+            <div
+              class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+            >
               <g-image
                 class="tech-logo"
                 src="~/images/postgres.png"
@@ -176,6 +186,12 @@
   background: rgba(0, 0, 0, 0.7);
   color: white;
 }
+
+/* .tech-logo-wrapper {
+  &:hover ~ & {
+    filter: grayscale(100%);
+  }
+} */
 
 .tech-logo {
   @apply transition duration-200;
