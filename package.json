@@ -40,7 +40,7 @@
     "dotenv-webpack": "^1.8.0",
     "gridsome-plugin-tailwindcss": "^2.2.48",
     "gridsome-plugin-typescript": "^0.4.0",
-    "gridsome-source-github-api": "^0.1.4",
+    "gridsome-source-github-api": "^0.2.0",
     "netlify-lambda": "^1.5.1",
     "postcss-cli": "^7.1.1",
     "postcss-nested": "^4.2.1",
