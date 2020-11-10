@@ -11,9 +11,6 @@ export default function(Vue, { router, head, isClient }) {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css?family=Lato|Rokkitt|Fira+Sans&display=swap"
   });
-  head.script.push({
-    src: "https://f.convertkit.com/ckjs/ck.5.js"
-  })
 
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);

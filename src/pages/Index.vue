@@ -68,41 +68,20 @@
         </div>
       </div>
       <hr class="my-16 mx-auto" />
-      <div>
-        <div class="my-32">
-          <h2 class="text-center mb-5">Examples</h2>
-          <div class="lg:flex">
-            <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
-              <a href="https://warsofthejuriels.netlify.app">
-                <g-image src="~/images/juralen.png" width="400" />
-              </a>
-            </div>
-            <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
-              <a href="https://noadjustmentsneeded.com">
-                <g-image src="~/images/nan.png" width="400" />
-              </a>
-            </div>
-            <div class="home-card w-full m-auto my-6 md:my-0 md:flex-1 p-2">
-              <a href="https://maryspixels.herokuapp.com">
-                <g-image src="~/images/marys-pixels.jpg" width="400" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr class="my-16 mx-auto" />
       <h2 class="text-center">Recent Posts</h2>
-      <div class="flex flex-col lg:flex-row">
+      <div class="flex flex-col lg:flex-row flex-wrap">
         <div
           v-for="{ node } in $page.allPost.edges"
           :key="node.id"
-          class="blog-item"
+          class="w-full lg:w-1/2 p-2"
         >
-          <g-link :to="node.path">
-            <g-image class="blog-image" v-if="node.image" :src="node.image" />
-            <h4 class="blog-title">{{ node.title }}</h4>
-            <p class="blog-excerpt">{{ node.excerpt.substring(0, 150) }}...</p>
-          </g-link>
+          <div class="blog-item">
+            <g-link :to="node.path">
+              <g-image class="blog-image" v-if="node.image" :src="node.image" />
+              <h4 class="blog-title">{{ node.title }}</h4>
+              <p class="blog-excerpt">{{ node.excerpt.substring(0, 150) }}...</p>
+            </g-link>
+          </div>
         </div>
       </div>
       <hr class="my-16 mx-auto" />
@@ -143,17 +122,17 @@
 }
 
 .index {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       to bottom right,
       #dbe8f5 2%,
       15%,
       rgba(255, 255, 255, 0) 30%
     ),
-    linear-gradient(to bottom left, #f2edf7 1%, 7%, white 30%);
+    linear-gradient(to bottom left, #f2edf7 1%, 7%, white 30%); */
 }
 
 .blog-item {
-  @apply flex-1 shadow-md m-2 rounded-lg relative overflow-hidden;
+  @apply shadow-md rounded-lg relative overflow-hidden;
   height: 315px;
 
   .blog-image {
@@ -227,7 +206,7 @@ query {
       }
     }
   }
-  allPost(limit:2){
+  allPost(limit:4){
     edges {
       node {
         id

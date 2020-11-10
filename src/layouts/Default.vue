@@ -15,7 +15,6 @@
                 <slot />
               </main>
             </div>
-            <ConvertKit class="mb-12" />
           </div>
         </div>
       </template>
@@ -27,14 +26,12 @@
 import { VResize } from "vuetensils"
 import LeftBar from "../components/LeftBar/LeftBar"
 import TopBar from "../components/TopBar/TopBar"
-import ConvertKit from "~/components/ConvertKit/ConvertKit"
 
 export default {
   components: {
     LeftBar,
     TopBar,
     VResize,
-    ConvertKit,
   },
 }
 </script>
