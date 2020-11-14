@@ -1,16 +1,19 @@
 const axios = require("axios")
 const uuid = require("uuid").v4
-const moment = require("moment")
+const dayjs = require("dayjs")
 const crypto = require("crypto")
+const utc = require("dayjs/plugin/utc")
+
+dayjs.extend(utc)
 
 exports.handler = (event, context, callback) => {
   const payload = JSON.parse(event.body).payload
   const { postTitle, postPath, author, email, message } = payload.data
 
-  const filePath = `src/content/comments/${uuid()}.md`
+  const filePath = `content/comments/${uuid()}.md`
   const content = `---
 postPath: "${postPath}"
-date: ${moment.utc().format("YYYY-MM-DD HH:mm:ss")}
+date: ${dayjs().utc().format("YYYY-MM-DD HH:mm:ss")}
 author: "${author}"
 authorId: "${crypto
     .createHash("md5")
@@ -20,7 +23,7 @@ authorId: "${crypto
 ${message}`
 
   const buildEndpoint = () =>
-    "https://api.github.com/repos/lindsaykwardell/lindsaykwardell.com/contents/" +
+    "https://api.github.com/repos/lindsaykwardell/lindsaykwardell/contents/" +
     filePath
 
   axios
