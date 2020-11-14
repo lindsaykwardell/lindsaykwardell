@@ -33,7 +33,7 @@
         :key="comment.slug"
         class="flex my-4 p-2 shadow-md rounded bg-white"
       >
-        <div class="px-3 border-r w-32 flex-none">
+        <div class="px-3 border-r w-32 flex-none hidden md:block">
           <img
             :src="`https://www.gravatar.com/avatar/${comment.authorId}`"
             class="h-20 w-20 rounded-full"
@@ -51,9 +51,9 @@
           </div>
         </div>
       </div>
-      <div class="rounded my-8 shadow-md bg-white w-full">
+      <div class="rounded my-8 shadow-md bg-white w-5/6 m-auto">
         <h4 class="p-4 pb-0">Add a Comment</h4>
-        <div class="p-4">
+        <div class="p-4 w-full">
           <form
             data-netlify="true"
             data-netlify-honeypot="bot-field"
@@ -297,6 +297,7 @@ export default {
   article,
   section.comments {
     max-width: 1000px;
+    width: 90vw;
 
     img {
       @apply m-auto w-2/3 shadow-md my-4;
