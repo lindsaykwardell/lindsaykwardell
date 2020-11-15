@@ -1,14 +1,17 @@
 {
-  "name": "lkw-new",
+  "name": "lindsaykwardell",
   "version": "1.0.0",
   "private": true,
+  "author": "Lindsay Wardell",
+  "license": "MIT",
   "scripts": {
     "dev": "nuxt-ts",
     "functions": "netlify-lambda serve --config ./webpack.functions.js functions",
     "build": "nuxt-ts build",
     "build-functions": "netlify-lambda build functions",
     "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate"
+    "generate": "nuxt-ts generate",
+    "deploy": "git checkout master && git merge dev && git push origin && git checkout dev"
   },
   "dependencies": {
     "@braid/vue-formulate": "^2.4.5",
