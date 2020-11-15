@@ -19,13 +19,13 @@ authorId: "${crypto.createHash('md5').update(email).digest('hex')}"
 ---
 ${message}`
 
-  const buildEndpoint = () =>
+  const url =
     'https://api.github.com/repos/lindsaykwardell/lindsaykwardell/contents/' +
     filePath
 
   axios
     .put(
-      buildEndpoint(),
+      url,
       {
         message: `New comment on ${postTitle}`,
         branch: 'new-comments',

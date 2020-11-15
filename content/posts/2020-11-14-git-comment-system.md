@@ -32,7 +32,7 @@ After doing some research, I found [Staticman](https://staticman.net/). Quoting 
 
 All of this research, however, led me to a decision. I'm a developer; I can build this myself!
 
-## Serverless to the Rescue!
+## Jamstack to the Rescue!
 
 My goals for this project:
 
@@ -42,62 +42,110 @@ My goals for this project:
 
 I'm already hosted on Netlify, so accepting user input is straightforward. Netlify offers form submission ([read more here](https://www.netlify.com/products/forms/)). In short, by adding some basic attributes to a form, you can enable a POST request to your site that Netlify will capture and process. I'm using Vue, so I turned to [Vue Formulate](https://vueformulate.com/) to build the form, and [Vuetensils](https://vuetensils.stegosource.com/) for an alert on success/failure. Unfortunately this doesn't work nicely with Netlify, so I had to add the form in a standard way in order for Netlify to pick it up and build the POST endpoint. A simple compromise.
 
-```
-<FormulateForm
+Below is the code for Netlify to pick up the form. Feel free to just use a basic form element if you want, I decided to go with Vue Formulate for the added validation and submission features.
+
+```html
+<form
   data-netlify="true"
   data-netlify-honeypot="bot-field"
-  @submit="submitComment"
+  name="new-comment"
+  class="hidden"
 >
-  <FormulateInput type="hidden" name="form-name" value="new-comment" />
-  <FormulateInput type="hidden" name="postTitle" :value="blog.title" />
-  <FormulateInput type="hidden" name="postPath" :value="`/blog${blog.slug}`" />
-  <FormulateInput type="hidden" name="bot-field" />
-  <FormulateInput
-    type="text"
-    name="author"
-    label="Name"
-    validation="required"
-    class="my-3"
-    input-class="w-full p-2 shadow"
-    :disabled="submitted"
-  />
-  <FormulateInput
-    type="email"
-    name="email"
-    label="Email"
-    class="my-3"
-    input-class="w-full p-2 shadow"
-    :disabled="submitted"
-  />
-  <FormulateInput
-    type="textarea"
-    name="message"
-    label="Comment"
-    rows="5"
-    validation="required"
-    class="my-3"
-    input-class="w-full p-2 shadow"
-    :disabled="submitted"
-  />
-  <div class="flex justify-center w-full">
-    <FormulateInput
-      type="submit"
-      label="Submit"
-      class="text-white rounded-lg transition duration-200 mt-5 w-1/3 md:w-1/4 lg:w-1/5 text-center"
-      input-class="px-4 py-2 w-full"
-      :disabled="submitted"
-    />
-  </div>
-  <VAlert class="success" v-model="accepted" transition="fade"
-    >Your comment has been posted! It will appear after it is
-    approved.</VAlert
-  >
-  <VAlert class="error" v-model="error" transition="fade"
-    >An error occurred. Please try again.</VAlert
-  >
-</FormulateForm>
+  <input type="hidden" name="form-name" />
+  <input type="hidden" name="postTitle" />
+  <input type="hidden" name="postPath" />
+  <input type="hidden" name="author" />
+  <input type="hidden" name="email" />
+  <input type="hidden" name="message" />
+</form>
 ```
 
 Great, I've got my form, and it's submitting to Netlify. But how can I access that data to submit to Github?
 
-Luckily, Netlify has another great feature: [Serverless Functions](https://www.netlify.com/products/functions/)!
+Luckily, Netlify has another great feature: [Serverless Functions](https://www.netlify.com/products/functions/)! In short, they allow you to create AWS Lambda functions that they will host, and you don't need to create an AWS account to do anything.
+
+Here's a basic example:
+
+```javascript
+exports.handler = async ( event , context ) => { 
+  return { 
+    statusCode: 200, 
+    body: "Success!" 
+  }; 
+}
+```
+
+In addition to writing arbitrary serverless functions, Netlify provides a number of hooks to catch events that would go to their APIs, such as Identity or Forms. [You can read more about them here](https://docs.netlify.com/functions/trigger-on-events/). In this case, we want to create a function called `submission-created.js`, which will receive an object called `payload` in the event body. This payload will contain all of our form information. We can then use that to generate a markdown file for the comment.
+
+```javascript
+exports.handler = (event, context, callback) => {
+  const payload = JSON.parse(event.body).payload
+  const { postTitle, postPath, author, email, message } = payload.data
+
+  const filePath = `content/comments/${uuid()}.md`
+  const content = `---
+postPath: "${postPath}"
+date: ${dayjs().utc().format('YYYY-MM-DD HH:mm:ss')}
+author: "${author}"
+authorId: "${crypto.createHash('md5').update(email).digest('hex')}"
+---
+${message}`
+}
+```
+
+As a quick aside - you can always just use a generic serverless function for this step. I went with Netlify Forms and handling the event because Netlify by default applies spam filtering to the form input. You can also add a bot field (see the above HTML snippet where it says `data-netlify-honeypot`) to get additional checks on form submission. Rather than build in a call to something like Akismet, or import my own spam filter, I felt this was the simplest way forward. It felt a bit like a compromise on my 'I own everything' take, but if I have to move platforms I can rebuild it fairly easily.
+
+All right, we now have our form hooked up and a serverless function to capture the data. Where do we save this? Well, anywhere we want, really! In my case, I wanted to store this data in Github. For this use case, [Github offers a RESTful API](https://docs.github.com/en/free-pro-team@latest/rest) where a developer can interact with a given repository. In this case, it allows me to commit a new file into a branch of my blog.
+
+For this example, I will use Axios, but feel free to use `isomorphic-fetch` or your preferred fetch library. 
+
+```javascript
+  const url =
+    'https://api.github.com/repos/lindsaykwardell/lindsaykwardell/contents/' +
+    filePath
+
+  axios
+    .put(
+      url,
+      {
+        message: `New comment on ${postTitle}`,
+        branch: 'new-comments',
+        author: {
+          name: 'Lindsay Wardell',
+          email: process.env.COMMIT_EMAIL,
+        },
+        committer: {
+          name: 'Lindsay Wardell',
+          email: process.env.COMMIT_EMAIL,
+        },
+        content: Buffer.from(content).toString('base64'),
+      },
+      {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_API_TOKEN}`,
+        },
+      }
+    )
+    .then((res) =>
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify({ msg: 'Your comment has been submitted!' }),
+      })
+    )
+    .catch((err) =>
+      callback(null, {
+        statusCode: 500,
+        body: JSON.stringify({ msg: 'An error occurred!', err }),
+      })
+    )
+```
+
+Now, any form submission from our site will go to Netlify, pass to this function, and get committed to our Github repository. For my case, I created a separate branch for new comments, just in case any spam filtering still needs to be done.
+
+## Conclusion
+
+Congratulations! You now have complete control over your comments on a static site. This should work with any static site generator. My goal was to have complete control over the contents of my site, so I can take it with me wherever I want. While I do feel a bit tied into Netlify, I feel that it's a worthy compromise, considering all of the data is mine at the end of the day.
+
+[Here's a link](https://github.com/lindsaykwardell/lindsaykwardell) to my site's Github repository in case you want to look at the full source code.
+
+Stay safe!
