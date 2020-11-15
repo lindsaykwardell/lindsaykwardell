@@ -61,6 +61,6 @@ export default {
     -1px -1px 0 #000;
 } */
 .project-wrapper {
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 150px);
 }
 </style>
