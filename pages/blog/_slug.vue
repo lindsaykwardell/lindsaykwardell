@@ -208,7 +208,7 @@ export default {
   }),
   computed: {
     date() {
-      return dayjs(this.blog.date).format('MM/DD/YYYY')
+      return dayjs(this.blog.date).utc().format('MM/DD/YYYY')
     },
     updatedDate() {
       return dayjs(this.blog.updatedAt).format('MM/DD/YYYY')

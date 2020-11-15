@@ -1,24 +1,24 @@
 ---
 slug: "/git-comment-system"
 date: 2020-11-15
-title: "Build a Comment System using Git"
+title: "Build a Static Comment System"
 author: "Lindsay Wardell"
 image: "/blog/git.gif"
 tags:
-  - Web Development
-  - Git
-  - CMS
+  - Jamstack
+  - Netlify
+  - Github
   - Javascript
 excerpt: ...
 ---
 
 ## From Wordpress to Jamstack
 
-I love the Jamstack. I built my first blog with Wordpress, which is an excellent tool. If you're looking into setting up your own blog, it's a great option! The main problem I had with it, however, was relying on another service to host my posts, my images, everything. What if GoDaddy (my host at the time) were to shut down? How could I migrate from their MySQL database to another easily? What would I do with all of my content?
+Back when I first started my own blog, I did what many still do today and deployed a Wordpress site. Honestly, Wordpress is great. If you're looking into setting up your own site, it's a fine option! The main problem I had with it, however, was relying on another service to host my posts, my images, everything. What if my hosting provider were to shut down? How could I migrate from their MySQL database to another easily? What would I do with all of my content?
 
 This actually happened to me, when I needed to migrate from one provider to another. The solution - abandon everything, and start from scratch. A migration wasn't possible to my new host, so I copied everything into a text file and started over on the site. 
 
-Then I learned about Gatsby, and that I could have a static site where my blog posts are all stored in text files. Win! I could control my posts, my site, my content, and host it anywhere. This sounded exactly like what I wanted to do. I looked at headless Wordpress, but decided I wanted full control of the site. I built out a first version of the site with Gatsby, deployed it to Netlify, and life was good.
+Then I learned about Gatsby, and that I could have a static site where my blog posts are all stored in text files. That sounds like a win! I could control my posts, my site, my content, and host it anywhere. This sounded exactly like what I wanted to do. I looked at headless Wordpress, but decided I wanted full control of the site. I built out a first version of the site with Gatsby, deployed it to Netlify, and life was good.
 
 Except...
 
@@ -78,6 +78,14 @@ exports.handler = async ( event , context ) => {
 In addition to writing arbitrary serverless functions, Netlify provides a number of hooks to catch events that would go to their APIs, such as Identity or Forms. [You can read more about them here](https://docs.netlify.com/functions/trigger-on-events/). In this case, we want to create a function called `submission-created.js`, which will receive an object called `payload` in the event body. This payload will contain all of our form information. We can then use that to generate a markdown file for the comment.
 
 ```javascript
+const axios = require('axios')
+const uuid = require('uuid').v4
+const dayjs = require('dayjs')
+const crypto = require('crypto')
+const utc = require('dayjs/plugin/utc')
+
+dayjs.extend(utc)
+
 exports.handler = (event, context, callback) => {
   const payload = JSON.parse(event.body).payload
   const { postTitle, postPath, author, email, message } = payload.data
