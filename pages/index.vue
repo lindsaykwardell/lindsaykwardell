@@ -28,9 +28,9 @@
         >
           <img
             class="tech-logo"
-            src="~/assets/images/postcss.png"
+            src="~/assets/images/tailwind.png"
             width="100"
-            alt="PostCSS"
+            alt="Tailwind CSS"
           />
         </div>
         <div
@@ -58,9 +58,9 @@
         >
           <img
             class="tech-logo"
-            src="~/assets/images/postgres.png"
+            src="~/assets/images/aplus.png"
             width="100"
-            alt="Postgres"
+            alt="CompTIA A+ Certified"
           />
         </div>
       </div>
