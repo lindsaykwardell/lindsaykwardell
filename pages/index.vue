@@ -5,7 +5,7 @@
         <img
           :src="$github.user.avatarUrl"
           :alt="$github.user.name"
-          class="rounded-full shadow-xl w-64 lg:w-auto my-4"
+          class="rounded-full shadow-xl w-64 my-4"
         />
         <h1 class="title text-6xl py-3 font-medium">
           {{ $github.user.name }}
@@ -66,9 +66,15 @@
           </div>
         </div>
       </div>
-      <div class="w-full xl:w-1/3 pt-6 xl:pt-0 flex flex-col items-center justify-end">
+      <div
+        class="w-full xl:w-1/3 pt-6 xl:pt-0 flex flex-col items-center justify-end"
+      >
         <h2>Latest Post</h2>
-        <ContentItem v-for="item in formattedPosts" :key="item.slug" :item="item" />
+        <ContentItem
+          v-for="item in formattedPosts"
+          :key="item.slug"
+          :item="item"
+        />
       </div>
     </div>
     <div
