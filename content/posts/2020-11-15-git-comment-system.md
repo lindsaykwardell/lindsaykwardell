@@ -9,7 +9,7 @@ tags:
   - Netlify
   - Github
   - Javascript
-excerpt: ...
+excerpt: Hosting a static site is great, but what about comments? What can we do to store comments in a static site?
 ---
 
 ## From Wordpress to Jamstack
