@@ -1,6 +1,6 @@
 ---
 slug: "/git-comment-system"
-date: 2020-11-14
+date: 2020-11-15
 title: "Build a Comment System using Git"
 author: "Lindsay Wardell"
 image: "/blog/git.gif"
