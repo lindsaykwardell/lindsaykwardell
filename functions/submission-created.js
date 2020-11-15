@@ -1,8 +1,8 @@
-const axios = require("axios")
-const uuid = require("uuid").v4
-const dayjs = require("dayjs")
-const crypto = require("crypto")
-const utc = require("dayjs/plugin/utc")
+const axios = require('axios')
+const uuid = require('uuid').v4
+const dayjs = require('dayjs')
+const crypto = require('crypto')
+const utc = require('dayjs/plugin/utc')
 
 dayjs.extend(utc)
 
@@ -13,17 +13,14 @@ exports.handler = (event, context, callback) => {
   const filePath = `content/comments/${uuid()}.md`
   const content = `---
 postPath: "${postPath}"
-date: ${dayjs().utc().format("YYYY-MM-DD HH:mm:ss")}
+date: ${dayjs().utc().format('YYYY-MM-DD HH:mm:ss')}
 author: "${author}"
-authorId: "${crypto
-    .createHash("md5")
-    .update(email)
-    .digest("hex")}"
+authorId: "${crypto.createHash('md5').update(email).digest('hex')}"
 ---
 ${message}`
 
   const buildEndpoint = () =>
-    "https://api.github.com/repos/lindsaykwardell/lindsaykwardell/contents/" +
+    'https://api.github.com/repos/lindsaykwardell/lindsaykwardell/contents/' +
     filePath
 
   axios
@@ -31,16 +28,16 @@ ${message}`
       buildEndpoint(),
       {
         message: `New comment on ${postTitle}`,
-        branch: "new-comments",
+        branch: 'new-comments',
         author: {
-          name: "Lindsay Wardell",
-          email: "three060@gmail.com",
+          name: 'Lindsay Wardell',
+          email: process.env.COMMIT_EMAIL,
         },
         committer: {
-          name: "Lindsay Wardell",
-          email: "three060@gmail.com",
+          name: 'Lindsay Wardell',
+          email: process.env.COMMIT_EMAIL,
         },
-        content: Buffer.from(content).toString("base64"),
+        content: Buffer.from(content).toString('base64'),
       },
       {
         headers: {
@@ -48,16 +45,16 @@ ${message}`
         },
       }
     )
-    .then(res =>
+    .then((res) =>
       callback(null, {
         statusCode: 200,
-        body: JSON.stringify({ msg: "Your comment has been submitted!" }),
+        body: JSON.stringify({ msg: 'Your comment has been submitted!' }),
       })
     )
-    .catch(err =>
+    .catch((err) =>
       callback(null, {
         statusCode: 500,
-        body: JSON.stringify({ msg: "An error occurred!", err }),
+        body: JSON.stringify({ msg: 'An error occurred!', err }),
       })
     )
 }
