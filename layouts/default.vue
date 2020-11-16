@@ -30,6 +30,10 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
+.dark-mode body {
+  @apply bg-gray-900 text-gray-200;
+}
+
 main {
   @apply pt-4;
   position: relative;

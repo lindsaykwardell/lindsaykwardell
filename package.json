@@ -38,12 +38,14 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
+    "@nuxtjs/color-mode": "^2.0.0",
     "@nuxtjs/tailwindcss": "^3.1.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
     "netlify-lambda": "^2.0.1",
     "nuxt-github-api": "^0.1.6",
     "prettier": "^2.1.2",
-    "rss-parser": "^3.9.0"
+    "rss-parser": "^3.9.0",
+    "tailwindcss-dark-mode": "^1.1.7"
   }
 }

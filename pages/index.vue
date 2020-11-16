@@ -78,7 +78,7 @@
       </div>
     </div>
     <div
-      class="fixed bottom-0 w-full h-16 flex justify-center items-center bg-gray-900 text-white"
+      class="fixed bottom-0 w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white"
     >
       <SocialLinks />
     </div>

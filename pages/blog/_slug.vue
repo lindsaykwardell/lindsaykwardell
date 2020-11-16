@@ -1,15 +1,15 @@
 <template>
   <div class="blog-post flex justify-center items-center flex-col">
-    <div class="bg-white p-5 shadow-md my-5">
+    <div class="bg-white dark:bg-gray-800 dark:text-gray-200 p-5 shadow-md my-5">
       <div class="post-title mt-6">
         <img
-          class="hero"
+          class="hero dark:bg-white"
           v-if="blog.image"
           :src="blog.image"
           :alt="blog.title"
         />
         <h1 class="title">{{ blog.title }}</h1>
-        <div class="text-center pt-2 text-gray-600">
+        <div class="text-center pt-2 text-gray-600 dark:text-gray-500">
           Published by {{ blog.author }} on {{ date }}
         </div>
         <SocialLinks class="m-auto pt-3" />
@@ -19,7 +19,7 @@
         <nuxt-content :document="blog"></nuxt-content>
       </article>
     </div>
-    <div class="bg-gray-400 p-6 m-4 w-full flex flex-col md:flex-row justify-between">
+    <div class="bg-gray-400 dark:bg-gray-800 dark:text-gray-200 p-6 m-4 w-full flex flex-col md:flex-row justify-between">
       <div class="mb-4 w-full md:w-2/3 lg:w-1/2">
         <h2>Tags</h2>
         <TagPill v-for="tag in blog.tags" :key="tag">
@@ -40,7 +40,7 @@
         <em class="block m-auto w-1/3 flex justify-center"
           ><a
             :href="devToArticle.url"
-            class="bg-white text-center p-3 text-xl hover:text-pink-900"
+            class="bg-white dark:bg-gray-800 dark:text-white text-center p-3 text-xl hover:text-pink-700"
             >Discuss this post on DEV!</a
           ></em
         >
@@ -48,7 +48,7 @@
       <div
         v-for="comment in comments"
         :key="comment.slug"
-        class="flex my-4 p-2 shadow-md rounded bg-white"
+        class="flex my-4 p-2 shadow-md rounded bg-white dark:bg-gray-800 dark:text-gray-200"
       >
         <div class="px-3 border-r w-32 flex-none hidden md:block">
           <img
@@ -68,7 +68,7 @@
           </div>
         </div>
       </div>
-      <div class="rounded my-8 shadow-md bg-white w-5/6 m-auto">
+      <div class="rounded my-8 shadow-md bg-white dark:bg-gray-800 dark:text-gray-200 w-5/6 m-auto">
         <h4 class="p-4 pb-0">Add a Comment</h4>
         <div class="p-4 w-full">
           <form
@@ -111,7 +111,7 @@
               label="Name"
               validation="required"
               class="my-3"
-              input-class="w-full p-2 shadow"
+              input-class="w-full p-2 shadow dark:bg-gray-700"
               :disabled="submitted"
             />
             <FormulateInput
@@ -119,7 +119,7 @@
               name="email"
               label="Email"
               class="my-3"
-              input-class="w-full p-2 shadow"
+              input-class="w-full p-2 shadow dark:bg-gray-700"
               :disabled="submitted"
             />
             <FormulateInput
@@ -129,7 +129,7 @@
               rows="5"
               validation="required"
               class="my-3"
-              input-class="w-full p-2 shadow"
+              input-class="w-full p-2 shadow dark:bg-gray-700"
               :disabled="submitted"
             />
             <div class="flex justify-center w-full">
@@ -177,7 +177,7 @@
       </div>
     </section>
     <div
-      class="w-full h-16 flex justify-center items-center bg-gray-900 text-white"
+      class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white"
     >
       <SocialLinks />
     </div>
@@ -319,6 +319,10 @@ export default {
 
   blockquote {
     @apply p-6 mx-16 bg-gray-100 shadow italic;
+
+    .dark-mode & {
+      @apply bg-gray-900;
+    }
   }
 
   pre[class*='language'] {
