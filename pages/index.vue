@@ -123,10 +123,6 @@ export default {
   min-height: calc(100vh - 110px);
 }
 
-.title {
-  line-height: 3.5rem;
-}
-
 .tech-logo {
   @apply transition duration-200;
 

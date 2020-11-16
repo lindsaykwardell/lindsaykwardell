@@ -8,7 +8,7 @@
           :src="blog.image"
           :alt="blog.title"
         />
-        <h1>{{ blog.title }}</h1>
+        <h1 class="title">{{ blog.title }}</h1>
         <div class="text-center pt-2 text-gray-600">
           Published by {{ blog.author }} on {{ date }}
         </div>
@@ -19,15 +19,32 @@
         <nuxt-content :document="blog"></nuxt-content>
       </article>
     </div>
-    <div class="bg-gray-400 p-6 m-4 w-full">
-      <div class="mb-4">
+    <div class="bg-gray-400 p-6 m-4 w-full flex flex-col md:flex-row justify-between">
+      <div class="mb-4 w-full md:w-2/3 lg:w-1/2">
         <h2>Tags</h2>
         <TagPill v-for="tag in blog.tags" :key="tag">
           <nuxt-link :to="`/blog/?tag=${tag}`">{{ tag }}</nuxt-link>
         </TagPill>
       </div>
+      <div class="w-full md:w-2/5 lg:w/1-3">
+        <h2>Related Posts</h2>
+        <ul>
+          <li v-for="post in relatedPosts" :key="post.slug">
+            <nuxt-link :to="post.link">{{ post.title }}</nuxt-link>
+          </li>
+        </ul>
+      </div>
     </div>
     <section class="comments">
+      <div v-if="devToArticle" class="w-full mt-5">
+        <em class="block m-auto w-1/3 flex justify-center"
+          ><a
+            :href="devToArticle.url"
+            class="bg-white text-center p-3 text-xl hover:text-pink-900"
+            >Discuss this post on DEV!</a
+          ></em
+        >
+      </div>
       <div
         v-for="comment in comments"
         :key="comment.slug"
@@ -174,6 +191,7 @@ import TagPill from '@/components/TagPill'
 import SocialLinks from '@/components/SocialLinks'
 import axios from 'axios'
 import VAlert from 'vuetensils/src/components/VAlert/VAlert.vue'
+import Fuse from 'fuse.js'
 
 dayjs.extend(utc)
 
@@ -183,7 +201,7 @@ const STATUS_SUBMITTED = Symbol()
 const STATUS_ERROR = Symbol()
 
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, params, $devto }) {
     const blog = (
       await $content(`posts`)
         .where({ slug: '/' + params.slug })
@@ -196,15 +214,32 @@ export default {
       })
       .fetch()
 
+    const devToArticle = $devto.find((article) =>
+      article.canonical_url.includes(`/blog/${params.slug}`)
+    )
+
+    const posts = await $content(`posts`).sortBy('date', 'desc').fetch()
+    const fuse = new Fuse(posts, {
+      keys: ['title', 'excerpt', 'tags'],
+    })
+
+    const relatedPosts = fuse
+      .search(blog.tags.reduce((str, tag) => str + ' ' + tag, ''))
+      .map((f) => ({ ...f.item, link: `/blog${f.item.slug}` }))
+      .filter((post, index) => post.slug !== `/${params.slug}` && index < 3)
+
     return {
       blog,
       comments,
+      devToArticle,
+      relatedPosts,
     }
   },
   data: () => ({
     formStatus: STATUS_IDLE,
     accepted: false,
     error: false,
+    relatedPosts: [],
   }),
   computed: {
     date() {
@@ -273,6 +308,7 @@ export default {
   .post-title {
     text-align: center;
   }
+  
   .hero {
     max-height: 550px;
     max-width: 80vw;

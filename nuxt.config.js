@@ -1,7 +1,7 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-  mode: "universal",
+  mode: 'universal',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -25,7 +25,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/viewsonvue.server.js', '~/plugins/vue-formulate.js'],
+  plugins: [
+    '~/plugins/viewsonvue.server.js',
+    '~/plugins/vue-formulate.js',
+    '~/plugins/devto.js',
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -36,7 +40,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    "@nuxtjs/fontawesome"
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -96,7 +100,7 @@ export default {
           `,
       },
     ],
-    'nuxt-lazy-load'
+    // 'nuxt-lazy-load',
   ],
 
   /*
@@ -104,7 +108,12 @@ export default {
    ** See https://content.nuxtjs.org/configuration
    */
   content: {
-    liveEdit: true
+    liveEdit: true,
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css',
+      },
+    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
@@ -121,8 +130,8 @@ export default {
   },
   fontawesome: {
     icons: {
-      brands: true
-    }
+      brands: true,
+    },
   },
   generate: {
     async routes() {
@@ -130,8 +139,11 @@ export default {
 
       const posts = await $content(`posts`).sortBy('date', 'desc').fetch()
 
-      return posts.map(post => ({route: `/blog${post.slug}`, payload: post}))
-    }
+      return posts.map((post) => ({
+        route: `/blog${post.slug}`,
+        payload: post,
+      }))
+    },
   },
-  telemetry: true
+  telemetry: true,
 }

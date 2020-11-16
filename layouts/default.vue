@@ -66,6 +66,10 @@ h4 {
   font-size: 1.5rem;
 }
 
+.title {
+  line-height: 3.5rem;
+}
+
 label,
 a.recent-post {
   font-family: 'Fira Sans', sans-serif;
