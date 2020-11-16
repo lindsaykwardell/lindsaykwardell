@@ -96,6 +96,7 @@ export default {
           `,
       },
     ],
+    'nuxt-lazy-load'
   ],
 
   /*

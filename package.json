@@ -28,6 +28,7 @@
     "dayjs": "^1.9.6",
     "fuse.js": "^6.4.3",
     "nuxt": "^2.14.6",
+    "nuxt-lazy-load": "^1.2.4",
     "postcss-nested": "4.2.3",
     "uuid": "^8.3.1",
     "vue-infinite-loading": "^2.4.5",

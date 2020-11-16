@@ -4973,6 +4973,11 @@ inquirer@^7.3.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
+intersection-observer@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.7.0.tgz#ee16bee978db53516ead2f0a8154b09b400bbdc9"
+  integrity sha512-Id0Fij0HsB/vKWGeBe9PxeY45ttRiBmhFyyt/geBdDHBYNctMRTE3dC1U3ujzz3lap+hVXlEcVaB56kZP/eEUg==
+
 ip@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.5.tgz#bdded70114290828c0a039e72ef25f5aaec4354a"
@@ -6230,6 +6235,14 @@ nuxt-github-api@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/nuxt-github-api/-/nuxt-github-api-0.1.6.tgz#2273adf9485c2fac6d4328268cbf13ad775bd287"
   integrity sha512-ZsLRwqadrSY3OJ9zdbGCKhRE7dDVl9eD/zlqX3kDn/KVi9DANgVvaimbTlkxL7xQELMY+1m4dlhLB7OVVDXbKw==
+
+nuxt-lazy-load@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/nuxt-lazy-load/-/nuxt-lazy-load-1.2.4.tgz#11ff7bc8fc61c812d4d15c8120477d9b05fa8a31"
+  integrity sha512-b+d7zwOmikv2jqPGO0LNr3RKu8RcuJ3amGhHiiWtgseOLh8NKMl9xgSqprYBhGOD8mSOk5euurteVZWVjR7bYQ==
+  dependencies:
+    intersection-observer "^0.7.0"
+    string-replace-loader "^2.1.1"
 
 nuxt@^2.14.6:
   version "2.14.7"
@@ -8396,6 +8409,14 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
+
+string-replace-loader@^2.1.1:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/string-replace-loader/-/string-replace-loader-2.3.0.tgz#7f29be7d73c94dd92eccd5c5a15651181d7ecd3d"
+  integrity sha512-HYBIHStViMKLZC/Lehxy42OuwsBaPzX/LjcF5mkJlE2SnHXmW6SW6eiHABTXnY8ZCm/REbdJ8qnA0ptmIzN0Ng==
+  dependencies:
+    loader-utils "^1.2.3"
+    schema-utils "^2.6.5"
 
 string-width@^2.0.0:
   version "2.1.1"
