@@ -165,11 +165,11 @@
                 </div>
               </FormulateInput>
             </div>
-            <VAlert class="success" v-model="accepted" transition="fade"
+            <VAlert class="success text-black" v-model="accepted" transition="fade"
               >Your comment has been posted! It will appear after it is
               approved.</VAlert
             >
-            <VAlert class="error" v-model="error" transition="fade"
+            <VAlert class="error text-black" v-model="error" transition="fade"
               >An error occurred. Please try again.</VAlert
             >
           </FormulateForm>
@@ -359,16 +359,16 @@ export default {
   }
 
   button[type='submit'] {
-    @apply py-2 px-3 bg-blue-500 text-white rounded;
+    @apply py-2 px-3 bg-pink-900 text-white rounded;
     cursor: pointer;
     transition: 0.3s;
 
     &:hover {
-      @apply bg-blue-700;
+      @apply bg-pink-700;
     }
 
     &[disabled] {
-      @apply bg-blue-300;
+      @apply bg-pink-400;
     }
   }
 
