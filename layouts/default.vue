@@ -13,7 +13,9 @@
       </nuxt-link>
       <div class="flex-grow flex justify-end text-white text-lg">
         <nuxt-link to="/" class="mx-4 hidden sm:inline">Home</nuxt-link>
-        <nuxt-link to="/projects" class="mx-4 hide-too-small">Projects</nuxt-link>
+        <nuxt-link to="/projects" class="mx-4 hide-too-small"
+          >Projects</nuxt-link
+        >
         <nuxt-link to="/blog/" class="mx-4">Blog</nuxt-link>
         <nuxt-link to="/podcast" class="mx-4">Podcast</nuxt-link>
       </div>
@@ -23,7 +25,7 @@
     </main>
     <button
       @click="changeMode"
-      class="fixed fab rounded-full bg-gray-900 dark:bg-gray-800 text-yellow-400 shadow-xl border-4 border-gray-200 dark:border-gray-900 w-12 h-12 text-xl z-20"
+      class="fixed fab rounded-full bg-gray-900 dark:bg-gray-800 text-yellow-400 shadow-xl border-4 border-gray-200 dark:border-gray-900 w-16 h-16 text-xl z-20 transition duration-100"
     >
       <font-awesome-icon :icon="isDark ? ['fa', 'sun'] : ['fa', 'moon']" />
     </button>
@@ -113,8 +115,8 @@ hr {
 }
 
 .fab {
-  bottom: 25px;
-  right: 25px;
+  bottom: 15px;
+  right: 15px;
 
   @media (max-width: 640px) {
     & {

@@ -318,7 +318,7 @@ export default {
   }
 
   blockquote {
-    @apply p-6 mx-16 bg-gray-100 shadow italic;
+    @apply p-6 bg-gray-100 shadow italic transition duration-100;
 
     .dark-mode & {
       @apply bg-gray-900;
