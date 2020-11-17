@@ -1,7 +1,24 @@
 <template>
   <div>
     <div class="project-wrapper">
-      <h1 class="text-center">Projects</h1>
+      <div class="flex flex-col items-center">
+        <h1>Hi, I'm Lindsay Wardell</h1>
+        <img
+          src="~/assets/images/lindsay.jpg"
+          alt="Lindsay Wardell"
+          class="picture w-full lg:w-2/5 object-cover object-top rounded-lg shadow-md"
+        />
+        <div class="container my-5 p-5 text-xl">
+          <p>
+            Lead Backend Developer at Daimler Trucks North America, full stack
+            developer with experience using modern frontend frameworks and
+            backend technologies. Bachelor of Science in Software Development
+            from Western Governor's University. CompTIA A+/Linux+/Project+
+            certified. Host of <a href="https://viewsonvue.com">Views on Vue</a>.
+          </p>
+        </div>
+      </div>
+      <h2 class="text-center">Projects</h2>
       <p class="text-2xl text-center">
         Here are some of my open-source projects that I love.
       </p>
@@ -55,12 +72,16 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 /* .text-border {
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
 } */
 .project-wrapper {
   min-height: calc(100vh - 150px);
+
+  .picture {
+    max-height: 600px;
+  }
 }
 </style>
