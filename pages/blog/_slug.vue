@@ -1,6 +1,8 @@
 <template>
   <div class="blog-post flex justify-center items-center flex-col">
-    <div class="bg-white dark:bg-gray-800 dark:text-gray-200 p-5 shadow-md my-5 transition duration-100">
+    <div
+      class="bg-white dark:bg-gray-800 dark:text-gray-200 p-5 shadow-md my-5 transition duration-100"
+    >
       <div class="post-title mt-6">
         <img
           class="hero dark:bg-white"
@@ -9,7 +11,9 @@
           :alt="blog.title"
         />
         <h1 class="title">{{ blog.title }}</h1>
-        <div class="text-center pt-2 text-gray-600 dark:text-gray-500 transition duration-100">
+        <div
+          class="text-center pt-2 text-gray-600 dark:text-gray-500 transition duration-100"
+        >
           Published by {{ blog.author }} on {{ date }}
         </div>
         <SocialLinks class="m-auto pt-3" />
@@ -19,7 +23,9 @@
         <nuxt-content :document="blog"></nuxt-content>
       </article>
     </div>
-    <div class="bg-gray-400 dark:bg-gray-800 dark:text-gray-200 p-6 m-4 w-full flex flex-col md:flex-row justify-between transition duration-100">
+    <div
+      class="bg-gray-400 dark:bg-gray-800 dark:text-gray-200 p-6 m-4 w-full flex flex-col md:flex-row justify-between transition duration-100"
+    >
       <div class="mb-4 w-full md:w-2/3 lg:w-1/2">
         <h2>Tags</h2>
         <TagPill v-for="tag in blog.tags" :key="tag">
@@ -36,15 +42,6 @@
       </div>
     </div>
     <section class="comments">
-      <div v-if="devToArticle" class="w-full mt-5">
-        <em class="block m-auto w-1/3 flex justify-center"
-          ><a
-            :href="devToArticle.url"
-            class="bg-white dark:bg-gray-800 dark:text-white text-center p-3 text-xl hover:text-pink-700 transition duration-100"
-            >Discuss this post on DEV!</a
-          ></em
-        >
-      </div>
       <div
         v-for="comment in comments"
         :key="comment.slug"
@@ -68,8 +65,18 @@
           </div>
         </div>
       </div>
-      <div class="rounded my-8 shadow-md bg-white dark:bg-gray-800 dark:text-gray-200 w-5/6 m-auto transition duration-100">
-        <h4 class="p-4 pb-0">Add a Comment</h4>
+      <div
+        class="rounded my-8 shadow-md bg-white dark:bg-gray-800 dark:text-gray-200 w-5/6 m-auto transition duration-100"
+      >
+        <div class="flex flex-col md:flex-row">
+          <h4 class="p-4 pb-0 flex-grow">Add a Comment</h4>
+          <a
+            v-if="devToArticle"
+            :href="devToArticle.url"
+            class="text-center p-3 italic hover:text-pink-700 underline"
+            >Discuss this post on DEV</a
+          >
+        </div>
         <div class="p-4 w-full">
           <form
             data-netlify="true"
@@ -165,7 +172,10 @@
                 </div>
               </FormulateInput>
             </div>
-            <VAlert class="success text-black" v-model="accepted" transition="fade"
+            <VAlert
+              class="success text-black"
+              v-model="accepted"
+              transition="fade"
               >Your comment has been posted! It will appear after it is
               approved.</VAlert
             >
@@ -308,7 +318,7 @@ export default {
   .post-title {
     text-align: center;
   }
-  
+
   .hero {
     max-height: 550px;
     max-width: 80vw;
@@ -342,10 +352,10 @@ export default {
     img {
       @apply m-auto w-2/3 shadow-md my-4;
     }
+  }
 
-    a {
-      @apply underline;
-    }
+  article a {
+    @apply underline;
   }
 
   .pill {
