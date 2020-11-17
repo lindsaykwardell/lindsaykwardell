@@ -40,6 +40,10 @@ export default {
   async asyncData({ $content }) {
     const posts = await $content(`posts`).sortBy('date', 'desc').fetch()
 
+    posts.forEach((post) => {
+      post.plaintext = childrenToString(post.body.children)
+    })
+
     return {
       posts,
     }
@@ -89,7 +93,7 @@ export default {
   },
   mounted() {
     this.fuse = new Fuse(this.posts, {
-      keys: ['title', 'excerpt', 'tags'],
+      keys: ['title', 'excerpt', 'tags', 'plaintext'],
     })
     this.searchedPosts = this.posts
 
@@ -107,6 +111,16 @@ export default {
     ContentList,
     SocialLinks,
   },
+}
+
+const childrenToString = ([head, ...tail] = [], str = '') => {
+  if (!head) return str
+
+  const newStr = head.type === 'text' ? str + head.value : str
+
+  if (head.children)
+    return childrenToString(tail, childrenToString(head.children, newStr))
+  else return childrenToString(tail, newStr)
 }
 </script>
 
