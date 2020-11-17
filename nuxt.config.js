@@ -132,6 +132,7 @@ export default {
   fontawesome: {
     icons: {
       brands: true,
+      solid: ['faSun', 'faMoon'],
     },
   },
   generate: {

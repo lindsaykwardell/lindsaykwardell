@@ -13,7 +13,7 @@
       </nuxt-link>
       <div class="flex-grow flex justify-end text-white text-lg">
         <nuxt-link to="/" class="mx-4 hidden sm:inline">Home</nuxt-link>
-        <nuxt-link to="/projects" class="mx-4">Projects</nuxt-link>
+        <nuxt-link to="/projects" class="mx-4 hide-too-small">Projects</nuxt-link>
         <nuxt-link to="/blog/" class="mx-4">Blog</nuxt-link>
         <nuxt-link to="/podcast" class="mx-4">Podcast</nuxt-link>
       </div>
@@ -21,14 +21,22 @@
     <main>
       <Nuxt />
     </main>
-    <button @click="changeMode" class="fixed fab rounded-full bg-pink-900 shadow-xl w-16 h-16 z-20 text-white">
-      Hi
+    <button
+      @click="changeMode"
+      class="fixed fab rounded-full bg-gray-900 dark:bg-gray-800 text-yellow-400 shadow-xl border-4 border-gray-200 dark:border-gray-900 w-12 h-12 text-xl z-20"
+    >
+      <font-awesome-icon :icon="isDark ? ['fa', 'sun'] : ['fa', 'moon']" />
     </button>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    isDark() {
+      return this.$colorMode.preference === 'dark'
+    },
+  },
   methods: {
     changeMode() {
       this.$colorMode.preference =
@@ -107,5 +115,18 @@ hr {
 .fab {
   bottom: 25px;
   right: 25px;
+
+  @media (max-width: 640px) {
+    & {
+      bottom: 5px;
+      right: 5px;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .hide-too-small {
+    display: none;
+  }
 }
 </style>
