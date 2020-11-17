@@ -9,7 +9,7 @@
         Search Posts
         <input
           type="text"
-          class="p-2 mt-3 text-lg w-full shadow rounded dark:bg-gray-700"
+          class="p-2 mt-3 text-lg w-full shadow rounded dark:bg-gray-700 transition duration-100"
           v-model="search"
           aria-label="Search Posts"
         />
@@ -23,7 +23,7 @@
       />
     </client-only>
     <div
-      class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white"
+      class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white transition duration-100"
     >
       <SocialLinks />
     </div>

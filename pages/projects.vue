@@ -24,7 +24,7 @@
       </ContentList>
     </div>
     <div
-      class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white"
+      class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white transition duration-100"
     >
       <SocialLinks />
     </div>

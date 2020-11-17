@@ -21,12 +21,26 @@
     <main>
       <Nuxt />
     </main>
+    <button @click="changeMode" class="fixed fab rounded-full bg-pink-900 shadow-xl w-16 h-16 z-20 text-white">
+      Hi
+    </button>
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    changeMode() {
+      this.$colorMode.preference =
+        this.$colorMode.preference === 'light' ? 'dark' : 'light'
+    },
+  },
+}
+</script>
+
 <style lang="postcss">
 body {
-  @apply bg-gray-200;
+  @apply bg-gray-200 transition duration-100;
   font-family: 'Fira Sans', sans-serif;
 }
 
@@ -88,5 +102,10 @@ hr {
   background-color: rgb(68, 68, 68);
   height: 1px;
   width: 80%;
+}
+
+.fab {
+  bottom: 25px;
+  right: 25px;
 }
 </style>

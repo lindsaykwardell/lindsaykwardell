@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-item bg-white dark:bg-gray-800">
+  <div class="blog-item bg-white dark:bg-gray-800 transition duration-100">
     <component
       :is="item.link.includes('http') ? 'a' : 'nuxt-link'"
       :href="item.link"
@@ -14,7 +14,7 @@
         :defaultClasses="'blog-image'"
       >
         <div v-if="item.image" class="blog-image-wrapper">
-          <img class="blog-image dark:bg-white" :src="item.image" :alt="item.title" />
+          <img class="blog-image dark:bg-white  transition duration-100" :src="item.image" :alt="item.title" />
         </div>
       </slot>
       <div class="p-3">
@@ -35,9 +35,9 @@
           name="excerpt"
           :excerpt="item.excerpt"
           :item="item"
-          :defaultClasses="'blog-excerpt text-gray-600 dark:text-gray-500'"
+          :defaultClasses="'blog-excerpt text-gray-600 dark:text-gray-500 transition duration-100'"
         >
-          <p class="blog-excerpt text-gray-600 dark:text-gray-500">{{ item.excerpt }}</p>
+          <p class="blog-excerpt text-gray-600 dark:text-gray-500 transition duration-100">{{ item.excerpt }}</p>
         </slot>
       </div>
     </component>
