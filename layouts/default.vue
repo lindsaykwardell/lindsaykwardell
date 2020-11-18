@@ -9,11 +9,11 @@
           class="w-16 h-16 rounded-full"
           alt="Lindsay Wardell"
         />
-        <h3 class="text-white pl-3 hidden sm:block">Lindsay Wardell</h3>
+        <h3 class="text-white pl-3 hidden md:block">Lindsay Wardell</h3>
       </nuxt-link>
       <div class="flex-grow flex justify-end text-white text-lg">
         <nuxt-link to="/" class="mx-4 hidden sm:inline">Home</nuxt-link>
-        <nuxt-link to="/about-me" class="mx-4 hide-too-small"
+        <nuxt-link to="/about-me" class="mx-4 hide-too-small whitespace-no-wrap"
           >About Me</nuxt-link
         >
         <nuxt-link to="/blog/" class="mx-4">Blog</nuxt-link>
