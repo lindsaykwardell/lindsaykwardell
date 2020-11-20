@@ -102,6 +102,7 @@ export default {
       },
     ],
     // 'nuxt-lazy-load',
+    '@nuxtjs/feed',
   ],
 
   /*
@@ -132,7 +133,7 @@ export default {
   fontawesome: {
     icons: {
       brands: true,
-      solid: ['faSun', 'faMoon'],
+      solid: ['faSun', 'faMoon', 'faRssSquare'],
     },
   },
   generate: {
@@ -147,5 +148,52 @@ export default {
       }))
     },
   },
+  feed() {
+    const baseUrlPosts = 'https://lindsaykwardell.com'
+    const baseLinkFeedArticles = '/feed'
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'rss.xml' },
+      json: { type: 'json1', file: 'feed.json' },
+    }
+    const { $content } = require('@nuxt/content')
+
+    const createFeedArticles = async function (feed) {
+      feed.options = {
+        title: 'Lindsay Wardell - All Posts',
+        description: 'All posts by Lindsay Wardell',
+        link: baseUrlPosts,
+      }
+      const posts = await $content('posts').sortBy('date', 'desc').fetch()
+
+      posts.forEach((post) => {
+        const url = `${baseUrlPosts}/blog${post.slug}`
+
+        feed.addItem({
+          title: post.title,
+          id: url,
+          link: url,
+          date: new Date(post.date),
+          description: post.excerpt,
+          content: childrenToString(post.body.children),
+        })
+      })
+    }
+
+    return Object.values(feedFormats).map(({ file, type }) => ({
+      path: `${baseLinkFeedArticles}/${file}`,
+      type: type,
+      create: createFeedArticles,
+    }))
+  },
   telemetry: true,
+}
+
+const childrenToString = ([head, ...tail] = [], str = '') => {
+  if (!head) return str
+
+  const newStr = head.type === 'text' ? str + head.value : str
+
+  if (head.children)
+    return childrenToString(tail, childrenToString(head.children, newStr))
+  else return childrenToString(tail, newStr)
 }
