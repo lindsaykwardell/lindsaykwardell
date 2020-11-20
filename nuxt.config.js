@@ -9,7 +9,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Personal site and blog of Lindsay Wardell, Developer and IT Consultant',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
@@ -128,6 +133,12 @@ export default {
         },
         'postcss-nested': {},
       },
+      preset: {
+        features: {
+          // Fixes: https://github.com/tailwindcss/tailwindcss/issues/1190#issuecomment-546621554
+          'focus-within-pseudo-class': false,
+        },
+      },
     },
   },
   fontawesome: {
@@ -135,6 +146,16 @@ export default {
       brands: true,
       solid: ['faSun', 'faMoon', 'faRssSquare'],
     },
+  },
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'dark', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode',
   },
   generate: {
     async routes() {

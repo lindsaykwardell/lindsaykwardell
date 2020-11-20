@@ -56,7 +56,7 @@
         <div class="flex-grow">
           <div class="border-b pl-4 pb-2 flex">
             <div class="flex-1 font-bold">{{ comment.author }}</div>
-            <div class="flex-1 text-right text-gray-600">
+            <div class="flex-1 text-right text-gray-600 dark:text-gray-500">
               {{ formatCommentDate(comment.date) }}
             </div>
           </div>
@@ -344,7 +344,7 @@ const childrenToString = ([head, ...tail] = [], str = '') => {
   blockquote {
     @apply p-6 bg-gray-100 shadow italic transition duration-100;
 
-    .dark-mode & {
+    .dark & {
       @apply bg-gray-900;
     }
   }

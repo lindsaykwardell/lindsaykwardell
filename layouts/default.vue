@@ -13,7 +13,7 @@
       </nuxt-link>
       <div class="flex-grow flex justify-end text-white text-lg">
         <nuxt-link to="/" class="mx-4 hidden sm:inline">Home</nuxt-link>
-        <nuxt-link to="/about-me" class="mx-4 hide-too-small whitespace-no-wrap"
+        <nuxt-link to="/about-me" class="mx-4 hide-too-small whitespace-nowrap"
           >About <span class="hidden sm:inline">Me</span></nuxt-link
         >
         <nuxt-link to="/blog/" class="mx-4">Blog</nuxt-link>
@@ -54,7 +54,7 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-.dark-mode body {
+.dark body {
   @apply bg-gray-900 text-gray-200;
 }
 
