@@ -21,7 +21,11 @@ module.exports = {
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': 'rgba(112,36,89,var(--bg-opacity))'
+      }
+    },
   },
   variants: {},
   plugins: [],
