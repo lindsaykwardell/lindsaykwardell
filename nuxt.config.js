@@ -1,7 +1,6 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-  mode: 'universal',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -108,6 +107,7 @@ export default {
     ],
     // 'nuxt-lazy-load',
     // '@nuxtjs/feed',
+    '@nuxtjs/sitemap',
   ],
 
   /*
@@ -206,6 +206,19 @@ export default {
   //     create: createFeedArticles,
   //   }))
   // },
+  sitemap: {
+    hostname: 'https://lindsaykwardell.com',
+    gzip: true,
+    routes: async () => {
+      let routes = []
+      const { $content } = require('@nuxt/content')
+      let posts = await $content('posts').fetch()
+      for (const post of posts) {
+        routes.push(`blog/${post.slug}`)
+      }
+      return routes
+    },
+  },
   telemetry: true,
 }
 
