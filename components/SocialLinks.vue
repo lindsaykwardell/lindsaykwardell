@@ -24,7 +24,7 @@
     >
       <font-awesome-icon class="text-2xl" :icon="['fab', 'github']" />
     </a>
-    <a href="/feed/rss.xml" class="hover:text-pink-700 transition duration-150">
+    <a href="/rss.xml" class="hover:text-pink-700 transition duration-150">
       <font-awesome-icon class="text-2xl" :icon="['fa', 'rss-square']" />
     </a>
   </div>

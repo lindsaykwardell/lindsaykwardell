@@ -1,3 +1,40 @@
+const fs = require('fs').promises
+const path = require('path')
+
+const constructFeedItem = async (post, dir, hostname) => {
+  //note the path used here, we are using a dummy page with an empty layout in order to not send that data along with our other content
+  const filePath = path.join(__dirname, `dist/blog/${post.slug}/index.html`)
+  const content = await fs.readFile(filePath, 'utf8')
+  const url = `${hostname}/blog${post.slug}`
+  return {
+    title: post.title,
+    id: url,
+    link: url,
+    date: new Date(post.date),
+    description: post.excerpt,
+    content: childrenToString(post.body.children),
+  }
+}
+
+const create = async (feed, args) => {
+  const [filePath, ext] = args
+  const hostname = 'https://lindsaykwardell.com'
+  feed.options = {
+    title: 'Lindsay Wardell - All Posts',
+    description: 'All posts by Lindsay Wardell',
+    link: hostname,
+  }
+  const { $content } = require('@nuxt/content')
+
+  const posts = await $content('posts').sortBy('date', 'desc').fetch()
+
+  for (const post of posts) {
+    const feedItem = await constructFeedItem(post, filePath, hostname)
+    feed.addItem(feedItem)
+  }
+  return feed
+}
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -106,7 +143,7 @@ export default {
       },
     ],
     // 'nuxt-lazy-load',
-    // '@nuxtjs/feed',
+    '@nuxtjs/feed',
     '@nuxtjs/sitemap',
   ],
 
@@ -169,43 +206,15 @@ export default {
       }))
     },
   },
-  // feed() {
-  //   const baseUrlPosts = 'https://lindsaykwardell.com'
-  //   const baseLinkFeedArticles = '/feed'
-  //   const feedFormats = {
-  //     rss: { type: 'rss2', file: 'rss.xml' },
-  //     json: { type: 'json1', file: 'feed.json' },
-  //   }
-  //   const { $content } = require('@nuxt/content')
-
-  //   const createFeedArticles = async function (feed) {
-  //     feed.options = {
-  //       title: 'Lindsay Wardell - All Posts',
-  //       description: 'All posts by Lindsay Wardell',
-  //       link: baseUrlPosts,
-  //     }
-  //     const posts = await $content('posts').sortBy('date', 'desc').fetch()
-
-  //     posts.forEach((post) => {
-  //       const url = `${baseUrlPosts}/blog${post.slug}`
-
-  //       feed.addItem({
-  //         title: post.title,
-  //         id: url,
-  //         link: url,
-  //         date: new Date(post.date),
-  //         description: post.excerpt,
-  //         content: childrenToString(post.body.children),
-  //       })
-  //     })
-  //   }
-
-  //   return Object.values(feedFormats).map(({ file, type }) => ({
-  //     path: `${baseLinkFeedArticles}/${file}`,
-  //     type: type,
-  //     create: createFeedArticles,
-  //   }))
-  // },
+  feed: [
+    {
+      path: '/rss.xml',
+      create,
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+      data: ['posts', 'xml'],
+    },
+  ],
   sitemap: {
     hostname: 'https://lindsaykwardell.com',
     gzip: true,
