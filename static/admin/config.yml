@@ -4,6 +4,9 @@ backend:
 
 media_folder: static/blog
 public_folder: /blog
+site_url: https://lindsaykwardell.com
+display_url: https://lindsaykwardell.com
+logo_url: https://lindsaykwardell.com/favicon.png
 
 collections:
   - name: 'post'
@@ -13,7 +16,7 @@ collections:
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
