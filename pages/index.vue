@@ -19,7 +19,7 @@
           >
             <opti-image
               class="tech-logo"
-              src="~/assets/images/vue.png"
+              src="/vue.png"
               width="100"
               alt="Vue"
             />
@@ -29,7 +29,7 @@
           >
             <opti-image
               class="tech-logo"
-              src="~/assets/images/tailwind.png"
+              src="/tailwind.png"
               width="100"
               alt="Tailwind CSS"
             />
@@ -39,7 +39,7 @@
           >
             <opti-image
               class="tech-logo"
-              src="~/assets/images/typescript.jpg"
+              src="/typescript.jpg"
               width="100"
               alt="Typescript"
             />
@@ -49,7 +49,7 @@
           >
             <opti-image
               class="tech-logo"
-              src="~/assets/images/nodejs.png"
+              src="/nodejs.png"
               width="100"
               alt="NodeJS"
             />
@@ -59,7 +59,7 @@
           >
             <opti-image
               class="tech-logo"
-              src="~/assets/images/aplus.png"
+              src="/aplus.png"
               width="100"
               alt="CompTIA A+ Certified"
             />
