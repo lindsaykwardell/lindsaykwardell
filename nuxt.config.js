@@ -60,6 +60,9 @@ export default {
           'https://fonts.googleapis.com/css?family=Lato|Rokkitt|Fira+Sans&display=swap',
       },
     ],
+    script: [
+      { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)

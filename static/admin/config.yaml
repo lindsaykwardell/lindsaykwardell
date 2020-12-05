@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: static/blog
+public_folder: /blog
+
+collections:
+  - name: 'post'
+    label: 'Post'
+    folder: 'content/posts'
+    format: 'frontmatter'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'date' }
+      - { label: 'Author', name: 'author', widget: 'string' }
+      - { label: 'Header Image', name: 'image', widget: 'image' }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
