@@ -2,7 +2,7 @@
   <div class="index-wrapper">
     <div class="flex flex-wrap justify-between w-full mb-24">
       <div class="w-full xl:w-1/2 flex flex-col items-center">
-        <img
+        <opti-image
           :src="$github.user.avatarUrl"
           :alt="$github.user.name"
           class="rounded-full shadow-xl w-64 my-4"
@@ -17,7 +17,7 @@
           <div
             class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
           >
-            <img
+            <opti-image
               class="tech-logo"
               src="~/assets/images/vue.png"
               width="100"
@@ -27,7 +27,7 @@
           <div
             class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
           >
-            <img
+            <opti-image
               class="tech-logo"
               src="~/assets/images/tailwind.png"
               width="100"
@@ -37,7 +37,7 @@
           <div
             class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
           >
-            <img
+            <opti-image
               class="tech-logo"
               src="~/assets/images/typescript.jpg"
               width="100"
@@ -47,7 +47,7 @@
           <div
             class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
           >
-            <img
+            <opti-image
               class="tech-logo"
               src="~/assets/images/nodejs.png"
               width="100"
@@ -57,7 +57,7 @@
           <div
             class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
           >
-            <img
+            <opti-image
               class="tech-logo"
               src="~/assets/images/aplus.png"
               width="100"

@@ -14,7 +14,7 @@
         :defaultClasses="'blog-image'"
       >
         <div v-if="item.image" class="blog-image-wrapper">
-          <img class="blog-image dark:bg-white  transition duration-100" :src="item.image" :alt="item.title" />
+          <opti-image class="blog-image dark:bg-white  transition duration-100" :src="item.image" :alt="item.title" />
         </div>
       </slot>
       <div class="p-3">

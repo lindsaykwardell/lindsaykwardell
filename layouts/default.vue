@@ -4,7 +4,7 @@
       class="bg-pink-900 w-full h-20 flex items-center px-6 shadow-md fixed z-10"
     >
       <nuxt-link to="/" class="flex items-center hover:no-underline">
-        <img
+        <opti-image
           :src="$github.user.avatarUrl"
           class="w-16 h-16 rounded-full"
           alt="Lindsay Wardell"
@@ -130,5 +130,13 @@ hr {
   .hide-too-small {
     display: none;
   }
+}
+
+.opti-image {
+  opacity: 1;
+  transition: 0.5s ease opacity;
+}
+.opti-image-before-load {
+  opacity: 0;
 }
 </style>

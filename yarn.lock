@@ -5049,11 +5049,6 @@ inquirer@^7.3.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-intersection-observer@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.7.0.tgz#ee16bee978db53516ead2f0a8154b09b400bbdc9"
-  integrity sha512-Id0Fij0HsB/vKWGeBe9PxeY45ttRiBmhFyyt/geBdDHBYNctMRTE3dC1U3ujzz3lap+hVXlEcVaB56kZP/eEUg==
-
 ip@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.5.tgz#bdded70114290828c0a039e72ef25f5aaec4354a"
@@ -6327,14 +6322,6 @@ nuxt-github-api@^0.1.6:
   resolved "https://registry.yarnpkg.com/nuxt-github-api/-/nuxt-github-api-0.1.6.tgz#2273adf9485c2fac6d4328268cbf13ad775bd287"
   integrity sha512-ZsLRwqadrSY3OJ9zdbGCKhRE7dDVl9eD/zlqX3kDn/KVi9DANgVvaimbTlkxL7xQELMY+1m4dlhLB7OVVDXbKw==
 
-nuxt-lazy-load@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/nuxt-lazy-load/-/nuxt-lazy-load-1.2.4.tgz#11ff7bc8fc61c812d4d15c8120477d9b05fa8a31"
-  integrity sha512-b+d7zwOmikv2jqPGO0LNr3RKu8RcuJ3amGhHiiWtgseOLh8NKMl9xgSqprYBhGOD8mSOk5euurteVZWVjR7bYQ==
-  dependencies:
-    intersection-observer "^0.7.0"
-    string-replace-loader "^2.1.1"
-
 nuxt@^2.14.6:
   version "2.14.7"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.14.7.tgz#041bb3f5c659b1fec80042d974f68a0ed4e93aa9"
@@ -6460,6 +6447,15 @@ opener@1.5.2, opener@^1.5.1:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
   integrity sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==
+
+opti-image@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/opti-image/-/opti-image-0.10.0.tgz#a795f67bf6d7afe3e020de6991467fe8d2c3b132"
+  integrity sha512-g0LnoYipn5YcABP3XPR0twcVLJ2uhdWqWzzFO77RWK+lqK2CakYQAI1dLnWYoSrN/UMww5CJ7NIbi93TnqXpTQ==
+  dependencies:
+    core-js "^2.6.5"
+    vue "^2.6.10"
+    vue-runtime-helpers "^1.0.1"
 
 optimize-css-assets-webpack-plugin@^5.0.4:
   version "5.0.4"
@@ -8527,14 +8523,6 @@ strict-uri-encode@^1.0.0:
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
 
-string-replace-loader@^2.1.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/string-replace-loader/-/string-replace-loader-2.3.0.tgz#7f29be7d73c94dd92eccd5c5a15651181d7ecd3d"
-  integrity sha512-HYBIHStViMKLZC/Lehxy42OuwsBaPzX/LjcF5mkJlE2SnHXmW6SW6eiHABTXnY8ZCm/REbdJ8qnA0ptmIzN0Ng==
-  dependencies:
-    loader-utils "^1.2.3"
-    schema-utils "^2.6.5"
-
 string-width@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
@@ -9410,6 +9398,11 @@ vue-router@^3.4.6:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.9.tgz#c016f42030ae2932f14e4748b39a1d9a0e250e66"
   integrity sha512-CGAKWN44RqXW06oC+u4mPgHLQQi2t6vLD/JbGRDAXm0YpMv0bgpKuU5bBd7AvMgfTz9kXVRIWKHqRwGEb8xFkA==
 
+vue-runtime-helpers@^1.0.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/vue-runtime-helpers/-/vue-runtime-helpers-1.1.2.tgz#446b7b820888ab0c5264d2c3a32468e72e4100f3"
+  integrity sha512-pZfGp+PW/IXEOyETE09xQHR1CKkR9HfHZdnMD/FVLUNI+HxYTa82evx5WrF6Kz4s82qtqHvMZ8MZpbk2zT2E1Q==
+
 vue-server-renderer@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.6.12.tgz#a8cb9c49439ef205293cb41c35d0d2b0541653a5"
@@ -9445,7 +9438,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.12:
+vue@^2.6.10, vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==

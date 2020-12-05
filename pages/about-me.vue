@@ -3,10 +3,10 @@
     <div class="project-wrapper">
       <div class="flex flex-col items-center">
         <h1>Hi, I'm Lindsay Wardell</h1>
-        <img
-          src="~/assets/images/lindsay.jpg"
+        <opti-image
+          src="/lindsay.jpg"
           alt="Lindsay Wardell"
-          class="picture w-full lg:w-2/5 object-cover object-top rounded-lg shadow-md"
+          class="picture w-full xl:w-2/5 lg:w-3/5 md:w-4/6 object-cover object-top rounded-lg shadow-md"
         />
         <div class="container my-5 p-5 text-xl">
           <p>

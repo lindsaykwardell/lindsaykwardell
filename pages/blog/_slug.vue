@@ -4,7 +4,7 @@
       class="bg-white dark:bg-gray-800 dark:text-gray-200 p-5 shadow-md my-5 transition duration-100"
     >
       <div class="post-title mt-6">
-        <img
+        <opti-image
           class="hero dark:bg-white"
           v-if="blog.image"
           :src="blog.image"
@@ -48,7 +48,7 @@
         class="flex my-4 p-2 shadow-md rounded bg-white dark:bg-gray-800 dark:text-gray-200 transition duration-100"
       >
         <div class="px-3 border-r w-32 flex-none hidden md:block">
-          <img
+          <opti-image
             :src="`https://www.gravatar.com/avatar/${comment.authorId}`"
             class="h-20 w-20 rounded-full"
           />

@@ -73,6 +73,7 @@ export default {
     '~/plugins/viewsonvue.server.js',
     '~/plugins/vue-formulate.js',
     '~/plugins/devto.js',
+    '~/plugins/opti-image.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -145,7 +146,6 @@ export default {
           `,
       },
     ],
-    // 'nuxt-lazy-load',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
   ],
@@ -183,7 +183,7 @@ export default {
   },
   fontawesome: {
     icons: {
-      brands: true,
+      brands: ['faTwitter', 'faDev', 'faLinkedin', 'faGithub'],
       solid: ['faSun', 'faMoon', 'faRssSquare'],
     },
   },
