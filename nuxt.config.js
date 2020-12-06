@@ -197,6 +197,9 @@ export default {
     classSuffix: '',
     storageKey: 'nuxt-color-mode',
   },
+  pwa: {
+    icon: false
+  },
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content')
