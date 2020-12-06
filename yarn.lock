@@ -6607,10 +6607,10 @@ num2fraction@^1.2.2:
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4=
 
-nuxt-github-api@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/nuxt-github-api/-/nuxt-github-api-0.1.6.tgz#2273adf9485c2fac6d4328268cbf13ad775bd287"
-  integrity sha512-ZsLRwqadrSY3OJ9zdbGCKhRE7dDVl9eD/zlqX3kDn/KVi9DANgVvaimbTlkxL7xQELMY+1m4dlhLB7OVVDXbKw==
+nuxt-github-api@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/nuxt-github-api/-/nuxt-github-api-1.0.0.tgz#fcfec4012d5f82a2df471a9d8ce726abc2a792be"
+  integrity sha512-dN5dAjL5Ryy5j1OOG0h65X8erim4Nfz6EBCFtDJudysB2alt0u8/JAVEEK1Nn6i10B1Vd38AR1v3SOXyybDnXg==
 
 nuxt@^2.14.9:
   version "2.14.9"

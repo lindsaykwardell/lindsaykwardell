@@ -38,7 +38,9 @@ const create = async (feed, args) => {
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-
+  privateRuntimeConfig: {
+    githubApiToken: process.env.GITHUB_API_TOKEN
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Lindsay Wardell',
@@ -73,7 +75,7 @@ export default {
     '~/plugins/viewsonvue.server.js',
     '~/plugins/vue-formulate.js',
     '~/plugins/devto.js',
-    '~/plugins/opti-image.js'
+    '~/plugins/opti-image.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -87,6 +89,7 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/fontawesome',
     '@nuxtjs/color-mode',
+    'nuxt-github-api',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -95,57 +98,6 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    [
-      'nuxt-github-api',
-      {
-        token: process.env.GITHUB_API_TOKEN,
-        graphQLQuery: `
-          query {
-            user(login:"lindsaykwardell"){
-              name
-              bio
-              isHireable
-              url
-              avatarUrl
-              pinnedItems(first:6,types:[REPOSITORY]) {
-                nodes{
-                  ... on Repository {
-                    name
-                    url
-                    description
-                    stargazerCount
-                    licenseInfo{
-                      name
-                    }
-                    primaryLanguage {
-                      color
-                      name
-                    }
-                  }
-                }
-              }
-              repositories(first:6, orderBy:{
-                field:UPDATED_AT, direction: DESC
-              }){
-                nodes{
-                  name
-                  url
-                  description
-                  stargazerCount
-                  licenseInfo{
-                    name
-                  }
-                  primaryLanguage {
-                    color
-                    name
-                  }
-                }
-              }
-            }
-          }
-          `,
-      },
-    ],
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
   ],
@@ -162,7 +114,53 @@ export default {
       },
     },
   },
-
+  githubApi: {
+    graphQLQuery: `
+      query {
+        user(login:"lindsaykwardell"){
+          name
+          bio
+          isHireable
+          url
+          avatarUrl
+          pinnedItems(first:6,types:[REPOSITORY]) {
+            nodes{
+              ... on Repository {
+                name
+                url
+                description
+                stargazerCount
+                licenseInfo{
+                  name
+                }
+                primaryLanguage {
+                  color
+                  name
+                }
+              }
+            }
+          }
+          repositories(first:6, orderBy:{
+            field:UPDATED_AT, direction: DESC
+          }){
+            nodes{
+              name
+              url
+              description
+              stargazerCount
+              licenseInfo{
+                name
+              }
+              primaryLanguage {
+                color
+                name
+              }
+            }
+          }
+        }
+      }
+      `,
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     postcss: {
@@ -198,7 +196,7 @@ export default {
     storageKey: 'nuxt-color-mode',
   },
   pwa: {
-    icon: false
+    icon: false,
   },
   generate: {
     async routes() {

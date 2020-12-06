@@ -45,7 +45,7 @@
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
     "netlify-lambda": "^2.0.1",
-    "nuxt-github-api": "^0.1.6",
+    "nuxt-github-api": "^1.0.0",
     "prettier": "^2.2.1",
     "rss-parser": "^3.9.0",
     "tailwindcss": "^2.0.1-compat"
