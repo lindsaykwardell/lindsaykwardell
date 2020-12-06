@@ -2,7 +2,7 @@
   <div>
     <div class="project-wrapper">
       <div class="flex flex-col items-center">
-        <h1>Hi, I'm Lindsay Wardell</h1>
+        <h1 class="title text-center mb-8">Hi, I'm Lindsay Wardell</h1>
         <opti-image
           src="/lindsay.jpg"
           alt="Lindsay Wardell"

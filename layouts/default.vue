@@ -1,12 +1,12 @@
 <template>
   <div class="relative">
     <nav
-      class="bg-pink-900 w-full h-20 flex items-center px-6 shadow-md fixed z-10"
+      class="bg-lindsay w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
     >
       <nuxt-link to="/" class="flex items-center hover:no-underline">
         <opti-image
           :src="$github.user.avatarUrl"
-          class="w-16 h-16 rounded-full"
+          class="w-12 h-12 md:w-16 md:h-16 rounded-full"
           alt="Lindsay Wardell"
         />
         <h3 class="text-white pl-3 hidden md:block">Lindsay Wardell</h3>
@@ -52,6 +52,10 @@ export default {
 body {
   @apply bg-gray-200 transition duration-100;
   font-family: 'Fira Sans', sans-serif;
+}
+
+.bg-lindsay {
+  background-color: rgb(112, 36, 89);
 }
 
 .dark body {

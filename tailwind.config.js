@@ -30,9 +30,3 @@ module.exports = {
   variants: {},
   plugins: [],
 }
-
-// module.exports = {
-//   theme: {
-//     darkSelector: '.dark-mode',
-//   },
-// }
