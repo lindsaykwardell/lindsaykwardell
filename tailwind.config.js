@@ -23,8 +23,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': 'rgba(112,36,89,var(--bg-opacity))'
-      }
+        lindsay: 'rgb(112,36,89)',
+      },
     },
   },
   variants: {},

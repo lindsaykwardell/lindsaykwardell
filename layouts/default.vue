@@ -54,10 +54,6 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-.bg-lindsay {
-  background-color: rgb(112, 36, 89);
-}
-
 .dark body {
   @apply bg-gray-900 text-gray-200;
 }

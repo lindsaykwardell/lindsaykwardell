@@ -383,7 +383,7 @@ const childrenToString = ([head, ...tail] = [], str = '') => {
   }
 
   button[type='submit'] {
-    @apply py-2 px-3 bg-pink-900 text-white rounded;
+    @apply py-2 px-3 bg-lindsay text-white rounded;
     cursor: pointer;
     transition: 0.3s;
 
