@@ -12,6 +12,4 @@ Skills: Javascript/Typescript (Vue, React, Node), Java, SQL, and C#.
 
 <a href='https://archiveprogram.github.com/'><img src='https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/acbadge.gif' width='40' height='40'></a>
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=lindsaykwardell&show_icons=true)
-
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lindsaykwardell)](https://github.com/anuraghazra/github-readme-stats)
