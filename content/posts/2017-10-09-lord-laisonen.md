@@ -10,7 +10,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Writing
-excerpt: Of all the buildings in Alden, the central exchange house was not one that Brayand would consider inviting.
+snippet: Of all the buildings in Alden, the central exchange house was not one that Brayand would consider inviting.
 ---
 Of all the buildings in Alden, the central exchange house was not one that Brayand would consider inviting. Ancient stone walls spoke of authority, with centuries of commerce embedded in worn stone. Windows adorned with silver and gold, their glass perfect in every way, reflected sunlight down onto the streets below. Within, hushed whispers were overshadowed by the constant clink of gold and silver.
 

@@ -7,7 +7,7 @@ image: "/blog/mp.jpg"
 tags:
   - Web Development
   - Personal
-excerpt: "What do you want to be when you grow up?"
+snippet: "What do you want to be when you grow up?"
 ---
 
 **"What do you want to be when you grow up?"** 

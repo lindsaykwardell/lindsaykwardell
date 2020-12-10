@@ -6,7 +6,7 @@ author: "Lindsay Wardell"
 tags:
   - Nonfiction
   - Poetry
-excerpt: What do you call a song not sung?
+snippet: What do you call a song not sung?
 ---
 What do you call a song not sung?
 

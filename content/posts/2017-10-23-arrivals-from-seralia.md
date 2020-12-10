@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Writing
-excerpt: In Brayand’s experience, the coming of a high-ranking official from the Seralian plains to Alden was generally regarded as a moment of celebration.
+snippet: In Brayand’s experience, the coming of a high-ranking official from the Seralian plains to Alden was generally regarded as a moment of celebration.
 ---
 In Brayand’s experience, the coming of a high-ranking official from the Seralian plains to Alden was generally regarded as a moment of celebration. The arriving party, well over one hundred individuals, would begin to blare trumpets announcing their approach as soon as the city was within their sight. As Alden sat at the lowest point of a valley, its castle placed atop a crag-ridden hill all its own, this was generally before anyone from the city could see them.
 

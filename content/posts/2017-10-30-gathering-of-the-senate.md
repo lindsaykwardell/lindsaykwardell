@@ -10,7 +10,7 @@ tags:
   - The Folly of Wizards
   - Wizards
   - Writing
-excerpt: The sound of a gavel echoed through the expansive chamber as Lindin entered. The seat of the Grand Senate, the greatest authority of the old Republic of Halsland, was packed with men and women from all walks of life.
+snippet: The sound of a gavel echoed through the expansive chamber as Lindin entered. The seat of the Grand Senate, the greatest authority of the old Republic of Halsland, was packed with men and women from all walks of life.
 ---
 The sound of a gavel echoed through the expansive chamber as Lindin entered. The seat of the Grand Senate, the greatest authority of the old Republic of Halsland, was packed with men and women from all walks of life. Along all four walls, rows upon rows of benches lined the chamber, sloping downwards until they reached the center square. It was here that Argantin himself had appeared to humanity, and began the formation of the Empire. Here, it did not matter one’s station in life. All had a voice, be they wizard or commonfolk.
 

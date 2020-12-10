@@ -16,7 +16,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: The sounds of the market greeted Brayand long before he saw the tents and stalls that beckoned to passersby. No matter the day or season, the markets of Alden rang with the sounds of commerce.
+snippet: The sounds of the market greeted Brayand long before he saw the tents and stalls that beckoned to passersby. No matter the day or season, the markets of Alden rang with the sounds of commerce.
 ---
 The sounds of the market greeted Brayand long before he saw the tents and stalls that beckoned to passersby. No matter the day or season, the markets of Alden rang with the sounds of commerce. Men and women, young and old, foreigner or citizen, all came to partake from the excitement. Street performers ranged from musicians to upstart wizards, dramatists to artists, each with a unique style and flavor.
 

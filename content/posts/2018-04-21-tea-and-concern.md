@@ -7,7 +7,7 @@ image: "/blog/juralen.png"
 tags:
   - Ilandrior
   - The Folly of Wizards
-excerpt: “What are you going on about, Lindin?” Archmage Velsyph’s scratchy voice was harsh, but filled with tenderness.
+snippet: “What are you going on about, Lindin?” Archmage Velsyph’s scratchy voice was harsh, but filled with tenderness.
 ---
 “What are you going on about, Lindin?” Archmage Velsyph’s scratchy voice was harsh, but filled with tenderness.
 

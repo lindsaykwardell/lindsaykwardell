@@ -10,7 +10,7 @@ tags:
   - The Folly of Wizards
   - The Light
   - The Void
-excerpt: The World in which we live is far greater than can be comprehended by our limited perspective.
+snippet: The World in which we live is far greater than can be comprehended by our limited perspective.
 ---
 The Book of Generations was written by a beaten people, a nation that had been defeated time and again, whose very gods had been slain and their works torn asunder. To the survivors of the fall of Althênor, there was little that the past could offer them. The Book of Generations reflects that, and speaks of the constant warfare that existed in the World since its foundation by the Seven Gods of Creation, and the fallen state of the mortal races.
 

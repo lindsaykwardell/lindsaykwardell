@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: “I need to speak with Lord Hathen, immediately,” Liatur said, allowing terror to enter his voice. Now was not the time for self-control. “Something has gone terribly wrong.”
+snippet: “I need to speak with Lord Hathen, immediately,” Liatur said, allowing terror to enter his voice. Now was not the time for self-control. “Something has gone terribly wrong.”
 ---
 In the uppermost chamber of the wizards’ tower in Alden, High Mage Liatur frowned. Before him, written on large swaths of parchment, were the designs for the additions to the tower. They jutted off into open air; some curving upward, others sideways, but all with the intent to follow the flow of the arcane through the tower. He had received them yesterday, a week after the stone had arrived for their construction. Liatur had instructed his scribes to write them down exactly, to provide a copy for the masons. Based on the expressions on the men’s faces around him, he prayed that they were accurate.
 

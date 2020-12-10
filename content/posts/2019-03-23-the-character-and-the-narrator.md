@@ -6,7 +6,7 @@ image: "/blog/character-narrator.jpg"
 author: "Lindsay Wardell"
 tags:
   - Fiction
-excerpt: Hello? I know you're there. Who are you? Hold on... who am I?
+snippet: Hello? I know you're there. Who are you? Hold on... who am I?
 ---
 Oh.
 

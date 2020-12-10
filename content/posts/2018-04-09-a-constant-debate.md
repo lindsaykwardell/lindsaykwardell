@@ -8,7 +8,7 @@ tags:
   - Ilandrior
   - The Folly of Wizards
   - Wizards
-excerpt: “The dwarves should never have been allowed to cause such ruin,” Telinstrom repeated. “You tell me that the Empire is watching them now, keeping them at bay?”
+snippet: “The dwarves should never have been allowed to cause such ruin,” Telinstrom repeated. “You tell me that the Empire is watching them now, keeping them at bay?”
 ---
 The council chamber emptied quickly that morning. Everyone, Brayand included, was intent on reaching the final festivities before they were over. Liatur could understand this. He, too, was proud of the accomplishments of the Empire to establish a lasting peace. But a celebration, a gathering, was not at the height of his interests at present.
 

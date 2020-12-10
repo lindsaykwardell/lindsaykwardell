@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: High Mage Gellinns was not accustomed to interruptions.
+snippet: High Mage Gellinns was not accustomed to interruptions.
 ---
 High Mage Gellinns was not accustomed to interruptions. His time was of the utmost worth to the Empire. It was in his office that the most recent advancements were made in the ley line flows of arcane energy, allowing an increase of power that had not been seen in nearly a hundred years. More wizards, dwelling in more floating citadels, meant the Empire could expand that much faster. And the faster the Empire reached the farthest edges of the World, the better.
 

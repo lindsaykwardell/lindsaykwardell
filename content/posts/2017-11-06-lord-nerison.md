@@ -8,7 +8,7 @@ tags:
   - Ilandrior
   - The Folly of Wizards
   - Writing
-excerpt: Stale. That was the best word Lord Nerison could find for Lord General Telinstrom’s offices.
+snippet: Stale. That was the best word Lord Nerison could find for Lord General Telinstrom’s offices.
 ---
 Stale. That was the best word Lord Nerison could find for Lord General Telinstrom’s offices. Gray stone for walls, black curtains with a golden trim covering what windows existed, the cold wooden floors bare of any decoration. Only the crystals embedded in the walls provided any sense of color. Nerison had been in the rooms of lords and nobles across the Empire. This had to be the most dismal of them all.
 

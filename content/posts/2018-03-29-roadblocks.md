@@ -8,7 +8,7 @@ tags:
   - Ilandrior
   - The Folly of Wizards
   - Wizards
-excerpt: “I am sorry, but Archmage Velsyph is very busy at the moment.”
+snippet: “I am sorry, but Archmage Velsyph is very busy at the moment.”
 ---
 *This post was originally made on 4/9/2018, but for continuity reasons has been advanced.*
 

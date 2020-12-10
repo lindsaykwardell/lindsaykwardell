@@ -7,7 +7,7 @@ image: "/blog/juralen.png"
 tags:
   - Ilandrior
   - The Folly of Wizards
-excerpt: “Prince Rator,” Helin spoke up. Both men turned to her. “I feel something strange in the air. The elements are restless.”
+snippet: “Prince Rator,” Helin spoke up. Both men turned to her. “I feel something strange in the air. The elements are restless.”
 ---
 Brayand shivered as a cool breeze blew over his shoulders. He tended not to leave the city walls in the early morning, and so was not accustomed to the winds that blew in from the sea at this hour. But protocol demanded that he be present, despite Niel’s continued insistence that such was not required.
 

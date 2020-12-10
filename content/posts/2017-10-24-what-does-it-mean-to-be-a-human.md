@@ -8,7 +8,7 @@ tags:
   - Essay
   - Ilandrior
   - Writing
-excerpt: The earliest recorded civilization belonged to the humans, and covered nearly the entire western portion of the continent.
+snippet: The earliest recorded civilization belonged to the humans, and covered nearly the entire western portion of the continent.
 ---
 _This post is the first in a series about the history of Ilandrior and its various races. This will be told as close as possible as it would be by the people it talks about. Not everything is covered here, but I think it’s a good starting point._
 

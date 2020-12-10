@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Veladion
-excerpt: Two men moved briskly through the streets of Arhals, robed in dark clothing, the early morning sun beating down upon the two figures.
+snippet: Two men moved briskly through the streets of Arhals, robed in dark clothing, the early morning sun beating down upon the two figures.
 ---
 Two men moved briskly through the streets of Arhals, robed in dark clothing, the early morning sun beating down upon the two figures. In any other city, their movements would have drawn attention. However, in Arhals, one did not think beyond their own interests. Neighborly friendship was a foreign concept to the commonfolk of the capital city.
 

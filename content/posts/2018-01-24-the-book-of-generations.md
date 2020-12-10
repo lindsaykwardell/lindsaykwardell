@@ -8,7 +8,7 @@ tags:
   - Essay
   - Ilandrior
   - The Folly of Wizards
-excerpt: Before all else, there were but two substances – the Void, and the Light.
+snippet: Before all else, there were but two substances – the Void, and the Light.
 ---
 Before the rise of the Argantin Empire and the belief system surrounding Arcanism, two books were known and respected throughout humanity: The Book of Generations, and The Path of Light. The Book of Generations was written centuries after the fall of Althênor, long after the events it relates, but still relatively close timewise. The Path of Light was written much later by Ilthanen Juralen, founder of Alden and first ruler of the Kingdom of Juralen. The Path of Light was a combination of review of the Book of Generations, teachings about the Light, and the visions of Ilthanen.
 

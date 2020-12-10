@@ -8,7 +8,7 @@ tags:
   - Ilandrior
   - The Folly of Wizards
   - Wizards
-excerpt: “Promise me,” the old man repeated, “that you will remember me well, remember that I always sought what was best for our people.”
+snippet: “Promise me,” the old man repeated, “that you will remember me well, remember that I always sought what was best for our people.”
 ---
 The air was crisp in the early morning, even around the forlorn tower Velsyph had indicated. Lindin climbed staircase after staircase within its singular chamber, ascending the forlorn structure. It sat low in the sky, compared to the other towers. It probably had been used in early experiments in aerial construction, based on its structure; its base was uneven, its stones rough and dirty, compared to those towards the top. Why would Velsyph wish to meet here?
 

@@ -13,7 +13,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Writing
-excerpt: A knock on the door drew the governor from his work. “Come in,” he called, rising to greet his guest. Through the door came Lord Albindor, his expression cheery. “Lord Albindor,” he said, “what are you still doing here so late?”
+snippet: A knock on the door drew the governor from his work. “Come in,” he called, rising to greet his guest. Through the door came Lord Albindor, his expression cheery. “Lord Albindor,” he said, “what are you still doing here so late?”
 ---
 The last rays of the sun had long faded away as Brayand sat at his desk in his personal study. His paperwork, it seemed, followed him through the castle; littered across the desk, onto the floors, and tucked into bookshelves between ancient volumes lay the ever-present sheets of parchment demanding his attention. A sapphire, mounted into the desk, gleamed with a warming light, allowing Brayand to see even in the darkness of night.
 

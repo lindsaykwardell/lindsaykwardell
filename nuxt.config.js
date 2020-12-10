@@ -11,7 +11,7 @@ const constructFeedItem = async (post, dir, hostname) => {
     id: url,
     link: url,
     date: new Date(post.date),
-    description: post.excerpt,
+    description: post.snippet,
     content: childrenToString(post.body.children),
   }
 }

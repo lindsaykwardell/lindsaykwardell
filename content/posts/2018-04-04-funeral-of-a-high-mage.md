@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: The cold stone beneath Lindin’s feet seemed to seep into his bones as the funeral procession moved through the gathered crowd.
+snippet: The cold stone beneath Lindin’s feet seemed to seep into his bones as the funeral procession moved through the gathered crowd.
 ---
 The cold stone beneath Lindin’s feet seemed to seep into his bones as the funeral procession moved through the gathered crowd. Eight wizards, each wearing black robes of silk with no adornments, carried the casket of High Mage Gellinns forward to present him, one last time. At the front of the gathering stood Archmage Velsyph, similarly adorned in black. His robes, however, contained accents of gold. His features were particularly noticeable today, Lindin thought. His hollow face, and tired eyes, seemed to pull what light was in the room into themselves, rather than project the strength generally expected of an Archmage.
 

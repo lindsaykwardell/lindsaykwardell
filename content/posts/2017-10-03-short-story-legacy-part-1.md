@@ -15,7 +15,7 @@ tags:
   - The Void
   - Wizards
   - Writing
-excerpt: “What year is it, brother?” Ilthanden finally asked, breaking the silence. “When I left, it was the year 273 of the new age. How long have I traveled?”
+snippet: “What year is it, brother?” Ilthanden finally asked, breaking the silence. “When I left, it was the year 273 of the new age. How long have I traveled?”
 ---
 _This short story was written while I was putting together the world of Ilandrior. It is based approximately 200 years prior to the events of The Folly of Wizards, during the golden age of the Argantin Empire. Some of the content discusses points that have not yet been addresses in what’s been posted on the novel._
 

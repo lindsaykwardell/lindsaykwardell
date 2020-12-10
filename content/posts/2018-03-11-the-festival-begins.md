@@ -8,7 +8,7 @@ tags:
   - Ilandrior
   - Magic
   - The Folly of Wizards
-excerpt: The sound of trumpets echoed throughout the city of Alden, announcing to its inhabitants that the festival of peace had at last begun.
+snippet: The sound of trumpets echoed throughout the city of Alden, announcing to its inhabitants that the festival of peace had at last begun.
 ---
 The sound of trumpets echoed throughout the city of Alden, announcing to its inhabitants that the festival of peace had at last begun. Parades, painstakingly planned for months, now flowed through the city like a river of mirth and celebration. Dancers, musicians, and wizards all performed along the way, to the cheers and applause of the adoring audience. Children sat with their parents, their eyes wide in awe and wonder and the sight of it all. This was not an event to miss.
 

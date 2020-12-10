@@ -234,7 +234,7 @@ export default {
     })
 
     const fuse = new Fuse(posts, {
-      keys: ['title', 'excerpt', 'tags', 'plaintext'],
+      keys: ['title', 'snippet', 'tags', 'plaintext'],
     })
 
     const relatedPosts = fuse
@@ -280,7 +280,6 @@ export default {
       return dayjs(date).local().format('MMMM DD, YYYY, h:mm a')
     },
     async submitComment(data) {
-      console.log(data)
       const formData = new FormData()
       Object.keys(data).forEach((key) => {
         formData.append(key, data[key])

@@ -9,7 +9,7 @@ tags:
   - The Folly of Wizards
   - Wizards
   - Writing
-excerpt: Images. Thoughts. Word and emotions, cascading over each other again and again. It had only been one week, but Lindin was already certain that being a Watcher was going to drive him mad.
+snippet: Images. Thoughts. Word and emotions, cascading over each other again and again. It had only been one week, but Lindin was already certain that being a Watcher was going to drive him mad.
 ---
 Images. Thoughts. Word and emotions, cascading over each other again and again. It had only been one week, but Lindin was already certain that being a Watcher was going to drive him mad.
 

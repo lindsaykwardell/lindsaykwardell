@@ -10,7 +10,7 @@ tags:
   - Ilandrior
   - Magic
   - Writing
-excerpt: During the days of the Wars of the Gods, the elves took refuge wherever they could to escape the calamities befalling the World.
+snippet: During the days of the Wars of the Gods, the elves took refuge wherever they could to escape the calamities befalling the World.
 ---
 **To be an elf is to be the protectors of Nature.** During the days of the Wars of the Gods, the elves took refuge wherever they could to escape the calamities befalling the World. The elves, unlike every other race, were pacifists, only striking back when there was no other choice. Some went into caves, or onto mountains. Some, with the aid of magic, fled beneath the seas, or crossed the seas to distant lands where they prayed no god would step foot. Others escaped into the forests of the World, finding refuge among the trees.
 

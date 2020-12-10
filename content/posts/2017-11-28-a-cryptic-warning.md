@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: Lindin had yet to regain his composure after his meeting with Harsen that morning.
+snippet: Lindin had yet to regain his composure after his meeting with Harsen that morning.
 ---
 Lindin had yet to regain his composure after his meeting with Harsen that morning. Images and shapes had remained blurry, jagged, or simply wrong throughout the morning. When the time came for the midday meal, Lindin sighed deeply, releasing a tension he hadn’t realized was present.
 

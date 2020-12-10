@@ -7,7 +7,7 @@ image: "/blog/code.png"
 tags:
   - Web Development
   - Personal
-excerpt: I have never been satisfied with Wordpress as my platform of choice for my website.
+snippet: I have never been satisfied with Wordpress as my platform of choice for my website.
 ---
 I have never been satisfied with Wordpress as my platform of choice for my website. Partially because I am not a Wordpress developer, and partially because I knew I could build something closer to what I wanted using Gatsby. For those interested, Gatsby is a way to build static websites that gives me full control over the deployment of my site. Out of the box, it is faster than Wordpress, and much more developer-friendly.
 

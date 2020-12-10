@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: Something continued to itch within Lindin’s senses. Something wasn’t right with... whatever this spell was. It was too great, too powerful.
+snippet: Something continued to itch within Lindin’s senses. Something wasn’t right with... whatever this spell was. It was too great, too powerful.
 ---
 The city of wizards glistened below, as Lindin stood outside his tower. A breeze blew past him, ruffling his robes and hair slightly. The sunset of spring struck the windowpanes in such a fashion as to render the land below a reflection of the sky above. No matter where he went, Lindin always felt that it was the most beautiful sight in the world.
 

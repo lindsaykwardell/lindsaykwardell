@@ -32,12 +32,12 @@
           </div>
         </slot>
         <slot
-          name="excerpt"
-          :excerpt="item.excerpt"
+          name="snippet"
+          :snippet="item.snippet"
           :item="item"
-          :defaultClasses="'blog-excerpt text-gray-600 dark:text-gray-500 transition duration-100'"
+          :defaultClasses="'blog-snippet text-gray-600 dark:text-gray-500 transition duration-100'"
         >
-          <p class="blog-excerpt text-gray-600 dark:text-gray-500 transition duration-100">{{ item.excerpt }}</p>
+          <p class="blog-snippet text-gray-600 dark:text-gray-500 transition duration-100">{{ item.snippet }}</p>
         </slot>
       </div>
     </component>
@@ -102,7 +102,7 @@ export default {
   @apply p-2 rounded shadow absolute bg-black text-white w-full top-0 right-0;
 }
 
-.blog-excerpt {
+.blog-snippet {
   @apply p-3 rounded shadow absolute bottom-0 left-0 w-full bg-black text-white text-lg;
   min-height: 6rem;
 } */

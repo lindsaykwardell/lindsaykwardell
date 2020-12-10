@@ -93,14 +93,13 @@ export default {
   },
   mounted() {
     this.fuse = new Fuse(this.posts, {
-      keys: ['title', 'excerpt', 'tags', 'plaintext'],
+      keys: ['title', 'snippet', 'tags', 'plaintext'],
     })
     this.searchedPosts = this.posts
 
     const initialSearch = this.$router.currentRoute.query.tag
 
     if (initialSearch) {
-      console.log('Setting initial search')
       this.search = initialSearch
       clearTimeout(this.debounceSearch)
       this.performSearch()
@@ -161,7 +160,7 @@ const childrenToString = ([head, ...tail] = [], str = '') => {
   @apply p-2 rounded shadow absolute bg-black text-white w-full top-0 right-0;
 }
 
-.blog-excerpt {
+.blog-snippet {
   @apply p-3 rounded shadow absolute bottom-0 left-0 w-full bg-black text-white text-lg;
   min-height: 6rem;
 }

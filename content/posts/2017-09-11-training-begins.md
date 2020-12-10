@@ -12,7 +12,7 @@ tags:
   - The Folly of Wizards
   - Velsyph
   - Wizards
-excerpt: “Again.” Harsen’s voice boomed in the small chamber. Lindin sighed, his frustration starting to boil over. How long has he been at this?
+snippet: “Again.” Harsen’s voice boomed in the small chamber. Lindin sighed, his frustration starting to boil over. How long has he been at this?
 ---
 “Again.” Harsen’s voice boomed in the small chamber. Lindin sighed, his frustration starting to boil over. How long has he been at this? “Keep your emotions in check,” the voice roared it correction. “Again.”
 

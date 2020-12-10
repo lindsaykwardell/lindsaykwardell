@@ -60,7 +60,7 @@ export default {
         ...project,
         link: project.url,
         title: project.name,
-        excerpt: project.description,
+        snippet: project.description,
       }))
     },
   },

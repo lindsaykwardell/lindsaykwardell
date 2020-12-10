@@ -7,7 +7,7 @@ author: "Lindsay Wardell"
 tags:
   - Science Fiction
   - Time Travel
-excerpt: “Then it worked,” he finally said, breathless. “Yes, professor,” I agree. “It worked. You traveled in time.”
+snippet: “Then it worked,” he finally said, breathless. “Yes, professor,” I agree. “It worked. You traveled in time.”
 ---
 *Note: This story touches briefly on suicide.*
 

@@ -8,7 +8,7 @@ tags:
   - Programming
   - Ilandrior
   - Strategy
-excerpt: As a learning experience, I have started building a turn-based strategy game based on Ilandrior.
+snippet: As a learning experience, I have started building a turn-based strategy game based on Ilandrior.
 ---
 As a learning experience, I have started building a turn-based strategy game based on Ilandrior. Currently I’m calling it Wars of the Juriels. It takes place in the time before the Argantin Empire, in the kingdoms of the Juriels. Currently, two players take turn expanding their kingdom and fighting each other for control of the board.
 

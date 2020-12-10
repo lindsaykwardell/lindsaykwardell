@@ -7,7 +7,7 @@ image: "/blog/juralen.png"
 tags:
   - Ilandrior
   - The Folly of Wizards
-excerpt: No matter the challenges, no matter the difficulties, Lord Telinstrom would overcome them. Even if the entire council stood against him, or the kingdoms of the Juriels, or the gods themselves, he would ensure that Alden was strong, and safe. He could do no less.
+snippet: No matter the challenges, no matter the difficulties, Lord Telinstrom would overcome them. Even if the entire council stood against him, or the kingdoms of the Juriels, or the gods themselves, he would ensure that Alden was strong, and safe. He could do no less.
 ---
 Lord Telinstrom rarely had time for idleness. In fact, he detested it. If he had no task with which to occupy his time and energies, then something had been neglected. However, when such times did present themselves, he preferred to move, to act, rather than rest.
 

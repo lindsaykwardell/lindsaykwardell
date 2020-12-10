@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: Lindin’s heart pounded in his ears as the terrifying, timeless moment passed.
+snippet: Lindin’s heart pounded in his ears as the terrifying, timeless moment passed.
 ---
 Lindin’s heart pounded in his ears as the terrifying, timeless moment passed. What power remained in the spellweave seemed to pool, small waves moving slowly in his mind. He rose carefully from the road, rubbing his head and restraining a moan. Never had he experienced anything like that.
 

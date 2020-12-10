@@ -27,11 +27,11 @@
           <template #tags="{ item, tags }">
             <slot name="tags" :item="item" :tags="tags" />
           </template>
-          <template #excerpt="{ item, excerpt, defaultClasses }">
+          <template #snippet="{ item, snippet, defaultClasses }">
             <slot
-              name="excerpt"
+              name="snippet"
               :item="item"
-              :excerpt="excerpt"
+              :snippet="snippet"
               :defaultClasses="defaultClasses"
             />
           </template>

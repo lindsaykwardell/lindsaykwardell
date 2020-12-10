@@ -7,7 +7,7 @@ image: "/blog/juralen.png"
 tags:
   - Ilandrior
   - The Folly of Wizards
-excerpt: “When will you convince the dwarves of your peaceful ways?” When Brayand didn’t respond, Niel smiled. “I know this is not the time, but remember that other lands do not enjoy the lives you live here. The war may be over, but my people still live in fear of dwarven armies marching across our lands.”
+snippet: “When will you convince the dwarves of your peaceful ways?” When Brayand didn’t respond, Niel smiled. “I know this is not the time, but remember that other lands do not enjoy the lives you live here. The war may be over, but my people still live in fear of dwarven armies marching across our lands.”
 ---
 The crowds before Brayand represented more than just a moment of celebration, the governor realized. They were a symbol of everything the Empire had worked towards: peace, unity, and friendship. Along with the citizens of Alden, people from Daelin, Seralia, Halslad, and the other Juriels had come to participate. Even the dwarves had remained, wishing to take part in the ceremonies.
 

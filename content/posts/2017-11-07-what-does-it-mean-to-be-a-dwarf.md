@@ -8,7 +8,7 @@ tags:
   - Essay
   - Ilandrior
   - Writing
-excerpt: From the earliest days of recorded history, the dwarves were little more than slaves to another master.
+snippet: From the earliest days of recorded history, the dwarves were little more than slaves to another master.
 ---
 **To be a dwarf is to understand domination.** From the earliest days of recorded history, the dwarves were little more than slaves to another master. First, they were ruled by the gods, used as pawns in their games of conquest across the World. Later, with the downfall of the gods, the dwarves were freed from this bondage by their kin, the giants. But the giants saw them as inferior in every way, and set them to work. The dragons also saw the dwarves as a workforce, offering them freedom from the giants in return for their ‘services.’ Everywhere that the dwarves went, they were either avoided, or enslaved.
 

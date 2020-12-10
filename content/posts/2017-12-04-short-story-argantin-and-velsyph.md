@@ -10,7 +10,7 @@ tags:
   - Short Story
   - The Folly of Wizards
   - Wizards
-excerpt: Power. It was incredible. Such power! Such command!
+snippet: Power. It was incredible. Such power! Such command!
 ---
 *This short story is a conversation between Velsyph and Argantin. Many details were removed because they reveal too much about what’s coming, so it’s a bit vague, but I think it’s still a fun piece.*
 

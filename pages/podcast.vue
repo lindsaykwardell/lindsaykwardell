@@ -60,7 +60,7 @@ export default {
       return this.vov.items.map((episode) => ({
         ...episode,
         image: this.vov.image.url,
-        excerpt: episode.contentSnippet.split('\n')[0],
+        snippet: episode.contentSnippet.split('\n')[0],
       }))
     },
     activeEpisodes() {

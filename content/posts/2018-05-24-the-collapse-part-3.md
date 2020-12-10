@@ -9,7 +9,7 @@ tags:
   - Magic
   - The Folly of Wizards
   - Wizards
-excerpt: Veladion clenched his fists. “They did it,” he whispered, anger contorting his face. “By the gods, they did it.”
+snippet: Veladion clenched his fists. “They did it,” he whispered, anger contorting his face. “By the gods, they did it.”
 ---
 Niel Rator rode hard, followed closely by Helin and Benan. Their horses breath was ragged beneath them, the animals keeping pace despite exhaustion. It was only a few more miles until the next town, and Niel had no intention of remaining outdoors tonight. The elements, Helin reported, had only intensified in their fear.
 

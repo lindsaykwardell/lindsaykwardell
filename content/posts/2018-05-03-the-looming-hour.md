@@ -7,7 +7,7 @@ image: "/blog/juralen.png"
 tags:
   - Ilandrior
   - The Folly of Wizards
-excerpt: “I have spoken with Argantin,” Velsyph began. “We are commanded to proceed with our tasks.”
+snippet: “I have spoken with Argantin,” Velsyph began. “We are commanded to proceed with our tasks.”
 ---
 The chamber was hushed as Velsyph entered. Dozens of wizards, of all ranks and status, were gathered into the small room, waiting for his words. “I have spoken with Argantin,” he began. “We are commanded to proceed with our tasks.”
 
