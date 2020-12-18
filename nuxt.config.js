@@ -39,7 +39,7 @@ export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
   privateRuntimeConfig: {
-    githubApiToken: process.env.GITHUB_API_TOKEN
+    githubApiToken: process.env.GITHUB_API_TOKEN || process.env.GITHUB_TOKEN
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
