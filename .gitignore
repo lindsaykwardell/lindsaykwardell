@@ -90,3 +90,6 @@ sw.*
 *.swp
 
 lambda
+
+cypress/videos
+cypress/screenshots

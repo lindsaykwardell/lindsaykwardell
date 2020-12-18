@@ -9,6 +9,7 @@
         Search Posts
         <input
           type="text"
+          id="search-input"
           class="p-2 mt-3 text-lg w-full shadow rounded dark:bg-gray-700 transition duration-100"
           v-model="search"
           aria-label="Search Posts"
