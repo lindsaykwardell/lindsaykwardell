@@ -1,7 +1,9 @@
 export default async (context, inject) => {
-  const data = await (await fetch("https://dev.to/api/articles?username=lindsaykwardell")).json()
+  const devto = await (
+    await fetch('https://dev.to/api/articles?username=lindsaykwardell')
+  ).json()
 
-  inject('devto', data)
+  inject('devto', devto)
 
-  context.$devto = data
+  context.$devto = devto
 }

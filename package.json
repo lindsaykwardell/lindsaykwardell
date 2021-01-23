@@ -27,7 +27,7 @@
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/pwa": "^3.3.2",
     "@nuxtjs/sitemap": "^2.4.0",
-    "autoprefixer": "9.8.6",
+    "autoprefixer": "^9",
     "axios": "^0.21.0",
     "core-js": "^3.8.1",
     "cssnano": "^4.1.10",
@@ -51,9 +51,10 @@
     "eslint-plugin-prettier": "^3.2.0",
     "netlify-lambda": "^2.0.1",
     "nuxt-github-api": "^1.0.0",
+    "postcss": "^7",
     "prettier": "^2.2.1",
     "rss-parser": "^3.9.0",
     "start-server-and-test": "^1.11.6",
-    "tailwindcss": "^2.0.1-compat"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
