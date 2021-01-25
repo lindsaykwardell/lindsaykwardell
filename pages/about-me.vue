@@ -4,9 +4,9 @@
       <div class="flex flex-col items-center">
         <h1 class="title text-center mb-8">Hi, I'm Lindsay Wardell</h1>
         <opti-image
-          src="/lindsay.jpg"
+          src="/lindsay-profile.jpg"
           alt="Lindsay Wardell"
-          class="picture w-full xl:w-2/5 lg:w-3/5 md:w-4/6 object-cover object-top rounded-lg shadow-md"
+          class="picture w-full xl:w-1/3 lg:w-3/5 md:w-4/6 rounded-lg shadow-md"
         />
         <div class="container my-5 p-5 text-xl">
           <p>
