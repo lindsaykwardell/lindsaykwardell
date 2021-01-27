@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
     <a
-      href="https://twitter.com/yagaboosh"
+      href="https://twitter.com/lindsaykwardell"
       class="hover:text-lindsay transition duration-150"
     >
       <font-awesome-icon class="text-2xl" :icon="['fab', 'twitter']" />
