@@ -18,7 +18,6 @@
     "deploy": "git checkout master && git merge dev && git push origin && git checkout dev"
   },
   "dependencies": {
-    "@braid/vue-formulate": "^2.5.0",
     "@fortawesome/free-brands-svg-icons": "5.15.2",
     "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@nuxt/content": "^1.13.1",
@@ -36,9 +35,7 @@
     "opti-image": "^0.10.0",
     "postcss-nested": "4.2.3",
     "prism-themes": "^1.5.0",
-    "uuid": "^8.3.2",
-    "vue-infinite-loading": "^2.4.5",
-    "vuetensils": "^0.7.9"
+    "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.2",
