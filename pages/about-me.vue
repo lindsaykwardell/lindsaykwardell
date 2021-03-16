@@ -10,7 +10,7 @@
         />
         <div class="container my-5 p-5 text-xl">
           <p>
-            Lead Backend Developer at Daimler Trucks North America, full stack
+            Software Engineer at This Dot Labs, full stack
             developer with experience using modern frontend frameworks and
             backend technologies. Bachelor of Science in Software Development
             from Western Governor's University. CompTIA A+/Linux+/Project+
