@@ -178,6 +178,9 @@ export default {
       },
     },
   },
+  tailwindcss: {
+    jit: true
+  },
   fontawesome: {
     icons: {
       brands: ['faTwitter', 'faDev', 'faLinkedin', 'faGithub'],
