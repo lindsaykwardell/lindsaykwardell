@@ -20,7 +20,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "5.15.2",
     "@fortawesome/free-solid-svg-icons": "5.15.2",
-    "@nuxt/content": "^1.14.1",
+    "@nuxt/content": "^1.14.0",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/pwa": "^3.3.5",
