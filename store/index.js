@@ -8,7 +8,7 @@ export const mutations = {
       state.vov = {
         ...payload,
         items: payload.items.filter((episode) =>
-          episode.contentSnippet.includes('Lindsay Wardell')
+          episode.contentSnippet.includes('Lindsay')
         ),
       }
   },
