@@ -1,7 +1,7 @@
 <template>
-  <div v-if="vov">
-    <h1 class="text-center">{{ vov.title }}</h1>
-    <p class="text-2xl text-center">{{ vov.description }}</p>
+  <div>
+    <h1 class="text-center">Podcasts</h1>
+    <p class="text-2xl text-center">Below are some of the shows I've been a part of</p>
 
     <div class="flex flex-col justify-center items-center py-6">
       <label class="text-lg w-5/6 md:w-1/2">
@@ -42,11 +42,6 @@ import SocialLinks from '@/components/SocialLinks'
 import Fuse from 'fuse.js'
 
 export default {
-  asyncData(context) {
-    return {
-      resVov: context.$vov,
-    }
-  },
   data: () => ({
     search: '',
     visible: 11,
@@ -54,15 +49,8 @@ export default {
     searchedEpisodes: [],
   }),
   computed: {
-    vov() {
-      return this.$store.state.vov
-    },
     episodes() {
-      return this.vov.items.map((episode) => ({
-        ...episode,
-        image: this.vov.image.url,
-        snippet: episode.contentSnippet.split('\n')[0],
-      }))
+      return this.$podcasts || []
     },
     activeEpisodes() {
       return this.searchedEpisodes.filter(
@@ -94,7 +82,6 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('updateVov', this.resVov)
     this.fuse = new Fuse(this.episodes, {
       keys: ['title', 'contentSnippet'],
     })

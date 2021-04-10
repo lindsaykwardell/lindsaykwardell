@@ -6,9 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nuxt",
-    "functions": "netlify-lambda serve --config ./webpack.functions.js functions",
     "build": "nuxt build",
-    "build-functions": "netlify-lambda build functions",
     "generate": "nuxt generate",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
@@ -31,6 +29,7 @@
     "cssnano": "^4.1.10",
     "dayjs": "^1.10.4",
     "fuse.js": "^6.4.6",
+    "natural-order": "^1.2.2",
     "nuxt": "^2.15.2",
     "opti-image": "^0.10.0",
     "postcss-nested": "5.0.5",

@@ -93,3 +93,5 @@ lambda
 
 cypress/videos
 cypress/screenshots
+# Local Netlify folder
+.netlify
