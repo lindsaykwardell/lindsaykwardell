@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "build-functions": "netlify-lambda build functions",
     "generate": "nuxt generate",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
