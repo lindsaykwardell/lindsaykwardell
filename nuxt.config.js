@@ -75,6 +75,7 @@ export default {
     '~/plugins/podcasts.js',
     '~/plugins/devto.js',
     '~/plugins/opti-image.js',
+    '~/plugins/posts.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

@@ -14,7 +14,11 @@
         :defaultClasses="'blog-image'"
       >
         <div v-if="item.image" class="blog-image-wrapper">
-          <opti-image class="blog-image dark:bg-white  transition duration-100" :src="item.image" :alt="item.title" />
+          <opti-image
+            class="blog-image dark:bg-white transition duration-100"
+            :src="item.image"
+            :alt="item.title"
+          />
         </div>
       </slot>
       <div class="p-3">
@@ -37,7 +41,11 @@
           :item="item"
           :defaultClasses="'blog-snippet text-gray-600 dark:text-gray-500 transition duration-100'"
         >
-          <p class="blog-snippet text-gray-600 dark:text-gray-500 transition duration-100">{{ item.snippet }}</p>
+          <p
+            class="blog-snippet text-gray-600 dark:text-gray-500 transition duration-100"
+          >
+            {{ item.snippet }}
+          </p>
         </slot>
       </div>
     </component>
@@ -73,7 +81,7 @@ export default {
     .blog-title {
       @apply underline;
     }
-    
+
     .blog-image {
       transform: scale(1.1);
       filter: blur(0);

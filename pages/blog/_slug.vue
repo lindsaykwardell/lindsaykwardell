@@ -36,7 +36,12 @@
         <h2>Related Posts</h2>
         <ul>
           <li v-for="post in relatedPosts" :key="post.slug">
-            <nuxt-link :to="post.link">{{ post.title }}</nuxt-link>
+            <component
+              :is="post.link.includes('http') ? 'a' : 'nuxt-link'"
+              :href="post.link"
+              :to="post.link"
+              >{{ post.title }}</component
+            >
           </li>
         </ul>
       </div>
@@ -59,7 +64,7 @@ import Fuse from 'fuse.js'
 dayjs.extend(utc)
 
 export default {
-  async asyncData({ $content, params, $devto }) {
+  async asyncData({ $content, params, $devto, $posts }) {
     const blog = (
       await $content(`posts`)
         .where({ slug: '/' + params.slug })
@@ -70,10 +75,10 @@ export default {
       article.canonical_url.includes(`/blog/${params.slug}`)
     )
 
-    const posts = await $content(`posts`).sortBy('date', 'desc').fetch()
-    posts.forEach((post) => {
-      post.plaintext = childrenToString(post.body.children)
-    })
+    const posts = $posts.map((post) => ({
+      ...post,
+      plaintext: childrenToString(post.body.children),
+    }))
 
     const fuse = new Fuse(posts, {
       keys: ['title', 'snippet', 'tags', 'plaintext'],
@@ -81,7 +86,10 @@ export default {
 
     const relatedPosts = fuse
       .search(`${blog.tags.reduce((str, tag) => str + ' ' + tag, '')}`)
-      .map((f) => ({ ...f.item, link: `/blog${f.item.slug}` }))
+      .map((f) => ({
+        ...f.item,
+        link: f.item.url ? f.item.url : `/blog${f.item.slug}`,
+      }))
       .filter((post, index) => post.slug !== `/${params.slug}` && index < 3)
 
     return {

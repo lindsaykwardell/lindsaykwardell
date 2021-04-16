@@ -71,9 +71,7 @@
       >
         <h2>Latest Post</h2>
         <ContentItem
-          v-for="item in formattedPosts"
-          :key="item.slug"
-          :item="item"
+          :item="firstPost"
         />
       </div>
     </div>
@@ -90,23 +88,15 @@ import SocialLinks from '@/components/SocialLinks'
 import ContentItem from '@/components/ContentItem'
 
 export default {
-  async asyncData({ $content }) {
-    const posts = await $content(`posts`)
-      .sortBy('date', 'desc')
-      .limit(1)
-      .fetch()
-
-    return {
-      posts,
-    }
-  },
   computed: {
-    formattedPosts() {
-      return this.posts.map((post) => ({
-        ...post,
-        link: `/blog${post.slug}`,
-        image: post.image || this.$github.user.avatarUrl,
-      }))
+    firstPost() {
+      const firstPost = this.$posts[0]
+
+      return {
+        ...firstPost,
+        link: firstPost.url ? firstPost.url : `/blog${firstPost.slug}`,
+        image: firstPost.image || this.$github.user.avatarUrl,
+      }
     },
   },
   components: {

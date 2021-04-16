@@ -17,8 +17,8 @@
     "deploy": "git checkout master && git merge dev && git push origin && git checkout dev"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "5.15.2",
-    "@fortawesome/free-solid-svg-icons": "5.15.2",
+    "@fortawesome/free-brands-svg-icons": "5.15.3",
+    "@fortawesome/free-solid-svg-icons": "5.15.3",
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/fontawesome": "^1.1.2",
@@ -26,31 +26,31 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
-    "core-js": "^3.9.1",
-    "cssnano": "^4.1.10",
+    "core-js": "^3.10.1",
+    "cssnano": "^5.0.1",
     "dayjs": "^1.10.4",
     "fuse.js": "^6.4.6",
     "natural-order": "^1.2.2",
-    "nuxt": "^2.15.2",
+    "nuxt": "^2.15.4",
     "opti-image": "^0.10.0",
     "postcss-nested": "5.0.5",
     "prism-themes": "^1.6.0",
     "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.15.3",
+    "@nuxt/types": "^2.15.4",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/color-mode": "^2.0.5",
-    "@nuxtjs/tailwindcss": "^4.0.1",
-    "cypress": "^6.7.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "@nuxtjs/tailwindcss": "^4.0.3",
+    "cypress": "^7.1.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "netlify-lambda": "^2.0.3",
     "nuxt-github-api": "^1.0.0",
-    "postcss": "^8.2.8",
+    "postcss": "^8.2.10",
     "prettier": "^2.2.1",
     "rss-parser": "^3.12.0",
-    "start-server-and-test": "^1.12.0",
-    "tailwindcss": "^2.0.2"
+    "start-server-and-test": "^1.12.1",
+    "tailwindcss": "^2.1.1"
   }
 }

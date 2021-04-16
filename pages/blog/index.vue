@@ -38,17 +38,6 @@ import SocialLinks from '@/components/SocialLinks'
 import Fuse from 'fuse.js'
 
 export default {
-  async asyncData({ $content }) {
-    const posts = await $content(`posts`).sortBy('date', 'desc').fetch()
-
-    posts.forEach((post) => {
-      post.plaintext = childrenToString(post.body.children)
-    })
-
-    return {
-      posts,
-    }
-  },
   data: () => ({
     visible: 11,
     search: '',
@@ -61,7 +50,7 @@ export default {
         .filter((post, index) => index <= this.visible)
         .map((post) => ({
           ...post,
-          link: `/blog${post.slug}`,
+          link: post.url ? post.url : `/blog${post.slug}`,
           image: post.image || this.$github.user.avatarUrl,
         }))
     },
@@ -85,7 +74,7 @@ export default {
     search() {
       clearTimeout(this.debounceSearch)
 
-      if (!this.search.length) this.searchedPosts = this.posts
+      if (!this.search.length) this.searchedPosts = this.$posts
       else
         this.debounceSearch = setTimeout(() => {
           this.performSearch()
@@ -93,10 +82,10 @@ export default {
     },
   },
   mounted() {
-    this.fuse = new Fuse(this.posts, {
+    this.fuse = new Fuse(this.$posts, {
       keys: ['title', 'snippet', 'tags', 'plaintext'],
     })
-    this.searchedPosts = this.posts
+    this.searchedPosts = this.$posts
 
     const initialSearch = this.$router.currentRoute.query.tag
 
