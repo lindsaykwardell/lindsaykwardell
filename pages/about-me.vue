@@ -10,11 +10,11 @@
         />
         <div class="container my-5 p-5 text-xl">
           <p>
-            Software Engineer at This Dot Labs, full stack
+            Software Engineer at <a class="underline" href="https://labs.thisdot.co/author/lindsay-wardell">This Dot Labs</a>. full stack
             developer with experience using modern frontend frameworks and
             backend technologies. Bachelor of Science in Software Development
             from Western Governor's University. CompTIA A+/Linux+/Project+
-            certified. Host of <a href="https://viewsonvue.com">Views on Vue</a>.
+            certified. Host of <a class="underline" href="https://viewsonvue.com">Views on Vue</a>.
           </p>
         </div>
       </div>

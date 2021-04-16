@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     infiniteHandler($state) {
-      if (this.posts.length > this.visible) {
+      if (this.$posts.length > this.visible) {
         this.visible += 3
         $state.loaded()
       } else {
