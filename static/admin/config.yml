@@ -26,3 +26,19 @@ collections:
       - { label: 'Snippet', name: 'snippet', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'external'
+    label: 'External Content'
+    folder: 'content/external'
+    format: 'frontmatter'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'URL', name: 'url', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'date' }
+      - { label: 'Author', name: 'author', widget: 'string' }
+      - { label: 'Header Image', name: 'image', widget: 'image' }
+      - { label: 'Snippet', name: 'snippet', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
