@@ -1,13 +1,23 @@
 import axios from 'axios'
 
+let podcasts = []
+
 export default async (context, inject) => {
-  try {
-    const { data: podcasts } = await axios.get('/.netlify/functions/podcasts')
+  const fetchPodcasts = async () => {
+    if (podcasts.length) return podcasts
 
-    inject('podcasts', podcasts)
+    try {
+      podcasts = await axios
+        .get('/.netlify/functions/podcasts')
+        .then((res) => res.data)
 
-    context.$podcasts = podcasts
-  } catch (err) {
-    // Do nothing
+      return podcasts
+    } catch {
+      return podcasts
+    }
   }
+
+  inject('podcasts', fetchPodcasts)
+
+  context.$podcasts = fetchPodcasts
 }

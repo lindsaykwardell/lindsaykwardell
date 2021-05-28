@@ -46,12 +46,10 @@ export default {
     search: '',
     visible: 11,
     fuse: null,
+    episodes: [],
     searchedEpisodes: [],
   }),
   computed: {
-    episodes() {
-      return this.$podcasts || []
-    },
     activeEpisodes() {
       return this.searchedEpisodes.filter(
         (episode, index) => index <= this.visible
@@ -81,7 +79,9 @@ export default {
         }, 1000)
     },
   },
-  mounted() {
+  async mounted() {
+    this.episodes = await this.$podcasts()
+
     this.fuse = new Fuse(this.episodes, {
       keys: ['title', 'contentSnippet'],
     })
