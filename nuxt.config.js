@@ -55,7 +55,7 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+      { rel: 'icon', href: 'https://fav.farm/W'},
       {
         rel: 'stylesheet',
         href:

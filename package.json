@@ -14,7 +14,8 @@
     "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
     "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open",
     "start": "nuxt start",
-    "deploy": "git checkout master && git merge dev && git push origin && git checkout dev"
+    "deploy": "git checkout master && git merge dev && git push origin && git checkout dev",
+    "analyze": "nuxt build --analyze"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "5.15.3",

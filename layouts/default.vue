@@ -3,14 +3,14 @@
     <nav
       class="bg-lindsay w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
     >
-      <nuxt-link to="/" class="flex items-center hover:no-underline">
+      <a href="/" class="flex items-center hover:no-underline">
         <opti-image
           :src="$github.user.avatarUrl"
           class="w-12 h-12 md:w-16 md:h-16 rounded-full"
           alt="Lindsay Wardell"
         />
         <h3 class="text-white pl-3 hidden md:block">Lindsay Wardell</h3>
-      </nuxt-link>
+      </a>
       <div class="flex-grow flex justify-end text-white text-lg">
         <nuxt-link to="/" class="px-4 py-2 rounded hidden sm:inline">Home</nuxt-link>
         <nuxt-link to="/about-me" class="px-4 py-2 rounded hide-too-small whitespace-nowrap"
