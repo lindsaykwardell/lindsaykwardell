@@ -5,7 +5,7 @@
 
     <div class="flex flex-col justify-center items-center py-6">
       <label class="text-lg w-5/6 md:w-1/2">
-        Search Episodes
+        {{ episodes.length ? `Search ${episodes.length} episodes` : 'Search Episodes' }}
         <input
           type="text"
           id="search-input"
