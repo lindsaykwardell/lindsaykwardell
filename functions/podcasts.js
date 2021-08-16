@@ -5,9 +5,10 @@ const parser = new Parser()
 
 export async function handler(event, context) {
   try {
-    const [vov, modernWeb] = await Promise.all([
+    const [vov, modernWeb, sit] = await Promise.all([
       parser.parseURL('https://feeds.feedwrench.com/views-on-vue.rss'),
       parser.parseURL('https://feed.podbean.com/modernweb/feed.xml'),
+      parser.parseURL('https://feeds.feedwrench.com/shesintech.rss'),
     ])
 
     return {
@@ -26,6 +27,13 @@ export async function handler(event, context) {
             .map((episode) => ({
               ...episode,
               image: modernWeb.image.url,
+              snippet: episode.contentSnippet.split('\n')[0],
+            })),
+          ...sit.items
+            .filter((episode) => episode.contentSnippet.includes('Lindsay'))
+            .map((episode) => ({
+              ...episode,
+              image: sit.image.url,
               snippet: episode.contentSnippet.split('\n')[0],
             })),
         ])
