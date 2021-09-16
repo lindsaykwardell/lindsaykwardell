@@ -1,15 +1,31 @@
 <template>
   <div>
     <h1 class="text-center">Podcasts</h1>
-    <p class="text-2xl text-center">Below are some of the shows I've been a part of</p>
+    <p class="text-2xl text-center">
+      Below are some of the shows I've been a part of
+    </p>
 
     <div class="flex flex-col justify-center items-center py-6">
       <label class="text-lg w-5/6 md:w-1/2">
-        {{ episodes.length ? `Search ${episodes.length} episodes` : 'Search Episodes' }}
+        {{
+          episodes.length
+            ? `Search ${episodes.length} episodes`
+            : 'Search Episodes'
+        }}
         <input
           type="text"
           id="search-input"
-          class="p-2 mt-3 text-lg w-full shadow rounded dark:bg-gray-700 transition duration-100"
+          class="
+            p-2
+            mt-3
+            text-lg
+            w-full
+            shadow
+            rounded
+            dark:bg-gray-700
+            transition
+            duration-100
+          "
           v-model="search"
           aria-label="Search Episodes"
         />
@@ -28,7 +44,18 @@
       />
     </client-only>
     <div
-      class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white transition duration-100"
+      class="
+        w-full
+        h-16
+        flex
+        justify-center
+        items-center
+        bg-gray-900
+        dark:bg-gray-800
+        text-white
+        transition
+        duration-100
+      "
     >
       <SocialLinks />
     </div>
@@ -42,11 +69,17 @@ import SocialLinks from '@/components/SocialLinks'
 import Fuse from 'fuse.js'
 
 export default {
+  async asyncData({ $podcasts }) {
+    const podcasts = await $podcasts()
+
+    return {
+      episodes: podcasts,
+    }
+  },
   data: () => ({
     search: '',
     visible: 11,
     fuse: null,
-    episodes: [],
     searchedEpisodes: [],
   }),
   computed: {
@@ -80,7 +113,7 @@ export default {
     },
   },
   async mounted() {
-    this.episodes = await this.$podcasts()
+    if (!this.search.length) this.episodes = await this.$podcasts()
 
     this.fuse = new Fuse(this.episodes, {
       keys: ['title', 'contentSnippet'],
