@@ -1,0 +1,54 @@
+---
+// Component Imports
+import BaseHead from '../components/BaseHead.astro';
+import DarkModeButton from '../components/DarkModeButton.vue'
+import SocialLinks from '../components/SocialLinks.vue'
+import { getData } from '../api/github.mjs';
+
+const github = await getData();
+
+let title = 'Lindsay Wardell';
+let description = 'An awesome person writing awesome stuff';
+let permalink = 'https://lindsaykwardell.com/';
+---
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink}>
+      <slot name="head"></slot>
+    </BaseHead>
+  </head>
+
+  <body>
+    <div class="relative flex flex-col min-h-[100vh]">
+      <nav
+        class="bg-lindsay w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
+      >
+        <a href="/" class="flex items-center hover:no-underline">
+          <img
+            src={github.user.avatarUrl}
+            class="w-12 h-12 md:w-16 md:h-16 rounded-full"
+            alt="Lindsay Wardell"
+          />
+          <h3 class="text-white pl-3 hidden md:block">Lindsay Wardell</h3>
+        </a>
+        <div class="flex-grow flex justify-end text-white text-lg">
+          <a href="/" class="px-4 py-2 rounded hidden sm:inline">Home</a>
+          <a href="/about" class="px-4 py-2 rounded hide-too-small whitespace-nowrap"
+            >About <span class="hidden sm:inline">Me</span></a
+          >
+          <a href="/blog" class="px-4 py-2 rounded">Blog</a>
+          <a href="/podcast" class="px-4 py-2 rounded">Podcast</a>
+        </div>
+      </nav>
+      <main class="flex-grow mb-16">
+        <slot></slot>
+      </main>
+      <footer
+        class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white transition duration-100"
+      >
+        <SocialLinks client:idle />
+      </footer>
+      <DarkModeButton client:only />
+    </div>
+  </body>
+</html>

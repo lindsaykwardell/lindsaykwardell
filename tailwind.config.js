@@ -1,32 +1,56 @@
-/*
- ** TailwindCSS Configuration File
- **
- ** Docs: https://tailwindcss.com/docs/configuration
- ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
- */
 module.exports = {
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'content/**/*.md',
-      'plugins/**/*.js',
-      'nuxt.config.js',
-    ],
-    options: {
-      whitelist: [],
-    },
-  },
-  darkMode: 'class', // or 'media' or 'class'
+  mode: "jit",
+  purge: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,ts,tsx,vue}"],
+  plugins: [require("@tailwindcss/typography")],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        lindsay: 'rgb(112,36,89)',
+        lindsay: "rgb(112,36,89)",
       },
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: "white",
+            strong: {
+              color: "white",
+            },
+            a: {
+              color: "white",
+              "&:hover": {
+                color: "white",
+              },
+            },
+            blockquote: {
+              color: "white",
+            },
+            code: {
+              color: "white",
+            },
+            h1: {
+              color: "white",
+            },
+            h2: {
+              color: "white",
+            },
+            h3: {
+              color: "white",
+            },
+            h4: {
+              color: "white",
+            },
+            h5: {
+              color: "white",
+            },
+            h6: {
+              color: "white",
+            }
+          },
+        },
+      }),
     },
   },
-  variants: {},
-  plugins: [],
-}
+  variants: {
+    typography: ["dark"],
+  },
+};
