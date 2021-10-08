@@ -33,7 +33,7 @@ collections:
         }
   - name: 'external'
     label: 'External Content'
-    folder: 'content/external'
+    folder: 'src/pages/blog'
     format: 'frontmatter'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
