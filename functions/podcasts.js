@@ -19,7 +19,7 @@ export async function handler(event, context) {
             .filter((episode) => episode.contentSnippet.includes('Lindsay'))
             .map((episode) => ({
               ...episode,
-              image: vov.image.url,
+              image: vov.itunes.image,
               snippet: episode.contentSnippet.split('\n')[0],
             })),
           ...modernWeb.items
@@ -33,7 +33,7 @@ export async function handler(event, context) {
             .filter((episode) => episode.contentSnippet.includes('Lindsay'))
             .map((episode) => ({
               ...episode,
-              image: sit.image.url,
+              image: sit.itunes.image,
               snippet: episode.contentSnippet.split('\n')[0],
             })),
         ])
