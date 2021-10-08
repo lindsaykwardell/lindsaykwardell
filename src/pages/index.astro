@@ -1,0 +1,92 @@
+---
+// Component Imports
+import BaseLayout from '../layouts/BaseLayout.astro'
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+import { getData } from '../api/github.mjs';
+
+const posts = Astro.fetchContent('./blog/*.md');
+
+const allPosts = posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+let github = await getData();
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<BaseLayout>
+  <div class="relative w-full flex justify-center items-center text-center px-8">
+    <div class="flex flex-wrap justify-between w-full mb-24">
+      <div class="w-full xl:w-1/2 flex flex-col items-center">
+        <img
+          src={github?.user?.avatarUrl}
+          alt={github?.user?.name}
+          class="rounded-full shadow-xl w-64 my-4"
+        />
+        <h1 class="title text-6xl py-3 font-medium">
+          { github?.user?.name }
+        </h1>
+        <h2 class="text-3xl lg:text-4xl leading-9 font-medium py-4">
+          { github?.user?.bio }
+        </h2>
+        <div class="flex w-full pt-4">
+          <div
+            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+          >
+            <img
+              class="tech-logo"
+              src="/vue.png"
+              width="100"
+              alt="Vue"
+            />
+          </div>
+          <div
+            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+          >
+            <img
+              class="tech-logo"
+              src="/elm.png"
+              width="100"
+              alt="Elm"
+            />
+          </div>
+          <div
+            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+          >
+            <img
+              class="tech-logo"
+              src="/tailwind.png"
+              width="100"
+              alt="Tailwind CSS"
+            />
+          </div>
+          <div
+            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+          >
+            <img
+              class="tech-logo"
+              src="/typescript.jpg"
+              width="100"
+              alt="Typescript"
+            />
+          </div>
+          <div
+            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
+          >
+            <img
+              class="tech-logo"
+              src="/nodejs.png"
+              width="100"
+              alt="NodeJS"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full xl:w-1/3 pt-6 xl:pt-0 flex flex-col items-center justify-end"
+      >
+        <h2>Latest Post</h2>
+        <BlogPostPreview item={allPosts[0]} />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

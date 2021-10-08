@@ -1,0 +1,76 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import SocialLinks from '../components/SocialLinks.vue'
+import dayjs from 'dayjs'
+
+const {content} = Astro.props;
+const {title, snippet, date, author, image, permalink, alt} = content;
+---
+<BaseLayout>
+<style slot="head" global lang="scss">
+  @use "prismjs/themes/prism-tomorrow.css";
+</style>
+
+<div class="blog-post flex justify-center items-center flex-col">
+    <div
+      class="bg-white dark:bg-gray-800 dark:text-gray-200 p-5 shadow-md my-5 transition duration-100"
+    >
+      <div class="post-title mt-6">
+        <img
+          class="hero dark:bg-white"
+          src={image}
+        />
+        <h1 class="title">{ title }</h1>
+        <div
+          class="text-center pt-2 text-gray-600 dark:text-gray-400 transition duration-100"
+        >
+          Published by { author } on { dayjs(date).format("MMM DD YYYY") }
+        </div>
+        <SocialLinks client:idle class="m-auto pt-3" />
+      </div>
+      <hr />
+      <article class="py-8 prose m-auto dark:prose-dark">
+        <slot />
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+  
+<style global lang="postcss">
+.blog-post {
+  .post-title {
+    text-align: center;
+  }
+
+  .hero {
+    width: 100vw;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    max-width: 1280px;
+    max-height: 420px;
+  }
+
+  @media (max-width: 50em) {
+    .hero {
+      height: 260px;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    }
+  }
+
+  pre[class*='language'] {
+    @apply rounded shadow-md;
+  }
+
+  pre {
+    width: auto !important;
+    max-width: 90vw;
+  }
+
+  .pill {
+    @apply bg-gray-800 text-white shadow no-underline py-2 px-4 rounded-full m-1 font-bold select-none text-sm inline-block;
+  }
+}
+</style>
