@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: static/blog
+media_folder: public/blog
 public_folder: /blog
 site_url: https://lindsaykwardell.com
 display_url: https://lindsaykwardell.com
@@ -11,10 +11,10 @@ logo_url: https://lindsaykwardell.com/favicon.png
 collections:
   - name: 'post'
     label: 'Post'
-    folder: 'content/posts'
+    folder: 'src/pages/blog/posts'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     editor:
       preview: true
     fields:
@@ -24,8 +24,13 @@ collections:
       - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Header Image', name: 'image', widget: 'image' }
       - { label: 'Snippet', name: 'snippet', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'string',
+          default: '../../layouts/BlogPost.astro',
+        }
   - name: 'external'
     label: 'External Content'
     folder: 'content/external'
@@ -36,9 +41,13 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'URL', name: 'url', widget: 'string' }
+      - { label: 'Link', name: 'link', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date' }
       - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Header Image', name: 'image', widget: 'image' }
-      - { label: 'Snippet', name: 'snippet', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'string',
+          default: '../../layouts/ExternalPostLayout.astro',
+        }
