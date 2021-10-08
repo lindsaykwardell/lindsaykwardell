@@ -8,8 +8,6 @@ const posts = Astro.fetchContent('./blog/*.md');
 
 const allPosts = posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
-console.log(allPosts[0]);
-
 let github = await getData();
 
 // Full Astro Component Syntax:

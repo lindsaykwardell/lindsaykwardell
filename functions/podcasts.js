@@ -11,6 +11,8 @@ export async function handler(event, context) {
       parser.parseURL('https://feeds.feedwrench.com/shesintech.rss'),
     ])
 
+    console.log(vov);
+
     return {
       statusCode: 200,
       body: JSON.stringify(
@@ -19,21 +21,21 @@ export async function handler(event, context) {
             .filter((episode) => episode.contentSnippet.includes('Lindsay'))
             .map((episode) => ({
               ...episode,
-              image: vov.image.url,
+              image: vov.itunes.image,
               snippet: episode.contentSnippet.split('\n')[0],
             })),
           ...modernWeb.items
             .filter((episode) => episode.contentSnippet.includes('Lindsay'))
             .map((episode) => ({
               ...episode,
-              image: modernWeb.image.url,
+              image: modernWeb.image?.url,
               snippet: episode.contentSnippet.split('\n')[0],
             })),
           ...sit.items
             .filter((episode) => episode.contentSnippet.includes('Lindsay'))
             .map((episode) => ({
               ...episode,
-              image: sit.image.url,
+              image: sit.itunes.image,
               snippet: episode.contentSnippet.split('\n')[0],
             })),
         ])
