@@ -16,6 +16,7 @@ const { item } = Astro.props;
         class="blog-image dark:bg-white transition duration-100"
         src={item.image}
         alt={item.title}
+        loading="lazy"
       />
     </div>}
     <div class="p-3">
