@@ -43,12 +43,14 @@ const { title, description, permalink } = Astro.props;
 
 <script>
 const html = document.querySelector("html");
-const darkMode = localStorage.getItem("darkMode") === 'true';
+let darkMode = localStorage.getItem("darkMode");
 
-if (darkMode === undefined) {
+if (!darkMode) {
   darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+} else {
+  darkMode = darkMode === "true";
 }
- 
+
 if (darkMode) {
   html.classList.add("dark");
 }
