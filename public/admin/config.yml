@@ -11,7 +11,7 @@ logo_url: https://lindsaykwardell.com/favicon.png
 collections:
   - name: 'post'
     label: 'Post'
-    folder: 'src/pages/blog/posts'
+    folder: 'src/pages/blog'
     format: 'frontmatter'
     create: true
     slug: '{{slug}}'
