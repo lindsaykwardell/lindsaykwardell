@@ -6,7 +6,7 @@ import { getData } from '../api/github.mjs';
 
 const posts = Astro.fetchContent('./blog/*.md');
 
-const allPosts = posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+const allPosts = posts.filter(post => new Date(post.date) <= new Date()).sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
 let github = await getData();
 

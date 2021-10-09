@@ -9,9 +9,8 @@ interface MarkdownFrontmatter {
 }
 // Data Fetching: List all Markdown posts in the repo.
 
-const localPosts = Astro.fetchContent<MarkdownFrontmatter>('./blog/*.md');
-const externalPosts = Astro.fetchContent<MarkdownFrontmatter>('../externalPosts/*.md')
-const allPosts = [...localPosts, ...externalPosts].sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+const posts = Astro.fetchContent<MarkdownFrontmatter>('./blog/*.md');
+const allPosts = posts.filter(post => new Date(post.date) <= new Date()).sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
