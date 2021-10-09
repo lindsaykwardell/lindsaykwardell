@@ -3,6 +3,7 @@ slug: "/a-song-unsung"
 date: 2018-09-01
 title: "A Song Unsung"
 author: "Lindsay Wardell"
+image: "/blog/for-the-present.jpg"
 tags:
   - Nonfiction
   - Poetry

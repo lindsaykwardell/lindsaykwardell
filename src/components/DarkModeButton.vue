@@ -1,6 +1,7 @@
 <template>
   <button
     class="
+      dark-mode-button
       fixed
       fab
       rounded-full
