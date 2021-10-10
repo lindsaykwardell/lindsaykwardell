@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 const {content} = Astro.props;
 const {title, snippet, date, author, image, permalink, alt} = content;
 ---
-<BaseLayout>
+<BaseLayout title={title} description={snippet} image={image}>
 <style slot="head" global lang="scss">
   @use "prismjs/themes/prism-tomorrow.css";
 </style>

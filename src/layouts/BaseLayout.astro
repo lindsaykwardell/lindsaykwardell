@@ -7,13 +7,22 @@ import { getData } from '../api/github.mjs';
 
 const github = await getData();
 
-let title = 'Lindsay Wardell';
-let description = 'An awesome person writing awesome stuff';
-let permalink = 'https://lindsaykwardell.com/';
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+}
+
+let { title, description, image } = Astro.props;
+
+title = title || 'Lindsay Wardell';
+description = description || 'Programmer, writer, mother. She/Her. Interested in Vue, Typescript, Node.js, and Elm.';
+image = image ? 'https://lindsaykwardell.com' + image : 'https://lindsaykwardell.com/lindsay-profile.jpg'
+let permalink = 'https://lindsaykwardell.com';
 ---
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink}>
+    <BaseHead title={title} description={description} permalink={permalink} image={image}>
       <slot name="head"></slot>
     </BaseHead>
   </head>
