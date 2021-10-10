@@ -1,56 +1,56 @@
 module.exports = {
-  mode: "jit",
-  purge: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,ts,tsx,vue}"],
-  plugins: [require("@tailwindcss/typography")],
-  darkMode: "class",
+  mode: 'jit',
+  purge: ['./public/**/*.html', './src/**/*.{astro,js,jsx,ts,tsx,vue}'],
+  plugins: [require('@tailwindcss/typography')],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        lindsay: "rgb(112,36,89)",
+        lindsay: 'rgb(112,36,89)',
       },
       typography: (theme) => ({
         dark: {
           css: {
-            color: "white",
+            color: 'white',
             strong: {
-              color: "white",
+              color: 'white',
             },
             a: {
-              color: "white",
-              "&:hover": {
-                color: "white",
+              color: 'white',
+              '&:hover': {
+                color: 'white',
               },
             },
             blockquote: {
-              color: "white",
+              color: 'white',
             },
             code: {
-              color: "white",
+              color: 'white',
             },
             h1: {
-              color: "white",
+              color: 'white',
             },
             h2: {
-              color: "white",
+              color: 'white',
             },
             h3: {
-              color: "white",
+              color: 'white',
             },
             h4: {
-              color: "white",
+              color: 'white',
             },
             h5: {
-              color: "white",
+              color: 'white',
             },
             h6: {
-              color: "white",
-            }
+              color: 'white',
+            },
           },
         },
       }),
     },
   },
   variants: {
-    typography: ["dark"],
+    typography: ['dark'],
   },
-};
+}

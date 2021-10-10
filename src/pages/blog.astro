@@ -1,19 +1,14 @@
 ---
-// Component Imports
 import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogHeader from '../components/BlogHeader.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 
 interface MarkdownFrontmatter {
   date: Date;
 }
-// Data Fetching: List all Markdown posts in the repo.
 
 const posts = Astro.fetchContent<MarkdownFrontmatter>('./blog/*.md');
 const allPosts = posts.filter(post => new Date(post.date) <= new Date()).sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 <BaseLayout>
   <div class="flex flex-col lg:flex-row flex-wrap">

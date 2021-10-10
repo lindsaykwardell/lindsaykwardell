@@ -17,7 +17,7 @@ const {title, snippet, date, author, image, permalink, alt} = content;
     >
       <div class="post-title mt-6">
         <img
-          class="hero dark:bg-white"
+          class="hero dark:bg-white object-cover m-auto mb-4"
           src={image}
         />
         <h1 class="title">{ title }</h1>
@@ -46,9 +46,7 @@ const {title, snippet, date, author, image, permalink, alt} = content;
     width: 100vw;
     object-fit: cover;
     object-position: center;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    max-width: 1280px;
+    max-width: 900px;
     max-height: 420px;
   }
 

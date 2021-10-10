@@ -21,7 +21,7 @@
     "
     @click="toggleDarkMode"
   >
-    {{ isDark ? "🌙" : "☀️" }}
+    {{ isDark ? '🌙' : '☀️' }}
   </button>
 </template>
 
@@ -29,37 +29,25 @@
 export default {
   data() {
     return {
-      isDark: localStorage.getItem("darkMode") === "true",
-    };
+      isDark: localStorage.getItem('darkMode') === 'true',
+    }
   },
   methods: {
     toggleDarkMode() {
-      this.isDark = !this.isDark;
+      this.isDark = !this.isDark
     },
   },
   watch: {
-    isDark: {
-      immediate: true,
-      handler() {
-        localStorage.setItem("darkMode", this.isDark);
-        const html = document.querySelector("html");
+    isDark() {
+      localStorage.setItem('darkMode', this.isDark)
+      const html = document.querySelector('html')
 
-        if (this.isDark) {
-          html.classList.add("dark");
-        } else {
-          html.classList.remove("dark");
-        }
-      },
+      if (this.isDark) {
+        html.classList.add('dark')
+      } else {
+        html.classList.remove('dark')
+      }
     },
   },
-  mounted() {
-    const prev = localStorage.getItem("darkMode");
-
-    if (prev !== undefined) {
-      this.isDark = prev === "true";
-    } else {
-      this.isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-  },
-};
+}
 </script>
