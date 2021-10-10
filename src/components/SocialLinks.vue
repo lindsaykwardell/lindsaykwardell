@@ -3,30 +3,31 @@
     <a
       href="https://twitter.com/lindsaykwardell"
       class="hover:text-lindsay transition duration-150"
+      aria-label="Twitter"
     >
       <font-awesome-icon class="text-2xl" :icon="['fab', 'twitter']" />
     </a>
     <a
       href="https://dev.to/lindsaykwardell"
       class="hover:text-lindsay transition duration-150"
+      aria-label="Dev.to"
     >
       <font-awesome-icon class="text-2xl" :icon="['fab', 'dev']" />
     </a>
     <a
       href="https://linkedin.com/in/lindsaykwardell"
       class="hover:text-lindsay transition duration-150"
+      aria-label="LinkedIn"
     >
       <font-awesome-icon class="text-2xl" :icon="['fab', 'linkedin']" />
     </a>
     <a
       href="https://github.com/lindsaykwardell"
       class="hover:text-lindsay transition duration-150"
+      aria-label="GitHub"
     >
       <font-awesome-icon class="text-2xl" :icon="['fab', 'github']" />
     </a>
-    <!-- <a href="/rss.xml" class="hover:text-lindsay transition duration-150">
-      <font-awesome-icon class="text-2xl" :icon="['fa', 'rss-square']" />
-    </a> -->
   </div>
 </template>
 
