@@ -1,5 +1,5 @@
 ---
-slug: "/a-song-unsung"
+slug: "/blog/a-song-unsung"
 date: 2018-09-01
 title: "A Song Unsung"
 author: "Lindsay Wardell"

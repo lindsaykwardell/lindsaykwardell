@@ -11,14 +11,15 @@ export interface Props {
   title: string;
   description: string;
   image: string;
+  permalink: string;
 }
 
-let { title, description, image } = Astro.props;
+let { title, description, image, permalink } = Astro.props;
 
 title = title || 'Lindsay Wardell';
 description = description || 'Programmer, writer, mother. She/Her. Interested in Vue, Typescript, Node.js, and Elm.';
 image = image ? 'https://lindsaykwardell.com' + image : 'https://lindsaykwardell.com/lindsay-profile.jpg'
-let permalink = 'https://lindsaykwardell.com';
+permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lindsaykwardell.com';
 ---
 <html lang="en">
   <head>

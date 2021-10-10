@@ -1,5 +1,5 @@
 ---
-slug: "/the-character-and-the-narrator"
+slug: "/blog/the-character-and-the-narrator"
 date: 2019-03-23
 title: "The Character and the Narrator"
 image: "/blog/character-narrator.jpg"

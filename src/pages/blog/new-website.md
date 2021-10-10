@@ -1,5 +1,5 @@
 ---
-slug: "/new-website"
+slug: "/blog/new-website"
 date: 2019-08-04
 title: "New Website"
 author: "Lindsay Wardell"

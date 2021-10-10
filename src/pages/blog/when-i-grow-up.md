@@ -1,5 +1,5 @@
 ---
-slug: "/when-i-grow-up"
+slug: "/blog/when-i-grow-up"
 date: 2020-05-18
 title: "When I Grow Up..."
 author: "Lindsay Wardell"

@@ -1,5 +1,5 @@
 ---
-slug: "/wars-of-the-juriels"
+slug: "/blog/wars-of-the-juriels"
 date: 2018-10-31
 title: "Wars of the Juriels"
 image: "/blog/warsofthejuriels.png"

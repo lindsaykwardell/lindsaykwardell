@@ -1,5 +1,5 @@
 ---
-slug: "/for-the-present"
+slug: "/blog/for-the-present"
 date: 2018-12-06
 title: "For the Present"
 image: "/blog/for-the-present.jpg"

@@ -1,5 +1,5 @@
 ---
-slug: "/intro-to-http-wrapper"
+slug: "/blog/intro-to-http-wrapper"
 date: 2020-05-26
 title: "Introduction to Deno with http_wrapper"
 author: "Lindsay Wardell"
