@@ -8,7 +8,7 @@ snippet: Astro is an innovative static site generator that focuses on static gen
 layout: '../../layouts/BlogPost.astro'
 ---
 
-I don't remember exactly when I started hearing about [Astro](https://astro.build), one of the latest static site generators to help tackle the problem of building sites with less Javascript.The problem is one we're all familiar with - how can I build a static site (in my case, my personal site) using the languages and tools I know best, while performing at its best? After migrating from Wordpress, I first tried [Gatsby](https://www.gatsbyjs.com/), then [Gridsome](https://gridsome.org/), and most recently [Nuxt](https://nuxtjs.org/). All of these are excellent tools, and I highly recommend them. But one thing that is the same across all of them is that they are tied to their specific framework (React or Vue).
+I don't remember exactly when I started hearing about [Astro](https://astro.build), one of the latest static site generators to help tackle the problem of building sites with less Javascript. The problem is one we're all familiar with - how can I build a static site (in my case, my personal site) using the languages and tools I know best, while performing at its best? After migrating from Wordpress, I first tried [Gatsby](https://www.gatsbyjs.com/), then [Gridsome](https://gridsome.org/), and most recently [Nuxt](https://nuxtjs.org/). All of these are excellent tools, and I highly recommend them. But one thing that is the same across all of them is that they are tied to their specific framework (React or Vue).
 
 Astro does away with that, and it's one of the things that really drew me to the framework. From their site:
 
