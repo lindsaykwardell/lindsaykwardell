@@ -29,6 +29,19 @@ Also, as Astro is no longer using Snowpack for its build tool, I had to update m
 However, when I ran `npm run dev`, I was presented with an error!
 
 ```bash
+Error: Build failed with 12 errors:
+node_modules/fetch-blob/from.js:1:59: error: Could not resolve "node:fs" (mark it as external to exclude it from the bundle)
+node_modules/fetch-blob/from.js:2:25: error: Could not resolve "node:path" (mark it as external to exclude it from the bundle)
+node_modules/fetch-blob/from.js:3:31: error: Could not resolve "node:worker_threads" (mark it as external to exclude it from the bundle)
+node_modules/node-fetch/src/body.js:8:34: error: Could not resolve "node:stream" (mark it as external to exclude it from the bundle)
+node_modules/node-fetch/src/body.js:9:31: error: Could not resolve "node:util" (mark it as external to exclude it from the bundle)
+```
+
+This error was thrown because I was importing `node-fetch` in a couple JS files. In Astro 0.21, [`fetch` is now globally available](https://docs.astro.build/guides/data-fetching/), both inside and outside of `.astro` components. Removing the import of `node-fetch` solved the problem.
+
+However, I was presented with a different error!
+
+```bash
 panic: Export statements must be placed at the top of .astro files!
 panic: Export statements must be placed at the top of .astro files!
 2:14:52 PM [vite] Error when evaluating SSR module /src/layouts/BlogPost.astro:
@@ -40,7 +53,4 @@ panic: Export statements must be placed at the top of .astro files!
 02:14 PM [astro] 500 /                                        1753ms
 ```
 
-There are two issues here:
-
-1. Astro now requires all exports (such as the Props interface) to be at the top of the file. This was a simple change, but not one documented in the migration guide.
-2. 
+Astro now requires all exports (such as the Props interface) to be at the top of the file. This was a simple change, but not one documented in the migration guide. By either removing or moving the exported Props interface, the build was able to move forward.
