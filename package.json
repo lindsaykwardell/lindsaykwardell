@@ -20,6 +20,7 @@
   "dependencies": {
     "@astrojs/renderer-vue": "^0.2.0",
     "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.4.0",
     "dayjs": "^1.10.7",
     "natural-order": "^1.2.2",
     "prismjs": "^1.25.0"
@@ -32,6 +33,7 @@
     "astro": "^0.21.0",
     "cypress": "^9.0.0",
     "netlify-lambda": "^2.0.15",
+    "postcss": "^8.3.11",
     "postcss-nested": "^5.0.6",
     "rss-parser": "^3.12.0",
     "start-server-and-test": "^1.12.1",
