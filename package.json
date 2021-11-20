@@ -18,26 +18,26 @@
     "deploy": "git checkout master && git merge dev && git push origin && git checkout dev"
   },
   "dependencies": {
-    "@astrojs/renderer-vue": "^0.1.8",
-    "@snowpack/plugin-dotenv": "^2.2.0",
+    "@astrojs/renderer-vue": "^0.2.0",
     "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.4.0",
     "dayjs": "^1.10.7",
     "natural-order": "^1.2.2",
     "prismjs": "^1.25.0"
   },
   "devDependencies": {
-    "@astrojs/renderer-preact": "^0.2.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/vue-fontawesome": "^3.0.0-4",
-    "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.9",
-    "cypress": "^7.1.0",
-    "netlify-lambda": "^2.0.3",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "astro": "^0.21.0",
+    "cypress": "^9.0.0",
+    "netlify-lambda": "^2.0.15",
+    "postcss": "^8.3.11",
     "postcss-nested": "^5.0.6",
     "rss-parser": "^3.12.0",
+    "sass": "^1.43.4",
     "start-server-and-test": "^1.12.1",
-    "tailwindcss": "^2.2.16"
+    "tailwindcss": "^2.2.19"
   }
 }

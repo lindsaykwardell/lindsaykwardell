@@ -7,9 +7,10 @@ const {content} = Astro.props;
 const {title, snippet, date, author, image, slug} = content;
 ---
 <BaseLayout title={title} description={snippet} image={image} permalink={slug}>
-<style slot="head" global lang="scss">
-  @use "prismjs/themes/prism-tomorrow.css";
-</style>
+<link
+  rel="stylesheet"
+  href={Astro.resolve("../styles/prism.scss")}
+>
 
 <div class="blog-post flex justify-center items-center flex-col">
     <div
@@ -37,7 +38,7 @@ const {title, snippet, date, author, image, slug} = content;
   </div>
 </BaseLayout>
   
-<style global lang="postcss">
+<style global lang="pcss">
 .blog-post {
   .post-title {
     text-align: center;
