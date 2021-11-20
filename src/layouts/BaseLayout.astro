@@ -1,4 +1,10 @@
 ---
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  permalink: string;
+}
 // Component Imports
 import BaseHead from '../components/BaseHead.astro';
 import DarkModeButton from '../components/DarkModeButton.vue'
@@ -6,13 +12,6 @@ import SocialLinks from '../components/SocialLinks.vue'
 import { getData } from '../api/github.mjs';
 
 const github = await getData();
-
-export interface Props {
-  title: string;
-  description: string;
-  image: string;
-  permalink: string;
-}
 
 let { title, description, image, permalink } = Astro.props;
 
