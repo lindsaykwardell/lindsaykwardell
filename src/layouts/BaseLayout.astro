@@ -1,6 +1,5 @@
 ---
 // Component Imports
-import BaseHead from '../components/BaseHead.astro';
 import DarkModeButton from '../components/DarkModeButton.vue'
 import SocialLinks from '../components/SocialLinks.vue'
 import { getData } from '../api/github.mjs';
@@ -16,9 +15,58 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
 ---
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} image={image}>
-      <slot name="head"></slot>
-    </BaseHead>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={permalink} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={permalink} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Rokkitt|Fira+Sans&display=swap">
+
+    <link
+      rel="stylesheet"
+      href={Astro.resolve("../styles/global.css")}
+    >
+
+    <script>
+    const html = document.querySelector("html");
+    let darkMode = localStorage.getItem("darkMode");
+
+    if (!darkMode) {
+      darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } else {
+      darkMode = darkMode === "true";
+    }
+
+    if (darkMode) {
+      html.classList.add("dark");
+    }
+
+    localStorage.setItem("darkMode", darkMode);
+    </script>
+
+    <slot name="head"></slot>
   </head>
 
   <body>
