@@ -53,4 +53,26 @@ panic: Export statements must be placed at the top of .astro files!
 02:14 PM [astro] 500 /                                        1753ms
 ```
 
-Astro now requires all exports (such as the Props interface) to be at the top of the file. This was a simple change, but not one documented in the migration guide. By either removing or moving the exported Props interface, the build was able to move forward.
+Astro now requires all exports (such as the Props interface) to be at the top of the file. This was a simple change, but not one documented in the migration guide. By either removing or moving the exported Props interface, the dev environment was able to load. However, something was missing...
+
+The content!
+
+## Missing Body
+
+When `localhost:3000` came up, I was presented with a perfectly blank screen. I noticed that the head tag was filling in properly, but not the body. In Chrome devtools, nothing appeared between the `<body>` tag.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta tags, script, etc -->
+  </head>
+  <body></body>
+</html>
+```
+
+What's going on here? I'm honestly still not sure. If I updated my `index.astro` file to have some extra text before calling `<BaseLayout>`, the text would load, and the meta tags would be replicated inside the `<body>` tag. The solution was to eliminate the `BaseHead` component (which was only utilized by `BaseLayout`), which placed the actual HTML tags in the layout component.
+
+However, I took a bit of a detour before coming to this solution, and realized that my Tailwind configuration was no longer working. This was thankfully a straightforward fix, although the documentation seemed to be spread across a couple pages.
+
+First, I had to manually install PostCSS and autoprefixer. Then, I updated my `postcss.config.cjs` file to include postcss-nested, Tailwind, and autoprefixer (previously I had only needed to import postcss-nested). This reenabled Tailwind for my site, which I was able to validate after I fixed the missing body problem.
