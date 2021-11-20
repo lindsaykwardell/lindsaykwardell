@@ -92,3 +92,45 @@ hr {
     display: none;
   }
 }
+
+.blog-item {
+  @apply shadow-md rounded-lg relative overflow-hidden flex justify-center;
+  /* height: 415px; */
+  animation: 0.3s ease-out 0s 1 shift;
+
+  .blog-image {
+    @apply transition duration-500;
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    /* filter: blur(3px); */
+  }
+
+  &:hover {
+    .blog-title {
+      @apply underline;
+    }
+
+    .blog-image {
+      transform: scale(1.1);
+      filter: blur(0);
+    }
+  }
+}
+
+.blog-image-wrapper {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+@keyframes shift {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
