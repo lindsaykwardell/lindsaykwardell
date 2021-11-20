@@ -27,3 +27,20 @@ The first thing I did was update my `package.json` to use the new dependencies. 
 Also, as Astro is no longer using Snowpack for its build tool, I had to update my environment variables as well, removing `SNOWPACK` from the variable name.
 
 However, when I ran `npm run dev`, I was presented with an error!
+
+```bash
+panic: Export statements must be placed at the top of .astro files!
+panic: Export statements must be placed at the top of .astro files!
+2:14:52 PM [vite] Error when evaluating SSR module /src/layouts/BlogPost.astro:
+    at /src/layouts/BaseLayout.astro
+2:14:52 PM [vite] Error when evaluating SSR module /src/pages/blog/a-song-unsung.md:
+    at /src/layouts/BaseLayout.astro
+2:14:52 PM [vite] Error when evaluating SSR module /src/pages/index.astro:
+    at /src/layouts/BaseLayout.astro
+02:14 PM [astro] 500 /                                        1753ms
+```
+
+There are two issues here:
+
+1. Astro now requires all exports (such as the Props interface) to be at the top of the file. This was a simple change, but not one documented in the migration guide.
+2. 
