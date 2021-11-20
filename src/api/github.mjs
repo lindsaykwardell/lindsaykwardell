@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const gql = async (url, query, variables, options) => {
   const res = await fetch(url, {
     ...options,
@@ -27,7 +25,7 @@ export const fetchFromGitHub = async (graphQLQuery) => {
       mode: "cors",
       headers: {
         Authorization: `Bearer ${
-          import.meta.env.SNOWPACK_PUBLIC_GITHUB_API_TOKEN
+          import.meta.env.PUBLIC_GITHUB_API_TOKEN
         }`,
       },
     })
