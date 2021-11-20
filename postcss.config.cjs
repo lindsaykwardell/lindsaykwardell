@@ -1,5 +1,9 @@
-const postcssNested = require("postcss-nested");
+// const postcssNested = require("postcss-nested");
 
 module.exports = {
-  plugins: [postcssNested(), tailwindcss: {}, autoprefixer: {}],
-};
+  plugins: {
+    "postcss-nested": {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
