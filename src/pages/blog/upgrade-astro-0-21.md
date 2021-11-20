@@ -76,3 +76,13 @@ What's going on here? I'm honestly still not sure. If I updated my `index.astro`
 However, I took a bit of a detour before coming to this solution, and realized that my Tailwind configuration was no longer working. This was thankfully a straightforward fix, although the documentation seemed to be spread across a couple pages.
 
 First, I had to manually install PostCSS and autoprefixer. Then, I updated my `postcss.config.cjs` file to include postcss-nested, Tailwind, and autoprefixer (previously I had only needed to import postcss-nested). This reenabled Tailwind for my site, which I was able to validate after I fixed the missing body problem.
+
+However, something didn't look quite right
+
+## Missing Styles
+
+While the site loaded (and Tailwind properly initialized), a number of custom styles were missing.
+
+![lindsaykwardell.com. Dark mode is not working, and other styles are slightly off](/blog/missing-styles.png)
+
+Crucially (for me), dark mode was completely nonfunctional. Some elements would switch style, but a majority (including the root background and any text) were not changing. 
