@@ -1,7 +1,7 @@
 ---
 // Component Imports
 import DarkModeButton from '../components/DarkModeButton.vue'
-import SocialLinks from '../components/SocialLinks.vue'
+import SocialLinks from '../components/SocialLinks.astro'
 import { getData } from '../api/github.mjs';
 
 const github = await getData();
@@ -97,7 +97,7 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
       <footer
         class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white transition duration-100"
       >
-        <SocialLinks client:visible />
+        <SocialLinks />
       </footer>
       <DarkModeButton client:only />
     </div>

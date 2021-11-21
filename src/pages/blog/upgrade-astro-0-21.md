@@ -138,7 +138,9 @@ With that, I was able to deploy an updated version of the site, now powered by A
 
 What a lovely error! Thankfully, this was my fault, not Astro or Netlify. I had forgotten to update my environment variables on Netlify, causing the build to fail (that object is probably a JS fetch error). Easy fix, and it was good to go. The build went up, deployment was successful, and... my JS wasn't loading.
 
+<div class="flex justify-center">
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Having some trouble with <a href="https://twitter.com/Netlify?ref_src=twsrc%5Etfw">@Netlify</a> and <a href="https://twitter.com/astrodotbuild?ref_src=twsrc%5Etfw">@astrodotbuild</a> 0.21. For some reason, I&#39;m unable to fetch my JS files for partial hydration because they&#39;re blocked by CORS. It looks like files are being stored on Cloudfront instead of my domain.<br><br>Anyone run into something like this before?</p>&mdash; Lindsay Wardell 🏳️‍⚧️ (@lindsaykwardell) <a href="https://twitter.com/lindsaykwardell/status/1462173643249651713?ref_src=twsrc%5Etfw">November 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 
 This was slightly more complex, but had an easy solution. The build was working as expected locally, I could see the JS files were present (and clearly being cached by Netlify on Cloudfront). I didn't have any build plugins enabled that modified the JS, and (most confusing) everything worked as expected on Astro 0.20.
 

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro'
-import SocialLinks from '../components/SocialLinks.vue'
+import SocialLinks from '../components/SocialLinks.astro'
 import dayjs from 'dayjs'
 
 const {content} = Astro.props;
@@ -28,7 +28,9 @@ const {title, snippet, date, author, image, slug} = content;
         >
           Published by { author } on { dayjs(date).format("MMM DD YYYY") }
         </div>
-        <SocialLinks client:idle class="m-auto pt-3" />
+        <div class="pt-3">
+          <SocialLinks />
+        </div>
       </div>
       <hr />
       <article class="py-8 px-4 md:px-0 prose m-auto dark:prose-dark">
