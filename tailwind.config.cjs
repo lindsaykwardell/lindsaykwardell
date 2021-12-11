@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./public/**/*.html', './src/**/*.{astro,js,jsx,ts,tsx,vue}'],
+  content: ['./public/**/*.html', './src/**/*.{astro,js,jsx,ts,tsx,vue}'],
   plugins: [require('@tailwindcss/typography')],
   darkMode: 'class',
   theme: {
@@ -50,7 +49,7 @@ module.exports = {
       }),
     },
   },
-  variants: {
-    typography: ['dark'],
-  },
+  // variants: {
+  //   typography: ['dark'],
+  // },
 }
