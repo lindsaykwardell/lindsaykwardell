@@ -1,7 +1,13 @@
 ---
 import dayjs from 'dayjs'
 export interface Props {
-  item: any;
+  item: {
+    link?: string
+    url?: string
+    image?: string
+    title: string
+    snippet?: string
+  };
 }
 
 const { item } = Astro.props;
