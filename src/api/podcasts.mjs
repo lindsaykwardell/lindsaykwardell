@@ -94,6 +94,15 @@ const videos = [
     image:
       'https://i.ytimg.com/vi/G1FtGIAN2lo/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAdZbqUkrZRSXnJC4kzSWU4yXYJUg',
   },
+  {
+    url: 'https://www.youtube.com/watch?v=LecYqXHvHfg&t=839s',
+    title: 'Wikifunctions and Abstract Wikipedia',
+    snippet:
+      'Wikifunctions is a collaboratively edited catalog of computer functions that aims to allow the creation, modification, and reuse of source code. It is closely related to Abstract Wikipedia, an extension to Wikidata that aims to create a language-independent version of Wikipedia using its structured data.',
+    pubDate: '2021-08-14T00:00:00.000Z',
+    image:
+      'https://i.ytimg.com/vi/LecYqXHvHfg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCPwaNDWP5Wgrg4JgIU0pmDDc6qUw',
+  },
 ]
 
 export async function getPodcasts() {
