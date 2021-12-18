@@ -2,8 +2,8 @@
 
 #### I'm a software developer and IT professional
 
-Helping people get the most out of technology is my passion. I build web applications and IT solutions to help people get things done.
+I am a programmer, writer, and mother. I work as a Software Engineer at NoRedInk, and co-host on the podcast Views on Vue. I am experienced in building web applications with modern frontend frameworks, such as Vue, React, and Svelte, as well as backend technologies including Node and Sprint Boot. I also enjoy blogging and presenting online about the technologies that I love working with. 
 
-Skills: Javascript/Typescript (Vue, React, Node), Java, SQL, and C#.
+I am currently learning more about functional programming, and utilizing languages like Elm and Haskell for side projects and at work.
 
 - 😄 Pronouns: She/Her
