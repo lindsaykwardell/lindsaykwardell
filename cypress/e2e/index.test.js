@@ -7,7 +7,7 @@ describe('The Home Page', () => {
     cy.visit(Cypress.config().baseUrl + '/')
     cy.get('[href="/about"]').click()
     cy.get('[href="/blog"]').click()
-    cy.get('[href="/podcast"]').click()
+    cy.get('[href="/media"]').click()
   })
 
   it('should render the latest post on the home page', () => {
