@@ -1,17 +1,15 @@
 ---
-// Component Imports
 import BaseLayout from '../layouts/BaseLayout.astro'
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 import { getData } from '../api/github.mjs';
+import { getPodcasts } from '../api/podcasts.mjs'
 
+const podcasts = (await getPodcasts()).map(media => ({...media, date: media.pubDate}));
 const posts = Astro.fetchContent('./blog/*.md');
 
-const allPosts = posts.filter(post => new Date(post.date) <= new Date()).sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+const allPosts = [...posts, ...podcasts].filter(post => new Date(post.date) <= new Date()).sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
 let github = await getData();
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 <BaseLayout>
   <div class="relative w-full flex justify-center items-center text-center px-8">
@@ -84,7 +82,7 @@ let github = await getData();
       <div
         class="w-full xl:w-1/3 pt-6 xl:pt-0 flex flex-col items-center justify-end"
       >
-        <h2>Latest Post</h2>
+        <h2>Latest Activity</h2>
         <BlogPostPreview item={allPosts[0]} />
       </div>
     </div>
