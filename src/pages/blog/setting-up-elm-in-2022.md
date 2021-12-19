@@ -128,17 +128,37 @@ Great! Now we're able to import our Elm code directly into our existing applicat
 
 There is a tool called [`elm-tooling`](https://elm-tooling.github.io/elm-tooling-cli/) which does all the hard work for us. Rather than having to install the Elm language, `elm-format`, and `elm-test` (or `elm-test-rs`) individually, we can run `npx elm-tooling install`, and all of the core tooling can be installed at once, significantly faster than if they were installed individually. This can even be added as a postinstall command in your `package.json`, ensuring that Elm and its related tools are available with a single install command. This is extremely useful when setting up your local environment, or during CI build steps.
 
-## Conclusion
+## Frameworks and Templates
 
-There's more to the Elm ecosystem than I could go over here, but the above should get you started in building out a new application with Elm in 2022. If you don't want to do the legwork yourself of setting up a new project, I highly recommend checking out a template I put together to build Elm applications using Vite, called [`vite-elm-template`](https://github.com/lindsaykwardell/vite-elm-template). As of this writing it includes:
+All this tooling is great, and an excellent way to get writing Elm code and integrating it into your application. But sometimes it's nice to start from a higher level abstraction, much like React developers often start with Create React App, or Vue developers use the Vue CLI. While there are no official templates or frameworks beyond what we've already talked about, there are a few interesting projects that are worth taking a look at.
 
-- Hot Module Reload of Elm code
+### elm-spa
+
+[elm-spa](https://www.elm-spa.dev/) is a great way to start working on a single-page Elm application. Browser navigation and handling multiple pages is something that is a bit more difficult in Elm than in pure Javascript, and as such requires more boilerplate code in order to make it work. elm-spa handles all of the complexities of building an SPA for you, while providing a number of great features for building a modern web application.
+
+![Build reliable applications with Elm. With elm-spa, you can create production-ready application with one command: npx elm-spa new. No need to configure webpack, gulp, or any other NPM dev tools. This zero-configuration CLI comes with a live-reloading dev server, production-ready build commands, and even a few scaffolding commands for new and existing applications.](/blog/elm-spa-image.png)
+
+### elm-pages
+
+Where elm-spa is targeting single-page applications, [elm-pages](https://elm-pages.com/) is built for generating static sites. Utilizing Elm's type system, elm-pages's goal is to make handling external data for a static site easy. Conceptually, it's similar to what Gatsby or Gridsome do (provide a typesafe interface to access multiple types of data), but utilizing Elm's strengths rather than adding an additional type system such as GraphQL.
+
+![Pull in typed Elm data to your pages. Whether your data is coming from markdown files, APIs, a CMS, or all of the above, elm-pages lets you pull in just the data you need for a page. No loading spinners, no Msg or update logic, just define your data and use it in your view.](/blog/elm-pages-image.png)
+
+### `vite-elm-template`
+
+This was a template I created to scratch my own itch. As a Vue developer, I love working with Vite, and really wanted a base template for Vite that I could use to build Elm applications. [`vite-elm-template`](https://github.com/lindsaykwardell/vite-elm-template) is a basic Vite template intended to get you started writing in Elm without having to spend time configuring everything yourself. Unlike elm-pages or elm-spa, it's not a framework of any sort. If you want to bring in single-page application features, or other functionalities, you will have to build those in yourself. That said, it's perfect for getting started with a basic environment.
+
+As of this writing it includes:
+
+- Hot Module Reload of all code in the app (including Elm)
 - Tooling installation via `elm-tooling`
   - Includes Elm, `elm-format`, `elm-json`, and `elm-test-rs`
 - Basic unit test examples
 - Github Actions CI for running tests
 - Recommends the Elm VS Code extension
 
-There is also a link in the README to set up a workspace using Gitpod, so if you want to try it out in the cloud before running things locally, I highly encourage trying it out!
+If Vite is something you enjoy working with, I hope you'll check it out! There is also a link in the README to set up a workspace using Gitpod if you want to try things out in a sandbox environment first.
 
-Whether you use a template or the tooling of your choice, I hope you have fun exploring the Elm ecosystem, and getting to use this delightful functional programming language.
+## Conclusion
+
+I hope that helps you get started building an Elm application! Elm is an amazing language to learn and work with, and the tooling that exists to support it today makes working with it as delightful an experience as the language itself provides. Above all, I hope you enjoy learning and working with Elm in 2022!
