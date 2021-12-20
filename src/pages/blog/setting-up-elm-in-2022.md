@@ -1,6 +1,6 @@
 ---
 slug: "/blog/setting-up-elm-in-2022"
-date: 2031-12-11
+date: 2021-12-19
 title: "Setting up an Elm project in 2022"
 image: "/elm.png"
 author: "Lindsay Wardell"
@@ -162,3 +162,5 @@ If Vite is something you enjoy working with, I hope you'll check it out! There i
 ## Conclusion
 
 I hope that helps you get started building an Elm application! Elm is an amazing language to learn and work with, and the tooling that exists to support it today makes working with it as delightful an experience as the language itself provides. Above all, I hope you enjoy learning and working with Elm in 2022!
+
+If you're new to Elm, and would like to learn more about it, check out the [official Elm Guide](https://guide.elm-lang.org/).
