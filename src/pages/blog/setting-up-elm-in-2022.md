@@ -144,6 +144,18 @@ Where elm-spa is targeting single-page applications, [elm-pages](https://elm-pag
 
 ![Pull in typed Elm data to your pages. Whether your data is coming from markdown files, APIs, a CMS, or all of the above, elm-pages lets you pull in just the data you need for a page. No loading spinners, no Msg or update logic, just define your data and use it in your view.](/blog/elm-pages-image.png)
 
+
+### ElmBook
+
+[ElmBook](https://elm-book-in-elm-book.netlify.app/overview)'s goal is to provide a solid documentation site for library or package code. It includes a search function, as well as the ability to break down your docs into chapters and books. It also allows rendering Elm code within your docs, via a shared model, so that you can demonstrate functionality in the UI. It's built on top of elm-live, so working with ElmBook should feel familiar if you've used it before.
+
+If you're coming from Vue, the focus of ElmBook is similar to Vuepress, but rather than focusing on markdown files, ElmBook is written within Elm itself. Markdown is supported for writing the documentation itself, but all of your work will be handled within the Elm code, making your documentation perfectly typesafe as well as useful.
+
+> Every application, tool or team has their own history worth telling.
+> 
+> ElmBook tries to help them by making it easy to create rich documents that showcase their libraries documentations, UI components, design tokens, or anything else their creativity comes up with.
+
+
 ### `vite-elm-template`
 
 This was a template I created to scratch my own itch. As a Vue developer, I love working with Vite, and really wanted a base template for Vite that I could use to build Elm applications. [`vite-elm-template`](https://github.com/lindsaykwardell/vite-elm-template) is a basic Vite template intended to get you started writing in Elm without having to spend time configuring everything yourself. Unlike elm-pages or elm-spa, it's not a framework of any sort. If you want to bring in single-page application features, or other functionalities, you will have to build those in yourself. That said, it's perfect for getting started with a basic environment.
