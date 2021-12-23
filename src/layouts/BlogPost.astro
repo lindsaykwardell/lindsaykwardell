@@ -26,7 +26,7 @@ const {title, snippet, date, author, image, slug} = content;
         <div
           class="text-center pt-2 text-gray-600 dark:text-gray-400 transition duration-100"
         >
-          Published by { author } on { dayjs(date).format("MMM DD YYYY") }
+          Published by { author } on <time datetime={date}>{ dayjs(date).format("MMM DD YYYY") }</time>
         </div>
         <div class="pt-3">
           <SocialLinks />
