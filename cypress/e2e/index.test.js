@@ -40,8 +40,8 @@ describe('The Home Page', () => {
     })
   })
 
-  it('should display podcasts on the podcast page', () => {
-    cy.visit(Cypress.config().baseUrl + '/podcast')
+  it('should display media on the media page', () => {
+    cy.visit(Cypress.config().baseUrl + '/media')
     cy.get('.blog-item').each(($el) => {
       cy.wrap($el).within(() => {
         cy.get('a')
