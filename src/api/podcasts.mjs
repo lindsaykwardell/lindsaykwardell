@@ -103,6 +103,13 @@ const videos = [
     image:
       'https://i.ytimg.com/vi/LecYqXHvHfg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCPwaNDWP5Wgrg4JgIU0pmDDc6qUw',
   },
+  {
+    url: 'https://www.youtube.com/watch?v=flUASpYouEw',
+    title: 'Introduction to Elm (with Lindsay Wardell) | Some Antics',
+    snippet: 'Elm is a delightful functional programming language with an emphasis on tooling. Join us as Lindsay Wardell shows us how we can get started with Elm today!',
+    pubDate: '2022-01-20T00:00:00.000Z',
+    image: 'https://i.ytimg.com/vi/flUASpYouEw/hqdefault.jpg'
+  }
 ]
 
 export async function getPodcasts() {
