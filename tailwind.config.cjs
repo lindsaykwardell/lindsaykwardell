@@ -44,6 +44,9 @@ module.exports = {
             h6: {
               color: 'white',
             },
+            th: {
+              color: 'white'
+            }
           },
         },
       }),
