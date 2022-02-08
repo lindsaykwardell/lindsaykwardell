@@ -39,7 +39,7 @@ I wasn't only working on the community side, of course. Since This Dot is a cons
 
 If this is something that sounds interesting to you, I highly recommend checking out this video presentation from Wikimania (at least the first 12 minutes or so):
 
-<iframe class="block m-auto" width="560" height="315" src="https://www.youtube.com/embed/LecYqXHvHfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="block m-auto w-[560px] h-[315px]" src="https://www.youtube.com/embed/LecYqXHvHfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 I absolutely loved working on this project! The mission of providing Wikipedia articles in any possible language sounded incredibly interesting, and getting to work on the Wikifunction part of the project was so much fun. I loved getting to work with James, Geno and Cory on the engineering side, and Adam, Denny, Nick, Aishwarya, Diana, Moriel, and all the other members of the Wikimedia Foundation while I was there. There are so many wondeful and insightful people working there, I wish I could list them all.
 
