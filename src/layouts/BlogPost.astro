@@ -13,31 +13,51 @@ const {title, snippet, date, author, image, slug} = content;
 >
 
 <div class="blog-post flex justify-center items-center flex-col">
-    <div
-      class="bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md my-5 transition duration-100 w-full lg:w-[1000px]"
-    >
-      <div class="post-title">
+  <div
+    class="bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md my-5 transition duration-100 w-full lg:w-[1000px]"
+  >
+    <div class="post-title">
+      <img
+        class="hero dark:bg-white object-cover m-auto w-full max-h-[420px] mb-4"
+        src={image}
+        alt=""
+      />
+      <h1 class="title px-4 max-w-[900px] m-auto">{ title }</h1>
+      <div
+        class="text-center pt-2 text-gray-600 dark:text-gray-400 transition duration-100"
+      >
+        Published by { author } on <time datetime={date}>{ dayjs(date).format("MMM DD YYYY") }</time>
+      </div>
+      <div class="pt-3">
+        <SocialLinks />
+      </div>
+    </div>
+    <hr />
+    <article class="py-8 px-4 md:px-0 prose m-auto dark:prose-dark">
+      <slot />
+    </article>
+
+    <hr />
+
+    <section class="py-8 prose dark:prose-dark m-auto">
+      <div class="flex flex-col md:flex-row justify-between gap-8">
         <img
-          class="hero dark:bg-white object-cover m-auto w-full max-h-[420px] mb-4"
-          src={image}
-          alt=""
+          src="/lindsay-profile-2.jpg"
+          alt="Lindsay Wardell"
+          class="picture rounded-lg shadow-md h-32 min-w-[8rem] cover"
         />
-        <h1 class="title px-4 max-w-[900px] m-auto">{ title }</h1>
-        <div
-          class="text-center pt-2 text-gray-600 dark:text-gray-400 transition duration-100"
-        >
-          Published by { author } on <time datetime={date}>{ dayjs(date).format("MMM DD YYYY") }</time>
-        </div>
-        <div class="pt-3">
-          <SocialLinks />
+        <div class="">
+          <div class="text-2xl">Hi, I'm Lindsay Wardell!</div>
+          <p>
+            I am a programmer, writer, and mother. I work as a Software Engineer at <a class="underline" href="https://noredink.com">NoRedInk</a>, and co-host on the podcast <a class="underline" href="https://viewsonvue.com">Views on Vue</a>. I write about Elm, Vue, and other tools that I enjoy learning about and using.
+          </p>
         </div>
       </div>
-      <hr />
-      <article class="py-8 px-4 md:px-0 prose m-auto dark:prose-dark">
-        <slot />
-      </article>
-    </div>
+    </section>
+
   </div>
+</div>
+
 </BaseLayout>
   
 <style global lang="pcss">
@@ -54,4 +74,8 @@ const {title, snippet, date, author, image, slug} = content;
     }
   }
 }
+
+.picture {
+    object-fit: cover;
+  }
 </style>
