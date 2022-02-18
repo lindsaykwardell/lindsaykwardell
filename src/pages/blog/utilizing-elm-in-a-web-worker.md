@@ -1,6 +1,6 @@
 ---
 slug: "/blog/utilizing-elm-in-a-web-worker"
-date: 2022-02-18
+date: 2022-02-17
 title: "Utilizing Elm in a Web Worker"
 image: "/blog/elm-web-workers.webp"
 author: "Lindsay Wardell"
