@@ -32,3 +32,5 @@ Learning projects are super small, and fully intended to be abandoned. Includes 
 Slow cooker sounds closer to what you're describing, super ambitious and very featureful. Most of them take years to make any progress, typically in bursts as an idea strikes me. For example, been working on a turn-based strategy game since 2018 as a learning project, currently a sort of polished Elm app.
 
 I don't limit myself on slow cooker ideas, but I tend to only work on one at a time because they're all very ambitious and I need to be able to focus on them. I also typically stop once inspiration fades, because the goal is to enjoy the process over making it work 2.0
+
+https://twitter.com/lindsaykwardell/status/1494702474896105474
