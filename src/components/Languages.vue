@@ -27,6 +27,8 @@ function langToImg(lang: string): string {
       return 'vite.svg'
     case 'vue':
       return 'vue.png'
+    case 'vitest':
+      return 'vitest.svg'
   }
 }
 </script>
