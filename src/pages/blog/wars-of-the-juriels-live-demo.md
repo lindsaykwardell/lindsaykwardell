@@ -1,5 +1,4 @@
 ---
-slug: "/blog/wars-of-the-juriels-live-demo"
 date: 2018-11-05
 title: "Wars of the Juriels - Live Demo"
 image: "/blog/juriels-lobby.png"

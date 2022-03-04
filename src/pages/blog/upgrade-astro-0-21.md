@@ -1,5 +1,4 @@
 ---
-slug: "/blog/upgrade-astro-0-21"
 date: 2021-11-20
 title: "Astro 0.21 - Upgrade Experience"
 image: "/blog/astro-21-upgrade.webp"

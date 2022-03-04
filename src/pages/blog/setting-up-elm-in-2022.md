@@ -1,5 +1,4 @@
 ---
-slug: "/blog/setting-up-elm-in-2022"
 date: 2021-12-19
 title: "Setting up an Elm project in 2022"
 image: "/elm.png"

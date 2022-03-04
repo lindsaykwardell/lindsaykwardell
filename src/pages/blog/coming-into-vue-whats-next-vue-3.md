@@ -1,5 +1,4 @@
 ---
-slug: "/blog/coming-into-vue-whats-next-vue-3"
 date: 2022-02-08
 title: "Coming Into Vue: What's Next in Vue 3"
 image: "/blog/coming-into-vue.webp"
