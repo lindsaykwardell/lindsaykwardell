@@ -121,7 +121,7 @@ export async function getPodcasts() {
     return naturalOrder([...podcasts, ...videos])
       .orderBy('desc')
       .sort(['pubDate'])
-  } catch () {
+  } catch (err) {
     return videos 
   }
 }
