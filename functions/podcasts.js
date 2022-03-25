@@ -6,12 +6,22 @@ const parser = new Parser()
 export async function handler(event, context) {
   try {
     const [vov, modernWeb, sit] = await Promise.all([
-      parser.parseURL('https://feeds.feedwrench.com/views-on-vue.rss').catch(() => []),
-      parser.parseURL('https://feed.podbean.com/modernweb/feed.xml').catch(() => []),
-      parser.parseURL('https://feeds.feedwrench.com/shesintech.rss').catch(() => []),
+      parser
+        .parseURL('https://feeds.feedwrench.com/views-on-vue.rss')
+        .catch(() => {
+          items: []
+        }),
+      parser
+        .parseURL('https://feed.podbean.com/modernweb/feed.xml')
+        .catch(() => {
+          items: []
+        }),
+      parser
+        .parseURL('https://feeds.feedwrench.com/shesintech.rss')
+        .catch(() => {
+          items: []
+        }),
     ])
-
-    console.log(vov);
 
     return {
       statusCode: 200,
