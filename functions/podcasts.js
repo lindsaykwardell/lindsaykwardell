@@ -8,19 +8,19 @@ export async function handler(event, context) {
     const [vov, modernWeb, sit] = await Promise.all([
       parser
         .parseURL('https://feeds.feedwrench.com/views-on-vue.rss')
-        .catch(() => {
-          items: []
-        }),
+        .catch(() => ({
+          items: [],
+        })),
       parser
         .parseURL('https://feed.podbean.com/modernweb/feed.xml')
-        .catch(() => {
-          items: []
-        }),
+        .catch(() => ({
+          items: [],
+        })),
       parser
         .parseURL('https://feeds.feedwrench.com/shesintech.rss')
-        .catch(() => {
-          items: []
-        }),
+        .catch(() => ({
+          items: [],
+        })),
     ])
 
     return {
