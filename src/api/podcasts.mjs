@@ -106,22 +106,27 @@ const videos = [
   {
     url: 'https://www.youtube.com/watch?v=flUASpYouEw',
     title: 'Introduction to Elm (with Lindsay Wardell) | Some Antics',
-    snippet: 'Elm is a delightful functional programming language with an emphasis on tooling. Join us as Lindsay Wardell shows us how we can get started with Elm today!',
+    snippet:
+      'Elm is a delightful functional programming language with an emphasis on tooling. Join us as Lindsay Wardell shows us how we can get started with Elm today!',
     pubDate: '2022-01-20T00:00:00.000Z',
-    image: 'https://i.ytimg.com/vi/flUASpYouEw/hqdefault.jpg'
-  }
+    image: 'https://i.ytimg.com/vi/flUASpYouEw/hqdefault.jpg',
+  },
 ]
 
+function fetchPodcasts() {
+  return fetch('https://lindsaykwardell.com/.netlify/functions/podcasts')
+    .then((res) => res.json())
+    .then((res) => {
+      if (Array.isArray(res)) return res
+      else throw Error()
+    })
+    .catch(() => [])
+}
+
 export async function getPodcasts() {
-  try {
-    const podcasts = await (
-      await fetch('https://lindsaykwardell.com/.netlify/functions/podcasts')
-    ).json()
-  
-    return naturalOrder([...podcasts, ...videos])
-      .orderBy('desc')
-      .sort(['pubDate'])
-  } catch (err) {
-    return videos 
-  }
+  const podcasts = await fetchPodcasts()
+
+  return naturalOrder([...podcasts, ...videos])
+    .orderBy('desc')
+    .sort(['pubDate'])
 }
