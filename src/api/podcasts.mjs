@@ -113,11 +113,15 @@ const videos = [
 ]
 
 export async function getPodcasts() {
-  const podcasts = await (
-    await fetch('https://lindsaykwardell.com/.netlify/functions/podcasts')
-  ).json()
-
-  return naturalOrder([...podcasts, ...videos])
-    .orderBy('desc')
-    .sort(['pubDate'])
+  try {
+    const podcasts = await (
+      await fetch('https://lindsaykwardell.com/.netlify/functions/podcasts')
+    ).json()
+  
+    return naturalOrder([...podcasts, ...videos])
+      .orderBy('desc')
+      .sort(['pubDate'])
+  } catch () {
+    return videos 
+  }
 }

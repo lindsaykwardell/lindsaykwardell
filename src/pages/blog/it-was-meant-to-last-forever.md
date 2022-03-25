@@ -1,5 +1,4 @@
 ---
-slug: "/blog/it-was-meant-to-last-forever"
 date: 2018-01-08
 title: "It Was Meant To Last Forever"
 author: "Lindsay Wardell"

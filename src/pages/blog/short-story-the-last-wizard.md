@@ -1,5 +1,4 @@
 ---
-slug: "/blog/short-story-the-last-wizard"
 date: 2018-09-24
 title: "Short Story - The Last Wizard"
 image: "/blog/the-last-wizard.jpg"
