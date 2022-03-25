@@ -117,9 +117,7 @@ Here's a list of common compiler options:
 - Rollup: [`rollup-plugin-elm`](https://github.com/ulisses-alves/rollup-plugin-elm#readme)
 - Vite: [`vite-plugin-elm`](https://github.com/hmsk/vite-plugin-elm)
 
-### A note on Parcel
-
-Unlike other build tools, Parcel provides [built-in support for Elm](https://parceljs.org/languages/elm) by default, no plugins required. However, please note that there are some issues when using Parcel 2 with Elm, which are a frequent point of discussion on the Elm Slack channel.
+If you like using Parcel, then you're in luck! Parcel provides [built-in support for Elm](https://parceljs.org/languages/elm) by default, no plugins required. There had been some issues in Parcel 2 and Elm, but at this point they appear to be worked out, making Parcel an amazing choice if you're expecting interop with Javascript and want a great experience.
 
 ### `elm-tooling`
 
