@@ -11,8 +11,6 @@ export async function handler(event, context) {
       parser.parseURL('https://feeds.feedwrench.com/shesintech.rss').catch(() => []),
     ])
 
-    console.log(vov);
-
     return {
       statusCode: 200,
       body: JSON.stringify(

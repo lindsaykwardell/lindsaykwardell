@@ -1,8 +1,7 @@
 ---
-slug: "/blog/shipping-side-projects"
-date: 2022-03-31
+date: 2022-03-24
 title: "Shipping Side Projects"
-image: "/elm.png"
+image: "https://images.unsplash.com/photo-1548880021-76c14b1f6602?auto=format&fit=crop&w=1000&q=80"
 author: "Lindsay Wardell"
 snippet: The value of side projects is in how much value they give to us. Avoid the stress of unfinished side projects by correctly scoping them.
 layout: '../../layouts/BlogPost.astro'
@@ -37,7 +36,7 @@ When I feel like I'm not interested in a side project any more, rather than say 
 
 ## Scoping Side Projects
 
-One of the big draws to technology is this thought that we can build a startup as a side project, and turn it into our main job. While there are a number of successes with this approach, this doesn't apply to every side project! Not every todo app needs to become Todoist. Not every budgeting app need to turn into You Need A Budget. Just like at work, it's important to scope our side projects, so that we understand exactly what a given project should and should not become.
+One of the big draws to technology is this thought that we can build a startup as a side project, and turn it into our main job. While there are a number of successes with this approach, this doesn't apply to every side project! Not every todo app needs to become Todoist. Not every budgeting app needs to turn into You Need A Budget. Just like at work, it's important to scope our side projects, so that we understand exactly what a given project should and should not become.
 
 When I'm working on a side project, I try to put them into one of three categories - learning, maintained, and "slow cooker".
 
