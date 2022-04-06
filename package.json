@@ -23,7 +23,8 @@
     "autoprefixer": "^10.4.4",
     "dayjs": "^1.11.0",
     "natural-order": "^1.2.2",
-    "prismjs": "^1.27.0"
+    "prismjs": "^1.27.0",
+    "vue": "^3.2.31"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^0.1.0",
