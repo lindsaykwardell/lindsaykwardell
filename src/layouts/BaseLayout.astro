@@ -4,6 +4,8 @@ import DarkModeButton from '../components/DarkModeButton.vue'
 import SocialLinks from '../components/SocialLinks.astro'
 import { getData } from '../api/github.mjs';
 
+import "../styles/global.css";
+
 const github = await getData();
 
 let { title, description, image, permalink } = Astro.props;
@@ -45,10 +47,10 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Rokkitt|Fira+Sans&display=swap">
 
-    <link
+    <!-- <link
       rel="stylesheet"
       href={Astro.resolve("../styles/global.css")}
-    >
+    > -->
 
     <script>
     const html = document.querySelector("html");

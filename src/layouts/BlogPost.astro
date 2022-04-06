@@ -3,14 +3,12 @@ import BaseLayout from './BaseLayout.astro'
 import SocialLinks from '../components/SocialLinks.astro'
 import dayjs from 'dayjs'
 
+import "../styles/prism.scss"
+
 const {content} = Astro.props;
 const {title, snippet, date, author, image, slug} = content;
 ---
 <BaseLayout title={title} description={snippet} image={image} permalink={slug}>
-<link
-  rel="stylesheet"
-  href={Astro.resolve("../styles/prism.scss")}
->
 
 <div class="blog-post flex justify-center items-center flex-col">
   <div
@@ -32,12 +30,12 @@ const {title, snippet, date, author, image, slug} = content;
         <SocialLinks />
       </div>
     </div>
-    <hr />
+    <hr class="mx-auto my-4" />
     <article class="py-8 px-4 md:px-0 prose m-auto dark:prose-dark">
       <slot />
     </article>
 
-    <hr />
+    <hr class="mx-auto my-4" />
 
     <section class="prose dark:prose-dark m-auto">
       <div class="flex flex-col md:flex-row justify-between md:gap-8 items-center">
@@ -62,7 +60,7 @@ const {title, snippet, date, author, image, slug} = content;
 
 </BaseLayout>
   
-<style global lang="pcss">
+<style is:global lang="pcss">
 .blog-post {
   .post-title {
     text-align: center;

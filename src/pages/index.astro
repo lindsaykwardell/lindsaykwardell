@@ -5,7 +5,7 @@ import { getData } from '../api/github.mjs';
 import { getPodcasts } from '../api/podcasts.mjs'
 
 const podcasts = (await getPodcasts()).map(media => ({...media, date: media.pubDate}));
-const posts = Astro.fetchContent('./blog/*.md');
+const posts = await Astro.glob('./blog/*.md').then(posts => posts.map(post => ({...post.frontmatter, url: post.url})));
 
 const allPosts = [...posts, ...podcasts].filter(post => new Date(post.date) <= new Date()).sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
