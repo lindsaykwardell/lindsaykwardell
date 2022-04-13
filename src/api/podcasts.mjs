@@ -1,6 +1,6 @@
 import naturalOrder from 'natural-order'
 
-const videos = [
+const oneOffs = [
   {
     url: 'https://www.youtube.com/watch?v=LPw8ZvEyOnQ',
     title: 'The Retro Week of March 28th, 2021',
@@ -111,6 +111,13 @@ const videos = [
     pubDate: '2022-01-20T00:00:00.000Z',
     image: 'https://i.ytimg.com/vi/flUASpYouEw/hqdefault.jpg',
   },
+  {
+    url: 'https://javascriptjabber.com/what-s-new-with-elm-ft-lindsay-wardell-jsj-527',
+    title: 'What\'s New with Elm? ft. Lindsay Wardell - JSJ 527',
+    snippet: 'Elm is a functional language that compiles to JavaScript and runs in the browser. Lindsay Wardell from NoRedInk joins the JavaScript Jabber panel this week to discuss her background with Vue and Elm. The discussion ranges into how Lindsay got into Elm and how it differs and solves some of the issues that crop up when people build apps with JavaScript.',
+    pubDate: '2022-04-12T00:00:00.000Z',
+    image: 'https://assets.fireside.fm/file/fireside-images/podcasts/images/f/fd93ea0b-a752-4f58-88c6-6ab8e955eae5/cover_medium.jpg?v=0',
+  }
 ]
 
 function fetchPodcasts() {
@@ -126,7 +133,7 @@ function fetchPodcasts() {
 export async function getPodcasts() {
   const podcasts = await fetchPodcasts()
 
-  return naturalOrder([...podcasts, ...videos])
+  return naturalOrder([...podcasts, ...oneOffs])
     .orderBy('desc')
     .sort(['pubDate'])
 }
