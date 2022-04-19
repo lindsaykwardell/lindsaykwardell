@@ -2,11 +2,8 @@
 // Component Imports
 import DarkModeButton from '../components/DarkModeButton.vue'
 import SocialLinks from '../components/SocialLinks.astro'
-import { getData } from '../api/github.mjs';
 
 import "../styles/global.css";
-
-const github = await getData();
 
 let { title, description, image, permalink } = Astro.props;
 
@@ -77,13 +74,13 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
       <nav
         class="bg-lindsay w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
       >
-        <a href="/" class="flex items-center hover:no-underline">
+        <a href="/" class="flex items-center">
           <img
-            src={github.user.avatarUrl}
-            class="w-12 h-12 md:w-16 md:h-16 rounded-full"
-            alt="Lindsay Wardell"
+            src={'/lindsay-profile-2.jpg'}
+            class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
+            alt=""
           />
-          <h3 class="text-white pl-3 hidden md:block">Lindsay Wardell</h3>
+          <h1 class="text-3xl font-rokkitt text-white pl-3 hidden md:block">Lindsay Wardell</h1>
         </a>
         <div class="flex-grow flex justify-end text-white text-lg">
           <a href="/" class="px-4 py-2 rounded hidden sm:inline">Home</a>

@@ -1,30 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import BlogPostPreview from '../components/BlogPostPreview.astro';
-import { getData } from '../api/github.mjs';
 import { getPodcasts } from '../api/podcasts.mjs'
 
 const podcasts = (await getPodcasts()).map(media => ({...media, date: media.pubDate}));
 const posts = await Astro.glob('./blog/*.md').then(posts => posts.map(post => ({...post.frontmatter, url: post.url})));
 
 const allPosts = [...posts, ...podcasts].filter(post => new Date(post.date) <= new Date()).sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
-
-let github = await getData();
 ---
 <BaseLayout>
   <div class="relative w-full flex justify-center items-center text-center px-8">
     <div class="flex flex-wrap justify-between w-full mb-24">
       <div class="w-full xl:w-1/2 flex flex-col items-center">
         <img
-          src={github?.user?.avatarUrl}
-          alt={github?.user?.name}
-          class="rounded-full shadow-xl w-64 my-4"
+          src={'/lindsay-profile-2.jpg'}
+          alt=""
+          class="rounded-full shadow-xl w-64 h-64 my-4 object-cover"
         />
-        <h1 class="title text-6xl py-3 font-medium">
-          { github?.user?.name }
-        </h1>
         <h2 class="text-3xl lg:text-4xl leading-9 font-medium py-4">
-          { github?.user?.bio }
+          I'm a Software Engineer who loves writing functional, elegant web applications.
         </h2>
         <div class="flex w-full pt-4">
           <div
@@ -82,7 +76,7 @@ let github = await getData();
       <div
         class="w-full xl:w-1/3 pt-6 xl:pt-0 flex flex-col items-center justify-end"
       >
-        <h2>Latest Activity</h2>
+        <h2 class="text-4xl">Latest Activity</h2>
         <BlogPostPreview item={allPosts[0]} />
       </div>
     </div>

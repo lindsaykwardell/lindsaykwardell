@@ -7,6 +7,9 @@ module.exports = {
       colors: {
         lindsay: 'rgb(112,36,89)',
       },
+      fontFamily: {
+        rokkitt: ['Rokkitt', 'serif']
+      },
       typography: (theme) => ({
         dark: {
           css: {

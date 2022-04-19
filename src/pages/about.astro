@@ -3,21 +3,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 import Languages from '../components/Languages.vue'
-import { getData } from '../api/github.mjs'
-
-const github = await getData();
 ---
 <BaseLayout>
   <div>
     <div class="project-wrapper">
       <div class="flex flex-col items-center">
-        <h1 class="title text-center mb-8">Hi, I'm Lindsay Wardell</h1>
+        <h1 class="text-5xl title text-center mb-8">Hi, I'm Lindsay Wardell</h1>
         <img
           src="/lindsay-profile-2.jpg"
-          alt="Lindsay Wardell"
+          alt=""
           class="picture w-full xl:w-1/3 lg:w-3/5 md:w-4/6 rounded-lg shadow-md"
         />
-        <div class="container my-5 p-5 text-lg md:text-xl">
+        <div class="prose dark:prose-dark container my-5 p-5 text-lg md:text-xl">
           <p>
             I am a programmer, writer, and mother. I work as a Software Engineer at <a class="underline" href="https://noredink.com">NoRedInk</a>, and former co-host on the podcast <a class="underline" href="https://viewsonvue.com">Views on Vue</a>. I am experienced in building web applications with modern frontend frameworks, such as Vue, React, and Svelte, as well as backend technologies including Node, Sprint Boot, and SQL. I also enjoy blogging and presenting online about the technologies that I love working with.
           </p>
@@ -26,11 +23,11 @@ const github = await getData();
           </p>
         </div>
       </div>
-      <h2 class="text-center">Projects</h2>
+      <h2 class="text-4xl text-center">Projects</h2>
       <div class="w-11/12 md:w-3/4 lg:w-2/3 m-auto flex flex-col gap-4">
         <div>
-          <h3><a href="https://github.com/lindsaykwardell/vite-elm-template">Vite Elm Template</a></h3>
-          <Languages languages={['Elm', 'Vite']} />
+          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/vite-elm-template">Vite Elm Template</a></h3>
+          <Languages class="py-4" languages={['Elm', 'Vite']} />
           <p>A default template for building Elm applications using Vite. Includes hot-module reload of Elm modules (courtesy of <code>vite-plugin-elm</code>).</p>
           <p>Features:
             <ul class="list-disc">
@@ -42,9 +39,10 @@ const github = await getData();
             </ul>
           </p>
         </div>
+        <hr class="m-auto" />
         <div>
-          <h3><a href="https://elm-vue-bridge.lindsaykwardell.com/">Elm Vue Bridge</a></h3>
-          <Languages languages={['Elm', 'Vue', 'Typescript', 'Cypress']} />
+          <h3 class="text-3xl"><a href="https://elm-vue-bridge.lindsaykwardell.com/">Elm Vue Bridge</a></h3>
+          <Languages class="py-4" languages={['Elm', 'Vue', 'Typescript', 'Cypress']} />
           <p>Bridge to render Elm modules in a Vue application. Renders Elm 0.19 modules within Vue 3.</p>
           <p>
             Often, when a developer is starting with a new framework or language, the initial instinct is to build new projects using that tool. This can be very instructive, especially with a programming language. However, one of the strengths of Elm is that it compiles to Javascript, and as such it can be integrated with any existing web application.</p>
@@ -52,9 +50,10 @@ const github = await getData();
             <code>elm-vue-bridge</code> seeks to help developers familiar with Vue to explore the Elm ecosystem and perform their own experiments with the language. It provides a function to wrap an Elm module within a Vue component, and interact with it inside of your existing codebase. In this way, Elm can be introduced into your project without having to rewrite your architecture.
           </p>
         </div>
+        <hr class="m-auto" />
         <div>
-          <h3><a href="https://github.com/lindsaykwardell/natural-order">Natural Order</a></h3>
-          <Languages languages={['Typescript']} />
+          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/natural-order">Natural Order</a></h3>
+          <Languages class="py-4" languages={['Typescript']} />
           <p>Simple library to sort lists of strings, numbers, and objects naturally.</p>
           <p>
             <ul class="list-disc">
@@ -69,9 +68,10 @@ const github = await getData();
             </ul>
           </p>
         </div>
+        <hr class="m-auto" />
         <div>
-          <h3><a href="https://github.com/lindsaykwardell/consoleback">Consoleback</a></h3>
-          <Languages languages={['Typescript', 'Vite', 'Vitest']} />
+          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/consoleback">Consoleback</a></h3>
+          <Languages class="py-4" languages={['Typescript', 'Vite', 'Vitest']} />
           <p>Improved logging for Javascript applications</p>
           <ul class="list-disc">
             <li>Uses console.log, console.warn, console.error, console.info, and console.debug</li>
@@ -80,14 +80,16 @@ const github = await getData();
             <li>Allows callback that gives the application access to the log.</li>
           </ul>
         </div>
+        <hr class="m-auto" />
         <div>
-          <h3><a href="https://github.com/lindsaykwardell/juralen-elm">Juralen</a></h3>
-          <Languages languages={['Elm', 'Vue', 'Typescript', 'Tailwind', 'Vite']} />
+          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/juralen-elm">Juralen</a></h3>
+          <Languages class="py-4" languages={['Elm', 'Vue', 'Typescript', 'Tailwind', 'Vite']} />
           <p>Turn-based strategy game for 2-8 players. Includes support for AI players and some music/sound effects.</p>
         </div>
+        <hr class="m-auto" />
         <div>
-          <h3><a href="https://github.com/lindsaykwardell/starcomgame.com">Star Commander</a></h3>
-          <Languages languages={['Elm', 'Vue', 'Typescript', 'Tailwind', 'Vite', 'Node']} />
+          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/starcomgame.com">Star Commander</a></h3>
+          <Languages class="py-4" languages={['Elm', 'Vue', 'Typescript', 'Tailwind', 'Vite', 'Node']} />
           <p>Star Commander is a card game for 2-4 players. The repository serves four functions:
             <ul class="list-disc">
               <li>The core site for Star Commander (<a href="https://starcomgame.com">starcomgame.com</a>)</li>
@@ -104,7 +106,7 @@ const github = await getData();
 
 <style lang="pcss">
 .project-wrapper {
-  min-height: calc(100vh - 150px);
+  padding-bottom: 2rem;
 
   .picture {
     max-height: 500px;
