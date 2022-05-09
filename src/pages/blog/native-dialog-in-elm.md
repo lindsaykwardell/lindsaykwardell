@@ -1,5 +1,5 @@
 ---
-date: 2023-05-09
+date: 2022-05-09
 title: "Utilizing Native Dialog in Elm"
 image: "/blog/utilizing-dialog-in-elm.webp"
 author: "Lindsay Wardell"
@@ -30,8 +30,6 @@ From the MDN docs:
 
 In short, a dialog element is just like any other HTML element, and can be written like this (try it out!):
 
-<iframe src="https://stackblitz.com/edit/web-platform-bdwgb7?embed=1&file=index.html" class="w-full" height="500">
-
 ```html
 <html>
   <head>
@@ -58,8 +56,6 @@ document.querySelector('dialog > button').addEventListener('click', () => {
   document.querySelector('dialog').close();
 });
 ```
-
-</iframe>
 
 Some cool things to note here:
 
