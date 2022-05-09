@@ -78,4 +78,64 @@ But wait! The MDN docs list a different way to display the dialog as open: [the 
 
 > Indicates that the dialog is active and can be interacted with. When the open attribute is not set, the dialog shouldn't be shown to the user. It is recommended to use the .show() or .showModal() methods to render dialogs, rather than the open attribute.
 
-As Elm developers, it might be tempting to go down this path and 
+As Elm developers, it might be tempting to go down this path and set the attribute. However, doing this does *not* provide the additional benefits of updating focus, blocking the background from input, etc. To get the full benefit of the dialog element, we need to call `showModal`. Note that `show` is also an option, but it does basically the same thing as `open`, and is not recommended.
+
+We can, however, check whether the dialog is visible at the moment by looking at `open`. When we call `showModal`, `open` is set to `true`, which means that rather than have distinct calls to open and the close the dialog, we could choose to have a simple toggle function, which internally checks whether the dialog is open.
+
+## Implementing `<dialog>` in Elm
+
+Now that we understand what the dialog element provides us, and what is required to make it useful, let's start working with it in Elm. Elm provides a number of HTML elements in its `Html` module, but since the dialog element is newer, we first need to define it ourselves.
+
+### Rendering the dialog
+
+In order to define a custom element, we need to import `Html`, then we can use `Html.node` to generate a custom element. As with any HTML element in Elm, it takes two arguments (a list of attributes and a list of HTML), but it also takes a string to use as the custom element's tag. Here's a basic example:
+
+```elm
+dialog : List (Html.Attribute msg) -> List (Html msg) -> Html msg
+dialog attr content =
+    Html.node "dialog" attr content
+```
+
+This provides a basic interface for a dialog element. However, we're going to need to trigger it's `showModal` and `close` methods, so it's probably helpful to require an ID. Let's just add the ID as part of the function signature:
+
+```elm
+dialog : String -> List (Html.Attribute msg) -> List (Html msg) -> Html msg
+dialog elementId attr content =
+    Html.node "dialog" ((id elementId) :: attr) content
+```
+
+Great! Now the ID will be set by the first argument, and the rest of the HTML element signature is the same that other elements use. At this point, you can start rendering the dialog on the page, but it won't appear (unless you set the `open` attribute). We need a way to trigger the methods provided in Javascript.
+
+### Triggering the dialog
+
+Elm provides [ports](https://guide.elm-lang.org/interop/ports.html) as the go-to solution for interacting between Javascript and Elm. We need to utilize a port to call out to Javascript in order to trigger the dialog to appear. Let's define our port below:
+
+```elm
+port toggleDialog : String -> Cmd msg
+```
+
+When our Elm application is compiled, `toggleDialog` will be available to subscribe to from Javascript. In this case, it provides a string (the dialog's ID) that we can use to select our element and perform the required action on it. Here's an example of our Javascript code:
+
+```js
+app.ports.toggleDialog.subscribe(id => {
+  const dialog = document.querySelector(`#${id}`)
+
+  if (dialog.open) {
+      dialog.close.();
+  } else {
+      dialog.showModal.();
+  }
+});
+```
+
+This is a pretty simple snippet of Javascript. We take the provided ID, find the element, and check whether it's open. If it is, then we close it, otherwise we open it. If you want, you could add an additional port for Javascript to inform Elm of the current status of the dialog, but it's not required.
+
+Here's an [example repository](https://github.com/lindsaykwardell/elm-dialog-example) showcasing the dialog element, and here's a [live demo](https://elm-dialog-example.netlify.app/) of that repository. Check it out!
+
+## Conclusion
+
+The dialog element provides a lot of benefits for developers needing to utilize this UI pattern. However, it's important to note that just because it provides a large number of benefits and accessibility support built-in, it still requires planning and testing to properly implement a dialog that is usable by all the visitors to your site. Make sure that you and your team are performing regular a11y testing, so you aren't leaving any of your users out of the loop with what your site is showing them!
+
+Also, keep in mind that it is a fairly new element, and you may have users that are not supported yet. If you still have a large number of users that don't have access to the dialog element, consider using an existing alternative or providing an alternative userflow.
+
+That said, it's very exciting to see what the future of HTML looks like, and I'm looking forward to more elements like this that are built-in and provide a lot of value to both users and developers. Try it out, and see if it works for you today!
