@@ -117,6 +117,13 @@ const oneOffs = [
     snippet: 'Elm is a functional language that compiles to JavaScript and runs in the browser. Lindsay Wardell from NoRedInk joins the JavaScript Jabber panel this week to discuss her background with Vue and Elm. The discussion ranges into how Lindsay got into Elm and how it differs and solves some of the issues that crop up when people build apps with JavaScript.',
     pubDate: '2022-04-12T00:00:00.000Z',
     image: 'https://assets.fireside.fm/file/fireside-images/podcasts/images/f/fd93ea0b-a752-4f58-88c6-6ab8e955eae5/cover_medium.jpg?v=0',
+  },
+  {
+    url: 'https://fsjam.org/episodes/episode-72-elm-with-lindsay-wardell',
+    title: 'Episode 72 - Elm with Lindsay Wardell',
+    snippet: 'In this episode we discuss NoRedInk\'s experience using Elm in production, the combined power of functional programming and static type systems, building a language for the long term, and the difficulty of explaining the benefits of purely functional languages to developers who have never experienced them.',
+    pubDate: '2022-05-06T00:00:00.000Z',
+    image: 'https://images.transistor.fm/file/transistor/images/show/15767/medium_1603833407-artwork.jpg'
   }
 ]
 
