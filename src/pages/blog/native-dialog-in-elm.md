@@ -1,7 +1,7 @@
 ---
 date: 2023-05-09
-title: "Native Dialog Element in Elm"
-image: "https://images.unsplash.com/photo-1548880021-76c14b1f6602?auto=format&fit=crop&w=1000&q=80"
+title: "Utilizing Native Dialog in Elm"
+image: "/blog/utilizing-dialog-in-elm.webp"
 author: "Lindsay Wardell"
 snippet: The native dialog element is fantastic for implementing modals. Let's explore how to make it work within Elm!
 layout: '../../layouts/BlogPost.astro'
