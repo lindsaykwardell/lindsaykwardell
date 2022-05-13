@@ -13,6 +13,12 @@ module.exports = {
       typography: (theme) => ({
         dark: {
           css: {
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            },
             color: 'white',
             strong: {
               color: 'white',
