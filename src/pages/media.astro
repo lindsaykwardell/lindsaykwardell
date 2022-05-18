@@ -9,6 +9,15 @@ const podcasts = await getPodcasts();
 
 ---
 <BaseLayout>
+  <script define:vars={{podcasts}}>
+    window.media = {
+      podcasts: () => podcasts.filter(media => media.type === 'podcast'),
+      videos: () => podcasts.filter(media => media.type === 'video'),
+      meetups: () => podcasts.filter(media => media.type === 'meetup'),
+      hosted: () => podcasts.filter(media => media.host),
+      guest: () => podcasts.filter(media => !media.host)
+    }
+  </script>
   <div>
     <h2 class="text-5xl text-center py-4">Podcasts and Videos</h2>
     <div class="flex flex-col lg:flex-row flex-wrap">

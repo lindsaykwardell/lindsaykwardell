@@ -33,6 +33,8 @@ export async function handler(event, context) {
               ...episode,
               image: vov.itunes.image,
               snippet: episode.contentSnippet.split('\n')[0],
+              type: 'podcast',
+              host: true
             })),
           ...modernWeb.items
             .filter((episode) => episode.contentSnippet.includes('Lindsay'))
@@ -40,6 +42,8 @@ export async function handler(event, context) {
               ...episode,
               image: modernWeb.image?.url,
               snippet: episode.contentSnippet.split('\n')[0],
+              type: 'podcast',
+              host: true
             })),
           ...sit.items
             .filter((episode) => episode.contentSnippet.includes('Lindsay'))
@@ -47,6 +51,8 @@ export async function handler(event, context) {
               ...episode,
               image: sit.itunes.image,
               snippet: episode.contentSnippet.split('\n')[0],
+              type: 'podcast',
+              host: true
             })),
         ])
           .orderBy('desc')

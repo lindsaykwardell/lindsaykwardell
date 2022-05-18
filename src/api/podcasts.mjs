@@ -9,6 +9,8 @@ const oneOffs = [
     pubDate: '2021-03-28T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/LPw8ZvEyOnQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDtKe2q1p3B6jcsaQgVz--weqzlTA',
+    type: 'video',
+    host: false
   },
   {
     url: 'https://www.youtube.com/watch?v=79DWd9RR8Gs',
@@ -19,6 +21,8 @@ const oneOffs = [
     pubDate: '2021-09-21T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/79DWd9RR8Gs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCZSpy6LOe0S6gL-7bU1yO7pde8tQ',
+    type: 'video',
+    host: true
   },
   {
     url: 'https://www.youtube.com/watch?v=RKtQOUzOano',
@@ -28,6 +32,8 @@ const oneOffs = [
     pubDate: '2021-07-08T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/RKtQOUzOano/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAq4um-6LHJsRv9GEyCjqZVqX9kOA',
+    type: 'video',
+    host: true
   },
   {
     url: 'https://www.youtube.com/watch?v=9FsDyDABSso',
@@ -38,6 +44,8 @@ const oneOffs = [
     pubDate: '2021-08-16T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/9FsDyDABSso/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBgS7f1wBI1BiZ934SLv9yl1xh6AA',
+    type: 'video',
+    host: true
   },
   {
     url: 'https://www.youtube.com/watch?v=0DhsIjTeN0c',
@@ -47,6 +55,8 @@ const oneOffs = [
     pubDate: '2021-07-22T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/0DhsIjTeN0c/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA1ye92iO-JxE5ZaAYFJ-DzZmNAqw',
+    type: 'video',
+    host: true
   },
   {
     url: 'https://www.youtube.com/watch?v=bi0DIJxp178',
@@ -56,6 +66,8 @@ const oneOffs = [
     pubDate: '2021-07-21T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/bi0DIJxp178/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDy-H6I0jSYuLpq2_Ce93iWnOOEmA',
+    type: 'video',
+    host: true
   },
   {
     url: 'https://www.youtube.com/watch?v=I9chpwvWWNA',
@@ -65,6 +77,8 @@ const oneOffs = [
     pubDate: '2021-03-24T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/I9chpwvWWNA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCBvsQbLF9GdQpMLpytTQrSU1KliQ',
+    type: 'video',
+    host: false
   },
   {
     url: 'https://www.youtube.com/watch?v=z4ta7r6yqVU&t=2s',
@@ -74,6 +88,8 @@ const oneOffs = [
     pubDate: '2021-05-27T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/z4ta7r6yqVU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCjjPp1e5nYVt3pP-RCyJ7JoZL2Ig',
+    type: 'video',
+    host: false
   },
   {
     url: 'https://www.youtube.com/watch?v=adkxGYeW97c',
@@ -83,6 +99,8 @@ const oneOffs = [
     pubDate: '2021-12-09T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/adkxGYeW97c/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCzIhNUHVMCwYm81UKlfxZ8nOKZeg',
+    type: 'meetup',
+    host: false
   },
   {
     url: 'https://www.youtube.com/watch?v=G1FtGIAN2lo',
@@ -93,6 +111,8 @@ const oneOffs = [
     pubDate: '2021-06-25T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/G1FtGIAN2lo/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAdZbqUkrZRSXnJC4kzSWU4yXYJUg',
+    type: 'meetup',
+    host: false
   },
   {
     url: 'https://www.youtube.com/watch?v=LecYqXHvHfg&t=839s',
@@ -102,6 +122,8 @@ const oneOffs = [
     pubDate: '2021-08-14T00:00:00.000Z',
     image:
       'https://i.ytimg.com/vi/LecYqXHvHfg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCPwaNDWP5Wgrg4JgIU0pmDDc6qUw',
+    type: 'video',
+    host: false
   },
   {
     url: 'https://www.youtube.com/watch?v=flUASpYouEw',
@@ -110,6 +132,8 @@ const oneOffs = [
       'Elm is a delightful functional programming language with an emphasis on tooling. Join us as Lindsay Wardell shows us how we can get started with Elm today!',
     pubDate: '2022-01-20T00:00:00.000Z',
     image: 'https://i.ytimg.com/vi/flUASpYouEw/hqdefault.jpg',
+    type: 'video',
+    host: false
   },
   {
     url: 'https://javascriptjabber.com/what-s-new-with-elm-ft-lindsay-wardell-jsj-527',
@@ -117,13 +141,17 @@ const oneOffs = [
     snippet: 'Elm is a functional language that compiles to JavaScript and runs in the browser. Lindsay Wardell from NoRedInk joins the JavaScript Jabber panel this week to discuss her background with Vue and Elm. The discussion ranges into how Lindsay got into Elm and how it differs and solves some of the issues that crop up when people build apps with JavaScript.',
     pubDate: '2022-04-12T00:00:00.000Z',
     image: 'https://assets.fireside.fm/file/fireside-images/podcasts/images/f/fd93ea0b-a752-4f58-88c6-6ab8e955eae5/cover_medium.jpg?v=0',
+    type: 'podcast',
+    host: false
   },
   {
     url: 'https://fsjam.org/episodes/episode-72-elm-with-lindsay-wardell',
     title: 'Episode 72 - Elm with Lindsay Wardell',
     snippet: 'In this episode we discuss NoRedInk\'s experience using Elm in production, the combined power of functional programming and static type systems, building a language for the long term, and the difficulty of explaining the benefits of purely functional languages to developers who have never experienced them.',
     pubDate: '2022-05-06T00:00:00.000Z',
-    image: 'https://images.transistor.fm/file/transistor/images/show/15767/medium_1603833407-artwork.jpg'
+    image: 'https://images.transistor.fm/file/transistor/images/show/15767/medium_1603833407-artwork.jpg',
+    type: 'podcast',
+    host: false
   }
 ]
 
@@ -140,7 +168,7 @@ function fetchPodcasts() {
 export async function getPodcasts() {
   const podcasts = await fetchPodcasts()
 
-  return naturalOrder([...podcasts, ...oneOffs])
+  return naturalOrder([...podcasts.map(podcast => ({...podcast, type: 'podcast', host: true})), ...oneOffs])
     .orderBy('desc')
     .sort(['pubDate'])
 }
