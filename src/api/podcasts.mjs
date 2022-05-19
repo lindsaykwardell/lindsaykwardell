@@ -152,6 +152,15 @@ const oneOffs = [
     image: 'https://images.transistor.fm/file/transistor/images/show/15767/medium_1603833407-artwork.jpg',
     type: 'podcast',
     host: false
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=W13X7wjKejs',
+    title: 'Side Projects - The Value of Building in Public',
+    snippet: 'Tech Academy graduate Lindsay Wardell discussed side projects and building in public! Lindsay shared how she has grown her development knowledge through the creation of an ongoing, engaging side project, and a few ways to think about the purpose of different side projects.',
+    pubDate: '2022-05-13T00:00:00.000Z',
+    image: 'https://i.ytimg.com/vi/W13X7wjKejs/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLARu_Nr290hur8U9FBBh5iSq6bvFA',
+    type: 'meetup',
+    host: false
   }
 ]
 

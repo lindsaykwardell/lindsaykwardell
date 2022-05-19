@@ -10,7 +10,8 @@ const podcasts = await getPodcasts();
 ---
 <BaseLayout>
   <script define:vars={{podcasts}}>
-    window.media = {
+    window.appearances = {
+      all: () => podcasts
       podcasts: () => podcasts.filter(media => media.type === 'podcast'),
       videos: () => podcasts.filter(media => media.type === 'video'),
       meetups: () => podcasts.filter(media => media.type === 'meetup'),
