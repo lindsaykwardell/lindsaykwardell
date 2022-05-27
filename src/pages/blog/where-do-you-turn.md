@@ -1,7 +1,7 @@
 ---
 date: 2019-05-03
 title: "Where Do You Turn?"
-image: "/blog/forest.jpeg"
+image: "/blog/forest.webp"
 author: "Lindsay Wardell"
 snippet: Where do you turn when faith grows cold?
 layout: '../../layouts/BlogPost.astro'
