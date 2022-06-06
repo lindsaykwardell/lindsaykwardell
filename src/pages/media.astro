@@ -10,6 +10,7 @@ const podcasts = await getPodcasts();
 ---
 
 <BaseLayout>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
   <script define:vars={{podcasts}}></script>
   <script>
     class Appearances {
@@ -67,6 +68,14 @@ const podcasts = await getPodcasts();
 
       get guest() {
         return new Appearances(this.#episodes.filter(media => !media.host))
+      }
+
+      search(query) {
+        const results = new Fuse(this.#episodes, {
+          keys: ['title', 'name', 'snippet', 'pubDate']
+        }).search(query)
+
+        return new Appearances(results.map(results => results.item))
       }
     }
 
