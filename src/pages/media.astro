@@ -12,14 +12,74 @@ const podcasts = await getPodcasts();
 <BaseLayout>
   <script define:vars={{podcasts}}></script>
   <script>
-    window.appearances = {
-      all: () => podcasts,
-      podcasts: () => podcasts.filter(media => media.type === 'podcast'),
-      videos: () => podcasts.filter(media => media.type === 'video'),
-      meetups: () => podcasts.filter(media => media.type === 'meetup'),
-      hosted: () => podcasts.filter(media => media.host),
-      guest: () => podcasts.filter(media => !media.host)
+    class Appearances {
+      #episodes
+
+      constructor(episodes) {
+        this.#episodes = episodes;
+      }
+
+      get episodes() {
+        return this.#episodes;
+      }
+
+      get length() {
+        return this.#episodes.length
+      }
+
+      get shows() {
+        return this
+          .#episodes
+          .filter((episode, index) => 
+            episode.name && this.#episodes.findIndex(e => e.name === episode.name) === index)
+          .map(episode => episode.name)
+      }
+
+      get byShow() {
+        return this.#episodes.reduce((shows, show) => {
+          if (show.name) {
+            if (!(show.name in shows)) {
+              shows[show.name] = []
+            }
+
+            shows[show.name].push(show)
+          }
+
+          return shows
+        }, {})
+      }
+
+      get podcasts() {
+        return new Appearances(this.#episodes.filter(media => media.type === 'podcast'))
+      }
+
+      get videos() {
+        return new Appearances(this.#episodes.filter(media => media.type === 'video'))
+      }
+
+      get meetups() {
+        return new Appearances(this.#episodes.filter(media => media.type === 'meetup'))
+      }
+
+      get hosted() {
+        return new Appearances(this.#episodes.filter(media => media.host))
+      }
+
+      get guest() {
+        return new Appearances(this.#episodes.filter(media => !media.host))
+      }
     }
+
+    window.appearances = new Appearances(podcasts)
+
+    // window.appearances = {
+    //   all: () => podcasts,
+    //   podcasts: () => podcasts.filter(media => media.type === 'podcast'),
+    //   videos: () => podcasts.filter(media => media.type === 'video'),
+    //   meetups: () => podcasts.filter(media => media.type === 'meetup'),
+    //   hosted: () => podcasts.filter(media => media.host),
+    //   guest: () => podcasts.filter(media => !media.host)
+    // }
   </script>
   <div>
     <h2 class="text-5xl text-center py-4">Podcasts and Videos</h2>

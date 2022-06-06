@@ -10,7 +10,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/LPw8ZvEyOnQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDtKe2q1p3B6jcsaQgVz--weqzlTA',
     type: 'video',
-    host: false
+    host: false,
+    name: 'The Retro'
   },
   {
     url: 'https://www.youtube.com/watch?v=79DWd9RR8Gs',
@@ -22,7 +23,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/79DWd9RR8Gs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCZSpy6LOe0S6gL-7bU1yO7pde8tQ',
     type: 'video',
-    host: true
+    host: true,
+    name: 'Build IT Better'
   },
   {
     url: 'https://www.youtube.com/watch?v=RKtQOUzOano',
@@ -33,7 +35,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/RKtQOUzOano/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAq4um-6LHJsRv9GEyCjqZVqX9kOA',
     type: 'video',
-    host: true
+    host: true,
+    name: 'JAMhack'
   },
   {
     url: 'https://www.youtube.com/watch?v=9FsDyDABSso',
@@ -45,7 +48,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/9FsDyDABSso/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBgS7f1wBI1BiZ934SLv9yl1xh6AA',
     type: 'video',
-    host: true
+    host: true,
+    name: 'The Retro'
   },
   {
     url: 'https://www.youtube.com/watch?v=0DhsIjTeN0c',
@@ -56,7 +60,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/0DhsIjTeN0c/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA1ye92iO-JxE5ZaAYFJ-DzZmNAqw',
     type: 'video',
-    host: true
+    host: true,
+    name: 'Javascript Marathon'
   },
   {
     url: 'https://www.youtube.com/watch?v=bi0DIJxp178',
@@ -67,7 +72,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/bi0DIJxp178/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDy-H6I0jSYuLpq2_Ce93iWnOOEmA',
     type: 'video',
-    host: true
+    host: true,
+    name: 'Build IT Better'
   },
   {
     url: 'https://www.youtube.com/watch?v=I9chpwvWWNA',
@@ -78,7 +84,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/I9chpwvWWNA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCBvsQbLF9GdQpMLpytTQrSU1KliQ',
     type: 'video',
-    host: false
+    host: false,
+    name: 'Javascript Marathon'
   },
   {
     url: 'https://www.youtube.com/watch?v=z4ta7r6yqVU&t=2s',
@@ -89,7 +96,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/z4ta7r6yqVU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCjjPp1e5nYVt3pP-RCyJ7JoZL2Ig',
     type: 'video',
-    host: false
+    host: false,
+    name: 'Javascript After Dark'
   },
   {
     url: 'https://www.youtube.com/watch?v=adkxGYeW97c',
@@ -100,7 +108,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/adkxGYeW97c/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCzIhNUHVMCwYm81UKlfxZ8nOKZeg',
     type: 'meetup',
-    host: false
+    host: false,
+    name: 'VueJS Athens'
   },
   {
     url: 'https://www.youtube.com/watch?v=G1FtGIAN2lo',
@@ -112,7 +121,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/G1FtGIAN2lo/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAdZbqUkrZRSXnJC4kzSWU4yXYJUg',
     type: 'meetup',
-    host: false
+    host: false,
+    name: 'The Tech Academy'
   },
   {
     url: 'https://www.youtube.com/watch?v=LecYqXHvHfg&t=839s',
@@ -123,7 +133,8 @@ const oneOffs = [
     image:
       'https://i.ytimg.com/vi/LecYqXHvHfg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCPwaNDWP5Wgrg4JgIU0pmDDc6qUw',
     type: 'video',
-    host: false
+    host: false,
+    name: 'Wikimania'
   },
   {
     url: 'https://www.youtube.com/watch?v=flUASpYouEw',
@@ -133,7 +144,8 @@ const oneOffs = [
     pubDate: '2022-01-20T00:00:00.000Z',
     image: 'https://i.ytimg.com/vi/flUASpYouEw/hqdefault.jpg',
     type: 'video',
-    host: false
+    host: false,
+    name: 'Some Antics'
   },
   {
     url: 'https://javascriptjabber.com/what-s-new-with-elm-ft-lindsay-wardell-jsj-527',
@@ -142,7 +154,8 @@ const oneOffs = [
     pubDate: '2022-04-12T00:00:00.000Z',
     image: 'https://assets.fireside.fm/file/fireside-images/podcasts/images/f/fd93ea0b-a752-4f58-88c6-6ab8e955eae5/cover_medium.jpg?v=0',
     type: 'podcast',
-    host: false
+    host: false,
+    name: 'Javascript Jabber'
   },
   {
     url: 'https://fsjam.org/episodes/episode-72-elm-with-lindsay-wardell',
@@ -151,7 +164,8 @@ const oneOffs = [
     pubDate: '2022-05-06T00:00:00.000Z',
     image: 'https://images.transistor.fm/file/transistor/images/show/15767/medium_1603833407-artwork.jpg',
     type: 'podcast',
-    host: false
+    host: false,
+    name: 'FSJam'
   },
   {
     url: 'https://www.youtube.com/watch?v=W13X7wjKejs',
@@ -160,7 +174,18 @@ const oneOffs = [
     pubDate: '2022-05-13T00:00:00.000Z',
     image: 'https://i.ytimg.com/vi/W13X7wjKejs/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLARu_Nr290hur8U9FBBh5iSq6bvFA',
     type: 'meetup',
-    host: false
+    host: false,
+    name: 'The Tech Academy'
+  },
+  {
+    url: 'https://open.spotify.com/episode/64kMufOBufDspsLgJfskbD',
+    title: 'Functional and Object-Oriented Programming with Lindsay Wardell',
+    snippet: 'Richard and Lindsay talk about their experiences with FP and OOP, and some less obvious differences they\'ve noticed between the two paradigms.',
+    pubDate: '2022-06-06T00:00:00.000Z',
+    image: 'https://storage.googleapis.com/com-resonaterecordings-public/cover-art/3yUDSlWimXAlnh7BmozHQ3WkJsGgNR4G74ThyKKT.jpg',
+    type: 'podcast',
+    host: false,
+    name: 'Softare Unscripted'
   }
 ]
 
