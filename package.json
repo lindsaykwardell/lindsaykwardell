@@ -18,23 +18,23 @@
     "deploy": "git checkout master && git merge dev && git push origin && git checkout dev"
   },
   "dependencies": {
-    "@astrojs/vue": "^0.1.3",
+    "@astrojs/vue": "^0.1.5",
     "@tailwindcss/typography": "^0.5.2",
-    "autoprefixer": "^10.4.5",
-    "dayjs": "^1.11.1",
+    "autoprefixer": "^10.4.7",
+    "dayjs": "^1.11.3",
     "natural-order": "^1.2.2",
     "prismjs": "^1.28.0",
-    "vue": "^3.2.33"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^0.2.1",
-    "astro": "^1.0.0-beta.18",
+    "astro": "^1.0.0-beta.42",
     "cypress": "^9.6.0",
     "netlify-lambda": "^2.0.15",
-    "postcss": "^8.4.12",
+    "postcss": "^8.4.14",
     "postcss-nested": "^5.0.6",
     "rss-parser": "^3.12.0",
-    "sass": "^1.51.0",
+    "sass": "^1.52.2",
     "start-server-and-test": "^1.12.1",
     "tailwindcss": "^3.0.24"
   }
