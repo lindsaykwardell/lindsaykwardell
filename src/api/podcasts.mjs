@@ -185,7 +185,7 @@ const oneOffs = [
     image: 'https://storage.googleapis.com/com-resonaterecordings-public/cover-art/3yUDSlWimXAlnh7BmozHQ3WkJsGgNR4G74ThyKKT.jpg',
     type: 'podcast',
     host: false,
-    name: 'Softare Unscripted'
+    name: 'Software Unscripted'
   }
 ]
 

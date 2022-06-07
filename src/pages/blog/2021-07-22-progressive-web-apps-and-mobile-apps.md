@@ -10,4 +10,5 @@ tags:
   - PWA
   - Mobile Apps
 layout: '../../layouts/ExternalPostLayout.astro'
+name: 'This Dot Labs'
 ---

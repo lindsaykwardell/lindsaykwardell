@@ -11,4 +11,5 @@ tags:
   - Composition API
   - Web Development
 layout: '../../layouts/ExternalPostLayout.astro'
+name: 'This Dot Labs'
 ---

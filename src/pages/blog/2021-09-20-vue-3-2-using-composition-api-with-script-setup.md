@@ -10,4 +10,5 @@ tags:
   - Javascript
   - Composition API
 layout: '../../layouts/ExternalPostLayout.astro'
+name: 'This Dot Labs'
 ---

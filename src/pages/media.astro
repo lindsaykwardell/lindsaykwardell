@@ -1,94 +1,36 @@
 ---
 // Component Imports
 import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogHeader from '../components/BlogHeader.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 import { getPodcasts } from '../api/podcasts.mjs'
+import naturalOrder from 'natural-order'
 
 const podcasts = await getPodcasts();
+const posts = await Astro.glob('../pages/blog/*.md')
+    .then(posts => 
+        posts.map(post => 
+            ({...post.frontmatter, 
+                url: post.url,
+                type: 'blog',
+                host: post.frontmatter.author === 'Lindsay Wardell',
+                name: post.frontmatter.name || 'Lindsay Wardell Blog',
+                pubDate: post.frontmatter.date
+            })
+        ));
+
+const allPosts = naturalOrder([...podcasts, ...posts])
+    .orderBy('desc')
+    .sort(['pubDate'])
 
 ---
 
 <BaseLayout>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
-  <script define:vars={{podcasts}}></script>
-  <script>
-    class Appearances {
-      #episodes
+  <script define:vars={{allPosts}}></script>
+  <script hoist type="module">
+    import { Content } from "../api/content.mjs"
 
-      constructor(episodes) {
-        this.#episodes = episodes;
-      }
-
-      get episodes() {
-        return this.#episodes;
-      }
-
-      get length() {
-        return this.#episodes.length
-      }
-
-      get shows() {
-        return this
-          .#episodes
-          .filter((episode, index) => 
-            episode.name && this.#episodes.findIndex(e => e.name === episode.name) === index)
-          .map(episode => episode.name)
-      }
-
-      get byShow() {
-        return this.#episodes.reduce((shows, show) => {
-          if (show.name) {
-            if (!(show.name in shows)) {
-              shows[show.name] = []
-            }
-
-            shows[show.name].push(show)
-          }
-
-          return shows
-        }, {})
-      }
-
-      get podcasts() {
-        return new Appearances(this.#episodes.filter(media => media.type === 'podcast'))
-      }
-
-      get videos() {
-        return new Appearances(this.#episodes.filter(media => media.type === 'video'))
-      }
-
-      get meetups() {
-        return new Appearances(this.#episodes.filter(media => media.type === 'meetup'))
-      }
-
-      get hosted() {
-        return new Appearances(this.#episodes.filter(media => media.host))
-      }
-
-      get guest() {
-        return new Appearances(this.#episodes.filter(media => !media.host))
-      }
-
-      search(query) {
-        const results = new Fuse(this.#episodes, {
-          keys: ['title', 'name', 'snippet', 'pubDate']
-        }).search(query)
-
-        return new Appearances(results.map(results => results.item))
-      }
-    }
-
-    window.appearances = new Appearances(podcasts)
-
-    // window.appearances = {
-    //   all: () => podcasts,
-    //   podcasts: () => podcasts.filter(media => media.type === 'podcast'),
-    //   videos: () => podcasts.filter(media => media.type === 'video'),
-    //   meetups: () => podcasts.filter(media => media.type === 'meetup'),
-    //   hosted: () => podcasts.filter(media => media.host),
-    //   guest: () => podcasts.filter(media => !media.host)
-    // }
+    window.content = new Content(allPosts)
   </script>
   <div>
     <h2 class="text-5xl text-center py-4">Podcasts and Videos</h2>

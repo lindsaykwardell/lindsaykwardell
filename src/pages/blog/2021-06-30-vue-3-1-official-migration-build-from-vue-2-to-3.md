@@ -9,4 +9,5 @@ tags:
   - vue
   - javascript
 layout: '../../layouts/ExternalPostLayout.astro'
+name: 'This Dot Labs'
 ---

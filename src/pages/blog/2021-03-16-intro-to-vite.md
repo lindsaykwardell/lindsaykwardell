@@ -11,4 +11,5 @@ tags:
   - Web Development
 snippet: 
 layout: '../../layouts/ExternalPostLayout.astro'
+name: 'This Dot Labs'
 ---

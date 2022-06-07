@@ -11,4 +11,5 @@ tags:
   - Tailwind
   - CSS
 layout: '../../layouts/ExternalPostLayout.astro'
+name: 'This Dot Labs'
 ---

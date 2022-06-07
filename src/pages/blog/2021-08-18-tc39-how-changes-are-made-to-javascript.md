@@ -9,4 +9,5 @@ tags:
   - Javascript
   - TC39
 layout: '../../layouts/ExternalPostLayout.astro'
+name: 'This Dot Labs'
 ---
