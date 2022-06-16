@@ -1,97 +1,66 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogPostPreview from '../components/BlogPostPreview.astro';
+import BlogPostPreview from '../components/BlogPostPreview.vue';
 import { getPodcasts } from '../api/podcasts.mjs'
 import naturalOrder from "natural-order";
+import Search from '../components/Search.vue'
 
 const podcasts = await getPodcasts()
 const posts = await Astro.glob('../pages/blog/*.md')
-    .then(posts => 
-        posts.map(post => 
-            ({...post.frontmatter, 
-                url: post.url,
-                type: 'blog',
-                host: post.frontmatter.author === 'Lindsay Wardell',
-                name: post.frontmatter.name || 'Lindsay Wardell Blog',
-                pubDate: post.frontmatter.date
-            })
-        ));
+  .then(posts =>
+    posts.map(post =>
+    ({
+      ...post.frontmatter,
+      url: post.url,
+      type: 'blog',
+      host: post.frontmatter.author === 'Lindsay Wardell',
+      name: post.frontmatter.name || 'Lindsay Wardell Blog',
+      pubDate: post.frontmatter.date
+    })
+    ));
 
 const allPosts = naturalOrder([...podcasts, ...posts])
-    .orderBy('desc')
-    .sort(['pubDate'])
+  .orderBy('desc')
+  .sort(['pubDate'])
 ---
+
 <BaseLayout>
   <div class="relative w-full flex justify-center items-center text-center px-8">
-    <div class="flex flex-wrap justify-between w-full mb-24">
+    <div class="flex flex-wrap justify-between w-full mb-24 gap-12">
       <div class="w-full xl:w-1/2 flex flex-col items-center">
-        <img
-          src={'/lindsay-profile-2.jpg'}
-          alt=""
-          class="rounded-full shadow-xl w-64 h-64 my-4 object-cover"
-        />
+        <img src={'/lindsay-profile-2.jpg'} alt="" class="rounded-full shadow-xl w-64 h-64 my-4 object-cover" />
         <h2 class="text-3xl lg:text-4xl leading-9 font-medium py-4">
           I'm a Software Engineer who loves writing functional, elegant web applications.
         </h2>
         <div class="flex w-full pt-4">
-          <div
-            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
-          >
-            <img
-              class="tech-logo"
-              src="/elm.png"
-              width="100"
-              alt="Elm"
-            />
+          <div class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper">
+            <img class="tech-logo" src="/elm.png" width="100" alt="Elm" />
           </div>
-          <div
-            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
-          >
-            <img
-              class="tech-logo"
-              src="/vite.svg"
-              width="100"
-              alt="Vite"
-            />
+          <div class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper">
+            <img class="tech-logo" src="/vite.svg" width="100" alt="Vite" />
           </div>
-          <div
-            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
-          >
-            <img
-              class="tech-logo"
-              src="/tailwind.png"
-              width="100"
-              alt="Tailwind CSS"
-            />
+          <div class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper">
+            <img class="tech-logo" src="/tailwind.png" width="100" alt="Tailwind CSS" />
           </div>
-          <div
-            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
-          >
-            <img
-              class="tech-logo"
-              src="/typescript.jpg"
-              width="100"
-              alt="Typescript"
-            />
+          <div class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper">
+            <img class="tech-logo" src="/typescript.jpg" width="100" alt="Typescript" />
           </div>
-          <div
-            class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper"
-          >
-            <img
-              class="tech-logo"
-              src="/nodejs.png"
-              width="100"
-              alt="NodeJS"
-            />
+          <div class="flex-1 flex justify-center items-center p-2 tech-logo-wrapper">
+            <img class="tech-logo" src="/nodejs.png" width="100" alt="NodeJS" />
           </div>
         </div>
       </div>
-      <div
-        class="w-full xl:w-1/3 pt-6 xl:pt-0 flex flex-col items-center justify-end"
-      >
+      <div class="w-full xl:w-1/3 pt-6 xl:pt-0 flex flex-col items-center justify-end">
         <h2 class="text-4xl">Latest Activity</h2>
         <BlogPostPreview item={allPosts[0]} />
       </div>
+      <Search client:idle content={allPosts} />
     </div>
   </div>
+  <!-- <script define:vars={{allPosts}}></script>
+  <script hoist type="module">
+    import { Content } from "../api/content.mjs"
+
+    window.content = new Content(allPosts)
+  </script> -->
 </BaseLayout>

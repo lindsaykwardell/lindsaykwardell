@@ -1,0 +1,84 @@
+<script setup lang="ts">
+const props = defineProps<{
+  item: {
+    link?: string
+    url?: string
+    image?: string
+    title: string
+    snippet?: string
+    description?: string
+  }
+}>()
+</script>
+
+<template>
+  <div class="blog-item bg-white dark:bg-gray-800 transition duration-100">
+    <a :href="item.link || item.url" class="hover:no-underline w-full">
+      <div v-if="item.image" class="blog-image-wrapper">
+        <img
+          class="blog-image dark:bg-white transition duration-100"
+          :src="item.image"
+          :alt="item.title"
+          loading="lazy"
+        />
+      </div>
+      <div class="p-3">
+        <slot name="title">
+          <h3 class="text-3xl blog-title leading-8 pb-4">{{ item.title }}</h3>
+        </slot>
+        <div class="hidden md:block">
+          <!-- <TagPill v-for="tag in item.tags" :key="tag">{{ tag }}</TagPill> -->
+        </div>
+        <p
+          class="blog-snippet text-gray-600 dark:text-gray-400 transition duration-100"
+        >
+          {{ item.snippet || item.description }}
+        </p>
+      </div>
+    </a>
+  </div>
+</template>
+
+<style scoped lang="pcss">
+.blog-item {
+  @apply shadow-md rounded-lg relative overflow-hidden flex justify-center;
+  /* height: 415px; */
+  animation: 0.3s ease-out 0s 1 shift;
+
+  .blog-image {
+    @apply transition duration-500;
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    /* filter: blur(3px); */
+  }
+
+  &:hover {
+    .blog-title {
+      @apply underline;
+    }
+
+    .blog-image {
+      transform: scale(1.1);
+      filter: blur(0);
+    }
+  }
+}
+
+.blog-image-wrapper {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+@keyframes shift {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+</style>

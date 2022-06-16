@@ -1,37 +1,30 @@
 ---
 // Component Imports
 import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogPostPreview from '../components/BlogPostPreview.astro';
+import BlogPostPreview from '../components/BlogPostPreview.vue';
 import { getPodcasts } from '../api/podcasts.mjs'
 import naturalOrder from 'natural-order'
 
 const podcasts = await getPodcasts();
-const posts = await Astro.glob('../pages/blog/*.md')
-    .then(posts => 
-        posts.map(post => 
-            ({...post.frontmatter, 
-                url: post.url,
-                type: 'blog',
-                host: post.frontmatter.author === 'Lindsay Wardell',
-                name: post.frontmatter.name || 'Lindsay Wardell Blog',
-                pubDate: post.frontmatter.date
-            })
-        ));
+// const posts = await Astro.glob('../pages/blog/*.md')
+//     .then(posts =>
+//         posts.map(post =>
+//             ({...post.frontmatter,
+//                 url: post.url,
+//                 type: 'blog',
+//                 host: post.frontmatter.author === 'Lindsay Wardell',
+//                 name: post.frontmatter.name || 'Lindsay Wardell Blog',
+//                 pubDate: post.frontmatter.date
+//             })
+//         ));
 
-const allPosts = naturalOrder([...podcasts, ...posts])
-    .orderBy('desc')
-    .sort(['pubDate'])
+// const allPosts = naturalOrder([...podcasts, ...posts])
+//     .orderBy('desc')
+//     .sort(['pubDate'])
 
 ---
 
 <BaseLayout>
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
-  <script define:vars={{allPosts}}></script>
-  <script hoist type="module">
-    import { Content } from "../api/content.mjs"
-
-    window.content = new Content(allPosts)
-  </script>
   <div>
     <h2 class="text-5xl text-center py-4">Podcasts and Videos</h2>
     <div class="flex flex-col lg:flex-row flex-wrap">

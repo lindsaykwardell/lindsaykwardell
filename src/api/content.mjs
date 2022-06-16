@@ -1,3 +1,5 @@
+import Fuse from 'fuse.js'
+
 export class Content {
     #media
 
