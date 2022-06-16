@@ -1,6 +1,5 @@
 ---
 // Component Imports
-import DarkModeButton from '../components/DarkModeButton.vue'
 import SocialLinks from '../components/SocialLinks.astro'
 
 import "../styles/global.css";
@@ -44,35 +43,13 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Rokkitt|Fira+Sans&display=swap">
 
-    <!-- <link
-      rel="stylesheet"
-      href={Astro.resolve("../styles/global.css")}
-    > -->
-
-    <script>
-    const html = document.querySelector("html");
-    let darkMode = localStorage.getItem("darkMode");
-
-    if (!darkMode) {
-      darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    } else {
-      darkMode = darkMode === "true";
-    }
-
-    if (darkMode) {
-      html.classList.add("dark");
-    }
-
-    localStorage.setItem("darkMode", darkMode);
-    </script>
-
     <slot name="head"></slot>
   </head>
 
-  <body>
+  <body class="bg-gray-200 dark:bg-gray-900 dark:text-gray-200">
     <div class="relative flex flex-col min-h-[100vh]">
       <nav
-        class="bg-red-900 w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
+        class="bg-gradient-to-r from-red-900 to-[#410000] w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
       >
         <a href="/" class="flex items-center">
           <img
@@ -83,15 +60,15 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
           <h1 class="text-3xl font-rokkitt text-white pl-3 hidden md:block">Lindsay Wardell</h1>
         </a>
         <div class="flex-grow flex justify-end text-white text-lg">
-          <a href="/" class="px-4 py-2 rounded hidden sm:inline">Home</a>
-          <a href="/about" class="px-4 py-2 rounded hide-too-small whitespace-nowrap"
+          <a href="/" class="px-4 py-2 rounded hidden sm:inline hover:underline">Home</a>
+          <a href="/about" class="px-4 py-2 rounded whitespace-nowrap hover:underline"
             >About <span class="hidden sm:inline">Me</span></a
           >
-          <a href="/blog" class="px-4 py-2 rounded">Blog</a>
-          <a href="/media" class="px-4 py-2 rounded">Media</a>
+          <a href="/blog" class="px-4 py-2 rounded hover:underline">Blog</a>
+          <a href="/media" class="px-4 py-2 rounded hover:underline">Media</a>
         </div>
       </nav>
-      <main class="flex-grow mb-16 lg:flex items-center justify-center">
+      <main class="flex-grow mb-16 lg:flex items-center justify-center pt-4 relative top-[70px]">
         <slot></slot>
       </main>
       <footer
@@ -99,7 +76,6 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
       >
         <SocialLinks />
       </footer>
-      <DarkModeButton client:only />
     </div>
 
     <script data-goatcounter="https://lindsaykwardell.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

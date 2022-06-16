@@ -1,7 +1,7 @@
 module.exports = {
   content: ['./public/**/*.html', './src/**/*.{astro,js,jsx,ts,tsx,vue}'],
   plugins: [require('@tailwindcss/typography')],
-  darkMode: 'class',
+  // darkMode: 'class',
   theme: {
     extend: {
       colors: {

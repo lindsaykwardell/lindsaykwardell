@@ -7,18 +7,7 @@
 }
 
 body {
-  @apply bg-gray-200 transition duration-100;
   font-family: 'Fira Sans', sans-serif;
-}
-
-html.dark body {
-  @apply bg-gray-900 text-gray-200;
-}
-
-main {
-  @apply pt-4;
-  position: relative;
-  top: 70px;
 }
 
 h1,
@@ -31,40 +20,9 @@ footer {
   font-family: 'Rokkitt', serif;
 }
 
-label,
-a.recent-post {
-  font-family: 'Fira Sans', sans-serif;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a.nuxt-link-exact-active {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
 hr {
   @apply border-0 mx-auto my-4;
   background-color: rgb(68, 68, 68);
   height: 1px;
   width: 80%;
-}
-
-.fab {
-  bottom: 15px;
-  right: 15px;
-
-  @media (max-width: 640px) {
-    & {
-      bottom: 5px;
-      right: 5px;
-    }
-  }
-}
-
-@media (max-width: 370px) {
-  .hide-too-small {
-    display: none;
-  }
 }
