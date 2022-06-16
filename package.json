@@ -34,6 +34,7 @@
     "postcss": "^8.4.14",
     "postcss-nested": "^5.0.6",
     "rss-parser": "^3.12.0",
+    "sass": "^1.52.3",
     "start-server-and-test": "^1.12.1",
     "tailwindcss": "^3.1.3"
   }
