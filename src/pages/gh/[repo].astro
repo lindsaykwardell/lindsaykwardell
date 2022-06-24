@@ -1,0 +1,17 @@
+---
+import Redirect from '../../components/Redirect.vue'
+import {getData} from '../../api/github.mjs'
+
+const github = await getData()
+
+export async function getStaticPaths() {
+    const github = await getData()
+
+    return github.user.repositories.nodes.map(repo => ({params: {repo: repo.name}}))
+}
+
+const { repo } = Astro.params;
+
+const link = `https://github.com/lindsaykwardell/${repo}`
+---
+<Redirect client:only url={link} />
