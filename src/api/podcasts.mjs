@@ -1074,6 +1074,17 @@ const oneOffs = [
     host: false,
     name: 'Some Antics',
   },
+  {
+    url: 'https://www.youtube.com/watch?v=ZPVGK2OSTog',
+    title: 'Functional Programming in Vite with Elm',
+    snippet:
+      "Elm is a delightful language for building reliable web applications. In this talk, we'll explore what Elm is, how it compares to Javascript, and how we can incorporate it into a Vite-based application.",
+    pubDate: '2022-10-11T00:00:00.000Z',
+    image: '/blog/viteconf.jpg',
+    type: 'video',
+    host: false,
+    name: 'ViteConf 2022',
+  },
 ]
 
 // function fetchPodcasts() {
