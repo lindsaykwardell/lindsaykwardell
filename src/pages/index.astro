@@ -13,7 +13,7 @@ const posts = await Astro.glob('../pages/blog/*.md')
       ...post.frontmatter,
       url: post.url,
       type: 'blog',
-      host: post.frontmatter.author === 'Lindsay Wardell',
+      host: !post.frontmatter.link?.includes("https://"),
       name: post.frontmatter.name || 'Lindsay Wardell Blog',
       pubDate: post.frontmatter.date
     })
