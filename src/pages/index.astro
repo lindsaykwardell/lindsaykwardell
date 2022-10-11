@@ -11,6 +11,7 @@ const posts = await Astro.glob('../pages/blog/*.md')
     posts.map(post =>
     ({
       ...post.frontmatter,
+      title: post.frontmatter.title,
       url: post.url,
       type: 'blog',
       host: !post.frontmatter.link?.includes("https://"),
