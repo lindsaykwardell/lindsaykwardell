@@ -7,3 +7,4 @@ I am a programmer, writer, and mother. I work as a Software Engineer at NoRedInk
 I am currently learning more about functional programming, and utilizing languages like Elm and Haskell for side projects and at work.
 
 - Pronouns: She/Her
+- <a href="https://mastodon.social/@lindsaykwardell" rel="me">Follow me on Mastodon</a>
