@@ -8,7 +8,7 @@ let { title, description, image, permalink } = Astro.props;
 
 title = title || 'Lindsay Wardell';
 description = description || 'Programmer, writer, mother. She/Her. Interested in Vue, Typescript, Node.js, and Elm.';
-image = image ? 'https://lindsaykwardell.com' + image : 'https://lindsaykwardell.com/lindsay-profile-2.jpg'
+image = image ? 'https://lindsaykwardell.com' + image : 'https://lindsaykwardell.com/lindsay.jpg'
 permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lindsaykwardell.com';
 ---
 <html lang="en">
@@ -49,11 +49,11 @@ permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lin
   <body class="bg-gray-200 dark:bg-gray-900 dark:text-gray-200">
     <div class="relative flex flex-col min-h-[100vh]">
       <nav
-        class="bg-gradient-to-r from-[#581414] via-red-900 to-gray-900 w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
+        class="bg-gradient-to-r from-[#581414] to-red-700 dark:via-red-900 dark:to-gray-900 w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
       >
         <a href="/" class="flex items-center">
           <img
-            src={'/lindsay-profile-2.jpg'}
+            src={'/lindsay.jpg'}
             class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
             alt=""
           />
