@@ -1,2 +1,6 @@
 [build]
   functions = "./lambda"
+
+[[redirects]]
+  from = "/.well-known/webfinger"
+  to = "/.well-known/webfinger.json"
