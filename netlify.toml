@@ -10,6 +10,7 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
+[[headers]]
   for = "/blog/*"
   [headers.values]
     Cache-Control = "public, max-age=14400"
