@@ -5,9 +5,13 @@
 [[headers]]
   for = "/@lindsay/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    cache-control = '''
+    max-age=604800,
+    public'''
 
 [[headers]]
   for = "/blog/*"
   [headers.values]
-    Cache-Control = "public, max-age=14400"
+    cache-control = '''
+    max-age=14400,
+    public'''
