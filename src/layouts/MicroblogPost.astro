@@ -7,11 +7,10 @@ import "../styles/prism.scss"
 
 const {content} = Astro.props;
 const {title, snippet, date, author, image, slug} = content;
-const cacheStrategy = Astro.props.cacheStrategy;
 
 const { avatar, note, header, followers_count, following_count, statuses_count } = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861").then(res => res.json())
 ---
-<BaseLayout title={title} description={snippet} image={avatar} permalink={slug} cacheStrategy={cacheStrategy}>
+<BaseLayout title={title} description={snippet} image={avatar} permalink={slug}>
 
 <div class="blog-post flex justify-center items-center flex-col">
   <div
