@@ -8,7 +8,7 @@ let { title, description, image, permalink } = Astro.props;
 
 title = title || 'Lindsay Wardell';
 description = description || 'Programmer, writer, mother. She/Her. Interested in Vue, Typescript, Node.js, and Elm.';
-image = image ? 'https://lindsaykwardell.com' + image : 'https://lindsaykwardell.com/lindsay.jpg'
+image = image ? (image.includes("http") ? image : 'https://lindsaykwardell.com' + image) : 'https://lindsaykwardell.com/lindsay.jpg'
 permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lindsaykwardell.com';
 ---
 <html lang="en">
