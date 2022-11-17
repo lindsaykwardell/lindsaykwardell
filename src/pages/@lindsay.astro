@@ -1,0 +1,36 @@
+---
+import MicroblogPost from "../layouts/MicroblogPost.astro";
+import Parser from 'rss-parser';
+import dayjs from 'dayjs'
+
+const feedUrl = "https://mastodon.social/@lindsaykwardell.rss"
+const parser = new Parser()
+
+const feed = await parser.parseURL(feedUrl);
+
+const content = {
+  title: feed.title,
+  snippet: feed.description,
+}
+---
+<MicroblogPost content={content}>
+{feed.items.map(item => (
+  <div class="bg-gray-700 p-3 rounded my-4">
+    <div class="flex items-center gap-4 h-12">
+      <img src={feed.image.url} class="w-10 h-10 rounded-full" />
+      <div class="flex flex-col flex-grow">
+        <div>{feed.title}</div>  
+        <div class="text-gray-400 text-sm">
+          <a href="https://mastodon.social/@lindsaykwardell" class="text-gray-400 decoration-gray-400">
+            <span class="text-gray-400">@lindsay@lindsaykwardell.com</span>
+          </a>
+        </div>
+      </div>
+      <a href={item.link} class="flex-shrink decoration-gray-400" target="_blank">
+        <time class="text-gray-400">{dayjs(item.pubDate).format("MMM DD YYYY")}</time>
+      </a>
+    </div>
+    <article class="px-5" set:html={item.content}></article>
+  </div>
+))}
+</MicroblogPost>
