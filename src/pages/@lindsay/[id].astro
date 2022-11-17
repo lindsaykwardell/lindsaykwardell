@@ -24,7 +24,7 @@ const content = {
   slug: `/@lindsay/${id}`,
 }
 ---
-<MicroblogPost content={content}>
+<MicroblogPost content={content} cacheStrategy="public, max-age=14400">
   <div class="bg-gray-200 dark:bg-gray-700 p-3 rounded my-4">
     <div class="flex items-center gap-4 h-12">
       <img src={data.account.avatar} class="w-10 h-10 rounded-full shadow" />

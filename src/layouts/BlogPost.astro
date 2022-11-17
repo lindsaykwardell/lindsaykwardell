@@ -8,7 +8,7 @@ import "../styles/prism.scss"
 const {content} = Astro.props;
 const {title, snippet, date, author, image, slug} = content;
 ---
-<BaseLayout title={title} description={snippet} image={image} permalink={slug}>
+<BaseLayout title={title} description={snippet} image={image} permalink={slug} cacheStrategy="public, max-age=14400">
 
 <div class="blog-post flex justify-center items-center flex-col">
   <div
