@@ -4,3 +4,12 @@
 [[redirects]]
   from = "/.well-known/webfinger"
   to = "/.well-known/webfinger.json"
+
+[[headers]]
+  for = "/@lindsay/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+  for = "/blog/*"
+  [headers.values]
+    Cache-Control = "public, max-age=14400"
