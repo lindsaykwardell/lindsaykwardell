@@ -21,20 +21,20 @@ const { avatar, note, header, followers_count, following_count, statuses_count }
       <img src={avatar} class="w-36 h-36 rounded-full object-cover absolute bottom-[-30px] left-[30px] shadow-xl border-2 border-black" />
     </div>
     
-    <div class="flex justify-between m-auto w-[80ch] text-gray-500 dark:text-gray-400 pb-4">
+    <div class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-gray-500 dark:text-gray-400 pb-4 p-3">
       <a href="https://mastodon.social/@lindsaykwardell" class="underline">@lindsay@lindsaykwardell.com</a>
       <div>{statuses_count} Posts</div>
       <div>{following_count} Following</div>
       <div>{followers_count} Followers</div>
     </div>
 
-    <aside class="prose dark:prose-dark m-auto" set:html={note}>
+    <aside class="prose dark:prose-dark m-auto p-3" set:html={note}>
       
     </aside>
 
     <hr />
 
-    <article class="py-8 px-4 md:px-0 prose m-auto dark:prose-dark">
+    <article class="px-4 md:px-0 prose m-auto dark:prose-dark">
       <slot />
     </article>
 
