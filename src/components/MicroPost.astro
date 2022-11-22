@@ -3,6 +3,8 @@ import dayjs from 'dayjs'
 
 interface Props {
   avatar: string
+  username?: string
+  userPage?: string
   url: string
   createdAt: string
   displayName: string
@@ -24,7 +26,17 @@ interface Props {
   }
 }
 
-const { avatar, displayName, content, attachments, card, url, createdAt, postStats } = Astro.props;
+const { avatar, displayName, username, userPage, content, attachments, card, url, createdAt, postStats } = Astro.props;
+
+let displayUsername;
+switch (username) {
+  case 'lindsaykwardell':
+  case undefined:
+    displayUsername = '@lindsay@lindsaykwardell.com'
+    break;
+  default:
+    displayUsername = `@${username}`
+}
 ---
 <div class="bg-gray-200 dark:bg-gray-700 p-3 rounded my-4">
   <div class="flex flex-wrap items-center gap-4 md:h-12">
@@ -32,8 +44,8 @@ const { avatar, displayName, content, attachments, card, url, createdAt, postSta
     <div class="flex flex-col flex-grow">
       <div>{displayName}</div>  
       <div class="text-sm">
-        <a href="https://mastodon.social/@lindsaykwardell" class="decoration-gray-500 dark:decoration-gray-400">
-          <span class="text-gray-500 dark:text-gray-400">@lindsay@lindsaykwardell.com</span>
+        <a href={userPage || "https://mastodon.social/@lindsaykwardell"} class="decoration-gray-500 dark:decoration-gray-400">
+          <span class="text-gray-500 dark:text-gray-400">{displayUsername}</span>
         </a>
       </div>
     </div>

@@ -19,14 +19,14 @@ const content = {
 }
 ---
 <MicroblogPost content={content}>
-{feed.items.map(item => (
-  <MicroPost 
-    avatar={feed.image.url}
-    displayName={feed.title}
-    content={item.content}
-    createdAt={item.pubDate}
-    url={item.link}
-    attachments={item.attachments?.map(attachment => attachment['$'])}
-  />
-))}
+  {feed.items.map(item => (
+    <MicroPost 
+      avatar={feed.image.url}
+      displayName={feed.title}
+      content={item.content}
+      createdAt={item.pubDate}
+      url={item.link}
+      attachments={item.attachments?.map(attachment => attachment['$'])}
+    />
+  ))}
 </MicroblogPost>
