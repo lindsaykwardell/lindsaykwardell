@@ -189,5 +189,5 @@ I'm sure there is more that can be done to integrate my site with the Fediverse,
 
 While Twitter may be going through some major struggles, this feels like a good way to keep up interaction with the dev community and integrate it more with my own site in a way that Twitter never allowed. And that, at least, is worth it.
 
-If you're interested in how this turned out, check out lindsaykwardell.com/@lindsay
+If you're interested in how this turned out, check out [lindsaykwardell.com/@lindsay](https://lindsaykwardell.com/@lindsay)!
 
