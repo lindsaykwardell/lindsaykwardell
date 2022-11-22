@@ -4,7 +4,11 @@ import Parser from 'rss-parser';
 import MicroPost from "../components/MicroPost.astro";
 
 const feedUrl = "https://mastodon.social/@lindsaykwardell.rss"
-const parser = new Parser()
+const parser = new Parser({
+  customFields: {
+    item: [ ['media:content', 'attachments', { keepArray: true} ]]
+  }
+})
 
 const feed = await parser.parseURL(feedUrl);
 
@@ -22,6 +26,7 @@ const content = {
     content={item.content}
     createdAt={item.pubDate}
     url={item.link}
+    attachments={item.attachments?.map(attachment => attachment['$'])}
   />
 ))}
 </MicroblogPost>

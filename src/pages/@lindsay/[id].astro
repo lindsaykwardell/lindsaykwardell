@@ -6,6 +6,8 @@ const { id } = Astro.params;
 
 const data = await fetch(`https://mastodon.social/api/v1/statuses/${id}`).then(res => res.json())
 
+console.log(data)
+
 const name = data.account.display_name
 const post = data.content.replace(/<[^>]*>?/gm, '');
 let snippet = post.substring(0,30);
@@ -32,5 +34,10 @@ const content = {
     content={data.content}
     attachments={data.media_attachments}
     card={card}
+    postStats={{
+      repliesCount: data.replies_count,
+      reblogsCount: data.reblogs_count,
+      favouritesCount: data.favourites_count,
+    }}
   />
 </MicroblogPost>
