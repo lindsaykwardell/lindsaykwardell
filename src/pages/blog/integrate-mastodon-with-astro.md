@@ -1,8 +1,8 @@
 ---
 date: 2022-11-22
-title: "Integrate Mastodon with Astro"
+title: "Integrating Mastodon with Astro"
 author: "Lindsay Wardell"
-image: "/blog/between-hope.jpeg"
+image: "/blog/mastodon-astro.webp"
 tags:
   - Astro
   - Javascript
@@ -188,4 +188,6 @@ One thing to note about using the API in this way, because we are just fetching 
 I'm sure there is more that can be done to integrate my site with the Fediverse, but this already feels really nice. Future changes could lead to better integrations with Mastodon, such as following or favoriting things from my site rather than having to go to Mastodon, but it's not a huge issue at the moment.
 
 While Twitter may be going through some major struggles, this feels like a good way to keep up interaction with the dev community and integrate it more with my own site in a way that Twitter never allowed. And that, at least, is worth it.
+
+If you're interested in how this turned out, check out lindsaykwardell.com/@lindsay
 
