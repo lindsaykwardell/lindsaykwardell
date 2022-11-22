@@ -28,7 +28,7 @@ const content = {
         </div>
       </div>
     </div>
-    <article class="px-5" set:html={item.content}></article>
+    <article class="px-5 break-all" set:html={item.content}></article>
     <div class="text-sm flex gap-4 justify-end">
       <a href={item.link.replace("https://mastodon.social/@lindsaykwardell/", "/@lindsay/")} class=" decoration-gray-500 dark:decoration-gray-400">
         <time class="text-gray-500 dark:text-gray-400">{dayjs(item.pubDate).format("MMM DD YYYY")}</time>

@@ -37,7 +37,7 @@ const content = {
         </div>
       </div>
     </div>
-    <article class="px-5" set:html={data.content}></article>
+    <article class="px-5 break-all" set:html={data.content}></article>
     {data.media_attachments.length > 0 && (
       <div class="flex flex-col gap-4">
         {data.media_attachments.map((attachment) => (
