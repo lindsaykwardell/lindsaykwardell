@@ -50,7 +50,7 @@ switch (username) {
       </div>
     </div>
   </div>
-  <article class="px-5 break-all" set:html={content}></article>
+  <article class="px-5" set:html={content}></article>
   {attachments?.length > 0 && (
     <div class="flex flex-wrap justify-center">
       {attachments.map((attachment) => (
@@ -64,8 +64,8 @@ switch (username) {
   {card && 
     <div class="shadow w-3/4 m-auto bg-gray-100 dark:bg-gray-800">
       <a href={card.url} class="no-underline" target="_blank">
-        <img src={card.image} class="object-fill w-full" />
-        <div class="p-3 pt-0">
+        {card.image && <img src={card.image} class="object-fill w-full" />}
+        <div class="p-3">
           <div class="text-lg font-bold">{card.title}</div>
           <div class="text-sm text-gray-500 dark:text-gray-400">{card.description}</div>
         </div>
@@ -101,3 +101,9 @@ switch (username) {
     </div>
   </div>
 </div>
+
+<style is:global lang="pcss">
+  article a {
+    word-break: break-word;
+  }
+</style>
