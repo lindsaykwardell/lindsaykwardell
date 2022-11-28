@@ -38,7 +38,7 @@ switch (username) {
     displayUsername = `@${username}`
 }
 ---
-<div class="bg-gray-200 dark:bg-gray-700 p-3 rounded my-4">
+<div class="bg-gray-100 dark:bg-gray-700 shadow p-3 rounded my-4">
   <div class="flex flex-wrap items-center gap-4 md:h-12">
     <img src={avatar} class="m-0 w-10 h-10 rounded-full shadow" />
     <div class="flex flex-col flex-grow">
@@ -62,7 +62,7 @@ switch (username) {
     </div>
   )}
   {card && 
-    <div class="shadow w-3/4 m-auto bg-gray-100 dark:bg-gray-800">
+    <div class="shadow w-3/4 m-auto bg-gray-200 dark:bg-gray-800">
       <a href={card.url} class="no-underline" target="_blank">
         {card.image && <img src={card.image} class="object-fill w-full" />}
         <div class="p-3">

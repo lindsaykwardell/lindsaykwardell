@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import BlogPostPreview from '../components/BlogPostPreview.vue';
 import { getPodcasts } from '../api/podcasts.mjs'
 import naturalOrder from "natural-order";
-import Search from '../components/Search.vue'
 
 const podcasts = await getPodcasts()
 const posts = await Astro.glob('../pages/blog/*.md')
@@ -23,6 +22,8 @@ const posts = await Astro.glob('../pages/blog/*.md')
 const allPosts = naturalOrder([...podcasts, ...posts])
   .orderBy('desc')
   .sort(['pubDate'])
+
+const recentPosts = allPosts.slice(1, 4)
 ---
 
 <BaseLayout>
@@ -55,13 +56,17 @@ const allPosts = naturalOrder([...podcasts, ...posts])
         <h2 class="text-4xl">Latest Activity</h2>
         <BlogPostPreview item={allPosts[0]} />
       </div>
-      <Search client:idle content={allPosts} />
+      <!-- <Search client:idle content={allPosts} /> -->
+      <div class="w-full md:w-4/5 xl:w-[1400px] m-auto bg-gray-300 dark:bg-gray-700 p-4 rounded shadow">
+        <h2 class="text-4xl">Recent Content</h2>
+        <div class="flex flex-col lg:flex-row flex-wrap">
+          {recentPosts.map(post => 
+            <div class="w-full lg:w-1/2 xl:w-1/3 p-4">
+              <BlogPostPreview item={post} />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   </div>
-  <!-- <script define:vars={{allPosts}}></script>
-  <script hoist type="module">
-    import { Content } from "../api/content.mjs"
-
-    window.content = new Content(allPosts)
-  </script> -->
 </BaseLayout>
