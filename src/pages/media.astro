@@ -6,22 +6,6 @@ import { getPodcasts } from '../api/podcasts.mjs'
 import naturalOrder from 'natural-order'
 
 const podcasts = await getPodcasts();
-// const posts = await Astro.glob('../pages/blog/*.md')
-//     .then(posts =>
-//         posts.map(post =>
-//             ({...post.frontmatter,
-//                 url: post.url,
-//                 type: 'blog',
-//                 host: post.frontmatter.author === 'Lindsay Wardell',
-//                 name: post.frontmatter.name || 'Lindsay Wardell Blog',
-//                 pubDate: post.frontmatter.date
-//             })
-//         ));
-
-// const allPosts = naturalOrder([...podcasts, ...posts])
-//     .orderBy('desc')
-//     .sort(['pubDate'])
-
 ---
 
 <BaseLayout>

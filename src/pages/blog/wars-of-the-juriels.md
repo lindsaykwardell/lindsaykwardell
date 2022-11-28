@@ -1,5 +1,5 @@
 ---
-date: 2018-10-31
+pubDate: 2018-10-31
 title: "Wars of the Juriels"
 image: "/blog/warsofthejuriels.png"
 author: "Lindsay Wardell"

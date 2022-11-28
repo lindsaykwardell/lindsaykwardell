@@ -1,5 +1,5 @@
 ---
-date: 2018-09-24
+pubDate: 2018-09-24
 title: "Short Story - The Last Wizard"
 image: "/blog/the-last-wizard.jpg"
 author: "Lindsay Wardell"

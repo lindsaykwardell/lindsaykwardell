@@ -5,12 +5,12 @@ import dayjs from 'dayjs';
 export interface Props {
   title: string;
   author: string;
-  date: string;
+  pubDate: string;
   heroImage: string;
   alt: string;
 }
 
-const { title, author, date, heroImage, alt } = Astro.props;
+const { title, author, pubDate, heroImage, alt } = Astro.props;
 ---
 
 <div class="layout">
@@ -18,7 +18,7 @@ const { title, author, date, heroImage, alt } = Astro.props;
   <div>
     <header>
       {heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
-      <p class="publish-date">{dayjs(date).format('MMM DD YYYY')}</p>
+      <p class="publish-date">{dayjs(pubDate).format('MMM DD YYYY')}</p>
       <h1 class="title">{title}</h1>
       <Author name={author} href="https://twitter.com/lindsaykwardell" />
     </header>

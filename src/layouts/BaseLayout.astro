@@ -1,15 +1,16 @@
 ---
 // Component Imports
 import SocialLinks from '../components/SocialLinks.astro'
+import details from '../api/details.mjs'
 
 import "../styles/global.css";
 
 let { title, description, image, permalink } = Astro.props;
 
-title = title || 'Lindsay Wardell';
-description = description || 'Programmer, writer, mother. She/Her. Interested in Vue, Typescript, Node.js, and Elm.';
-image = image ? (image.includes("http") ? image : 'https://lindsaykwardell.com' + image) : 'https://lindsaykwardell.com/lindsay.jpg'
-permalink = permalink ? 'https://lindsaykwardell.com' + permalink : 'https://lindsaykwardell.com';
+title = title || details.title;
+description = description || details.description;
+image = image ? (image.includes("http") ? image : details.permalink + image) : details.image
+permalink = permalink ? details.permalink + permalink : details.permalink;
 ---
 <html lang="en">
   <head>

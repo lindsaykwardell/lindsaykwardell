@@ -1,5 +1,5 @@
 ---
-date: 2019-03-23
+pubDate: 2019-03-23
 title: "The Character and the Narrator"
 image: "/blog/character-narrator.jpg"
 author: "Lindsay Wardell"

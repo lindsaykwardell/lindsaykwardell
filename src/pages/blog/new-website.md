@@ -1,5 +1,5 @@
 ---
-date: 2019-08-04
+pubDate: 2019-08-04
 title: "New Website"
 author: "Lindsay Wardell"
 image: "/blog/code.png"

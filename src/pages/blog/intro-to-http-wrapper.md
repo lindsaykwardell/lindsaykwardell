@@ -1,5 +1,5 @@
 ---
-date: 2020-05-26
+pubDate: 2020-05-26
 title: "Introduction to Deno with http_wrapper"
 author: "Lindsay Wardell"
 image: "/blog/deno.png"

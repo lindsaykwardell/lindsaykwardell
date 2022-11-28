@@ -8,9 +8,9 @@ const posts = await Astro.glob<{
     image?: string
     title: string
     snippet?: string
-    date?: Date
+    pubDate?: Date
   }>('./blog/*.md');
-const allPosts = posts.filter(post => new Date(post.frontmatter.date) <= new Date()).sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const allPosts = posts.filter(post => new Date(post.frontmatter.pubDate) <= new Date()).sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 
 ---
 <BaseLayout>

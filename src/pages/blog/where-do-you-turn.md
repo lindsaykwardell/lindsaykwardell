@@ -1,5 +1,5 @@
 ---
-date: 2019-05-03
+pubDate: 2019-05-03
 title: "Where Do You Turn?"
 image: "/blog/forest.webp"
 author: "Lindsay Wardell"

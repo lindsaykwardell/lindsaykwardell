@@ -1,5 +1,5 @@
 ---
-date: 2022-02-17
+pubDate: 2022-02-17
 title: "Utilizing Elm in a Web Worker"
 image: "/blog/elm-web-workers.webp"
 author: "Lindsay Wardell"

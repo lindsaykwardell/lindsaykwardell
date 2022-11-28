@@ -1,5 +1,5 @@
 ---
-date: 2022-03-24
+pubDate: 2022-03-24
 title: "Shipping Side Projects"
 image: "https://images.unsplash.com/photo-1548880021-76c14b1f6602?auto=format&fit=crop&w=1000&q=80"
 author: "Lindsay Wardell"

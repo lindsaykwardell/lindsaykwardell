@@ -1,5 +1,5 @@
 ---
-date: 2021-11-20
+pubDate: 2021-11-20
 title: "Astro 0.21 - Upgrade Experience"
 image: "/blog/astro-21-upgrade.webp"
 author: "Lindsay Wardell"

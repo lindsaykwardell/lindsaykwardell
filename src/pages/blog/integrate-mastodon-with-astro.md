@@ -1,5 +1,5 @@
 ---
-date: 2022-11-22
+pubDate: 2022-11-22
 title: "Integrating Mastodon with Astro"
 author: "Lindsay Wardell"
 image: "/blog/mastodon-astro.webp"

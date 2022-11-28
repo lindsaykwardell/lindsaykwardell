@@ -16,7 +16,7 @@ const posts = await Astro.glob('../pages/blog/*.md')
       type: 'blog',
       host: !post.frontmatter.link?.includes("https://"),
       name: post.frontmatter.name || 'Lindsay Wardell Blog',
-      pubDate: post.frontmatter.date
+      pubDate: post.frontmatter.pubDate
     })
     ));
 

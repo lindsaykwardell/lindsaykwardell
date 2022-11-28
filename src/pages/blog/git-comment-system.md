@@ -1,5 +1,5 @@
 ---
-date: 2020-11-15
+pubDate: 2020-11-15
 title: "Build a Static Comment System"
 author: "Lindsay Wardell"
 image: "/blog/git.gif"

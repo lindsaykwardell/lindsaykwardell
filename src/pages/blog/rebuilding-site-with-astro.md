@@ -1,5 +1,5 @@
 ---
-date: 2021-10-09
+pubDate: 2021-10-09
 title: "From Nuxt to Astro - Rebuilding with Astro"
 image: "/blog/rebuild-with-astro.webp"
 author: "Lindsay Wardell"

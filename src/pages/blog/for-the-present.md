@@ -1,5 +1,5 @@
 ---
-date: 2018-12-06
+pubDate: 2018-12-06
 title: "For the Present"
 image: "/blog/for-the-present.jpg"
 author: "Lindsay Wardell"

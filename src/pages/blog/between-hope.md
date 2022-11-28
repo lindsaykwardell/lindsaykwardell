@@ -1,5 +1,5 @@
 ---
-date: 2022-09-21
+pubDate: 2022-09-21
 title: "Between Hope"
 author: "Lindsay Wardell"
 image: "/blog/between-hope.jpeg"

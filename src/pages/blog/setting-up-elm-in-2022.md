@@ -1,5 +1,5 @@
 ---
-date: 2021-12-19
+pubDate: 2021-12-19
 title: "Setting up an Elm project in 2022"
 image: "/elm.png"
 author: "Lindsay Wardell"

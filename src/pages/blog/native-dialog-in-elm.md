@@ -1,5 +1,5 @@
 ---
-date: 2022-05-09
+pubDate: 2022-05-09
 title: "Utilizing Native Dialog in Elm"
 image: "/blog/utilizing-dialog-in-elm.webp"
 author: "Lindsay Wardell"
