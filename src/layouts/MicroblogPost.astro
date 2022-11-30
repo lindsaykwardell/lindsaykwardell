@@ -8,7 +8,7 @@ import "../styles/prism.scss"
 const {content} = Astro.props;
 const {title, snippet, date, author, image, slug} = content;
 
-const { avatar, note, header, followers_count, following_count, statuses_count } = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861").then(res => res.json())
+const { avatar, note, header, followers_count, following_count, statuses_count, display_name } = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861").then(res => res.json())
 ---
 <BaseLayout title={title} description={snippet} image={avatar} permalink={slug}>
 
@@ -20,7 +20,7 @@ const { avatar, note, header, followers_count, following_count, statuses_count }
       <img src={header} />
       <img src={avatar} class="w-36 h-36 rounded-full object-cover absolute bottom-[-30px] left-[30px] shadow-xl border-2 border-black" />
     </div>
-    
+
     <div class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-gray-500 dark:text-gray-400 pb-4 p-3">
       <a href="https://mastodon.social/@lindsaykwardell" class="underline">@lindsay@lindsaykwardell.com</a>
       <div>{statuses_count} Posts</div>

@@ -24,9 +24,10 @@ interface Props {
     url: string
     image: string
   }
+  notFocus?: boolean
 }
 
-const { avatar, displayName, username, userPage, content, attachments, card, url, createdAt, postStats } = Astro.props;
+const { avatar, displayName, username, userPage, content, attachments, card, url, createdAt, postStats, notFocus } = Astro.props;
 
 let displayUsername;
 switch (username) {
@@ -38,7 +39,7 @@ switch (username) {
     displayUsername = `@${username}`
 }
 ---
-<div class="bg-gray-100 dark:bg-gray-700 shadow p-3 rounded my-4">
+<div class={"shadow p-3 rounded my-4 " + (notFocus ? "bg-gray-200 dark:bg-gray-900 dark:text-gray-300 text-sm" : "bg-gray-100 dark:bg-gray-700")}>
   <div class="flex flex-wrap items-center gap-4 md:h-12">
     <img src={avatar} class="m-0 w-10 h-10 rounded-full shadow" />
     <div class="flex flex-col flex-grow">

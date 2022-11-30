@@ -1,32 +1,33 @@
 ---
 import MicroblogPost from "../layouts/MicroblogPost.astro";
-import Parser from 'rss-parser';
 import MicroPost from "../components/MicroPost.astro";
 
-const feedUrl = "https://mastodon.social/@lindsaykwardell.rss"
-const parser = new Parser({
-  customFields: {
-    item: [ ['media:content', 'attachments', { keepArray: true} ]]
-  }
-})
-
-const feed = await parser.parseURL(feedUrl);
+const user = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861").then((res) => res.json());
+const data = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true").then(res => res.json())
 
 const content = {
-  title: feed.title,
+  title: user.display_name,
   snippet: "Public posts from @lindsay@lindsaykwardell.com",
   slug: "/@lindsay"
 }
 ---
 <MicroblogPost content={content}>
-  {feed.items.map(item => (
+  {data.map(item => (
     <MicroPost 
-      avatar={feed.image.url}
-      displayName={feed.title}
+      avatar={item.account.avatar}
+      url={item.url}
+      username={item.account.username}
+      userPage={item.account.url}
+      createdAt={item.created_at}
+      displayName={item.account.display_name}
       content={item.content}
-      createdAt={item.pubDate}
-      url={item.link}
-      attachments={item.attachments?.map(attachment => attachment['$'])}
+      attachments={item.media_attachments}
+      card={item.card}
+      postStats={{
+        repliesCount: item.replies_count,
+        reblogsCount: item.reblogs_count,
+        favouritesCount: item.favourites_count,
+      }}
     />
   ))}
 </MicroblogPost>
