@@ -5,6 +5,7 @@ import MicroPost from "../../components/MicroPost.astro";
 const { id } = Astro.params;
 
 const data = await fetch(`https://mastodon.social/api/v1/statuses/${id}`).then(res => res.json())
+const { descendants } = await fetch(`https://mastodon.social/api/v1/statuses/${id}/context`).then(res => res.json())
 
 const name = data.account.display_name
 const post = data.content.replace(/<[^>]*>?/gm, '');
@@ -13,8 +14,6 @@ let snippet = post.substring(0,30);
 if (snippet.length === 30) {
   snippet += "..."
 }
-
-const card = data.card;
 
 const content = {
   title: name + ": " + snippet,
@@ -33,11 +32,36 @@ const content = {
     displayName={data.account.display_name}
     content={data.content}
     attachments={data.media_attachments}
-    card={card}
+    card={data.card}
     postStats={{
       repliesCount: data.replies_count,
       reblogsCount: data.reblogs_count,
       favouritesCount: data.favourites_count,
     }}
   />
+  {descendants.length > 0 && (
+    <div class="mt-4">
+      <h2 class="text-2xl font-bold">Replies</h2>
+      <div class="mt-4">
+        {descendants.map((reply) => (
+          <MicroPost
+            avatar={reply.account.avatar}
+            url={reply.url}
+            username={reply.account.username}
+            userPage={reply.account.url}
+            createdAt={reply.created_at}
+            displayName={reply.account.display_name}
+            content={reply.content}
+            attachments={reply.media_attachments}
+            card={reply.card}
+            postStats={{
+              repliesCount: reply.replies_count,
+              reblogsCount: reply.reblogs_count,
+              favouritesCount: reply.favourites_count,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  )}
 </MicroblogPost>
