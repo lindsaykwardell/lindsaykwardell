@@ -2,8 +2,22 @@
 import MicroblogPost from "../layouts/MicroblogPost.astro";
 import MicroPost from "../components/MicroPost.astro";
 
+let maxId = Astro.url.searchParams.get("maxId");
+let minId = Astro.url.searchParams.get("minId");
+
+if (!maxId) maxId = ""
+if (!minId) minId = ""
+
 const user = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861").then((res) => res.json());
-const data = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true").then(res => res.json())
+const data = await fetch(`https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true&max_id=${maxId}&min_id=${minId}`)
+  .then(res => res.json())
+
+const latestPost = (await fetch("https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true&limit=1")
+  .then(res => res.json()))[0]
+const oldestId = 109248196558410057
+
+const firstId = data[0]?.id;
+const lastId = data[data.length - 1]?.id;
 
 const content = {
   title: user.display_name,
@@ -30,4 +44,20 @@ const content = {
       }}
     />
   ))}
+  <div class="flex justify-between py-3">
+    <div class="flex gap-4">
+      {firstId && 
+        firstId !== latestPost.id && 
+        (<a href="/@lindsay">←← Latest</a>
+        <a href={`/@lindsay?minId=${firstId}`}>← Newer</a>
+        )}
+    </div>
+    <div class="flex gap-4">
+      {lastId && 
+        +lastId !== oldestId && 
+        (<a href={`/@lindsay?maxId=${lastId}`}>Older →</a>
+        <a href={`/@lindsay?maxId=${oldestId}`}>Oldest →→</a>
+        )}
+    </div>
+  </div>
 </MicroblogPost>
