@@ -10,7 +10,7 @@ const posts = await Astro.glob<{
     snippet?: string
     pubDate?: Date
   }>('./blog/*.md');
-const allPosts = posts.filter(post => new Date(post.frontmatter.pubDate) <= new Date()).sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
+const allPosts = posts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 
 ---
 <BaseLayout>

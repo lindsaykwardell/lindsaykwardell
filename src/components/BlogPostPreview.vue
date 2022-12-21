@@ -7,12 +7,13 @@ const props = defineProps<{
     title: string
     snippet?: string
     description?: string
-  }
+  },
+  class?: string
 }>()
 </script>
 
 <template>
-  <div class="blog-item bg-white dark:bg-gray-800 transition duration-100">
+  <div class="blog-item bg-white dark:bg-gray-800 transition duration-100" :class="props.class">
     <a :href="item.link || item.url" class="hover:no-underline w-full">
       <div v-if="item.image" class="blog-image-wrapper">
         <img
