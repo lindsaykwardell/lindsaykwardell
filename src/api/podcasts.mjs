@@ -1085,6 +1085,16 @@ const oneOffs = [
     host: false,
     name: 'ViteConf 2022',
   },
+  {
+    url: 'https://open.spotify.com/episode/3eFvzKSR6Q7lacEuPZOgdM',
+    title: 'Functional Programming with Elm with Lindsay Wardell',
+    snippet: 'Lindsay Wardell, engineer at NoRedInk, comes on to talk about her recent Vite Conf talk, “Functional programming in Vite with Elm,” to tell us what functional programming is and why it’s beneficial.',
+    pubDate: '2023-01-10T00:00:00.000Z',
+    image: '/blog/podrocket.jpeg',
+    type: 'podcast',
+    host: false,
+    name: 'PodRocket',
+  }
 ]
 
 // function fetchPodcasts() {
