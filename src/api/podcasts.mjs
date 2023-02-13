@@ -1094,6 +1094,16 @@ const oneOffs = [
     type: 'podcast',
     host: false,
     name: 'PodRocket',
+  },
+  {
+    url: 'https://elm-radio.com/episode/vite/',
+    title: 'Elm and Vite',
+    snippet: 'Lindsay Wardell joins us to talk about Vite and how to set it up for your Elm project.',
+    pubDate: '2023-02-13T00:00:00.000Z',
+    image: '/blog/elm-radio.jpeg',
+    type: 'podcast',
+    host: false,
+    name: 'Elm Radio',
   }
 ]
 
