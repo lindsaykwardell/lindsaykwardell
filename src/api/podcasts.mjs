@@ -1,23 +1,6 @@
 import naturalOrder from 'natural-order'
 import { extract } from '@extractus/feed-extractor'
 
-const humanSideOfDev = await extract('https://anchor.fm/s/81f880f0/podcast/rss', {
-    // descriptionMaxLen: 50,
-    getExtraEntryFields: (feedEntry) => {
-        const {
-            enclosure,
-        } = feedEntry
-        return {
-            enclosure: {
-                url: enclosure['@_url'],
-                type: enclosure['@_type'],
-                length: enclosure['@_length']
-            },
-            summary: feedEntry['itunes:summary']
-        }
-    }
-})
-
 const oneOffs = [
   {
     title: 'All About Vite with Matias Capeletto - VUE 181',
@@ -1137,6 +1120,22 @@ const oneOffs = [
 
 export async function getPodcasts() {
   // const podcasts = await fetchPodcasts()
+  const humanSideOfDev = await extract('https://anchor.fm/s/81f880f0/podcast/rss', {
+      // descriptionMaxLen: 50,
+      getExtraEntryFields: (feedEntry) => {
+          const {
+              enclosure,
+          } = feedEntry
+          return {
+              enclosure: {
+                  url: enclosure['@_url'],
+                  type: enclosure['@_type'],
+                  length: enclosure['@_length']
+              },
+              summary: feedEntry['itunes:summary']
+          }
+      }
+  })
 
   return naturalOrder([
     // ...podcasts.map((podcast) => ({ ...podcast, type: 'podcast', host: true })),
