@@ -1,4 +1,22 @@
 import naturalOrder from 'natural-order'
+import { extract } from '@extractus/feed-extractor'
+
+const humanSideOfDev = await extract('https://anchor.fm/s/81f880f0/podcast/rss', {
+    // descriptionMaxLen: 50,
+    getExtraEntryFields: (feedEntry) => {
+        const {
+            enclosure,
+        } = feedEntry
+        return {
+            enclosure: {
+                url: enclosure['@_url'],
+                type: enclosure['@_type'],
+                length: enclosure['@_length']
+            },
+            summary: feedEntry['itunes:summary']
+        }
+    }
+})
 
 const oneOffs = [
   {
@@ -1123,6 +1141,16 @@ export async function getPodcasts() {
   return naturalOrder([
     // ...podcasts.map((podcast) => ({ ...podcast, type: 'podcast', host: true })),
     ...oneOffs,
+    ...humanSideOfDev.entries.map(episode => ({
+      url: `https://humansideof.dev/episode/${episode.title.toLowerCase().replaceAll(' ', '-')}`,
+      title: episode.title,
+      snippet: episode.description,
+      pubDate: episode.published,
+      image: 'https://humansideof.dev/images/logo.jpg',
+      type: 'podcast',
+      host: true,
+      name: 'Human Side of Dev',
+    }))
   ])
     .orderBy('desc')
     .sort(['pubDate'])
