@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import stats from '../api/botc.mjs'
+
+function rowHighlight(game) {
+    if (game.alignment === "Good") {
+        if (game.win) {
+            return "bg-blue-400 dark:bg-blue-800";
+        } else {
+            return "bg-blue-200 dark:bg-blue-600";
+        }
+    } else {
+        if (game.win) {
+            return "bg-red-400 dark:bg-red-800";
+        } else {
+            return "bg-red-200 dark:bg-red-600";
+        }
+    }
+}
+---
+<BaseLayout title="Blood on the Clocktower Game Statistics" description="My personal gameplay statistics for the social deduction game Blood on the Clocktower">
+    <div class="w-full lg:w-11/12 bg-gray-300 dark:bg-gray-800 p-3 my-6 shadow">
+        <h2 class="text-3xl text-center pb-4">Blood on the Clocktower Game Statistics</h2>
+        <div class="max-h-[500px] overflow-scroll">
+            <table class="w-full">
+                <thead class="font-bold font-rokkitt text-xl">
+                    <tr>
+                        <th>Date</th>
+                        <th>Script</th>
+                        <th>Location</th>
+                        <th>Initial Character</th>
+                        <th>End Alignment</th>
+                        <th>Final 3?</th>
+                        <th>Win?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {[...stats].reverse().map(game =>
+                        <tr class={rowHighlight(game)}>
+                            <td>{game.date}</td>
+                            <td>{game.script}</td>
+                            <td>{game.location}</td>
+                            <td>{game.initialCharacter}</td>
+                            <td>{game.alignment}</td>
+                            <td>{game.final3 === null ? "-" : game.final3 ? "Yes" : "No"}</td>
+                            <td>{game.win ? "Yes" : "No"}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <div class="flex flex-col lg:flex-row justify-between gap-3">
+            <div class="w-full lg:w-1/2">
+                <h3 class="text-2xl text-center">Roles</h3>
+                <canvas id="roles" class="m-auto md:m-0"></canvas>
+            </div>
+            <div class="flex flex-col gap-3 w-full lg:w-1/2">
+                <div class="lg:w-2/3 m-auto">
+                    <h3 class="text-2xl text-center">Alignment</h3>
+                    <canvas id="alignment" class="m-auto md:m-0"></canvas>
+                </div>
+                <div>
+                    <h3 class="text-2xl text-center">Win Rate</h3>
+                    <canvas id="winrate" class="m-auto md:m-0"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+<script>
+    import stats from '../api/botc.mjs'
+    import Chart from 'chart.js/auto'
+    import type { ChartItem } from 'chart.js'
+
+    const alignment = { good: 0, evil: 0 }
+
+    for (const game of stats) {
+        if (game.alignment === "Good") {
+            alignment.good++
+        } else {
+            alignment.evil++
+        }
+    }
+
+    new Chart(document.getElementById('alignment') as ChartItem, {
+        type: 'pie',
+        data: {
+            labels: ["Good", "Evil"],
+            datasets: [{
+                data: [ alignment.good, alignment.evil ],
+                hoverOffset: 4,
+                backgroundColor: ["blue", "red"]
+            }]
+        },
+        options: {
+            responsive: true,
+        }
+    });
+
+    new Chart(document.getElementById('winrate') as ChartItem, {
+        type: 'bar',
+        data: {
+        labels: ["Yes", "No"],
+        datasets: [
+            {
+            label: 'Good',
+            data: [
+                stats.filter(game => game.alignment === "Good" && game.win).length,
+                stats.filter(game => game.alignment === "Good" && !game.win).length
+            ],
+            backgroundColor: "blue"
+            },
+            {
+            label: 'Evil',
+            data: [
+                stats.filter(game => game.alignment === "Evil" && game.win).length,
+                stats.filter(game => game.alignment === "Evil" && !game.win).length
+            ],
+            backgroundColor: "red"
+            },
+        ],
+        },
+        options: {
+            responsive: true,
+            scales: {
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true
+            }
+            }
+        }
+    });
+
+    const roles = {}
+
+    for (const game of stats) {
+        if (roles[game.initialCharacter]) {
+            roles[game.initialCharacter]++
+        } else {
+            roles[game.initialCharacter] = 1
+        }
+    }
+
+    new Chart(document.getElementById('roles') as ChartItem, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(roles),
+            datasets: [{
+                data: Object.entries(roles).map(([_, count]) => count),
+                hoverOffset: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+</script>
