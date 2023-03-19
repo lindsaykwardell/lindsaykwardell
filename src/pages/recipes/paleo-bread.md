@@ -4,28 +4,20 @@ author: Lindsay Wardell
 image: /recipes/paleo-bread.webp
 tags:
   - Paleo
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/Recipe.astro'
+ingredients:
+  - 1 cup Almond Flour
+  - 1 cup Tapioca Flour
+  - 1 tsp Cream of Tartar
+  - 1 tsp Baking Soda
+  - ½ tsp Salt
+  - 1 tsp ea. of 3 powdered vegetables
+  - 2 scoops Collagen
+  - 4 Eggs
+  - ½ cup Canned Pumpkin
 ---
 
 I typically make 3 loaves at a time, because it uses a full can of pumpkin, so the rest of the can doesn’t go to waste.
-
-## Ingredients
-
-| 1 Loaf                                | 2 Loaves                              | 3 Loaves                              |
-|---------------------------------------|---------------------------------------|---------------------------------------|
-| Dry                                   | Dry                                   | Dry                                   |
-| - 1 cup Almond Flour                  | - 1 cup Almond Flour                  | - 1 cup Almond Flour                  |
-| - 1 cup Tapioca Flour                 | - 1 cup Tapioca Flour                 | - 1 cup Tapioca Flour                 |
-| - 1 tsp Cream of Tartar               | - 1 tsp Cream of Tartar               | - 1 tsp Cream of Tartar               |
-| - 1 tsp Baking Soda                   | - 1 tsp Baking Soda                   | - 1 tsp Baking Soda                   |
-| - ½ tsp Salt                          | - ½ tsp Salt                          | - ½ tsp Salt                          |
-| - 1 tsp ea. of 3 powdered vegetables  | - 1 tsp ea. of 3 powdered vegetables  | - 1 tsp ea. of 3 powdered vegetables  |
-| - 2 scoops Collagen                   | - 2 scoops Collagen                   | - 2 scoops Collagen                   |
-| &nbsp;                                | &nbsp;                                |    &nbsp;                             |
-| Wet                                   | Wet                                   | Wet                                   |
-| - 4 Eggs                              | - 4 Eggs                              | - 4 Eggs                              |
-| - ½ cup Canned Pumpkin                | - ½ cup Canned Pumpkin                | - ½ cup Canned Pumpkin                |
-| - 2 Loaves                            | - 2 Loaves                            | - 2 Loaves                            |
 
 ## Directions
 
