@@ -11,40 +11,27 @@ layout: '../../layouts/BlogPost.astro'
 ---
 What do you call a song not sung?
 
-What do you call the breeze not felt?
+What do you call the breeze not felt? <br />
+The rain that never fell? <br />
+The ocean waves that never crashed against a lonely beach? <br />
 
-The rain that never fell?
+What do you call that which has never come to pass, <br />
+Or never can? <br />
+What do you call that which cannot be named <br />
+Because it never was? <br />
 
-The ocean waves that never crashed against a lonely beach?
+Swirling and circling around us, day by day, <br />
+Worlds without end vanish and decay <br />
+Like a drop of water in the sea. <br />
 
-What do you call that which has never come to pass,
+Did they know they even existed? <br />
+That they mattered? <br />
+When the future dies, does it know? <br />
+Or is its passing soft and silent, <br />
+Shrouded and forgotten to even itself? <br />
 
-Or never can?
-
-What do you call that which cannot be named
-
-Because it never was?
-
-Swirling and circling around us, day by day,
-
-Worlds without end vanish and decay
-
-Like a drop of water in the sea.
-
-Did they know they even existed?
-
-That they mattered?
-
-When the future dies, does it know?
-
-Or is its passing soft and silent,
-
-Shrouded and forgotten to even itself?
-
-What do you call a joy not felt?
-
-A tear not shed?
-
-A moment never shared?
+What do you call a joy not felt? <br />
+A tear not shed? <br />
+A moment never shared? <br />
 
 What do you call these things?
