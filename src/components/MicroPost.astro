@@ -65,8 +65,8 @@ switch (username) {
   {card && 
     <div class="shadow w-3/4 m-auto bg-gray-200 dark:bg-gray-800">
       <a href={card.url} class="no-underline" target="_blank">
-        {card.image && <img src={card.image} class="object-fill w-full" />}
-        <div class="p-3">
+        {card.image && <img src={card.image} class="object-fill w-full m-0" />}
+        <div class="px-3 py-5">
           <div class="text-lg font-bold">{card.title}</div>
           <div class="text-sm text-gray-500 dark:text-gray-400">{card.description}</div>
         </div>
