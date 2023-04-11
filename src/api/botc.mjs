@@ -233,4 +233,13 @@ export default [
     final3: true,
     win: true,
   },
+  {
+    date: '4/11/2023',
+    script: 'The Ladder',
+    location: 'Online',
+    initialCharacter: 'Lunaatic',
+    alignment: 'Good',
+    final3: false,
+    win: false,
+  }
 ]
