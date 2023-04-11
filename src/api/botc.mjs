@@ -205,5 +205,32 @@ export default [
     alignment: 'Good',
     final3: null,
     win: true,
-  }
+  },
+  {
+    date: '4/10/2023',
+    script: 'Trouble Brewing',
+    location: 'Online',
+    initialCharacter: 'Empath',
+    alignment: 'Good',
+    final3: false,
+    win: true,
+  },
+  {
+    date: '4/10/2023',
+    script: 'Sects and Violets',
+    location: 'Online',
+    initialCharacter: 'Vortox',
+    alignment: 'Evil',
+    final3: null,
+    win: false,
+  },
+  {
+    date: '4/10/2023',
+    script: 'Sects and Violets',
+    location: 'Online',
+    initialCharacter: 'Dreamer',
+    alignment: 'Good',
+    final3: true,
+    win: true,
+  },
 ]
