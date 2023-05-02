@@ -237,9 +237,18 @@ export default [
     date: '4/11/2023',
     script: 'The Ladder',
     location: 'Online',
-    initialCharacter: 'Lunaatic',
+    initialCharacter: 'Lunatic',
     alignment: 'Good',
     final3: false,
     win: false,
+  },
+  {
+    date: '5/1/2023',
+    script: 'Trouble Brewing',
+    location: 'Online',
+    initialCharacter: 'Undertaker',
+    alignment: 'Good',
+    final3: false,
+    win: true,
   }
 ]
