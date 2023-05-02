@@ -258,6 +258,15 @@ export default [
     initialCharacter: 'Al-Hadikhia',
     alignment: 'Evil',
     final3: true,
-    win: true
+    win: true,
+  },
+  {
+    date: '5/2/2023',
+    script: 'Trouble Brewing',
+    location: 'Online',
+    initialCharacter: 'Washerwoman',
+    alignment: 'Good',
+    final3: null,
+    win: true,
   }
 ]
