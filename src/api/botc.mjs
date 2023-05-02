@@ -250,5 +250,14 @@ export default [
     alignment: 'Good',
     final3: false,
     win: true,
+  },
+  {
+    date: '5/2/2023',
+    script: 'Written Law',
+    location: 'Online',
+    initialCharacter: 'Al-Hadikhia',
+    alignment: 'Evil',
+    final3: true,
+    win: true
   }
 ]
