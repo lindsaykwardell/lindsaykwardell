@@ -268,5 +268,14 @@ export default [
     alignment: 'Good',
     final3: null,
     win: true,
-  }
+  },
+  {
+    date: '5/15/2023',
+    script: '???',
+    location: 'Online',
+    initialCharacter: 'Puzzlemaster',
+    alignment: 'Good',
+    final3: null,
+    win: true,
+  },
 ]
