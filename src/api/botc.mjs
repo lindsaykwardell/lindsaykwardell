@@ -278,4 +278,22 @@ export default [
     final3: null,
     win: true,
   },
+  {
+    date: '5/29/2023',
+    script: 'Violet Inns',
+    location: 'Online',
+    initialCharacter: 'Vizir',
+    alignment: 'Evil',
+    final3: null,
+    win: false,
+  },
+  {
+    date: '5/29/2023',
+    script: 'Violet Inns',
+    location: 'Online',
+    initialCharacter: 'Minstrel',
+    alignment: 'Good',
+    final3: null,
+    win: false,
+  },
 ]
