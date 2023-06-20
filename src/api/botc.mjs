@@ -296,4 +296,13 @@ export default [
     final3: null,
     win: false,
   },
+  {
+    date: '6/19/2023',
+    script: 'Trouble Brewing on Expert Mode',
+    location: 'Online',
+    initialCharacter: 'Legion',
+    alignment: 'Evil',
+    final3: false,
+    win: true,
+  },
 ]
