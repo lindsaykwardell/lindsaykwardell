@@ -305,4 +305,22 @@ export default [
     final3: false,
     win: true,
   },
+  {
+    date: '6/26/2023',
+    script: 'Spirits of Ravenwood',
+    location: 'Online',
+    initialCharacter: 'Cannibal',
+    alignment: 'Good',
+    final3: null,
+    win: false,
+  },
+  {
+    date: '6/26/2023',
+    script: 'Spirits of Ravenwood',
+    location: 'Online',
+    initialCharacter: 'Seamstress',
+    alignment: 'Good',
+    final3: false,
+    win: false,
+  }
 ]
