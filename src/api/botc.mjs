@@ -322,5 +322,14 @@ export default [
     alignment: 'Good',
     final3: false,
     win: false,
-  }
+  },
+  {
+    date: '7/05/2023',
+    script: 'Trouble Brewing',
+    location: 'Online',
+    initialCharacter: 'Ravenkeeper',
+    alignment: 'Good',
+    final3: null,
+    win: true,
+  },
 ]
