@@ -332,4 +332,13 @@ export default [
     final3: null,
     win: true,
   },
+  {
+    date: '7/8/2023',
+    script: 'Trouble Brewing + HP',
+    location: 'In Person',
+    initialCharacter: 'Imp',
+    alignment: 'Evil',
+    final3: true,
+    win: true,
+  },
 ]
