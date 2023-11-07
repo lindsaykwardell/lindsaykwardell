@@ -1115,6 +1115,16 @@ const oneOffs = [
     type: 'podcast',
     host: false,
     name: 'PodRocket',
+  },
+  {
+    url: "https://www.youtube.com/watch?v=MQ0A6c0f6x0",
+    title: "Functional Programming in Vite",
+    snippet: "Lindsay Wardell explores Functional Programming, and how to incorporate Elm into Vite-based applications. She also looks at some projects in the Elm ecosystem that utilize Vite as a build tool.",
+    pubDate: '2023-10-05T00:00:00.000Z',
+    image: '/blog/viteconf-2023.png',
+    type: 'video',
+    host: false,
+    name: 'ViteConf 2023'
   }
 ]
 
