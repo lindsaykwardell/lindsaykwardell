@@ -1125,7 +1125,17 @@ const oneOffs = [
     type: 'video',
     host: false,
     name: 'ViteConf 2023'
-  }
+  },
+  {
+    url: "https://elmtown.simplecast.com/episodes/elm-town-71-embracing-wins-with-lindsay-wardell",
+    title: "Elm Town 71 – Embracing wins with Lindsay Wardell",
+    snippet: "Lindsay Wardell tells how she persevered to write her own story as a programmer and shares her views on JavaScript frameworks & fatigue.",
+    pubDate: '2023-12-13T00:00:00.000Z',
+    image: '/blog/elm-town.jpg',
+    type: 'podcast',
+    host: false,
+    name: 'Elm Town',
+  },
 ]
 
 // function fetchPodcasts() {
