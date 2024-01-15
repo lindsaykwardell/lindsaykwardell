@@ -1089,7 +1089,8 @@ const oneOffs = [
   {
     url: 'https://open.spotify.com/episode/3eFvzKSR6Q7lacEuPZOgdM',
     title: 'Functional Programming with Elm with Lindsay Wardell',
-    snippet: 'Lindsay Wardell, engineer at NoRedInk, comes on to talk about her recent Vite Conf talk, “Functional programming in Vite with Elm,” to tell us what functional programming is and why it’s beneficial.',
+    snippet:
+      'Lindsay Wardell, engineer at NoRedInk, comes on to talk about her recent Vite Conf talk, “Functional programming in Vite with Elm,” to tell us what functional programming is and why it’s beneficial.',
     pubDate: '2023-01-10T00:00:00.000Z',
     image: '/blog/podrocket.jpeg',
     type: 'podcast',
@@ -1099,7 +1100,8 @@ const oneOffs = [
   {
     url: 'https://elm-radio.com/episode/vite/',
     title: 'Elm and Vite',
-    snippet: 'Lindsay Wardell joins us to talk about Vite and how to set it up for your Elm project.',
+    snippet:
+      'Lindsay Wardell joins us to talk about Vite and how to set it up for your Elm project.',
     pubDate: '2023-02-13T00:00:00.000Z',
     image: '/blog/elm-radio.jpeg',
     type: 'podcast',
@@ -1107,9 +1109,10 @@ const oneOffs = [
     name: 'Elm Radio',
   },
   {
-    url: "https://open.spotify.com/episode/0Rc7a9CHpOFcwhuYNRF7MF",
+    url: 'https://open.spotify.com/episode/0Rc7a9CHpOFcwhuYNRF7MF',
     title: 'The Launch Pad with Lindsay Wardell and Tejas Kumar',
-    snippet: 'We’re back with episode three of the Launch Pad with Lindsay Wardell and Tejas Kumar, as we cover the latest acquisition of Gatsby, what we should do with Create React App, and what we think of the Astro 2.0 release.',
+    snippet:
+      'We’re back with episode three of the Launch Pad with Lindsay Wardell and Tejas Kumar, as we cover the latest acquisition of Gatsby, what we should do with Create React App, and what we think of the Astro 2.0 release.',
     pubDate: '2023-02-17T00:00:00.000Z',
     image: '/blog/launch-pad-3.jpeg',
     type: 'podcast',
@@ -1117,19 +1120,21 @@ const oneOffs = [
     name: 'PodRocket',
   },
   {
-    url: "https://www.youtube.com/watch?v=MQ0A6c0f6x0",
-    title: "Functional Programming in Vite",
-    snippet: "Lindsay Wardell explores Functional Programming, and how to incorporate Elm into Vite-based applications. She also looks at some projects in the Elm ecosystem that utilize Vite as a build tool.",
+    url: 'https://www.youtube.com/watch?v=MQ0A6c0f6x0',
+    title: 'Functional Programming in Vite',
+    snippet:
+      'Lindsay Wardell explores Functional Programming, and how to incorporate Elm into Vite-based applications. She also looks at some projects in the Elm ecosystem that utilize Vite as a build tool.',
     pubDate: '2023-10-05T00:00:00.000Z',
     image: '/blog/viteconf-2023.png',
     type: 'video',
     host: false,
-    name: 'ViteConf 2023'
+    name: 'ViteConf 2023',
   },
   {
-    url: "https://elmtown.simplecast.com/episodes/elm-town-71-embracing-wins-with-lindsay-wardell",
-    title: "Elm Town 71 – Embracing wins with Lindsay Wardell",
-    snippet: "Lindsay Wardell tells how she persevered to write her own story as a programmer and shares her views on JavaScript frameworks & fatigue.",
+    url: 'https://elmtown.simplecast.com/episodes/elm-town-71-embracing-wins-with-lindsay-wardell',
+    title: 'Elm Town 71 – Embracing wins with Lindsay Wardell',
+    snippet:
+      'Lindsay Wardell tells how she persevered to write her own story as a programmer and shares her views on JavaScript frameworks & fatigue.',
     pubDate: '2023-12-13T00:00:00.000Z',
     image: '/blog/elm-town.jpg',
     type: 'podcast',
@@ -1150,36 +1155,67 @@ const oneOffs = [
 
 export async function getPodcasts() {
   // const podcasts = await fetchPodcasts()
-  const humanSideOfDev = await extract('https://anchor.fm/s/81f880f0/podcast/rss', {
+  const humanSideOfDev = await extract(
+    'https://anchor.fm/s/81f880f0/podcast/rss',
+    {
       // descriptionMaxLen: 50,
       getExtraEntryFields: (feedEntry) => {
-          const {
-              enclosure,
-          } = feedEntry
-          return {
-              enclosure: {
-                  url: enclosure['@_url'],
-                  type: enclosure['@_type'],
-                  length: enclosure['@_length']
-              },
-              summary: feedEntry['itunes:summary']
-          }
-      }
-  })
+        const { enclosure } = feedEntry
+        return {
+          enclosure: {
+            url: enclosure['@_url'],
+            type: enclosure['@_type'],
+            length: enclosure['@_length'],
+          },
+          summary: feedEntry['itunes:summary'],
+        }
+      },
+    }
+  )
+
+  const sureItMeansNothing = await extract(
+    'https://anchor.fm/s/f088c584/podcast/rss',
+    {
+      // descriptionMaxLen: 50,
+      getExtraEntryFields: (feedEntry) => {
+        const { enclosure } = feedEntry
+        return {
+          enclosure: {
+            url: enclosure['@_url'],
+            type: enclosure['@_type'],
+            length: enclosure['@_length'],
+          },
+          summary: feedEntry['itunes:summary'],
+        }
+      },
+    }
+  )
 
   return naturalOrder([
     // ...podcasts.map((podcast) => ({ ...podcast, type: 'podcast', host: true })),
     ...oneOffs,
-    ...humanSideOfDev.entries.map(episode => ({
-      url: `https://humansideof.dev/episode/${episode.title.toLowerCase().replaceAll(' ', '-')}`,
-      title: episode.title,
+    ...humanSideOfDev.entries.map((episode) => ({
+      url: `https://humansideof.dev/episode/${episode.title
+        .toLowerCase()
+        .replaceAll(' ', '-')}`,
+      title: `Human Side of Dev ${episode.title}`,
       snippet: episode.description,
       pubDate: episode.published,
       image: 'https://humansideof.dev/images/logo.jpg',
       type: 'podcast',
       host: true,
       name: 'Human Side of Dev',
-    }))
+    })),
+    ...sureItMeansNothing.entries.map((episode) => ({
+      url: episode.link,
+      title: `I'm Sure It Means Nothing | ${episode.title}`,
+      snippet: episode.description,
+      pubDate: episode.published,
+      image: 'https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_nologo400/40254953/40254953-1704996744044-85807a246cafe.jpg',
+      type: 'podcast',
+      host: true,
+      name: 'I\'m Sure It Means Nothing',
+    })),
   ])
     .orderBy('desc')
     .sort(['pubDate'])
