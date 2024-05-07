@@ -96,9 +96,7 @@ function applyFilter(content, filters) {
 
 const visibleContent = computed(() => {
   if (query.value.length <= 0 && filters.value.length <= 0) {
-    const [first, second, third, fourth] = allContent.toList
-
-    return [second, third, fourth]
+    return allContent.toList
   }
 
   const filteredContent = applyFilter(allContent, filters.value)
@@ -112,10 +110,7 @@ const visibleContent = computed(() => {
 </script>
 
 <template>
-  <div
-    class="w-full md:w-4/5 xl:w-[1400px] m-auto bg-gray-200 dark:bg-gray-700 p-4 rounded shadow"
-  >
-    <h2 class="text-4xl">All Content</h2>
+  <div class="w-screen">
     <input
       type="text"
       aria-label="Search"
@@ -123,7 +118,7 @@ const visibleContent = computed(() => {
       class="block w-full lg:w-2/3 dark:bg-gray-800 dark:text-white p-1 shadow-md m-auto my-2"
       v-model="query"
     />
-    <div class="flex justify-between flex-wrap w-full lg:w-2/3 m-auto">
+    <div class="flex justify-around gap-4 flex-wrap w-full lg:w-2/3 m-auto p-2">
       <label
         ><input
           type="checkbox"
@@ -179,7 +174,7 @@ const visibleContent = computed(() => {
         Guest
       </label>
     </div>
-    <ul class="flex flex-col lg:flex-row flex-wrap">
+    <ul class="flex flex-col lg:flex-row flex-wrap pt-6">
       <li
         v-for="item in visibleContent"
         :key="item.url"
