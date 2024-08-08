@@ -1,0 +1,37 @@
+---
+interface Props {
+    size?: "sm" | "md" | "lg"
+}
+
+const { size } = Astro.props;
+
+const borderSize = (() => {
+    switch (size) {
+        case 'lg':
+            return "w-[350px] md:w-[450px] h-[350px] md:h-[450px]"
+        case 'sm':
+            return "w-[60px] md:w-[85px] h-[60px] md:h-[85px]"
+        case 'md':
+        default:
+            return "w-[250px] md:w-[350px] h-[250px] md:h-[350px]";
+    }
+})()
+
+const imageSize = (() => {
+    switch (size) {
+        case 'lg':
+            return "w-[300px] md:w-[400px] h-[300px] md:h-[400px]"
+        case 'sm':
+            return "w-[50px] md:w-[75px] h-[50px] md:h-[75px]"
+        case 'md':
+        default:
+            return "w-[200px] md:w-[300px] h-[200px] md:h-[300px]";
+    }
+})()
+---
+
+<div transition:name="avatar">
+    <div class=`${borderSize} rounded-full border border-stone-800 flex justify-center items-center aspect-square flex-grow`>
+        <img src="/lindsay.jpg" alt="Lindsay Wardell profile photo" class=`${imageSize} rounded-full aspect-square`/>
+    </div>
+</div>

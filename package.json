@@ -14,7 +14,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.2",
+    "@astrojs/netlify": "^5.5.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/barlow": "^5.0.13",
+    "@fontsource/questrial": "^5.0.13",
     "astro": "^4.13.1",
     "dayjs": "^1.11.12",
     "install": "^0.13.0",

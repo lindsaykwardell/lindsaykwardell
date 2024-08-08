@@ -1,0 +1,3 @@
+html {
+    @apply bg-gradient-to-br from-black via-stone-950 to-amber-950 text-stone-200 font-body  min-h-screen;
+}
