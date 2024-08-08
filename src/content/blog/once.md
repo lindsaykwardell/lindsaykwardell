@@ -4,6 +4,7 @@ title: "Once"
 image: "/blog/once.jpg"
 author: "Lindsay Wardell"
 snippet: Once, the dream died. But only once.
+type: Poetry
 ---
 Once, I dreamt of stars blazing,<br />
 Sunrise burning,<br />

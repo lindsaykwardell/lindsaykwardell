@@ -11,4 +11,5 @@ tags:
   - Tailwind
   - CSS
 name: 'This Dot Labs'
+type: Programming
 ---

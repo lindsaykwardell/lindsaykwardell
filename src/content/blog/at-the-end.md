@@ -6,6 +6,7 @@ image: https://images.unsplash.com/photo-1523565304550-2b34a3031464?ixlib=rb-4.0
 tags:
   - Poetry
 snippet: At the end of grief, hope is reborn.
+type: Poetry
 ---
 
 At the end of winter, the flowers bloom.

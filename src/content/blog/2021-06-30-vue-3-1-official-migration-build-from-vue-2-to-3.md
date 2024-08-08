@@ -9,4 +9,5 @@ tags:
   - vue
   - javascript
 name: 'This Dot Labs'
+type: Programming
 ---

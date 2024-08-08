@@ -1,5 +1,6 @@
 ---
 import SocialLinks from '@/components/SocialLinks.astro'
+import Header from '@/components/Header.astro';
 
 import '@fontsource/questrial'
 import '@fontsource/barlow';
@@ -13,7 +14,16 @@ const details = {
     permalink: 'https://lindsaykwardell.com'
 }
 
-let { title, description, image, permalink } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  permalink?: string;
+  hideHeader?: boolean;
+  fullScreen?: boolean;
+}
+
+let { title, description, image, permalink, hideHeader, fullScreen } = Astro.props;
 
 title = title || details.title;
 description = description || details.description;
@@ -53,7 +63,12 @@ permalink = permalink ? details.permalink + permalink : details.permalink;
   </head>
 
   <body>
-    <slot />
+    <div class="bg-gradient-to-br from-amber-950 via-black to-stone-950 h-[75px] w-full absolute top-0 left-0"></div>
+    {!hideHeader && <Header />}
+
+    <main class=`${fullScreen ? '' : 'max-w-[1000px] m-auto '}pt-12 pb-4 px-7`>
+      <slot />
+    </main>
 
     <script data-goatcounter="https://lindsaykwardell.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>

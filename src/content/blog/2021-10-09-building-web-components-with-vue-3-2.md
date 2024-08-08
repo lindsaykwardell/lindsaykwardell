@@ -5,4 +5,5 @@ pubDate: 2021-10-05T14:14:09.947Z
 author: Lindsay Wardell
 image: /blog/web-components-vue-3.2.png
 name: 'This Dot Labs'
+type: Programming
 ---

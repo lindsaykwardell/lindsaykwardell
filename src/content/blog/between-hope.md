@@ -6,6 +6,7 @@ image: "/blog/between-hope.jpeg"
 tags:
   - Poetry
 snippet: For now, I stand between hope, between joy, between lives.
+type: Poetry
 ---
 
 When I look to my past, <br />

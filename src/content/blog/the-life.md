@@ -4,6 +4,7 @@ title: "The Life"
 image: "/blog/life.jpg"
 author: "Lindsay Wardell"
 snippet: I hold up my life to the light and observe the shapes drawn across it.
+type: Poetry
 ---
 I hold up my life to the light<br />
 and observe the shapes drawn across it.

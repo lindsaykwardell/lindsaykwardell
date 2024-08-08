@@ -9,4 +9,5 @@ tags:
   - Javascript
   - Web Development
 name: 'This Dot Labs'
+type: Programming
 ---

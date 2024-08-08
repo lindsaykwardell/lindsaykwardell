@@ -4,6 +4,7 @@ title: 2022 In Review
 image: https://images.unsplash.com/photo-1508093989287-061d64de7324?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80
 author: Lindsay Wardell
 snippet: 2022 was a year that never ends, with a lot of joy and a lot of painful experiences.
+type: Blog
 ---
 2022 was, for me, the year that never ends. I started the year on the high of 2021; amazing opportunities, getting to work at two fantastic companies, and making great strides in my personal and professional lives. This year, I end on a low that was altogether unexpected. There was certainly good in this year, which I'll get to, but this year stands out as bitter compared to most.
 

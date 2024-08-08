@@ -11,4 +11,5 @@ tags:
   - Composition API
   - Web Development
 name: 'This Dot Labs'
+type: Programming
 ---

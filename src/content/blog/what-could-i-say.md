@@ -6,6 +6,7 @@ image: https://images.unsplash.com/photo-1487360920430-e18a62e59ad2?ixlib=rb-4.0
 tags:
   - Poetry
 snippet: What could I say to her? What could I tell her of the life she would lead, of the people she would know?
+type: Poetry
 ---
 
 Once, in a dream,<br />

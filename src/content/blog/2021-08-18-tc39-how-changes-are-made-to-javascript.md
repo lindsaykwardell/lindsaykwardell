@@ -9,4 +9,5 @@ tags:
   - Javascript
   - TC39
 name: 'This Dot Labs'
+type: Programming
 ---

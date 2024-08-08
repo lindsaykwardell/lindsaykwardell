@@ -7,6 +7,7 @@ tags:
   - Web Development
   - Personal
 snippet: "What do you want to be when you grow up?"
+type: Blog
 ---
 
 **"What do you want to be when you grow up?"** 

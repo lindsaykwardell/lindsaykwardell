@@ -9,5 +9,6 @@ tags:
   - Vite
   - Javascript
   - Web Development
+type: Programming
 name: 'This Dot Labs'
 ---

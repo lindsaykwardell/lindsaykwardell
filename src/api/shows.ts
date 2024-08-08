@@ -1,4 +1,3 @@
-import naturalOrder from 'natural-order'
 import { extract } from '@extractus/feed-extractor'
 
 const oneOffs = [
@@ -1158,7 +1157,7 @@ const oneOffs = [
       "Elm is a delightful language for building reliable web applications. In this talk, we'll explore what Elm is, how it compares to Javascript, and how we can incorporate it into a Vite-based application.",
     pubDate: "2022-10-11T00:00:00.000Z",
     image: "/blog/viteconf.jpg",
-    type: "video",
+    type: "conference",
     host: false,
     name: "ViteConf 2022",
   },
@@ -1202,7 +1201,7 @@ const oneOffs = [
       "Lindsay Wardell explores Functional Programming, and how to incorporate Elm into Vite-based applications. She also looks at some projects in the Elm ecosystem that utilize Vite as a build tool.",
     pubDate: "2023-10-05T00:00:00.000Z",
     image: "/blog/viteconf-2023.png",
-    type: "video",
+    type: "conference",
     host: false,
     name: "ViteConf 2023",
   },
@@ -1231,19 +1230,17 @@ const oneOffs = [
   },
 ];
 
-
-// function fetchPodcasts() {
-//   return fetch('https://lindsaykwardell.com/.netlify/functions/podcasts')
-//     .then((res) => res.json())
-//     .then((res) => {
-//       if (Array.isArray(res)) return res
-//       else throw Error()
-//     })
-//     .catch(() => [])
-// }
-
-export async function getPodcasts() {
-  // const podcasts = await fetchPodcasts()
+export async function getShows(): Promise<{
+  id: string;
+  url: string,
+  title: string,
+  snippet: string,
+  pubDate: string,
+  image: string,
+  type: string,
+  host: boolean,
+  name: string,
+}[]> {
   const humanSideOfDev = await extract(
     'https://anchor.fm/s/81f880f0/podcast/rss',
     {
@@ -1280,8 +1277,7 @@ export async function getPodcasts() {
     }
   )
 
-  return naturalOrder([
-    // ...podcasts.map((podcast) => ({ ...podcast, type: 'podcast', host: true })),
+  return [
     ...oneOffs,
     ...humanSideOfDev.entries.map((episode) => ({
       url: `https://humansideof.dev/episode/${episode.title
@@ -1305,7 +1301,5 @@ export async function getPodcasts() {
       host: true,
       name: 'I\'m Sure It Means Nothing',
     })),
-  ])
-    .orderBy('desc')
-    .sort(['pubDate'])
+  ].toSorted((a,b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()).map(s => ({...s, id: s.title.toLowerCase().replaceAll(" ", "-").replaceAll("?", "").replaceAll("|", "")}))
 }

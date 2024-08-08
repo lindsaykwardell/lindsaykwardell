@@ -4,9 +4,9 @@ title: "It Was Meant To Last Forever"
 author: "Lindsay Wardell"
 image: "/blog/it-was-meant-to-last-forever.jpg"
 tags:
-  - Life
   - Poetry
 snippet: One thought fills my essence – I want to stay here forever.
+type: Poetry
 ---
 The sun rose brilliant in the sky that first morning, its rays bursting through the clouds in all of nature’s glory. The room was still, brimming with boxed potential, with room for curious imaginations to roam free. Outside the blurry windows stood a slice of paradise amidst the bleak cityscape, green pastures sheltered from bitter cement.
 

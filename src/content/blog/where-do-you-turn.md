@@ -4,6 +4,7 @@ title: "Where Do You Turn?"
 image: "/blog/forest.webp"
 author: "Lindsay Wardell"
 snippet: Where do you turn when faith grows cold?
+type: Poetry
 ---
 Where do you turn, when faith grows cold? <br />
 When hidden places freeze over, and fill with fear,<br />

@@ -1,5 +1,5 @@
 ---
-import BlogLayout from "@/layouts/BlogLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getEntry } from 'astro:content';
 
 const { slug } = Astro.params;
@@ -7,10 +7,19 @@ const { slug } = Astro.params;
 const post = await getEntry('blog', slug!)
 
 if (!post) {
-    return Astro.redirect("/");
+    return Astro.redirect("/blog");
 }
+
+const { Content } = await post.render();
 ---
 
-<BlogLayout>
-    {post.data.title}
+<BaseLayout>
+    <section class="flex flex-col gap-4 items-center pb-12">
+        <img src={post.data.image} class="w-full aspect-video object-cover" />
+        <h1 class="font-title text-3xl" transition:name=`${post.slug}-name`>{post.data.title}</h1>
+        <time class="text-sm text-stone-400">{Intl.DateTimeFormat('en-us').format(post.data.pubDate)}</time>
+    </section>
+    <article class="prose max-w-full prose-invert prose-lg md:prose-xl m-auto bg-gradient-to-b from-black to-stone-950 p-12 rounded shadow">
+        <Content />
+    </article>
 </BlogLayout>
