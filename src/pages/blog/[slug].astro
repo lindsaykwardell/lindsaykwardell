@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Signoff from "@/components/Signoff.astro";
 import { getEntry } from 'astro:content';
 
 const { slug } = Astro.params;
@@ -21,5 +22,7 @@ const { Content } = await post.render();
     </section>
     <article class="prose max-w-full prose-invert prose-lg md:prose-xl m-auto bg-gradient-to-b from-black to-stone-950 p-12 rounded shadow">
         <Content />
+        <Signoff />
     </article>
+    
 </BlogLayout>

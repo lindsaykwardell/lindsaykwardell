@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Signoff from "@/components/Signoff.astro";
 import { getShows } from "@/api/shows";
 
 const { slug } = Astro.params;
@@ -22,7 +23,8 @@ if (!show) {
         <a href={show.url} class="break-all text-sm underline text-stone-400">{show.url}</a>
     </section>
     <article class="prose prose-invert prose-lg md:prose-xl m-auto bg-gradient-to-b from-black to-stone-950 p-12 rounded shadow">
-        {show.snippet}
+        <div class="">{show.snippet}</div>
+        <Signoff />
     </article>
 
 </BlogLayout>

@@ -12,7 +12,7 @@ const posts = (await getCollection('blog')).toSorted((a, b) => b.data.pubDate.ge
                 <a transition:name=`${post.slug}-name` href={post.data.link ? post.data.link : `/blog/${post.slug}`} class="col-span-2 lg:col-span-6 hover:underline">{post.data.title}</a>
                 <time class="text-sm text-stone-400">{Intl.DateTimeFormat('en-us').format(post.data.pubDate)}</time>
                 <div class="flex justify-end">
-                    <span class={`rounded-lg ${post.data.type === 'Poetry' ? 'bg-purple-950' : post.data.type === 'Programming' ? 'bg-red-950' : post.data.type === 'Fiction' ? 'bg-blue-950' : post.data.type === 'Blog' ? 'bg-green-950' : 'bg-stone-800'} text-stone-400 text-sm px-2 py-1`}>{post.data.type}</span>
+                    <span class={`rounded-lg ${post.data.type === 'Poetry' ? 'bg-purple-950' : post.data.type === 'Programming' ? 'bg-red-950' : post.data.type === 'Fiction' ? 'bg-blue-950' : post.data.type === 'Blog' ? 'bg-green-950' : 'bg-stone-800'} text-stone-400 text-sm px-2 py-1`}>{post.data.type?.toLowerCase()}</span>
                 </div>
             </li>
         ))}
