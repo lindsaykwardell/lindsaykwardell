@@ -50,6 +50,6 @@ export async function GET(context: APIContext) {
       })),
     // (optional) inject custom xml
     customData: `<language>en-us</language>`,
-    // stylesheet: '/rss/styles.xsl',
+    stylesheet: '/rss/styles.xsl',
   })
 }
