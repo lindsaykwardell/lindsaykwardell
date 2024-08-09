@@ -60,7 +60,7 @@ permalink = permalink ? details.permalink + permalink : details.permalink
       rel="alternate"
       type="application/rss+xml"
       title={details.title}
-      href={new URL('rss.xml', Astro.site)}
+      href={new URL('rss.xml', details.permalink)}
     />
 
     <slot name="head" />
