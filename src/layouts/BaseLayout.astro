@@ -1,35 +1,34 @@
 ---
-import SocialLinks from '@/components/SocialLinks.astro'
-import Header from '@/components/Header.astro';
+import Header from '@/components/Header.astro'
+import details from '@/api/details.json'
 
 import '@fontsource/questrial'
-import '@fontsource/barlow';
+import '@fontsource/barlow'
 import '@/styles/main.css'
-import { ViewTransitions } from 'astro:transitions';
-
-const details = {
-    title: 'Lindsay Wardell',
-    description: 'Programmer, writer, mother. She/Her. Interested in Vue, Typescript, Node.js, and Elm.',
-    image: 'https://lindsaykwardell.com/lindsay.jpg',
-    permalink: 'https://lindsaykwardell.com'
-}
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-  permalink?: string;
-  hideHeader?: boolean;
-  fullScreen?: boolean;
+  title?: string
+  description?: string
+  image?: string
+  permalink?: string
+  hideHeader?: boolean
+  fullScreen?: boolean
 }
 
-let { title, description, image, permalink, hideHeader, fullScreen } = Astro.props;
+let { title, description, image, permalink, hideHeader, fullScreen } =
+  Astro.props
 
-title = title || details.title;
-description = description || details.description;
-image = image ? (image.includes("http") ? image : details.permalink + image) : details.image
-permalink = permalink ? details.permalink + permalink : details.permalink;
+title = title || details.title
+description = description || details.description
+image = image
+  ? image.includes('http')
+    ? image
+    : details.permalink + image
+  : details.image
+permalink = permalink ? details.permalink + permalink : details.permalink
 ---
+
 <html lang="en">
   <head>
     <!-- Global Metadata -->
@@ -57,19 +56,32 @@ permalink = permalink ? details.permalink + permalink : details.permalink;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
 
-    <slot name="head"></slot>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={details.title}
+      href={new URL('rss.xml', Astro.site)}
+    />
+
+    <slot name="head" />
 
     <ViewTransitions />
   </head>
 
   <body>
-    <div class="bg-gradient-to-br from-amber-950 via-black to-stone-950 h-[75px] w-full absolute top-0 left-0"></div>
+    <div
+      class="bg-gradient-to-br from-amber-950 via-black to-stone-950 h-[75px] w-full absolute top-0 left-0"
+    >
+    </div>
     {!hideHeader && <Header />}
 
     <main class=`${fullScreen ? '' : 'max-w-[1000px] m-auto '}pt-12 pb-4 px-7`>
       <slot />
     </main>
 
-    <script data-goatcounter="https://lindsaykwardell.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script
+      data-goatcounter="https://lindsaykwardell.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
   </body>
 </html>
