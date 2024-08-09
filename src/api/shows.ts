@@ -1228,6 +1228,16 @@ const oneOffs = [
     host: false,
     name: "Modern Web",
   },
+  {
+    url: "https://www.youtube.com/watch?v=jVHoffCdKa4",
+    title: "Build a retro gaming app — Web Dev Challenge S1E2",
+    snippet: "What could you create if you had 30 minutes to plan and 4 hours to build? Lindsay Wardell, Dev Agrawal, Ben Hong, and Jason Lengstorf took on the Web Dev Challenge to find out.",
+    pubDate: "2024-07-17T00:00:00.000Z",
+    image: "/blog/4d1a.webp",
+    type: "video",
+    host: false,
+    name: "Learn With Jason",
+  }
 ];
 
 export type Show = {
