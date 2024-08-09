@@ -4,11 +4,8 @@ import Signoff from "@/components/Signoff.astro";
 import { getShows } from "@/api/shows";
 
 const { slug } = Astro.params;
-console.log(slug);
 
 const show = (await getShows()).find(s => s.id === slug);
-
-console.log(show);
 
 if (!show) {
     return Astro.redirect("/shows");
