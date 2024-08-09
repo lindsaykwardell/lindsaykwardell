@@ -1,20 +1,25 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro"
-import SocialLinks from "@/components/SocialLinks.astro"
-import Avatar from "@/components/Avatar.astro"
-import Nav from "@/components/Nav.astro"
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import SocialLinks from '@/components/SocialLinks.astro'
+import Avatar from '@/components/Avatar.astro'
+import Nav from '@/components/Nav.astro'
 ---
 
 <BaseLayout hideHeader fullScreen>
-	<section class="flex flex-col sm:flex-row md:h-screen justify-center items-center max-w-[1000px] m-auto gap-7 p-7">
-		<Avatar />
-		<div class="flex flex-col gap-7 flex-shrink">
-			<h1 class="font-title text-3xl md:text-5xl">Hi, I'm Lindsay Wardell!</h1>
-			<h2 class="font-title text-lg md:text-xl">I'm a Senior Software Engineer who loves writing functional, elegant web applications.</h2>
-			<div class="m-auto md:m-0">
-				<Nav />
-			</div>
-			<SocialLinks />
-		</div>
-	</section>
+  <section
+    class="flex flex-col sm:flex-row md:h-screen justify-center items-center max-w-[1000px] m-auto gap-7 p-7"
+  >
+    <Avatar />
+    <div class="flex flex-col gap-7 flex-shrink">
+      <h1 class="font-title text-3xl md:text-5xl">Hi, I'm Lindsay Wardell!</h1>
+      <h2 class="font-title text-lg md:text-xl">
+        I'm a Senior Software Engineer who loves writing functional, elegant web
+        applications.
+      </h2>
+      <div class="m-auto md:m-0">
+        <Nav />
+      </div>
+      <div class="max-w-[450px]"><SocialLinks /></div>
+    </div>
+  </section>
 </BaseLayout>
