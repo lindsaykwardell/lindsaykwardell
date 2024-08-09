@@ -1,142 +1,26 @@
 ---
-// Component Imports
-import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogPostPreview from '../components/BlogPostPreview.vue';
-import Languages from '../components/Languages.vue'
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
+
 <BaseLayout>
-  <div>
-    <div class="project-wrapper">
-      <div class="flex flex-col items-center">
-        <h1 class="text-5xl title text-center mb-8">Hi, I'm Lindsay Wardell</h1>
-        <img
-          src="/lindsay2.jpg"
-          alt=""
-          class="picture w-full xl:w-1/3 lg:w-3/5 md:w-4/6 rounded-lg shadow-md"
-        />
-        <div class="prose dark:prose-dark container my-5 p-5 text-lg md:text-xl">
-          <p>
-            I am a programmer, writer, and mother. I work as a Senior Software Engineer at <a class="underline" href="https://khanacademy.org">Khan Academy</a>, and host of the podcast <a class="underline" href="https://humansideof.dev">Human Side of Dev</a>. I am experienced in building web applications with modern frontend frameworks, such as Vue, Elm, React, and Svelte, as well as backend technologies including Node, Ruby on Rails, Sprint Boot, and SQL. I also enjoy blogging and presenting online about the technologies that I love working with.
-          </p>
-          <p>
-            I am currently learning more about functional programming, and utilizing languages like Elm and Haskell for side projects and at work. I have a Bachelor of Science in Software Development from Western Governor's University.
-          </p>
-        </div>
-      </div>
-      <h2 class="text-4xl text-center">Projects</h2>
-      <div class="w-11/12 md:w-3/4 lg:w-2/3 m-auto flex flex-col gap-4">
-        <div>
-          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/vite-elm-template">Vite Elm Template</a></h3>
-          <Languages class="py-4" languages={['Elm', 'Vite']} />
-          <p>A default template for building Elm applications using Vite. Includes hot-module reload of Elm modules (courtesy of <code>vite-plugin-elm</code>).</p>
-          <p>Features:
-            <ul class="list-disc">
-              <li>Hot Module Reload of all code in the app (including Elm)</li>
-              <li>Tooling installation via elm-tooling (includes Elm, elm-format, elm-json, and elm-test-rs)</li>
-              <li>Basic unit test examples</li>
-              <li>Github Actions CI for running tests</li>
-              <li>Recommends the Elm VS Code extension</li>
-            </ul>
-          </p>
-        </div>
-        <hr class="m-auto" />
-        <div>
-          <h3 class="text-3xl"><a href="https://elm-vue-bridge.lindsaykwardell.com/">Elm Vue Bridge</a></h3>
-          <Languages class="py-4" languages={['Elm', 'Vue', 'Vite', 'Typescript', 'Cypress']} />
-          <p>Bridge to render Elm modules in a Vue application. Renders Elm 0.19 modules within Vue 3.</p>
-          <p>
-            Often, when a developer is starting with a new framework or language, the initial instinct is to build new projects using that tool. This can be very instructive, especially with a programming language. However, one of the strengths of Elm is that it compiles to Javascript, and as such it can be integrated with any existing web application.</p>
-          <p>
-            <code>elm-vue-bridge</code> seeks to help developers familiar with Vue to explore the Elm ecosystem and perform their own experiments with the language. It provides a function to wrap an Elm module within a Vue component, and interact with it inside of your existing codebase. In this way, Elm can be introduced into your project without having to rewrite your architecture.
-          </p>
-        </div>
-        <hr class="m-auto" />
-        <div>
-          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/natural-order">Natural Order</a></h3>
-          <Languages class="py-4" languages={['Typescript', 'Vite', 'Vitest']} />
-          <p>Simple library to sort lists of strings, numbers, and objects naturally.</p>
-          <p>
-            <ul class="list-disc">
-              <li>Returns a new list (default <code>.sort()</code> method mutates the original array)</li>
-              <li>Sort an array of string or objects in a natural way</li>
-              <li>Allows for sorting by nested objects</li>
-              <li>Numbers are handled properly - “2” is before “10”</li>
-              <li>Strings are after numbers</li>
-              <li>Empty strings are after “z”</li>
-              <li>“a” is before “B”</li>
-              <li>Semver-compatible sorting of version numbers</li>
-            </ul>
-          </p>
-        </div>
-        <hr class="m-auto" />
-        <div>
-          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/consoleback">Consoleback</a></h3>
-          <Languages class="py-4" languages={['Typescript', 'Vite', 'Vitest']} />
-          <p>Improved logging for Javascript applications</p>
-          <ul class="list-disc">
-            <li>Uses console.log, console.warn, console.error, console.info, and console.debug</li>
-            <li>Adds timestamp and log type to message (if desired)</li>
-            <li>Time formatted to a local string with date-fns</li>
-            <li>Allows callback that gives the application access to the log.</li>
-          </ul>
-        </div>
-        <hr class="m-auto" />
-        <div>
-          <h3 class="text-3xl"><a href="https://dingy-bell.netlify.app">Witchy Bell</a></h3>
-          <Languages class="py-4" languages={['Vite', 'Vue', 'Typescript']} />
-          <p>Meditation timer that rings gently at a predetermined interval.</p>
-          <p>
-            <ul class="list-disc">
-              <li>Fullly offline PWA support</li>
-              <li>Works on iOS and Android</li>
-              <li>Remembers time interval and other settings between sessions.</li>
-            </ul>
-          </p>
-        </div>
-        <hr class="m-auto" />
-        <div>
-          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/juralen-elm">Juralen</a></h3>
-          <Languages class="py-4" languages={['Elm', 'Vue', 'Typescript', 'Tailwind', 'Vite']} />
-          <p>Turn-based strategy game for 2-8 players. Includes support for AI players and some music/sound effects.</p>
-        </div>
-        <hr class="m-auto" />
-        <div>
-          <h3 class="text-3xl"><a href="https://clocktracker.app">ClockTracker</a></h3>
-          <Languages class="py-4" languages={['Vue', 'Typescript', 'Tailwind', 'Vite', 'Nuxt', 'Node']} />
-          <p>ClockTracker is a social platform for recording and sharing game logs of the social deduction game "Blood on the Clocktower"</p>
-            <ul class="list-disc">
-              <li>Record game details, such as script, role, grimoire, storyteller, notes, and images.</li>
-              <li>Tag friends and share on social platforms such as Discord.</li>
-              <li>Look at charts and data related to your games to see trends, such as good/evil, common roles, preferred scripts, and more.</li>
-              <li>Track stats on roles per script, seeing how each role performs across all recorded games.</li>
-              <li>Participate in communities and with friends to share a log of your gaming experience with them.</li>
-            </ul>
-        </div>
-        <hr class="m-auto" />
-        <div>
-          <h3 class="text-3xl"><a href="https://github.com/lindsaykwardell/starcomgame.com">Star Commander</a></h3>
-          <Languages class="py-4" languages={['Elm', 'Vue', 'Typescript', 'Tailwind', 'Vite', 'Node']} />
-          <p>Star Commander is a card game for 2-4 players. The repository serves four functions:
-            <ul class="list-disc">
-              <li>The core site for Star Commander (<a href="https://starcomgame.com">starcomgame.com</a>)</li>
-              <li>The official rulebook (<a href="https://rules.starcomgame.com">rules.starcomgame.com</a>)</li>
-              <li>A playable demo of the card game for two players (<a href="https://play.starcomgame.com">play.starcomgame.com</a>)</li>
-              <li>A Node server running Socket.io to facilitate online multiplayer</li>
-            </ul>
-          </p>
+    <div>
+      <div class="project-wrapper">
+        <div class="flex flex-col items-center">
+          <h1 class="text-5xl title text-center mb-8">Hi, I'm Lindsay Wardell</h1>
+          <img
+            src="/lindsay2.jpg"
+            alt=""
+            class="picture w-full xl:w-1/3 lg:w-3/5 md:w-4/6 rounded-lg shadow-md"
+          />
+          <div class="prose prose-invert my-5 p-5 text-lg md:text-xl">
+            <p>
+              I am a programmer, writer, and mother. I work as a Senior Software Engineer at <a class="underline" href="https://khanacademy.org">Khan Academy</a>, and host of the podcast <a class="underline" href="https://humansideof.dev">Human Side of Dev</a>. I am experienced in building web applications with modern frontend frameworks, such as Vue, Elm, React, and Svelte, as well as backend technologies including Node, Ruby on Rails, Sprint Boot, and SQL. I also enjoy blogging and presenting online about the technologies that I love working with.
+            </p>
+            <p>
+              I am currently learning more about functional programming, and utilizing languages like Elm and Haskell for side projects and at work. I have a Bachelor of Science in Software Development from Western Governor's University.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</BaseLayout>
-
-<style lang="pcss">
-.project-wrapper {
-  padding-bottom: 2rem;
-
-  .picture {
-    max-height: 500px;
-    object-fit: cover;
-  }
-}
-</style>
+  </BaseLayout>

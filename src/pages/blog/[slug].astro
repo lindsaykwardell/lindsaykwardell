@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Signoff from "@/components/Signoff.astro";
+import { getEntry } from 'astro:content';
+
+const { slug } = Astro.params;
+
+const post = await getEntry('blog', slug!)
+
+if (!post) {
+    return Astro.redirect("/blog");
+}
+
+const { Content } = await post.render();
+---
+
+<BaseLayout>
+    <section class="flex flex-col gap-4 items-center pb-12">
+        <img src={post.data.image} class="w-full aspect-video object-cover" />
+        <h1 class="font-title text-xl md:text-3xl px-2 md:px-0" transition:name=`${post.slug}-name`>{post.data.title}</h1>
+        <time class="text-sm text-stone-400 px-2 md:px-0">{Intl.DateTimeFormat('en-us').format(post.data.pubDate)}</time>
+    </section>
+    <article class="prose max-w-full prose-invert prose-lg md:prose-xl m-auto bg-gradient-to-b from-black to-stone-950 p-4 md:p-12 rounded shadow">
+        <Content />
+        <Signoff />
+    </article>
+    
+</BlogLayout>

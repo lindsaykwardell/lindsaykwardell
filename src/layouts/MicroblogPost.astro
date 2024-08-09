@@ -1,49 +1,49 @@
 ---
+import SocialLinks from '@/components/SocialLinks.astro'
 import BaseLayout from './BaseLayout.astro'
-import SocialLinks from '../components/SocialLinks.astro'
-import dayjs from 'dayjs'
 
-import "../styles/prism.scss"
+const { content } = Astro.props
+const { title, snippet, date, author, image, slug } = content
 
-const {content} = Astro.props;
-const {title, snippet, date, author, image, slug} = content;
-
-const { avatar, note, header, followers_count, following_count, statuses_count, display_name } = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861").then(res => res.json())
+const {
+  avatar,
+  note,
+  header,
+  followers_count,
+  following_count,
+  statuses_count,
+  display_name,
+} = await fetch(
+  'https://mastodon.social/api/v1/accounts/109248168582410861'
+).then((res) => res.json())
 ---
+
 <BaseLayout title={title} description={snippet} image={avatar} permalink={slug}>
+  <img slot="premain" src={header} />
 
-<div class="blog-post flex justify-center items-center flex-col">
   <div
-    class="bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md my-5 transition duration-100 w-full lg:w-[1000px]"
+    class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-gray-500 dark:text-gray-400 pb-4 p-3"
   >
-    <div class="relative mb-[50px]">
-      <img src={header} />
-      <img src={avatar} class="w-36 h-36 rounded-full object-cover absolute bottom-[-30px] left-[30px] shadow-xl border-2 border-black" />
-    </div>
-
-    <div class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-gray-500 dark:text-gray-400 pb-4 p-3">
-      <a href="https://mastodon.social/@lindsaykwardell" class="underline">@lindsay@lindsaykwardell.com</a>
-      <div>{statuses_count} Posts</div>
-      <div>{following_count} Following</div>
-      <div>{followers_count} Followers</div>
-    </div>
-
-    <aside class="prose dark:prose-dark m-auto p-3" set:html={note}>
-      
-    </aside>
-
-    <hr />
-
-    <section class="px-4 md:px-0 prose m-auto dark:prose-dark">
-      <slot />
-    </section>
-
+    <a href="https://mastodon.social/@lindsaykwardell" class="underline"
+      >@lindsay@lindsaykwardell.com</a
+    >
+    <div>{statuses_count} Posts</div>
+    <div>{following_count} Following</div>
+    <div>{followers_count} Followers</div>
   </div>
-</div>
 
+  <aside class="prose prose-invert m-auto p-3" set:html={note} />
+
+  <div class="w-[300px] m-auto">
+    <SocialLinks />
+  </div>
+
+  <section class="px-4 md:px-0 prose prose-invert m-auto dark:prose-dark">
+    <slot />
+  </section>
 </BaseLayout>
-  
-<style is:global lang="pcss">
+
+<!-- <style is:global lang="pcss">
 .blog-post {
   .post-title {
     text-align: center;
@@ -61,4 +61,4 @@ const { avatar, note, header, followers_count, following_count, statuses_count, 
 .picture {
     object-fit: cover;
   }
-</style>
+</style> -->

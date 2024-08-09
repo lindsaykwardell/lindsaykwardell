@@ -1,24 +1,40 @@
 ---
-// Component Imports
-import SocialLinks from '../components/SocialLinks.astro'
-import details from '../api/details.mjs'
+import Header from '@/components/Header.astro'
+import details from '@/api/details.json'
 
-import "../styles/global.css";
+import '@fontsource/questrial'
+import '@fontsource/barlow'
+import '@/styles/main.css'
+import { ViewTransitions } from 'astro:transitions'
 
-let { title, description, image, permalink } = Astro.props;
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  permalink?: string
+  hideHeader?: boolean
+  fullScreen?: boolean
+}
 
-title = title || details.title;
-description = description || details.description;
-image = image ? (image.includes("http") ? image : details.permalink + image) : details.image
-permalink = permalink ? details.permalink + permalink : details.permalink;
+let { title, description, image, permalink, hideHeader, fullScreen } =
+  Astro.props
+
+title = title || details.title
+description = description || details.description
+image = image
+  ? image.includes('http')
+    ? image
+    : details.permalink + image
+  : details.image
+permalink = permalink ? details.permalink + permalink : details.permalink
 ---
+
 <html lang="en">
   <head>
     <!-- Global Metadata -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
-
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
@@ -40,44 +56,32 @@ permalink = permalink ? details.permalink + permalink : details.permalink;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Rokkitt|Fira+Sans&display=swap">
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={details.title}
+      href={new URL('rss.xml', details.permalink)}
+    />
 
-    <slot name="head"></slot>
+    <slot name="head" />
+
+    <ViewTransitions />
   </head>
 
-  <body class="bg-gray-200 dark:bg-gray-900 dark:text-gray-200">
-    <div class="relative flex flex-col min-h-[100vh]">
-      <nav
-        class="bg-gradient-to-r from-[#581414] to-red-700 dark:via-red-900 dark:to-gray-900 w-full h-16 md:h-20 flex items-center px-6 shadow-md fixed z-10"
-      >
-        <a href="/" class="flex items-center">
-          <img
-            src={'/lindsay.jpg'}
-            class="w-12 h-12 md:w-16 md:h-16 rounded-xl object-cover object-top"
-            alt=""
-          />
-          <h1 class="text-3xl font-rokkitt text-white pl-3 hidden md:block">Lindsay Wardell</h1>
-        </a>
-        <div class="flex-grow flex justify-end text-white text-lg">
-          <a href="/" class="px-4 py-2 rounded hidden sm:inline hover:underline">Home</a>
-          <a href="/about" class="px-4 py-2 rounded whitespace-nowrap hover:underline"
-            >About <span class="hidden sm:inline">Me</span></a
-          >
-          <a href="/blog" class="px-4 py-2 rounded hover:underline">Content</a>
-        </div>
-      </nav>
-      <main class="flex-grow mb-16 lg:flex items-center justify-center pt-4 relative top-[70px]">
-        <slot></slot>
-      </main>
-      <footer
-        class="w-full h-16 flex justify-center items-center bg-gray-900 dark:bg-gray-800 text-white transition duration-100"
-      >
-        <SocialLinks class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 m-auto" />
-      </footer>
+  <body>
+    <div
+      class="bg-gradient-to-br from-amber-950 via-black to-stone-950 h-[75px] w-full absolute top-0 left-0"
+    >
     </div>
+    {!hideHeader && <Header />}
 
-    <script data-goatcounter="https://lindsaykwardell.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <main class=`${fullScreen ? '' : 'max-w-[1000px] m-auto '}pt-12 md:pb-4 md:px-7`>
+      <slot />
+    </main>
+
+    <script
+      data-goatcounter="https://lindsaykwardell.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
   </body>
 </html>

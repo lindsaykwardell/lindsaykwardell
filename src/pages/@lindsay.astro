@@ -26,7 +26,7 @@ const content = {
 }
 ---
 <MicroblogPost content={content}>
-  {data.map(item => (
+  {data.map((item: any) => (
     <MicroPost 
       avatar={item.account.avatar}
       url={item.url}
