@@ -1230,7 +1230,7 @@ const oneOffs = [
   },
 ];
 
-export async function getShows(): Promise<{
+export type Show = {
   id: string;
   url: string,
   title: string,
@@ -1240,7 +1240,9 @@ export async function getShows(): Promise<{
   type: string,
   host: boolean,
   name: string,
-}[]> {
+}
+
+export async function getShows(): Promise<Show[]> {
   const humanSideOfDev = await extract(
     'https://anchor.fm/s/81f880f0/podcast/rss',
     {
