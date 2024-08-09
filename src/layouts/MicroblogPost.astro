@@ -1,4 +1,5 @@
 ---
+import SocialLinks from '@/components/SocialLinks.astro'
 import BaseLayout from './BaseLayout.astro'
 
 const { content } = Astro.props
@@ -18,7 +19,7 @@ const {
 ---
 
 <BaseLayout title={title} description={snippet} image={avatar} permalink={slug}>
-  <img src={header} />
+  <img slot="premain" src={header} />
 
   <div
     class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-gray-500 dark:text-gray-400 pb-4 p-3"
@@ -32,6 +33,10 @@ const {
   </div>
 
   <aside class="prose prose-invert m-auto p-3" set:html={note} />
+
+  <div class="w-[300px] m-auto">
+    <SocialLinks />
+  </div>
 
   <section class="px-4 md:px-0 prose prose-invert m-auto dark:prose-dark">
     <slot />

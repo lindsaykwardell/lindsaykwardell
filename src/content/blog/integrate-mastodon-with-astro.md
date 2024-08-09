@@ -127,7 +127,7 @@ In this file, I'm importing the layout (`MicroblogPost`) and a component (`Micro
 
 ![The landing page for my Mastodon microblog content on my own website](/blog/mastodon-profile-page.png)
 
-I then took it a step further, and created an individual page for each post. On sites like Twitter and Mastodon, you can link directly to a post (such as https://twitter.com/lindsaykwardell/status/1583481321330200577 or https://mastodon.social/@lindsaykwardell/109248202243508025). It made sense that if I was trying to recreate the interface of a microblog on my own site, I would want to do the same.
+I then took it a step further, and created an individual page for each post. On sites like Twitter and Mastodon, you can link directly to a post. It made sense that if I was trying to recreate the interface of a microblog on my own site, I would want to do the same.
 
 This required using [Astro's dynamic routing](https://docs.astro.build/en/core-concepts/routing/#server-ssr-mode) and enabling [SSR mode](https://docs.astro.build/en/guides/server-side-rendering/), but the result is that any of my Mastodon posts can be viwed on my personal site! Here's the code:
 

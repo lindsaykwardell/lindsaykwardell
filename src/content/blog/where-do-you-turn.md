@@ -30,4 +30,5 @@ A new world is born beneath its light,<br />
 Filled with dreams to explore.<br />
 
 Where do you turn?<br />
-To yourself, at last.
+To yourself,<br/>
+At last.
