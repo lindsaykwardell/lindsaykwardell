@@ -1,11 +1,34 @@
-<nav class="flex gap-2" transition:name="nav">
-    <a href="/">Home</a>
-    <div class="text-stone-500">/</div>
-    <a href="/about">About</a>
-    <div class="text-stone-500">/</div>
-    <a href="/blog">Blog</a>
-    <div class="text-stone-500">/</div>
-    <a href="/shows">Shows</a>
-    <div class="text-stone-500">/</div>
-    <a href="/@lindsay">Social</a>
+---
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1) // remove the first "/"
+---
+
+<nav class="flex gap-2 text-sm md:text-base" transition:name="nav">
+  <a class="font-title" href="/">Home</a>
+  <div class="text-stone-500">/</div>
+  <a
+    class={currentPath.includes('about')
+      ? 'underline font-title'
+      : 'font-title'}
+    href="/about">About</a
+  >
+  <div class="text-stone-500">/</div>
+  <a
+    class={currentPath.includes('blog') ? 'underline font-title' : 'font-title'}
+    href="/blog">Blog</a
+  >
+  <div class="text-stone-500">/</div>
+  <a
+    class={currentPath.includes('shows')
+      ? 'underline font-title'
+      : 'font-title'}
+    href="/shows">Shows</a
+  >
+  <div class="text-stone-500">/</div>
+  <a
+    class={currentPath.includes('@lindsay')
+      ? 'underline font-title'
+      : 'font-title'}
+    href="/@lindsay">Social</a
+  >
 </nav>

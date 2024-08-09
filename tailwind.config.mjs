@@ -4,8 +4,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				title: ['Questrial', 'sans-serif'],
-				body: ['Barlow', 'sans-serif']
+				title: ['Raleway Variable', 'sans-serif'],
+				body: ['Questrial', 'sans-serif']
 			}
 		},
 	},
