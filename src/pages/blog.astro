@@ -3,19 +3,30 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from 'astro:content';
 
-const postsByYear = (await getCollection('blog')).toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()).reduce((byYear, post) => {
-    const year = post.data.pubDate.getFullYear().toString();
-    if (!byYear[year]) {
-        byYear[year] = [];
-    }
+const type = Astro.url.searchParams.get("type");
 
-    byYear[year].push(post)
+const postsByYear = (
+    await getCollection('blog'))
+        .filter(post => !type || post.data.type === type)
+        .toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+        .reduce((byYear, post) => {
+            const year = post.data.pubDate.getFullYear().toString();
+            if (!byYear[year]) {
+                byYear[year] = [];
+            }
 
-    return byYear
-}, {} as {[key: string]: CollectionEntry<"blog">[]})
+            byYear[year].push(post)
+
+            return byYear
+        }, {} as {[key: string]: CollectionEntry<"blog">[]})
 ---
 
 <BaseLayout>
+    {type && (
+        <div class="flex justify-end text-stone-400">
+            <a href="/blog">← All content</a>
+        </div>
+    )}
     <ul class="pb-7">
         {Object.entries(postsByYear).toSorted((a,b) => +b[0] - +a[0]).map(([year, posts]) => (
             <li class="font-title text-2xl text-stone-400 py-8 pl-8">{year}</li>
@@ -24,9 +35,9 @@ const postsByYear = (await getCollection('blog')).toSorted((a, b) => b.data.pubD
                     <li class="text-lg md:text-xl grid grid-cols-2 lg:grid-cols-8 gap-2 lg:gap-7 items-center">
                         <a transition:name=`${post.slug}-name` href={post.data.link ? post.data.link : `/blog/${post.slug}`} class="col-span-2 lg:col-span-6 hover:underline">{post.data.title}</a>
                         <time class="text-sm text-stone-400">{Intl.DateTimeFormat('en-us').format(post.data.pubDate)}</time>
-                        <div class="flex justify-end">
+                        <a href={`/blog?type=${post.data.type}`} class="flex justify-end">
                             <span class={`rounded-lg ${post.data.type === 'Poetry' ? 'bg-purple-950' : post.data.type === 'Programming' ? 'bg-red-950' : post.data.type === 'Fiction' ? 'bg-blue-950' : post.data.type === 'Blog' ? 'bg-green-950' : 'bg-stone-800'} text-stone-400 text-sm px-2 py-1`}>{post.data.type?.toLowerCase()}</span>
-                        </div>
+                        </a>
                     </li>
                 ))}
             </ul>
