@@ -1,27 +1,36 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import Signoff from "@/components/Signoff.astro";
-import { getShows } from "@/api/shows";
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Signoff from '@/components/Signoff.astro'
+import { getEntry } from 'astro:content'
 
-const { slug } = Astro.params;
+const { slug } = Astro.params
 
-const show = (await getShows()).find(s => s.id === slug);
+const show = await getEntry('show', slug!)
 
 if (!show) {
-    return Astro.redirect("/shows");
+  return Astro.redirect('/shows')
 }
 ---
 
 <BaseLayout>
-    <section class="flex flex-col gap-4 items-center pb-12">
-        <img src={show.image} class="w-full aspect-video object-cover" />
-        <h1 class="text-xl md:text-3xl px-2 md:px-0" transition:name={show.id}>{show.title}</h1>
-        <time class="text-sm text-stone-400">{Intl.DateTimeFormat('en-us').format(new Date(show.pubDate))}</time>
-        <a href={show.url} class="break-all text-sm underline text-stone-400 px-2 md:px-0">{show.url}</a>
-    </section>
-    <article class="prose prose-invert prose-lg md:prose-xl m-auto bg-gradient-to-b from-black to-stone-950 p-4 md:p-12 rounded shadow">
-        <div class="">{show.snippet}</div>
-        <Signoff />
-    </article>
-
-</BlogLayout>
+  <section class="flex flex-col gap-4 items-center pb-12">
+    <img src={show.data.image} class="w-full aspect-video object-cover" />
+    <h1 class="text-xl md:text-3xl px-2 md:px-0" transition:name={show.id}>
+      {show.data.title}
+    </h1>
+    <time class="text-sm text-stone-400"
+      >{Intl.DateTimeFormat('en-us').format(show.data.pubDate)}</time
+    >
+    <a
+      href={show.data.url}
+      class="break-all text-sm underline text-stone-400 px-2 md:px-0"
+      >{show.data.url}</a
+    >
+  </section>
+  <article
+    class="prose prose-invert prose-lg md:prose-xl m-auto bg-gradient-to-b from-black to-stone-950 p-4 md:p-12 rounded shadow"
+  >
+    <div class="">{show.data.snippet}</div>
+    <Signoff />
+  </article>
+</BaseLayout>

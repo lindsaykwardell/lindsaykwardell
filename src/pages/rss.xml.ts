@@ -5,7 +5,7 @@ import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it'
 const parser = new MarkdownIt()
 
-import details from '@/api/details.json'
+import details from '@/content/details/index.json'
 
 export async function GET(context: APIContext) {
   const posts = await getCollection('blog')
