@@ -7,6 +7,7 @@ import netlify from '@astrojs/netlify'
 export default defineConfig({
   experimental: {
     contentLayer: true,
+    contentIntellisense: true,
   },
   integrations: [tailwind()],
   output: 'server',

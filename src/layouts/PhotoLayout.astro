@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+    photos: CollectionEntry<"photo">[]
+    spotlight?: CollectionEntry<"photo">
+}
+
+const { photos, spotlight } = Astro.props
+---
+
+<BaseLayout>
+    <section class="flex flex-col gap-6">
+      {spotlight && (
+        <div class="flex gap-6">
+          <a transition:name={spotlight.id} href={spotlight.data.url.src}>
+            <Image loading="eager" src={spotlight.data.url} alt={spotlight.data.alt} class="object-contain aspect-video" />
+          </a>
+        </div>
+      )}
+      <div class="masonry">
+          {photos.map(photo => (
+              <a transition:name={spotlight?.id === photo.id ? `${photo.id}-spotlight` : photo.id} href={`/photos/${photo.slug}`}>
+                  <Image loading="eager" src={photo.data.url} alt={photo.data.alt} class={spotlight?.id === photo.id ? 'opacity-25' : ''} />    
+              </a>
+          ))}
+        </div>
+    </section>
+</BaseLayout>
+
+<style scoped>
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.masonry {
+  column-count: 3;
+  column-gap: 10px;
+
+  & img {
+    margin-bottom: 10px;
+  }
+}
+</style>

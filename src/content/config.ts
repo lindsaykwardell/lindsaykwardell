@@ -1,7 +1,7 @@
 import { z, defineCollection } from 'astro:content'
 import { getShows } from '@/content/show'
 
-const blogCollection = defineCollection({
+const blog = defineCollection({
   type: 'content',
   schema: z.object({
     pubDate: z.date(),
@@ -16,7 +16,7 @@ const blogCollection = defineCollection({
   }),
 })
 
-const showCollection = defineCollection({
+const show = defineCollection({
   loader: async () => {
     const shows = await getShows()
     return shows
@@ -34,7 +34,16 @@ const showCollection = defineCollection({
   }),
 })
 
+const photo = defineCollection({
+  schema: ({image}) => z.object({
+    url: image(),
+    alt: z.string(),
+    tags: z.array(z.string())
+  })
+})
+
 export const collections = {
-  blog: blogCollection,
-  show: showCollection,
+  blog,
+  show,
+  photo,
 }
