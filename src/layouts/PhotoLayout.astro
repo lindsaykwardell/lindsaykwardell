@@ -1,47 +1,56 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro"
-import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import type { CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
 
 interface Props {
-    photos: CollectionEntry<"photo">[]
-    spotlight?: CollectionEntry<"photo">
+  photos: CollectionEntry<'photo'>[]
+  spotlight?: CollectionEntry<'photo'>
 }
 
 const { photos, spotlight } = Astro.props
 ---
 
 <BaseLayout>
-    <section class="flex flex-col gap-6">
-      {spotlight && (
-        <div class="flex gap-6">
-          <a transition:name={spotlight.id} href={spotlight.data.url.src}>
-            <Image loading="eager" src={spotlight.data.url} alt={spotlight.data.alt} class="object-contain aspect-video" />
+  <section class="flex flex-col gap-6 relative">
+    {
+      spotlight && (
+        <div class="flex gap-6 sticky top-0 z-10 bg-black p-2 rounded">
+          <a href={spotlight.data.url.src}>
+            <Image
+              transition:name={spotlight.id}
+              loading="eager"
+              src={spotlight.data.url}
+              alt={spotlight.data.alt}
+              class="object-contain aspect-video"
+            />
           </a>
         </div>
-      )}
-      <div class="masonry">
-          {photos.map(photo => (
+      )
+    }
+    <div class="columns-3 gap-2 p-1">
+      {
+        photos.map((photo) => (
+          <div class="mb-2">
+            {spotlight?.id === photo.id ? (
+              <Image
+                transition:name={`${photo.id}-spotlight`}
+                src={photo.data.url}
+                alt={photo.data.alt}
+                class="opacity-25"
+              />
+            ) : (
               <a href={`/photos/${photo.slug}`}>
-                  <Image transition:name={spotlight?.id === photo.id ? `${photo.id}-spotlight` : photo.id} src={photo.data.url} alt={photo.data.alt} class={`overflow-hidden ${spotlight?.id === photo.id ? 'opacity-25' : ''}`} />    
+                <Image
+                  transition:name={photo.id}
+                  src={photo.data.url}
+                  alt={photo.data.alt}
+                />
               </a>
-          ))}
-        </div>
-    </section>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
-
-<style scoped>
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.masonry {
-  column-count: 3;
-  column-gap: 10px;
-
-  & img {
-    margin-bottom: 10px;
-  }
-}
-</style>
