@@ -22,8 +22,8 @@ const { photos, spotlight } = Astro.props
       )}
       <div class="masonry">
           {photos.map(photo => (
-              <a transition:name={spotlight?.id === photo.id ? `${photo.id}-spotlight` : photo.id} href={`/photos/${photo.slug}`}>
-                  <Image loading="eager" src={photo.data.url} alt={photo.data.alt} class={spotlight?.id === photo.id ? 'opacity-25' : ''} />    
+              <a href={`/photos/${photo.slug}`}>
+                  <Image transition:name={spotlight?.id === photo.id ? `${photo.id}-spotlight` : photo.id} src={photo.data.url} alt={photo.data.alt} class={`overflow-hidden ${spotlight?.id === photo.id ? 'opacity-25' : ''}`} />    
               </a>
           ))}
         </div>
