@@ -12,17 +12,17 @@ const { photos, spotlight } = Astro.props
 ---
 
 <BaseLayout>
-  <section class="flex flex-col gap-6 relative">
+  <section class="flex flex-col gap-6 relative flex-shrink">
     {
       spotlight && (
-        <div class="flex gap-6 sticky top-0 z-10 bg-black p-2 rounded">
+        <div transition:name="spotlight" transition:animate="none" class="flex gap-6 sticky top-0 z-10 bg-black p-2 rounded">
           <a href={spotlight.data.url.src}>
             <Image
               transition:name={spotlight.id}
               loading="eager"
               src={spotlight.data.url}
               alt={spotlight.data.alt}
-              class="object-contain aspect-video"
+              class="object-contain aspect-video m-2"
             />
           </a>
         </div>
@@ -54,3 +54,21 @@ const { photos, spotlight } = Astro.props
     </div>
   </section>
 </BaseLayout>
+
+
+<script>
+  document.addEventListener("astro:before-swap", () => {
+    sessionStorage.setItem("scrollPosition", window.scrollY.toString());
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      window.scrollTo({
+        top: parseInt(scrollPosition, 10),
+        behavior: "instant",
+      });
+      sessionStorage.removeItem("scrollPosition");
+    }
+  });
+</script>
