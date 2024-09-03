@@ -5,17 +5,39 @@ import { Image } from 'astro:assets'
 
 interface Props {
   photos: CollectionEntry<'photo'>[]
+  tag?: string
   spotlight?: CollectionEntry<'photo'>
 }
 
-const { photos, spotlight } = Astro.props
+const { photos, spotlight, tag } = Astro.props
+
+const allTags = [...new Set(photos.flatMap(photo => photo.data.tags))]
+
+const photosByTag: {[key: string]: CollectionEntry<"photo">[]} = {}
+
+for (const photo of photos) {
+  for (const tag of photo.data.tags as string) {
+    if (!photosByTag[tag]) {
+      photosByTag[tag] = []
+    }
+
+    photosByTag[tag].push(photo)
+  }
+}
 ---
 
 <BaseLayout>
   <section class="flex flex-col gap-6 relative flex-shrink">
+    {tag && (
+      <a href="/photos" class="sticky top-0 z-30">← Back to all photos</a>
+    )}
     {
       spotlight && (
-        <div transition:name="spotlight" transition:animate="none" class="flex gap-6 sticky top-0 z-10 bg-black p-2 rounded">
+        <div
+          transition:name="spotlight"
+          transition:animate="none"
+          class="flex flex-col gap-6 sticky top-0 z-10 bg-black p-2 pt-6 rounded"
+        >
           <a href={spotlight.data.url.src}>
             <Image
               transition:name={spotlight.id}
@@ -25,9 +47,65 @@ const { photos, spotlight } = Astro.props
               class="object-contain aspect-video m-2"
             />
           </a>
+          <div class="flex flex-wrap justify-center gap-4">
+            {spotlight.data.tags.map((t: string) => (
+              <a
+                href={`/photos/tag/${t}`}
+                class="bg-stone-900 hover:bg-stone-800 transition duration-150 rounded-lg px-2 py-1"
+              >
+                {t}
+              </a>
+            ))}
+          </div>
+          <p class="text-center">{spotlight.data.alt}</p>
         </div>
       )
     }
+    { !spotlight && !tag && (
+      <div class="flex flex-wrap gap-3">
+        {allTags.map(t => (
+          <a href={`/photos/tag/${t}`} class="text-center">
+            <div class="grid grid-cols-2 grid-rows-2 h-48 w-48 aspect-square">
+            { photosByTag[t].length === 1 ? (
+              <Image
+                  src={photosByTag[t][0].data.url}
+                  alt={photosByTag[t][0].data.alt}
+                  class="object-cover col-span-2 row-span-2 h-full overflow-hidden"
+                />
+            ) : photosByTag[t].length === 2 ? (
+            <Image
+                  src={photosByTag[t][0].data.url}
+                  alt={photosByTag[t][0].data.alt}
+                  class="object-cover row-span-2 h-full overflow-hidden"
+                />
+                <Image
+                  src={photosByTag[t][1].data.url}
+                  alt={photosByTag[t][1].data.alt}
+                  class="object-cover row-span-2 overflow-hidden h-full"
+                />
+            ) : photosByTag[t].length >= 3 ? (
+            <Image
+                  src={photosByTag[t][0].data.url}
+                  alt={photosByTag[t][0].data.alt}
+                  class="object-cover row-span-2 h-full overflow-hidden"
+                />
+                <Image
+                  src={photosByTag[t][1].data.url}
+                  alt={photosByTag[t][1].data.alt}
+                  class="object-cover overflow-hidden h-full"
+                />
+                <Image
+                  src={photosByTag[t][2].data.url}
+                  alt={photosByTag[t][2].data.alt}
+                  class="object-cover h-full"
+                />
+            ) : <div />}
+          </div>
+          {t}
+          </a>
+        ))}
+      </div>
+    )}
     <div class="columns-3 gap-2 p-1">
       {
         photos.map((photo) => (
@@ -40,7 +118,7 @@ const { photos, spotlight } = Astro.props
                 class="opacity-25"
               />
             ) : (
-              <a href={`/photos/${photo.slug}`}>
+              <a href={`/photos/${tag ? `tag/${tag}/` : ''}${photo.slug}`}>
                 <Image
                   transition:name={photo.id}
                   src={photo.data.url}
@@ -55,20 +133,19 @@ const { photos, spotlight } = Astro.props
   </section>
 </BaseLayout>
 
-
 <script>
-  document.addEventListener("astro:before-swap", () => {
-    sessionStorage.setItem("scrollPosition", window.scrollY.toString());
-  });
+  document.addEventListener('astro:before-swap', () => {
+    sessionStorage.setItem('scrollPosition', window.scrollY.toString())
+  })
 
-  document.addEventListener("astro:after-swap", () => {
-    const scrollPosition = sessionStorage.getItem("scrollPosition");
+  document.addEventListener('astro:after-swap', () => {
+    const scrollPosition = sessionStorage.getItem('scrollPosition')
     if (scrollPosition) {
       window.scrollTo({
         top: parseInt(scrollPosition, 10),
-        behavior: "instant",
-      });
-      sessionStorage.removeItem("scrollPosition");
+        behavior: 'instant',
+      })
+      sessionStorage.removeItem('scrollPosition')
     }
-  });
+  })
 </script>

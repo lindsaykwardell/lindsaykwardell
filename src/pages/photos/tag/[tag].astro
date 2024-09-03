@@ -1,0 +1,16 @@
+---
+import PhotoLayout from "@/layouts/PhotoLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+
+const { tag } = Astro.params;
+
+const photos = await getCollection("photo");
+
+const photosInTag = photos.filter(photo => photo.data.tags.includes(tag))
+
+if (photosInTag.length === 0) {
+    return Astro.redirect("/photos")
+}
+---
+
+<PhotoLayout photos={photosInTag} tag={tag} />
