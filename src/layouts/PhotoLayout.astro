@@ -29,7 +29,9 @@ for (const photo of photos) {
 <BaseLayout>
   <section class="flex flex-col gap-6 relative flex-shrink">
     {tag && (
-      <a href="/photos" class="sticky top-0 z-30">← Back to all photos</a>
+      <div class="sticky top-0 z-30 bg-black p-2">
+        <a href="/photos">← Back to all photos</a>
+      </div>
     )}
     {
       spotlight && (
@@ -62,10 +64,10 @@ for (const photo of photos) {
       )
     }
     { !spotlight && !tag && (
-      <div class="flex flex-wrap gap-3">
+      <div class="flex flex-wrap gap-3 justify-center md:justify-normal">
         {allTags.map(t => (
           <a href={`/photos/tag/${t}`} class="text-center">
-            <div class="grid grid-cols-2 grid-rows-2 h-48 w-48 aspect-square">
+            <div class="grid grid-cols-2 grid-rows-2 h-36 w-36 md:h-48 md:w-48 aspect-square">
             { photosByTag[t].length === 1 ? (
               <Image
                   src={photosByTag[t][0].data.url}

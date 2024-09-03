@@ -4,8 +4,8 @@ const currentPath = pathname.slice(1) // remove the first "/"
 ---
 
 <nav class="flex gap-2 text-sm md:text-base" transition:name="nav">
-  <a class="font-title" href="/">Home</a>
-  <div class="text-stone-500">/</div>
+  <a class="font-title hidden md:block" href="/">Home</a>
+  <div class="text-stone-500 hidden md:block">/</div>
   <a
     class={currentPath.includes('about')
       ? 'underline font-title'
@@ -23,6 +23,13 @@ const currentPath = pathname.slice(1) // remove the first "/"
       ? 'underline font-title'
       : 'font-title'}
     href="/shows">Shows</a
+  >
+  <div class="text-stone-500">/</div>
+  <a
+    class={currentPath.includes('photos')
+      ? 'underline font-title'
+      : 'font-title'}
+    href="/photos">Photos</a
   >
   <div class="text-stone-500">/</div>
   <a
