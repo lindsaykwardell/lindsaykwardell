@@ -63,6 +63,9 @@ permalink = permalink ? details.permalink + permalink : details.permalink
       href={new URL('rss.xml', details.permalink)}
     />
 
+    <!-- Bluesky comments -->
+    <link rel="stylesheet" href="https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.css">
+
     <slot name="head" />
 
     <ViewTransitions />
