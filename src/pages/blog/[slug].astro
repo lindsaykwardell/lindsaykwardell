@@ -14,7 +14,12 @@ if (!post) {
 const { Content } = await post.render()
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.snippet}
+  image={post.data.image}
+  permalink={`/blog/${post.slug}`}
+>
   <RootElement>
     <section class="flex flex-col gap-4 items-center pb-12">
       <img src={post.data.image} class="w-full aspect-video object-cover" />
