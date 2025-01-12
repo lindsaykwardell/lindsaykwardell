@@ -5,21 +5,21 @@ author: "Lindsay Wardell"
 image: "/blog/grief-is-not-a-casual-thing.jpg"
 tags:
   - Poetry
-snippet: It’s not something you pick up as a hobby, or go to watch at the movies. Grief is more than that.
+snippet: It's not something you pick up as a hobby, or go to watch at the movies. Grief is more than that.
 type: Poetry
 ---
 Grief is not a casual thing.
 
-It’s not something you pick up as a hobby,<br />
+It's not something you pick up as a hobby,<br />
 or go to watch at the movies.
 
-It’s not a snack, or a treat,<br />
+It's not a snack, or a treat,<br />
 or a get-rich-quick scheme.
 
-It’s not a mural on a building<br />
+It's not a mural on a building<br />
 or a meme shared by a friend.
 
-It’s not even a poem<br />
+It's not even a poem<br />
 written in a moment of clarity.
 
 No.
@@ -30,7 +30,7 @@ Grief is a way of life,<br />
 a modality of viewing the world around you.
 
 Grief is the ocean, filling the horizon<br />
-in all directions until you can’t see the land.
+in all directions until you can't see the land.
 
 Grief is the sky, filled with dazzling stars,<br />
 pinpricks of pain and sorrow on an empty canvas.
@@ -57,7 +57,7 @@ as tears well<br />
 and the colors of the world<br />
 dim around you.
 
-They won’t dim forever.
+They won't dim forever.
 
 But this is important.
 
