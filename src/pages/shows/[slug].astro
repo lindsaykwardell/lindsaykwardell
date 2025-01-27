@@ -1,15 +1,31 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import Signoff from '@/components/Signoff.astro'
-import { getEntry } from 'astro:content'
+import { getCollection, getEntry } from 'astro:content'
+import Fuse from 'fuse.js'
 
 const { slug } = Astro.params
 
 const show = await getEntry('show', slug!)
+const shows = await getCollection('show')
 
 if (!show) {
   return Astro.redirect('/shows')
 }
+
+const fuse = new Fuse(
+  shows.filter((p) => p.id !== show.id).map((p) => ({...p.data})),
+  {
+    keys: [
+      'type',
+      'title',
+      'snippet',
+    ],
+  },
+)
+const results = fuse.search({
+  $or: show.data.title?.split(' ').map(s => ({ title: s})),
+}).slice(0, 3)
 ---
 
 <BaseLayout>
@@ -33,4 +49,21 @@ if (!show) {
     <div class="">{show.data.snippet}</div>
     <Signoff />
   </article>
+  {results.length && <aside class="py-8">
+    <h1 class="text-xl md:text-3xl px-2 md:px-0">Similar Posts</h1>
+    <div class="md:flex">
+      {results.map(result => <a href={`/shows/${result.item.id}`} class="md:w-1/3">
+        <div class="m-2 bg-stone-950">
+          <div class="bg-white">
+            <img src={result.item.image} class="aspect-video object-cover" />
+          </div>
+          <h2 class="p-2">{result.item.title}</h2>
+          <time class="text-sm text-stone-400 p-2">
+            {Intl.DateTimeFormat('en-us').format(result.item.pubDate)}
+          </time>
+          <p class="p-2 text-sm">{result.item.snippet}</p>
+        </div>
+      </a>)}
+    </div>
+  </aside>}
 </BaseLayout>

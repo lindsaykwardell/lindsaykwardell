@@ -1125,7 +1125,7 @@ const oneOffs = [
       "In this episode we discuss NoRedInk's experience using Elm in production, the combined power of functional programming and static type systems, building a language for the long term, and the difficulty of explaining the benefits of purely functional languages to developers who have never experienced them.",
     pubDate: '2022-05-06T00:00:00.000Z',
     image:
-      'https://images.transistor.fm/file/transistor/images/show/15767/medium_1603833407-artwork.jpg',
+      '/fsjam.webp',
     type: 'podcast',
     host: false,
     name: 'FSJam',
