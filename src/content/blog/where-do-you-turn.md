@@ -6,29 +6,29 @@ author: "Lindsay Wardell"
 snippet: Where do you turn when faith grows cold?
 type: Poetry
 ---
-Where do you turn, when faith grows cold? <br />
-When hidden places freeze over, and fill with fear,<br />
-And all you knew is but dust and moonlight,<br />
-Where do you turn?<br />
+Where do you turn, when faith grows cold? \
+When hidden places freeze over, and fill with fear,\
+And all you knew is but dust and moonlight,\
+Where do you turn?
 
-When bright fields of golden sun turn to distant memory,<br />
-And words of comfort have lost their power,<br />
-Where do you turn?<br />
+When bright fields of golden sun turn to distant memory,\
+And words of comfort have lost their power,\
+Where do you turn?
 
-When all the world has turned to night,<br />
-And friends of youth are gone,<br />
-Summer long since past,<br />
-And all that was worth so much is lost,<br />
-Where do you turn?<br />
+When all the world has turned to night,\
+And friends of youth are gone,\
+Summer long since past,\
+And all that was worth so much is lost,\
+Where do you turn?
 
 Nowhere.
 
-In the deepest night of winter,<br />
-The snow covers the Earth in white,<br />
-And the Moon shines upon it.<br />
-A new world is born beneath its light,<br />
-Filled with dreams to explore.<br />
+In the deepest night of winter,\
+The snow covers the Earth in white,\
+And the Moon shines upon it.\
+A new world is born beneath its light,\
+Filled with dreams to explore.
 
-Where do you turn?<br />
-To yourself,<br/>
+Where do you turn?\
+To yourself,\
 At last.

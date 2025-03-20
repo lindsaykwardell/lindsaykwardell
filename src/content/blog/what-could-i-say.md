@@ -9,145 +9,145 @@ snippet: What could I say to her? What could I tell her of the life she would le
 type: Poetry
 ---
 
-Once, in a dream,<br />
-I stood before my younger self.<br />
-She looked up at me,<br />
-unrecognizing,<br />
-curious,<br />
-wondering.<br />
+Once, in a dream,\
+I stood before my younger self.\
+She looked up at me,\
+unrecognizing,\
+curious,\
+wondering.
 
-I looked down at her,<br />
-and saw her fears,<br />
-her worries,<br />
-her questions.<br />
+I looked down at her,\
+and saw her fears,\
+her worries,\
+her questions.
 
-What could I say to her?<br />
-What could I tell her<br />
-of the life she would lead,<br />
-of the people she would know?<br />
+What could I say to her?\
+What could I tell her\
+of the life she would lead,\
+of the people she would know?
 
-That within a year,<br />
-an entire school would mock her,<br />
-and she would feel alone<br />
-among her peers?<br />
+That within a year,\
+an entire school would mock her,\
+and she would feel alone\
+among her peers?
 
-In a handful more,<br />
-she would find friendships,<br />
-all while hiding <br />
-who she truly was?<br />
+In a handful more,\
+she would find friendships,\
+all while hiding \
+who she truly was?
 
-"Don't do that,"<br />
-her mom would say,<br />
-"they'll call you a girl."<br />
+"Don't do that,"\
+her mom would say,\
+"they'll call you a girl."
 
-Pretending to wear a skirt<br />
-while getting dressed<br />
-so nobody would know?<br />
+Pretending to wear a skirt\
+while getting dressed\
+so nobody would know?
 
-Walking the halls of high school,<br />
-noticing the other girls,<br />
-and wishing only <br />
-to be one of them?<br />
+Walking the halls of high school,\
+noticing the other girls,\
+and wishing only \
+to be one of them?
 
-What could I say to her<br />
-that would even make sense?<br />
-Her body changing in all the wrong ways,<br />
-living mostly in her mind?<br />
+What could I say to her\
+that would even make sense?\
+Her body changing in all the wrong ways,\
+living mostly in her mind?
 
-And then whisked away<br />
-to unknown lands,<br />
-called to serve at the whims<br />
-of men who didn't know her.<br />
+And then whisked away\
+to unknown lands,\
+called to serve at the whims\
+of men who didn't know her.
 
-"Don't do that,"<br />
-they would say,<br />
-"focus on your mission."<br />
+"Don't do that,"\
+they would say,\
+"focus on your mission."
 
-While all she did<br />
-was write her feelings<br />
-as if they were fiction.<br />
+While all she did\
+was write her feelings\
+as if they were fiction.
 
-Trying desperately to help,<br />
-sharing a message of love,<br />
-using flawed tools<br />
-to help flawed people.<br />
+Trying desperately to help,\
+sharing a message of love,\
+using flawed tools\
+to help flawed people.
 
-Standing by when another said,<br />
-"You know being gay's a sin, right?"<br />
-And the three men nodded<br />
-their heads in shame.<br />
+Standing by when another said,\
+"You know being gay's a sin, right?"\
+And the three men nodded\
+their heads in shame.
 
-Standing by when young men<br />
-abused authority over others<br />
-to shout, belittle, and burn,<br />
-all in the service of heaven.<br />
+Standing by when young men\
+abused authority over others\
+to shout, belittle, and burn,\
+all in the service of heaven.
 
-Standing by, as a witness,<br />
-when a woman was hit by a car,<br />
-because she had been told<br />
-not to get involved.<br />
+Standing by, as a witness,\
+when a woman was hit by a car,\
+because she had been told\
+not to get involved.
 
-What could I say to her then,<br />
-wearing a suit and tie,<br />
-nametag emblazoned on her pocket,<br />
-that could truly ease her guilt?<br />
+What could I say to her then,\
+wearing a suit and tie,\
+nametag emblazoned on her pocket,\
+that could truly ease her guilt?
 
-But soon enough she would<br />
-return home, only to begin again.<br />
-Home wasn't the same any more;<br />
-how could anything be?<br />
+But soon enough she would\
+return home, only to begin again.\
+Home wasn't the same any more;\
+how could anything be?
 
-A whirlwind of activity would follow.<br />
-Marriage, job, child to love.<br />
-Friendships and hobbies cast aside<br />
-to serve this new family.<br />
+A whirlwind of activity would follow.\
+Marriage, job, child to love.\
+Friendships and hobbies cast aside\
+to serve this new family.
 
-And then, the Discovery.<br />
-Writing a note to her wife,<br />
-"I think I'm trans,<br />
-I'm really scared."<br />
+And then, the Discovery.\
+Writing a note to her wife,\
+"I think I'm trans,\
+I'm really scared."
 
-Who was she?<br />
-What truly was the world?<br />
-Faith and understanding gone<br />
-in the blink of an eye.<br />
+Who was she?\
+What truly was the world?\
+Faith and understanding gone\
+in the blink of an eye.
 
-What could I say to help<br />
-in that moment of utter darkness?<br />
-What words could I share to ease<br />
-the pain of relearning the world?<br />
+What could I say to help\
+in that moment of utter darkness?\
+What words could I share to ease\
+the pain of relearning the world?
 
-Years would pass from then,<br />
-slowly becoming who she always was.<br />
-Feeling joy in herself<br />
-and in her life.<br />
+Years would pass from then,\
+slowly becoming who she always was.\
+Feeling joy in herself\
+and in her life.
 
-"We should find other partners."<br />
-World shattered again.<br />
-The deepest hell coming true;<br />
-her wife did not want her as she is.<br />
+"We should find other partners."\
+World shattered again.\
+The deepest hell coming true;\
+her wife did not want her as she is.
 
-New grief, new pain,<br />
-an entire world unraveling<br />
-in anguish and tears.<br />
-But at least she had learned to cry.<br />
+New grief, new pain,\
+an entire world unraveling\
+in anguish and tears.\
+But at least she had learned to cry.
 
-I stand before her,<br />
-from all those years ago,<br />
-without the pain of experience<br />
-to teach her.<br />
+I stand before her,\
+from all those years ago,\
+without the pain of experience\
+to teach her.
 
-What could I say?<br />
-She looked up with eager eyes,<br />
-unsure who she was even looking at,<br />
-awaiting my next words.<br />
+What could I say?\
+She looked up with eager eyes,\
+unsure who she was even looking at,\
+awaiting my next words.
 
-I looked down at her,<br />
-the child who did not know<br />
-what was to come,<br />
-and would not understand.<br />
+I looked down at her,\
+the child who did not know\
+what was to come,\
+and would not understand.
 
-"I love you."<br />
-I smiled.<br />
-So did she.<br />
-What else could I say?<br />
+"I love you."\
+I smiled.\
+So did she.\
+What else could I say?

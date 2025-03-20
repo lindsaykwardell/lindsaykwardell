@@ -6,29 +6,29 @@ author: "Lindsay Wardell"
 snippet: Once, the dream died. But only once.
 type: Poetry
 ---
-Once, I dreamt of stars blazing,<br />
-Sunrise burning,<br />
+Once, I dreamt of stars blazing,\
+Sunrise burning,\
 Horizons beckoning.
 
-Once, I dreamt of wild forests,<br />
-Soaring mountains,<br />
+Once, I dreamt of wild forests,\
+Soaring mountains,\
 Flowing rivers.
 
-Once, the dream died.<br />
-No more stars.<br />
+Once, the dream died.\
+No more stars.\
 No more forests.
 
-Once, the dream became an echo,<br />
-The echo a memory,<br />
+Once, the dream became an echo,\
+The echo a memory,\
 The memory forgotten.
 
 Once, the dream died.
 
 But only once.
 
-Now, the stars’ flame is renewed,<br />
-The trees whisper once more,<br />
+Now, the stars’ flame is renewed,\
+The trees whisper once more,\
 Horizons call out, “Come back.”
 
-And this time,<br />
+And this time,\
 I will listen.

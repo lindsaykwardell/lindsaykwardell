@@ -6,7 +6,7 @@ author: "Lindsay Wardell"
 snippet: I became myself. I will not apologize for it.
 type: Poetry
 ---
-I am not dead.<br />
-I did not die.<br />
-I became myself.<br />
-I will not apologize for it.<br />
+I am not dead.\
+I did not die.\
+I became myself.\
+I will not apologize for it.
