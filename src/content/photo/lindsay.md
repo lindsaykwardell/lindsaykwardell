@@ -1,5 +1,5 @@
 ---
-url: ./img/lindsay.jpg
+url: ./img/lindsay.webp
 alt: Lindsay Wardell
 tags: 
     - personal
