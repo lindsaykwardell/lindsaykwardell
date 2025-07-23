@@ -208,7 +208,7 @@ const oneOffs = [
     type: 'podcast',
     host: true,
     name: 'Modern Web',
-    url: 'https://modernweb.podbean.com/e/s08e016-modern-web-podcast-quasar-with-luke-diebold/',
+    url: 'https://creators.spotify.com/pod/profile/modern-web/episodes/S08E016-Modern-Web-Podcast---Quasar-with-Luke-Diebold-e2mbalr/a-aber8j5',
   },
   {
     title: 'Building a Real-Time Game with Steffen Baumgart - VUE 161',
