@@ -64,7 +64,10 @@ permalink = permalink ? details.permalink + permalink : details.permalink
     />
 
     <!-- Bluesky comments -->
-    <link rel="stylesheet" href="https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.css"
+    />
 
     <slot name="head" />
 
@@ -73,12 +76,14 @@ permalink = permalink ? details.permalink + permalink : details.permalink
 
   <body>
     <div
-      class="bg-gradient-to-br from-amber-950 via-black to-stone-950 h-[75px] w-full absolute top-0 left-0"
+      class="bg-gradient-to-br from-peach via-lightblue to-lightblue h-[75px] w-full absolute top-0 left-0"
     >
     </div>
     {!hideHeader && <Header />}
 
-    <main class=`${fullScreen ? '' : 'max-w-[1000px] m-auto '}pt-12 md:pb-4 md:px-7`>
+    <main
+      class=`${fullScreen ? '' : 'max-w-[1000px] m-auto '}pt-12 md:pb-4 md:px-7`
+    >
       <slot />
     </main>
 

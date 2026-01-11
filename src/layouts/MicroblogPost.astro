@@ -22,7 +22,7 @@ const {
   <img src={header} />
 
   <div
-    class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-gray-500 dark:text-gray-400 pb-4 p-3"
+    class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-lightcharcoal pb-4 p-3"
   >
     <a href="https://mastodon.social/@lindsaykwardell" class="underline"
       >@lindsay@lindsaykwardell.com</a
@@ -32,13 +32,13 @@ const {
     <div>{followers_count} Followers</div>
   </div>
 
-  <aside class="prose prose-invert m-auto p-3" set:html={note} />
+  <aside class="prose m-auto p-3" set:html={note} />
 
   <div class="w-[300px] m-auto">
     <SocialLinks />
   </div>
 
-  <section class="px-4 md:px-0 prose prose-invert m-auto dark:prose-dark">
+  <section class="px-4 md:px-0 prose m-auto dark:prose-dark">
     <slot />
   </section>
 </BaseLayout>

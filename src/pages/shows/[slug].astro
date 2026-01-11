@@ -14,18 +14,16 @@ if (!show) {
 }
 
 const fuse = new Fuse(
-  shows.filter((p) => p.id !== show.id).map((p) => ({...p.data})),
+  shows.filter((p) => p.id !== show.id).map((p) => ({ ...p.data })),
   {
-    keys: [
-      'type',
-      'title',
-      'snippet',
-    ],
-  },
+    keys: ['type', 'title', 'snippet'],
+  }
 )
-const results = fuse.search({
-  $or: show.data.title?.split(' ').map(s => ({ title: s})),
-}).slice(0, 3)
+const results = fuse
+  .search({
+    $or: show.data.title?.split(' ').map((s) => ({ title: s })),
+  })
+  .slice(0, 3)
 ---
 
 <BaseLayout>
@@ -34,36 +32,45 @@ const results = fuse.search({
     <h1 class="text-xl md:text-3xl px-2 md:px-0" transition:name={show.id}>
       {show.data.title}
     </h1>
-    <time class="text-sm text-stone-400"
+    <time class="text-sm text-lightcharcoal"
       >{Intl.DateTimeFormat('en-us').format(show.data.pubDate)}</time
     >
     <a
       href={show.data.url}
-      class="break-all text-sm underline text-stone-400 px-2 md:px-0"
+      class="break-all text-sm underline text-lightcharcoal px-2 md:px-0"
       >{show.data.url}</a
     >
   </section>
   <article
-    class="prose prose-invert prose-lg md:prose-xl m-auto bg-gradient-to-b from-black to-stone-950 p-4 md:p-12 rounded shadow"
+    class="prose prose-lg md:prose-xl m-auto bg-offwhite p-4 md:p-12 rounded shadow-md"
   >
     <div class="">{show.data.snippet}</div>
     <Signoff />
   </article>
-  {results.length && <aside class="py-8">
-    <h1 class="text-xl md:text-3xl px-2 md:px-0">Similar Posts</h1>
-    <div class="md:flex">
-      {results.map(result => <a href={`/shows/${result.item.id}`} class="md:w-1/3">
-        <div class="m-2 bg-stone-950">
-          <div class="bg-white">
-            <img src={result.item.image} class="aspect-video object-cover" />
-          </div>
-          <h2 class="p-2">{result.item.title}</h2>
-          <time class="text-sm text-stone-400 p-2">
-            {Intl.DateTimeFormat('en-us').format(result.item.pubDate)}
-          </time>
-          <p class="p-2 text-sm">{result.item.snippet}</p>
+  {
+    results.length && (
+      <aside class="py-8">
+        <h1 class="text-xl md:text-3xl px-2 md:px-0">Similar Posts</h1>
+        <div class="md:flex">
+          {results.map((result) => (
+            <a href={`/shows/${result.item.id}`} class="md:w-1/3">
+              <div class="m-2 bg-offwhite shadow-md">
+                <div class="bg-white">
+                  <img
+                    src={result.item.image}
+                    class="aspect-video object-cover"
+                  />
+                </div>
+                <h2 class="p-2">{result.item.title}</h2>
+                <time class="text-sm text-lightcharcoal p-2">
+                  {Intl.DateTimeFormat('en-us').format(result.item.pubDate)}
+                </time>
+                <p class="p-2 text-sm">{result.item.snippet}</p>
+              </div>
+            </a>
+          ))}
         </div>
-      </a>)}
-    </div>
-  </aside>}
+      </aside>
+    )
+  }
 </BaseLayout>
