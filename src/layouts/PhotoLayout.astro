@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import type { CollectionEntry } from 'astro:content'
-import { Image } from 'astro:assets'
 
 interface Props {
   photos: CollectionEntry<'photo'>[]
@@ -29,7 +28,7 @@ for (const photo of photos) {
 <BaseLayout>
   <section class="flex flex-col gap-6 relative flex-shrink">
     {tag && (
-      <div class="sticky top-0 z-30 bg-black p-2">
+      <div class="sticky top-0 z-30  p-2">
         <a href="/photos">← Back to all photos</a>
       </div>
     )}
@@ -38,22 +37,22 @@ for (const photo of photos) {
         <div
           transition:name="spotlight"
           transition:animate="none"
-          class="flex flex-col gap-6 sticky top-0 z-10 bg-black p-2 pt-6 rounded"
+          class="flex flex-col gap-6 sticky top-0 z-10 bg-offwhite pt-6 rounded"
         >
           <a href={spotlight.data.url.src}>
-            <Image
+            <img
               transition:name={spotlight.id}
               loading="eager"
-              src={spotlight.data.url}
+              src={spotlight.data.url.src}
               alt={spotlight.data.alt}
-              class="object-contain aspect-video m-2"
+              class="object-contain aspect-video"
             />
           </a>
           <div class="flex flex-wrap justify-center gap-4">
             {spotlight.data.tags.map((t: string) => (
               <a
                 href={`/photos/tag/${t}`}
-                class="bg-stone-900 hover:bg-stone-800 transition duration-150 rounded-lg px-2 py-1"
+                class=" transition duration-150 rounded-lg px-2 py-1"
               >
                 {t}
               </a>
@@ -69,35 +68,35 @@ for (const photo of photos) {
           <a href={`/photos/tag/${t}`} class="text-center">
             <div class="grid grid-cols-2 grid-rows-2 h-36 w-36 md:h-48 md:w-48 aspect-square">
             { photosByTag[t].length === 1 ? (
-              <Image
-                  src={photosByTag[t][0].data.url}
+              <img
+                  src={photosByTag[t][0].data.url.src}
                   alt={photosByTag[t][0].data.alt}
                   class="object-cover col-span-2 row-span-2 h-full overflow-hidden"
                 />
             ) : photosByTag[t].length === 2 ? (
-            <Image
-                  src={photosByTag[t][0].data.url}
+            <img
+                  src={photosByTag[t][0].data.url.src}
                   alt={photosByTag[t][0].data.alt}
                   class="object-cover row-span-2 h-full overflow-hidden"
                 />
-                <Image
-                  src={photosByTag[t][1].data.url}
+                <img
+                  src={photosByTag[t][1].data.url.src}
                   alt={photosByTag[t][1].data.alt}
                   class="object-cover row-span-2 overflow-hidden h-full"
                 />
             ) : photosByTag[t].length >= 3 ? (
-            <Image
-                  src={photosByTag[t][0].data.url}
+            <img
+                  src={photosByTag[t][0].data.url.src}
                   alt={photosByTag[t][0].data.alt}
                   class="object-cover row-span-2 h-full overflow-hidden"
                 />
-                <Image
-                  src={photosByTag[t][1].data.url}
+                <img
+                  src={photosByTag[t][1].data.url.src}
                   alt={photosByTag[t][1].data.alt}
                   class="object-cover overflow-hidden h-full"
                 />
-                <Image
-                  src={photosByTag[t][2].data.url}
+                <img
+                  src={photosByTag[t][2].data.url.src}
                   alt={photosByTag[t][2].data.alt}
                   class="object-cover h-full"
                 />
@@ -113,17 +112,17 @@ for (const photo of photos) {
         photos.map((photo) => (
           <div class="mb-2">
             {spotlight?.id === photo.id ? (
-              <Image
+              <img
                 transition:name={`${photo.id}-spotlight`}
-                src={photo.data.url}
+                src={photo.data.url.src}
                 alt={photo.data.alt}
                 class="opacity-25"
               />
             ) : (
               <a href={`/photos/${tag ? `tag/${tag}/` : ''}${photo.slug}`}>
-                <Image
+                <img
                   transition:name={photo.id}
-                  src={photo.data.url}
+                  src={photo.data.url.src}
                   alt={photo.data.alt}
                 />
               </a>
