@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        title: ['Raleway Variable', 'sans-serif'],
-        body: ['Questrial', 'sans-serif'],
+        title: ['Philosopher', 'sans-serif'], //['Raleway Variable', 'sans-serif'],
+        body: ['Baloo Bhaina 2 Variable', 'system-ui'], //['Questrial', 'sans-serif'],
       },
       colors: {
         charcoal: '#27241a',

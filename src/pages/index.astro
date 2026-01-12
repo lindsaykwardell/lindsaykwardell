@@ -6,20 +6,20 @@ import Nav from '@/components/Nav.astro'
 ---
 
 <BaseLayout hideHeader fullScreen>
-  <section
-    class="flex flex-col sm:flex-row md:h-screen justify-center items-center max-w-[1000px] m-auto gap-7 p-7"
-  >
-    <Avatar />
-    <div class="flex flex-col gap-7 flex-shrink">
-      <h1 class="text-3xl md:text-5xl">Hi, I'm Lindsay Wardell!</h1>
-      <h2 class="text-lg md:text-xl">
-        I'm a Senior Software Engineer who loves writing functional, elegant web
-        applications.
-      </h2>
-      <div class="m-auto md:m-0">
-        <Nav />
-      </div>
-      <div class="max-w-[450px]"><SocialLinks /></div>
-    </div>
-  </section>
+    <section
+        class="flex flex-col sm:flex-row md:h-screen justify-center items-center max-w-[1000px] m-auto gap-7 p-7"
+    >
+        <Avatar />
+        <div class="flex flex-col gap-7 flex-shrink">
+            <h1 class="text-3xl md:text-5xl">Hi, I'm Lindsay Wardell!</h1>
+            <div class="text-lg md:text-xl">
+                I'm a Senior Software Engineer who loves writing functional,
+                elegant web applications.
+            </div>
+            <div class="m-auto md:m-0">
+                <Nav />
+            </div>
+            <div class="max-w-[450px]"><SocialLinks /></div>
+        </div>
+    </section>
 </BaseLayout>

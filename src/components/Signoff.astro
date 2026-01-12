@@ -5,24 +5,27 @@ import SocialLinks from './SocialLinks.astro'
 <hr class="mx-auto my-4 border-charcoal" />
 
 <section class="prose m-auto">
-  <div class="flex flex-col md:flex-row justify-between md:gap-8 items-center">
-    <div class="flex justify-center">
-      <img
-        src="/lindsay.webp"
-        alt="Lindsay Wardell"
-        class="aspect-square object-cover rounded-lg shadow-md h-32 min-w-[8rem] cover"
-      />
+    <div
+        class="flex flex-col md:flex-row justify-between md:gap-8 items-center"
+    >
+        <div class="flex justify-center">
+            <img
+                src="/lindsay2.jpg"
+                alt="Lindsay Wardell"
+                class="aspect-square object-cover rounded-lg shadow-md h-32 min-w-[8rem] object-top"
+            />
+        </div>
+        <div class="px-3">
+            <div class="font-title text-2xl">Hi, I'm Lindsay Wardell!</div>
+            <p>
+                I am a programmer, writer, and mother. I work as a Senior
+                Software Engineer at <a
+                    class="underline"
+                    href="https://mangomint.com">Mangomint</a
+                >. I write and talk about Elm, Vue, Vite, and other tools that I
+                enjoy learning about and using.
+            </p>
+            <SocialLinks />
+        </div>
     </div>
-    <div class="px-3">
-      <div class="font-title text-2xl">Hi, I'm Lindsay Wardell!</div>
-      <p>
-        I am a programmer, writer, and mother. I work as a Senior Software
-        Engineer at <a class="underline" href="https://mangomint.com"
-          >Mangomint</a
-        >. I write and talk about Elm, Vue, Vite, and other tools that I enjoy
-        learning about and using.
-      </p>
-      <SocialLinks />
-    </div>
-  </div>
 </section>

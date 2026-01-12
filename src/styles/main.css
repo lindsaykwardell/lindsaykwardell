@@ -1,10 +1,10 @@
 body {
-    @apply bg-gradient-to-br from-lightblue via-lightblue to-peach text-charcoal font-body  min-h-screen;
+    @apply bg-gradient-to-br from-offwhite via-offwhite to-peach text-charcoal font-body  min-h-screen;
 }
 
 html {
-  /* @apply bg-black; */
-  @apply bg-lightblue;
+    /* @apply bg-black; */
+    @apply bg-offwhite;
 }
 
 h1,
@@ -13,5 +13,5 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-title;
+    @apply font-title;
 }

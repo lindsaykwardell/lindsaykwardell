@@ -3,37 +3,41 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 ---
 
 <BaseLayout>
-  <div>
-    <div class="project-wrapper">
-      <div class="flex flex-col items-center">
-        <h1 class="text-3xl md:text-4xl title text-center mb-8">
-          Hi, I'm Lindsay Wardell
-        </h1>
-        <img
-          src="/lindsay2.jpg"
-          alt=""
-          class="picture w-3/5 md:w-2/5 rounded-lg shadow-md"
-        />
-        <div class="prose bg-offwhite shadow-md rounded my-5 p-5 text-lg md:text-xl">
-          <p>
-            I am a programmer, writer, and mother. I work as a Senior Software
-            Engineer at <a class="underline" href="https://mangomint.com"
-              >Mangomint</a
-            >, and host of the podcast <a
-              class="underline"
-              href="https://humansideof.dev">Human Side of Dev</a
-            >. I am experienced in building web applications with modern
-            frontend frameworks, such as Vue, Elm, React, and Svelte, as well as
-            backend technologies including Node, Ruby on Rails, Sprint Boot, and
-            SQL. I also enjoy blogging and presenting online about the
-            technologies that I love working with.
-          </p>
-          <p>
-            I have a Bachelor of Science in Software Development from Western
-            Governor's University.
-          </p>
+    <div>
+        <div class="project-wrapper">
+            <div class="flex flex-col md:flex-row-reverse gap-20 items-center">
+                <img
+                    src="/lindsay2.jpg"
+                    alt=""
+                    class="picture w-3/5 md:w-full flex-1 rounded-lg shadow-md"
+                />
+                <div
+                    class="prose bg-offwhite shadow-md rounded my-5 p-5 text-lg md:text-xl flex-1"
+                >
+                    <h1 class="text-3xl md:text-4xl title text-center mb-8">
+                        Hi, I'm Lindsay Wardell
+                    </h1>
+                    <p>
+                        I am a programmer, writer, and mother. I work as a
+                        Senior Software Engineer at <a
+                            class="underline"
+                            href="https://mangomint.com">Mangomint</a
+                        >, and host of the podcast <a
+                            class="underline"
+                            href="https://humansideof.dev">Human Side of Dev</a
+                        >. I am experienced in building web applications with
+                        modern frontend frameworks, such as Vue, Elm, React, and
+                        Svelte, as well as backend technologies including Node,
+                        Ruby on Rails, Sprint Boot, and SQL. I also enjoy
+                        blogging and presenting online about the technologies
+                        that I love working with.
+                    </p>
+                    <p>
+                        I have a Bachelor of Science in Software Development
+                        from Western Governor's University.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </BaseLayout>
