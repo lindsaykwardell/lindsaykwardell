@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "c2d7f57cb1744f0f",
+        "id": "6cadcd089c589aa0",
         "type": "tabs",
         "children": [
           {
-            "id": "5a7a2f957afea7a5",
+            "id": "7dfe9268bb79f098",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -183,11 +183,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "5a7a2f957afea7a5",
+  "active": "7dfe9268bb79f098",
   "lastOpenFiles": [
+    "blog/when-i-grow-.md",
     "src/content/blog/rekindling.md",
+    "blog",
+    "public/blog/rekindling.webp",
     "templates/blog.md",
-    "src/content/blog/rekindling.md",
     "templates",
     "Untitled.canvas",
     "src/content/blog/between-hope.md",
