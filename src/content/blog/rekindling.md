@@ -5,7 +5,7 @@ author: Lindsay Wardell
 image: /blog/rekindling.webp
 tags:
   - Blog
-snippet:
+snippet: For 2026, I'm rekindling my website as a place for creativity and joy.
 type: Blog
 published: true
 ---
