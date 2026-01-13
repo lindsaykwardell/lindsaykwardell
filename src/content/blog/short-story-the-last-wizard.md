@@ -9,6 +9,7 @@ tags:
   - Wizards
 snippet: "“Well, believe what you want,” Mr. Longfellow would say. “But mark my words: stay far away from Old Winters’ house. Strange goings-on are apt to happen there, I tell you.”"
 type: Fiction
+published: true
 ---
 Everyone in the small, quiet village knew Old Winters, the Last Wizard. His house was old, far older than the others in the village. Its roof sagged, its wooden walls weathered by storms long-since past. Its windows were covered in cobwebs, blocking any light that may have reached inside. Mr. Longfellow, the mayor, warned the visitors personally about the house, and that it was not representative of the town as a whole. Indeed, the citizens of Brookshire were united in this effort, so much so that many a visitor was forced to ask, “Why are you all so concerned about an old man in an old house?”
 

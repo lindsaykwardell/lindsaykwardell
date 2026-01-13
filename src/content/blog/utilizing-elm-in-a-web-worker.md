@@ -5,6 +5,7 @@ image: "/blog/elm-web-workers.webp"
 author: "Lindsay Wardell"
 snippet: Elm is a fantastic language for building applications. But how can we offload some of our processing to a Web Worker using Elm?
 type: Programming
+published: true
 ---
 The Elm programming language is a great way to model and write a modern web application. By utilizing functional programming and a strong type system, Elm encourages developers to build applications that are more reliable and more easily maintained. But as a compile-to-Javascript language, there is only so much that Elm can offer by default. Any tasks that require large computations in Javascript will, unfortunately, require the same computations in Elm. Such large tasks can block the main thread in browsers, causing visual issues and a non-responsive UI. Obviously this is not what we want for our users, so what can we do?
 

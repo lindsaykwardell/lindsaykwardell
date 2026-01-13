@@ -7,12 +7,13 @@ const blog = defineCollection({
     pubDate: z.date(),
     title: z.string(),
     author: z.string(),
-    image: z.string(),
-    tags: z.array(z.string()).optional(),
-    type: z.string().optional(),
-    snippet: z.string().optional(),
+    image: z.string().nullable(),
+    tags: z.array(z.string().optional()).optional().nullable(),
+    type: z.string().nullable(),
+    snippet: z.string().optional().nullable(),
     link: z.string().url().optional(),
     name: z.string().optional(),
+    published: z.boolean(),
   }),
 })
 
@@ -35,11 +36,12 @@ const show = defineCollection({
 })
 
 const photo = defineCollection({
-  schema: ({image}) => z.object({
-    url: image(),
-    alt: z.string(),
-    tags: z.array(z.string())
-  })
+  schema: ({ image }) =>
+    z.object({
+      url: image(),
+      alt: z.string(),
+      tags: z.array(z.string()),
+    }),
 })
 
 export const collections = {

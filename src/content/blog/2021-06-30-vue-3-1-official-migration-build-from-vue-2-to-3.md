@@ -10,4 +10,5 @@ tags:
   - javascript
 name: 'This Dot Labs'
 type: Programming
+published: true
 ---

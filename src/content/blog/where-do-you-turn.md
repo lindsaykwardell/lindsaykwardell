@@ -5,6 +5,7 @@ image: "/blog/forest.webp"
 author: "Lindsay Wardell"
 snippet: Where do you turn when faith grows cold?
 type: Poetry
+published: true
 ---
 Where do you turn, when faith grows cold? \
 When hidden places freeze over, and fill with fear,\

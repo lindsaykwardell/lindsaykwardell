@@ -10,6 +10,7 @@ tags:
   - Javascript
 snippet: Hosting a static site is great, but what about comments? What can we do to store comments in a static site?
 type: Programming
+published: true
 ---
 
 ## From Wordpress to Jamstack

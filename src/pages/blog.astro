@@ -7,7 +7,7 @@ const type = Astro.url.searchParams.get("type");
 
 const postsByYear = (
     await getCollection('blog'))
-        .filter(post => !type || post.data.type === type)
+        .filter(post => post.data.published && (!type || post.data.type === type))
         .toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
         .reduce((byYear, post) => {
             const year = post.data.pubDate.getFullYear().toString();

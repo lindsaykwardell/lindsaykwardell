@@ -8,6 +8,7 @@ tags:
   - React
 snippet: My mind has been far too focused on this project, but the good news is that a live demo is now available to play!
 type: Blog
+published: true
 ---
 My mind has been far too focused on this project, but the good news is that a live demo is now available to play! It works on both desktop and mobile, and allows for either a hotseat mode or online play. Feel free to check it out and let me know what you think.
 

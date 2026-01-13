@@ -7,6 +7,7 @@ tags:
   - Poetry
 snippet: I made a mistake one day. Probably more than one.
 type: Poetry
+published: true
 ---
 
 I made a mistake one day.

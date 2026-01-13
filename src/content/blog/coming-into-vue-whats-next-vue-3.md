@@ -5,6 +5,7 @@ image: "/blog/coming-into-vue.webp"
 author: "Lindsay Wardell"
 snippet: Now that Vue 3 has been officially promoted to the recommended version of the framework, what's next on Vue's horizon?
 type: Programming
+published: true
 ---
 It was a moment of celebration across the Vueniverse. At last, after more than a year of Vue 3 being available on the `next` branch of all the core repositories (and many of the related frameworks and libraries), Vue 3 has been officially released to the world as the recommended way to write Vue applications. The moment was noted on the [official Vue blog](https://blog.vuejs.org/posts/vue-3-as-the-new-default.html) as well as on Twitter.
 

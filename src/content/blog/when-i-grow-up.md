@@ -8,6 +8,7 @@ tags:
   - Personal
 snippet: "What do you want to be when you grow up?"
 type: Blog
+published: true
 ---
 
 **"What do you want to be when you grow up?"** 
@@ -96,4 +97,4 @@ In 2002, I dreamed of being a website designer. Today, I know that I made that h
 
 So now, I'll ask you:
 
-**"What do you want to be when you grow up?"** 
+**"What do you want to be when you grow up?"**

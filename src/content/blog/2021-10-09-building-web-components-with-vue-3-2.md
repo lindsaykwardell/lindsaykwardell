@@ -6,4 +6,5 @@ author: Lindsay Wardell
 image: /blog/web-components-vue-3.2.png
 name: 'This Dot Labs'
 type: Programming
+published: true
 ---

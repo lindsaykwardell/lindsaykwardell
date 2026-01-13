@@ -10,4 +10,5 @@ tags:
   - TC39
 name: 'This Dot Labs'
 type: Programming
+published: true
 ---

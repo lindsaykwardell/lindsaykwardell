@@ -12,4 +12,5 @@ tags:
   - CSS
 name: 'This Dot Labs'
 type: Programming
+published: true
 ---

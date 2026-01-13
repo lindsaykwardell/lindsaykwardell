@@ -10,6 +10,7 @@ tags:
   - Typescript
 snippet: I'm a big fan of Deno, but there must be an easier way to build a router-based HTTP client.
 type: Programming
+published: true
 ---
 
 I'm a big fan of [Deno](https://deno.land), the new Javascript runtime by the creator of Node. I love that it is built with Typescript in mind, reducing the amount of configuration required to get work done. I like that packages (or modules, as they are referred to) can be imported via URL, and don't require a package manager. I also love how *fast* it is to start a Deno project for development.
@@ -173,4 +174,3 @@ You can check out `http_wrapper` here: [Deno.land](https://deno.land/x/http_wrap
 Next time, I'll talk about how to incorporate `http_wrapper` with a Vue 3 SPA to create a chat room, while keeping the ~1 second startup for development.
 
 Take care!
-

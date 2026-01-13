@@ -11,4 +11,5 @@ tags:
   - Mobile Apps
 name: 'This Dot Labs'
 type: Programming
+published: true
 ---

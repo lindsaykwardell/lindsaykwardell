@@ -5,6 +5,7 @@ image: "/blog/life.jpg"
 author: "Lindsay Wardell"
 snippet: I hold up my life to the light and observe the shapes drawn across it.
 type: Poetry
+published: true
 ---
 I hold up my life to the light\
 and observe the shapes drawn across it.

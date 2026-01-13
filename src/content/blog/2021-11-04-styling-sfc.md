@@ -6,4 +6,5 @@ author: Lindsay Wardell
 image: /blog/styling-sfc.png
 name: 'This Dot Labs'
 type: Programming
+published: true
 ---

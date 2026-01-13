@@ -8,6 +8,7 @@ tags:
   - Time Travel
 snippet: “Then it worked,” he finally said, breathless. “Yes, professor,” I agree. “It worked. You traveled in time.”
 type: Fiction
+published: true
 ---
 *Note: This story touches briefly on suicide.*
 

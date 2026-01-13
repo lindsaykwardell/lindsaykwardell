@@ -5,6 +5,7 @@ image: "/blog/astro-21-upgrade.webp"
 author: "Lindsay Wardell"
 snippet: Astro 0.21 has been release! Here's my experience upgrading to the latest version
 type: Programming
+published: true
 ---
 
 The day has finally arrived! [Astro has released 0.21 publicly](https://astro.build/blog/astro-021-release/), and it's a big change. Most important of all, they've migrated the development environment from Snowpack to [Vite](https://vitejs.dev/), which opens up a whole slew of new features and plugins to the Astro ecosystem. There are also a number of other changes, which are listed in the annoucement [and migration guide](https://docs.astro.build/migration/0.21.0/). If you're looking to upgrade your site, I highly encourage you to check out those resources first!

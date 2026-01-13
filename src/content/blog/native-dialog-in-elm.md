@@ -5,6 +5,7 @@ image: "/blog/utilizing-dialog-in-elm.webp"
 author: "Lindsay Wardell"
 snippet: The native dialog element is fantastic for implementing modals. Let's explore how to make it work within Elm!
 type: Programming
+published: true
 ---
 A common design pattern when building client-side applications is the need to display a modal or dialog on top of the main page content. It may be a login form, a "What's New" style notification, a feedback input, or any number of other possible designs. Modals are incredibly tricky to program by hand in a way that provides a friendly and accessible experience. The W3C provides [a list of reccomendations and guidelines for creating dialog interfaces](https://www.w3.org/TR/wai-aria-practices/#dialog_modal), which includes a series of recommendations and guidelines on how to implement a dialog.
 

@@ -11,4 +11,5 @@ tags:
   - Web Development
 type: Programming
 name: 'This Dot Labs'
+published: true
 ---
