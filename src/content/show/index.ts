@@ -1124,8 +1124,7 @@ const oneOffs = [
     snippet:
       "In this episode we discuss NoRedInk's experience using Elm in production, the combined power of functional programming and static type systems, building a language for the long term, and the difficulty of explaining the benefits of purely functional languages to developers who have never experienced them.",
     pubDate: '2022-05-06T00:00:00.000Z',
-    image:
-      '/fsjam.webp',
+    image: '/fsjam.webp',
     type: 'podcast',
     host: false,
     name: 'FSJam',
@@ -1284,7 +1283,7 @@ export async function getShows(): Promise<Show[]> {
           summary: feedEntry['itunes:summary'],
         }
       },
-    }
+    },
   )
 
   const sureItMeansNothing = await extract(
@@ -1302,19 +1301,19 @@ export async function getShows(): Promise<Show[]> {
           summary: feedEntry['itunes:summary'],
         }
       },
-    }
+    },
   )
 
   return [
     ...oneOffs,
     ...humanSideOfDev.entries.map((episode) => ({
-      url: `https://humansideof.dev/episode/${episode.title
+      url: `https://humansideofdev.lindsaykwardell.com/episode/${episode.title
         .toLowerCase()
         .replaceAll(' ', '-')}`,
       title: `Human Side of Dev ${episode.title}`,
       snippet: episode.description,
       pubDate: episode.published,
-      image: 'https://humansideof.dev/images/logo.jpg',
+      image: 'https://humansideofdev.lindsaykwardell.com/images/logo.jpg',
       type: 'podcast',
       host: true,
       name: 'Human Side of Dev',
@@ -1332,7 +1331,7 @@ export async function getShows(): Promise<Show[]> {
     })),
   ]
     .toSorted(
-      (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+      (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
     )
     .map((s) => ({
       ...s,
