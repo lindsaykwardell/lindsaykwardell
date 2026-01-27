@@ -15,7 +15,7 @@ const allTags = [...new Set(photos.flatMap(photo => photo.data.tags))]
 const photosByTag: {[key: string]: CollectionEntry<"photo">[]} = {}
 
 for (const photo of photos) {
-  for (const tag of photo.data.tags as string) {
+  for (const tag of photo.data.tags) {
     if (!photosByTag[tag]) {
       photosByTag[tag] = []
     }

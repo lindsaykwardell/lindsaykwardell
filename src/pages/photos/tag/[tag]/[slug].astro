@@ -4,6 +4,10 @@ import { getCollection, getEntry } from "astro:content";
 
 const { slug, tag } = Astro.params;
 
+if (!tag) {
+    return Astro.redirect("/photos")
+}
+
 const spotlight = await getEntry("photo", slug!);
 
 if (!spotlight) {

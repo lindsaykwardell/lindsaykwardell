@@ -5,7 +5,7 @@ import details from '@/content/details/index.json'
 import '@fontsource-variable/baloo-bhaina-2'
 import '@fontsource/philosopher'
 import '@/styles/main.css'
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 
 interface Props {
     title?: string
@@ -71,7 +71,7 @@ permalink = permalink ? details.permalink + permalink : details.permalink
 
         <slot name="head" />
 
-        <ViewTransitions />
+        <ClientRouter />
     </head>
 
     <body>

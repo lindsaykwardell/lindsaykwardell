@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import netlify from '@astrojs/netlify';
 import simpleStackQuery from "simple-stack-query";
 
@@ -7,11 +7,10 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    contentLayer: true,
-    contentIntellisense: true
-  },
-  integrations: [tailwind(), simpleStackQuery(), react()],
+  integrations: [simpleStackQuery(), react()],
   output: 'server',
-  adapter: netlify()
+  adapter: netlify(),
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });

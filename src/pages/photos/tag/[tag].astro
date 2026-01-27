@@ -1,8 +1,12 @@
 ---
 import PhotoLayout from "@/layouts/PhotoLayout.astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 const { tag } = Astro.params;
+
+if (!tag) {
+    return Astro.redirect("/photos")
+}
 
 const photos = await getCollection("photo");
 

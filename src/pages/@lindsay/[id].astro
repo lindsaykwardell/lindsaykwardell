@@ -2,10 +2,41 @@
 import MicroblogPost from "../../layouts/MicroblogPost.astro";
 import MicroPost from "../../components/MicroPost.astro";
 
+interface MastodonAccount {
+  avatar: string
+  username: string
+  url: string
+  display_name: string
+}
+
+interface MastodonCard {
+  title: string
+  description: string
+  url: string
+  image: string
+}
+
+interface MastodonAttachment {
+  url: string
+  description: string
+}
+
+interface MastodonStatus {
+  account: MastodonAccount
+  content: string
+  url: string
+  created_at: string
+  replies_count: number
+  reblogs_count: number
+  favourites_count: number
+  media_attachments: MastodonAttachment[]
+  card?: MastodonCard
+}
+
 const { id } = Astro.params;
 
-const data = await fetch(`https://mastodon.social/api/v1/statuses/${id}`).then(res => res.json())
-const { ancestors, descendants } = await fetch(`https://mastodon.social/api/v1/statuses/${id}/context`).then(res => res.json())
+const data: MastodonStatus = await fetch(`https://mastodon.social/api/v1/statuses/${id}`).then(res => res.json())
+const { ancestors, descendants }: { ancestors: MastodonStatus[], descendants: MastodonStatus[] } = await fetch(`https://mastodon.social/api/v1/statuses/${id}/context`).then(res => res.json())
 
 const name = data.account.display_name
 const post = data.content.replace(/<[^>]*>?/gm, '');

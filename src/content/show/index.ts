@@ -1267,20 +1267,30 @@ export type Show = {
   name: string
 }
 
+interface PodcastFeedEntry {
+  enclosure: {
+    '@_url': string
+    '@_type': string
+    '@_length': string
+  }
+  'itunes:summary'?: string
+}
+
 export async function getShows(): Promise<Show[]> {
   const humanSideOfDev = await extract(
     'https://anchor.fm/s/81f880f0/podcast/rss',
     {
       // descriptionMaxLen: 50,
       getExtraEntryFields: (feedEntry) => {
-        const { enclosure } = feedEntry
+        const entry = feedEntry as PodcastFeedEntry
+        const { enclosure } = entry
         return {
           enclosure: {
             url: enclosure['@_url'],
             type: enclosure['@_type'],
             length: enclosure['@_length'],
           },
-          summary: feedEntry['itunes:summary'],
+          summary: entry['itunes:summary'],
         }
       },
     },
@@ -1291,14 +1301,15 @@ export async function getShows(): Promise<Show[]> {
     {
       // descriptionMaxLen: 50,
       getExtraEntryFields: (feedEntry) => {
-        const { enclosure } = feedEntry
+        const entry = feedEntry as PodcastFeedEntry
+        const { enclosure } = entry
         return {
           enclosure: {
             url: enclosure['@_url'],
             type: enclosure['@_type'],
             length: enclosure['@_length'],
           },
-          summary: feedEntry['itunes:summary'],
+          summary: entry['itunes:summary'],
         }
       },
     },
@@ -1306,29 +1317,33 @@ export async function getShows(): Promise<Show[]> {
 
   return [
     ...oneOffs,
-    ...humanSideOfDev.entries.map((episode) => ({
-      url: `https://humansideofdev.lindsaykwardell.com/episode/${episode.title
-        .toLowerCase()
-        .replaceAll(' ', '-')}`,
-      title: `Human Side of Dev ${episode.title}`,
-      snippet: episode.description,
-      pubDate: episode.published,
-      image: 'https://humansideofdev.lindsaykwardell.com/images/logo.jpg',
-      type: 'podcast',
-      host: true,
-      name: 'Human Side of Dev',
-    })),
-    ...sureItMeansNothing.entries.map((episode) => ({
-      url: episode.link,
-      title: `I'm Sure It Means Nothing | ${episode.title}`,
-      snippet: episode.description,
-      pubDate: episode.published,
-      image:
-        'https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_nologo400/40254953/40254953-1704996744044-85807a246cafe.jpg',
-      type: 'podcast',
-      host: true,
-      name: "I'm Sure It Means Nothing",
-    })),
+    ...(humanSideOfDev.entries ?? [])
+      .filter((episode) => episode.title && episode.published)
+      .map((episode) => ({
+        url: `https://humansideofdev.lindsaykwardell.com/episode/${episode.title!
+          .toLowerCase()
+          .replaceAll(' ', '-')}`,
+        title: `Human Side of Dev ${episode.title}`,
+        snippet: episode.description ?? '',
+        pubDate: episode.published!,
+        image: 'https://humansideofdev.lindsaykwardell.com/images/logo.jpg',
+        type: 'podcast',
+        host: true,
+        name: 'Human Side of Dev',
+      })),
+    ...(sureItMeansNothing.entries ?? [])
+      .filter((episode) => episode.title && episode.published && episode.link)
+      .map((episode) => ({
+        url: episode.link!,
+        title: `I'm Sure It Means Nothing | ${episode.title}`,
+        snippet: episode.description ?? '',
+        pubDate: episode.published!,
+        image:
+          'https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_nologo400/40254953/40254953-1704996744044-85807a246cafe.jpg',
+        type: 'podcast',
+        host: true,
+        name: "I'm Sure It Means Nothing",
+      })),
   ]
     .toSorted(
       (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
