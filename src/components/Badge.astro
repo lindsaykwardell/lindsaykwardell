@@ -1,0 +1,25 @@
+---
+interface Props {
+  type: string;
+}
+
+const { type } = Astro.props;
+
+const colorMap: Record<string, string> = {
+  // Blog post types
+  Poetry: "bg-lavender",
+  Programming: "bg-peach",
+  Fiction: "bg-lightblue",
+  Blog: "bg-sage",
+  // Show types
+  podcast: "bg-lavender",
+  video: "bg-peach",
+  conference: "bg-lightblue",
+};
+
+const bgColor = colorMap[type] ?? "bg-stone";
+---
+
+<span class={`rounded-lg text-lightcharcoal text-sm px-2 py-1 ${bgColor}`}>
+  <slot>{type.toLowerCase()}</slot>
+</span>

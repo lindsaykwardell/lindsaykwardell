@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Badge from "@/components/Badge.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from 'astro:content';
 
@@ -36,7 +37,7 @@ const postsByYear = (
                         <a href={post.data.link ? post.data.link : `/blog/${post.slug}`} class="col-span-2 lg:col-span-6 hover:underline">{post.data.title}</a>
                         <time class="text-sm text-lightcharcoal">{Intl.DateTimeFormat('en-us').format(post.data.pubDate)}</time>
                         <a href={`/blog?type=${post.data.type}`} class="flex justify-end">
-                            <span class={`rounded-lg ${post.data.type === 'Poetry' ? 'bg-purple-200' : post.data.type === 'Programming' ? 'bg-peach' : post.data.type === 'Fiction' ? 'bg-lightblue' : post.data.type === 'Blog' ? 'bg-green-200' : 'bg-stone-200'} text-lightcharcoal text-sm px-2 py-1`}>{post.data.type?.toLowerCase()}</span>
+                            <Badge type={post.data.type ?? ''} />
                         </a>
                     </li>
                 ))}

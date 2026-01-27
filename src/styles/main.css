@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 @theme {
@@ -8,21 +8,24 @@
   --color-charcoal: #27241a;
   --color-lightcharcoal: #4c4636;
   --color-tan: #a79c89;
-  --color-lighttan: #e3cdc7;
+  /* --color-lighttan: #e3cdc7; */
   --color-offwhite: #f5f5f5;
   --color-peach: #e69563;
-  --color-lightpeach: #f6af97;
+  /* --color-lightpeach: #f6af97; */
   --color-orange: #cf492b;
-  --color-blue: #7e9b9d;
+  /* --color-blue: #7e9b9d; */
   --color-lightblue: #c9d2d3;
+  --color-lavender: #d4c5e0;
+  --color-sage: #c5d4c0;
+  --color-stone: #d9d5cc;
 }
 
 body {
-    @apply bg-gradient-to-br from-offwhite via-offwhite to-peach text-charcoal font-body min-h-screen;
+  @apply bg-gradient-to-br from-offwhite via-offwhite to-peach text-charcoal font-body min-h-screen;
 }
 
 html {
-    @apply bg-offwhite;
+  @apply bg-offwhite;
 }
 
 h1,
@@ -31,5 +34,5 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-title;
+  @apply font-title;
 }
