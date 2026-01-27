@@ -5,27 +5,24 @@
   --font-title: 'Philosopher', sans-serif;
   --font-body: 'Baloo Bhaina 2 Variable', system-ui;
 
-  --color-charcoal: #27241a;
-  --color-lightcharcoal: #4c4636;
-  --color-tan: #a79c89;
-  /* --color-lighttan: #e3cdc7; */
-  --color-offwhite: #f5f5f5;
-  --color-peach: #e69563;
-  /* --color-lightpeach: #f6af97; */
-  --color-orange: #cf492b;
-  /* --color-blue: #7e9b9d; */
-  --color-lightblue: #c9d2d3;
-  --color-lavender: #d4c5e0;
-  --color-sage: #c5d4c0;
-  --color-stone: #d9d5cc;
+  --color-foreground: #27241a;
+  --color-muted: #4c4636;
+  --color-divider: #a79c89;
+  --color-background: #f5f5f5;
+  --color-accent: #e69563;
+  --color-hover: #cf492b;
+  --color-badge-creative: #d4c5e0;
+  --color-badge-narrative: #c9d2d3;
+  --color-badge-journal: #c5d4c0;
+  --color-badge-default: #d9d5cc;
 }
 
 body {
-  @apply bg-gradient-to-br from-offwhite via-offwhite to-peach text-charcoal font-body min-h-screen;
+  @apply bg-gradient-to-br from-background via-background to-accent text-foreground font-body min-h-screen;
 }
 
 html {
-  @apply bg-offwhite;
+  @apply bg-background;
 }
 
 h1,
