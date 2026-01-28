@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import Signoff from '@/components/Signoff.astro'
+import SocialLikes from '@/components/SocialLikes.astro'
 import { getCollection, getEntry } from 'astro:content'
 import Fuse from 'fuse.js'
 
@@ -45,6 +46,7 @@ const results = fuse
     class="prose prose-lg md:prose-xl m-auto bg-background p-4 md:p-12 rounded shadow-md"
   >
     <div class="">{show.data.snippet}</div>
+    <SocialLikes postUrl={`/shows/${show.id}`} />
     <Signoff />
   </article>
   {

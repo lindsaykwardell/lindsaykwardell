@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import Signoff from '@/components/Signoff.astro'
+import SocialLikes from '@/components/SocialLikes.astro'
 import { getCollection, getEntry } from 'astro:content'
 import Fuse from 'fuse.js'
 
@@ -64,6 +65,7 @@ const { Content } = await post.render()
       class="prose max-w-full bg-background prose-lg md:prose-xl m-auto p-4 md:p-12 rounded shadow-md"
     >
       <Content />
+      <SocialLikes postUrl={`/blog/${post.slug}`} />
       <Signoff />
     </article>
     {
@@ -99,17 +101,5 @@ const { Content } = await post.render()
         </aside>
       )
     }
-    <div id="bluesky-comments"></div>
   </RootElement>
 </BaseLayout>
-
-<script>
-  import 'bluesky-comments'
-
-  RootElement.ready(($) => {
-    // @ts-ignore
-    initBlueskyComments('bluesky-comments', {
-      author: 'lindsaykwardell.com',
-    })
-  })
-</script>
