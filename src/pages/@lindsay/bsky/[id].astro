@@ -1,0 +1,214 @@
+---
+import MicroblogPost from '../../../layouts/MicroblogPost.astro'
+import MicroPost from '../../../components/MicroPost.astro'
+
+const { id } = Astro.params
+
+const BSKY_API = 'https://public.api.bsky.app/xrpc/'
+const BSKY_HANDLE = 'lindsaykwardell.com'
+
+// Construct the AT URI for the post
+const uri = `at://${BSKY_HANDLE}/app.bsky.feed.post/${id}`
+
+// Fetch the thread
+const threadResponse = await fetch(
+  `${BSKY_API}app.bsky.feed.getPostThread?uri=${encodeURIComponent(uri)}&depth=10&parentHeight=10`,
+)
+
+if (!threadResponse.ok) {
+  return Astro.redirect('/@lindsay')
+}
+
+const threadData = await threadResponse.json()
+const thread = threadData.thread
+
+if (!thread || thread.$type === 'app.bsky.feed.defs#notFoundPost') {
+  return Astro.redirect('/@lindsay')
+}
+
+// Helper to extract attachments from various embed types
+function getAttachments(embed: any) {
+  const attachments: Array<{ url: string; description: string }> = []
+
+  // Direct images
+  if (embed?.images) {
+    attachments.push(
+      ...embed.images.map((img: any) => ({
+        url: img.fullsize,
+        description: img.alt || '',
+      })),
+    )
+  }
+
+  // Images in recordWithMedia (quote posts with images)
+  if (embed?.media?.images) {
+    attachments.push(
+      ...embed.media.images.map((img: any) => ({
+        url: img.fullsize,
+        description: img.alt || '',
+      })),
+    )
+  }
+
+  // Video/GIF content
+  if (embed?.video) {
+    attachments.push({
+      url: embed.video.thumbnail || embed.video.playlist,
+      description: embed.video.alt || '',
+    })
+  }
+
+  // Video in recordWithMedia
+  if (embed?.media?.video) {
+    attachments.push({
+      url: embed.media.video.thumbnail || embed.media.video.playlist,
+      description: embed.media.video.alt || '',
+    })
+  }
+
+  return attachments.length > 0 ? attachments : undefined
+}
+
+// Helper to extract card/external link from various embed types
+function getCard(embed: any) {
+  const external = embed?.external || embed?.media?.external
+  if (external) {
+    return {
+      title: external.title,
+      description: external.description,
+      url: external.uri,
+      image: external.thumb,
+    }
+  }
+  return undefined
+}
+
+// Helper to convert a Bluesky post to our format
+function convertPost(post: any) {
+  const postId = post.uri.split('/').pop()
+
+  // Convert text to HTML
+  let content = post.record.text || ''
+  content = content
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+  content = content.replace(/\n/g, '<br>')
+  content = content.replace(
+    /(https?:\/\/[^\s<]+)/g,
+    '<a href="$1" target="_blank" rel="noopener">$1</a>',
+  )
+
+  return {
+    id: postId,
+    avatar: post.author.avatar,
+    username: post.author.handle,
+    userPage: `https://bsky.app/profile/${post.author.handle}`,
+    url: `https://bsky.app/profile/${post.author.handle}/post/${postId}`,
+    createdAt: post.record.createdAt,
+    displayName: post.author.displayName || post.author.handle,
+    content: `<p>${content}</p>`,
+    postStats: {
+      repliesCount: post.replyCount || 0,
+      reblogsCount: post.repostCount || 0,
+      favouritesCount: post.likeCount || 0,
+    },
+    attachments: getAttachments(post.embed),
+    card: getCard(post.embed),
+  }
+}
+
+// Get ancestors (parent chain)
+function getAncestors(thread: any): any[] {
+  const ancestors: any[] = []
+  let current = thread.parent
+  while (current && current.$type === 'app.bsky.feed.defs#threadViewPost') {
+    ancestors.unshift(convertPost(current.post))
+    current = current.parent
+  }
+  return ancestors
+}
+
+// Get direct replies
+function getReplies(thread: any): any[] {
+  if (!thread.replies) return []
+  return thread.replies
+    .filter((r: any) => r.$type === 'app.bsky.feed.defs#threadViewPost')
+    .map((r: any) => convertPost(r.post))
+}
+
+const mainPost = convertPost(thread.post)
+const ancestors = getAncestors(thread)
+const replies = getReplies(thread)
+
+// Build page metadata
+const textContent = thread.post.record.text || ''
+let snippet = textContent.substring(0, 30)
+if (snippet.length === 30) {
+  snippet += '...'
+}
+
+const pageContent = {
+  title: mainPost.displayName + ': ' + snippet,
+  snippet: textContent,
+  image: mainPost.attachments?.[0]?.url,
+  slug: `/@lindsay/bsky/${id}`,
+}
+---
+
+<MicroblogPost content={pageContent}>
+  {
+    ancestors.length > 0 &&
+      ancestors.map((post) => (
+        <MicroPost
+          platform="bluesky"
+          avatar={post.avatar}
+          url={post.url}
+          username={post.username}
+          userPage={post.userPage}
+          createdAt={post.createdAt}
+          displayName={post.displayName}
+          content={post.content}
+          attachments={post.attachments}
+          card={post.card}
+          postStats={post.postStats}
+          notFocus
+        />
+      ))
+  }
+  <MicroPost
+    platform="bluesky"
+    avatar={mainPost.avatar}
+    url={mainPost.url}
+    username={mainPost.username}
+    userPage={mainPost.userPage}
+    createdAt={mainPost.createdAt}
+    displayName={mainPost.displayName}
+    content={mainPost.content}
+    attachments={mainPost.attachments}
+    card={mainPost.card}
+    postStats={mainPost.postStats}
+  />
+  {
+    replies.length > 0 &&
+      replies.map((post) => (
+        <MicroPost
+          platform="bluesky"
+          avatar={post.avatar}
+          url={post.url}
+          username={post.username}
+          userPage={post.userPage}
+          createdAt={post.createdAt}
+          displayName={post.displayName}
+          content={post.content}
+          attachments={post.attachments}
+          card={post.card}
+          postStats={post.postStats}
+          notFocus
+        />
+      ))
+  }
+  <div class="flex justify-between py-3">
+    <a href="javascript:history.back()">← Back</a>
+  </div>
+</MicroblogPost>

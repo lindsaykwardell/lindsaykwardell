@@ -66,6 +66,7 @@ const content = {
     ancestors.length > 0 &&
       ancestors.map((reply) => (
         <MicroPost
+          platform="mastodon"
           avatar={reply.account.avatar}
           url={reply.url}
           username={reply.account.username}
@@ -83,6 +84,7 @@ const content = {
       ))
   }
   <MicroPost
+    platform="mastodon"
     avatar={data.account.avatar}
     url={data.url}
     username={data.account.username}
@@ -102,6 +104,7 @@ const content = {
     descendants.length > 0 &&
       descendants.map((reply) => (
         <MicroPost
+          platform="mastodon"
           avatar={reply.account.avatar}
           url={reply.url}
           username={reply.account.username}

@@ -5,34 +5,33 @@ import BaseLayout from './BaseLayout.astro'
 const { content } = Astro.props
 const { title, snippet, date, author, image, slug } = content
 
-const {
-  avatar,
-  note,
-  header,
-  followers_count,
-  following_count,
-  statuses_count,
-  display_name,
-} = await fetch(
-  'https://mastodon.social/api/v1/accounts/109248168582410861',
+const BSKY_API = 'https://public.api.bsky.app/xrpc/'
+const BSKY_HANDLE = 'lindsaykwardell.com'
+
+const bskyProfile = await fetch(
+  `${BSKY_API}app.bsky.actor.getProfile?actor=${BSKY_HANDLE}`,
 ).then((res) => res.json())
+
+const avatar = bskyProfile.avatar
+const banner = bskyProfile.banner
+const description = bskyProfile.description || ''
 ---
 
 <BaseLayout title={title} description={snippet} image={avatar} permalink={slug}>
-  <img src={header} />
+  {banner && <img src={banner} class="w-full object-cover max-h-[200px]" />}
 
   <div
-    class="flex flex-col md:flex-row justify-between m-auto md:w-[80ch] text-muted pb-4 p-3"
+    class="flex flex-col md:flex-row justify-center gap-2 md:gap-6 m-auto md:w-[80ch] text-muted pb-4 p-3"
   >
     <a href="https://mastodon.social/@lindsaykwardell" class="underline"
-      >@lindsay@lindsaykwardell.com</a
+      >@lindsaykwardell@mastodon.social</a
     >
-    <div>{statuses_count} Posts</div>
-    <div>{following_count} Following</div>
-    <div>{followers_count} Followers</div>
+    <a href="https://bsky.app/profile/lindsaykwardell.com" class="underline"
+      >@lindsaykwardell.com</a
+    >
   </div>
 
-  <aside class="prose m-auto p-3" set:html={note} />
+  <aside class="prose m-auto p-3 text-center">{description}</aside>
 
   <div class="w-[300px] m-auto">
     <SocialLinks />
