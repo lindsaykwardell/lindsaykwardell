@@ -1,0 +1,326 @@
+---
+interface Props {
+  postUrl: string
+}
+
+const { postUrl } = Astro.props
+
+const BSKY_API = 'https://public.api.bsky.app/xrpc/'
+const BSKY_HANDLE = 'lindsaykwardell.com'
+const MASTODON_API = 'https://mastodon.social/api/v1'
+const MASTODON_ACCOUNT_ID = '109248168582410861'
+const LIMIT = 50
+
+// Bluesky types
+type BskyPost = {
+  uri: string
+  cid: string
+  record: {
+    text: string
+    embed?: {
+      external?: {
+        uri: string
+      }
+    }
+    facets?: Array<{
+      features: Array<{
+        uri?: string
+        $type: string
+      }>
+    }>
+  }
+  likeCount?: number
+}
+
+type BskyFeedResponse = {
+  feed: Array<{
+    post: BskyPost
+  }>
+  cursor?: string
+}
+
+type BskyLike = {
+  actor: {
+    did: string
+    handle: string
+    displayName?: string
+    avatar?: string
+  }
+}
+
+type BskyLikesResponse = {
+  likes: BskyLike[]
+  cursor?: string
+}
+
+// Mastodon types
+type MastodonStatus = {
+  id: string
+  url: string
+  content: string
+  favourites_count: number
+  card?: {
+    url: string
+  }
+}
+
+type MastodonAccount = {
+  id: string
+  username: string
+  display_name: string
+  avatar: string
+  url: string
+}
+
+// Unified like type for display
+type SocialLike = {
+  platform: 'bluesky' | 'mastodon'
+  id: string
+  displayName: string
+  avatar?: string
+  profileUrl: string
+}
+
+let likes: SocialLike[] = []
+let totalLikeCount = 0
+let bskyPostUrl: string | null = null
+let mastodonPostUrl: string | null = null
+
+// Fetch Bluesky likes
+try {
+  let cursor: string | undefined
+  let found = false
+
+  for (let i = 0; i < 10 && !found; i++) {
+    const feedUrl = `${BSKY_API}app.bsky.feed.getAuthorFeed?actor=${BSKY_HANDLE}&limit=100${cursor ? `&cursor=${cursor}` : ''}`
+    const feedResponse = await fetch(feedUrl)
+
+    if (!feedResponse.ok) break
+
+    const feedData: BskyFeedResponse = await feedResponse.json()
+
+    for (const item of feedData.feed) {
+      const post = item.post
+
+      // Check embedded external link
+      if (post.record.embed?.external?.uri?.includes(postUrl)) {
+        const postId = post.uri.split('/').pop()
+        bskyPostUrl = `https://bsky.app/profile/${BSKY_HANDLE}/post/${postId}`
+        totalLikeCount += post.likeCount ?? 0
+
+        const likesResponse = await fetch(
+          `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(post.uri)}&limit=${LIMIT}`,
+        )
+        if (likesResponse.ok) {
+          const likesData: BskyLikesResponse = await likesResponse.json()
+          likes.push(
+            ...likesData.likes.map((like) => ({
+              platform: 'bluesky' as const,
+              id: like.actor.did,
+              displayName: like.actor.displayName || like.actor.handle,
+              avatar: like.actor.avatar?.replace(
+                '/img/avatar/',
+                '/img/avatar_thumbnail/',
+              ),
+              profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
+            })),
+          )
+        }
+        found = true
+        break
+      }
+
+      // Check facets (inline links)
+      if (post.record.facets) {
+        for (const facet of post.record.facets) {
+          for (const feature of facet.features) {
+            if (feature.uri?.includes(postUrl)) {
+              const postId = post.uri.split('/').pop()
+              bskyPostUrl = `https://bsky.app/profile/${BSKY_HANDLE}/post/${postId}`
+              totalLikeCount += post.likeCount ?? 0
+
+              const likesResponse = await fetch(
+                `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(post.uri)}&limit=${LIMIT}`,
+              )
+              if (likesResponse.ok) {
+                const likesData: BskyLikesResponse = await likesResponse.json()
+                likes.push(
+                  ...likesData.likes.map((like) => ({
+                    platform: 'bluesky' as const,
+                    id: like.actor.did,
+                    displayName: like.actor.displayName || like.actor.handle,
+                    avatar: like.actor.avatar?.replace(
+                      '/img/avatar/',
+                      '/img/avatar_thumbnail/',
+                    ),
+                    profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
+                  })),
+                )
+              }
+              found = true
+              break
+            }
+          }
+          if (found) break
+        }
+      }
+
+      if (found) break
+    }
+
+    cursor = feedData.cursor
+    if (!cursor) break
+  }
+} catch (error) {
+  console.error('Error fetching Bluesky likes:', error)
+}
+
+// Fetch Mastodon likes
+try {
+  let maxId: string | undefined
+  let found = false
+
+  for (let i = 0; i < 10 && !found; i++) {
+    const statusesUrl = `${MASTODON_API}/accounts/${MASTODON_ACCOUNT_ID}/statuses?exclude_reblogs=true&limit=40${maxId ? `&max_id=${maxId}` : ''}`
+    const statusesResponse = await fetch(statusesUrl)
+
+    if (!statusesResponse.ok) break
+
+    const statuses: MastodonStatus[] = await statusesResponse.json()
+    if (statuses.length === 0) break
+
+    for (const status of statuses) {
+      // Check if the status content or card contains the post URL
+      const containsUrl =
+        status.content.includes(postUrl) || status.card?.url?.includes(postUrl)
+
+      if (containsUrl) {
+        mastodonPostUrl = status.url
+        totalLikeCount += status.favourites_count
+
+        const favouritesResponse = await fetch(
+          `${MASTODON_API}/statuses/${status.id}/favourited_by?limit=${LIMIT}`,
+        )
+        if (favouritesResponse.ok) {
+          const accounts: MastodonAccount[] = await favouritesResponse.json()
+          likes.push(
+            ...accounts.map((account) => ({
+              platform: 'mastodon' as const,
+              id: account.id,
+              displayName: account.display_name || account.username,
+              avatar: account.avatar,
+              profileUrl: account.url,
+            })),
+          )
+        }
+        found = true
+        break
+      }
+    }
+
+    maxId = statuses[statuses.length - 1]?.id
+  }
+} catch (error) {
+  console.error('Error fetching Mastodon likes:', error)
+}
+
+// Deduplicate by id (in case someone liked on both platforms with same display)
+const uniqueLikes = likes.filter(
+  (like, index, self) =>
+    index ===
+    self.findIndex((l) => l.id === like.id && l.platform === like.platform),
+)
+
+const displayedLikes = uniqueLikes.slice(0, LIMIT)
+const remainingLikes = totalLikeCount - displayedLikes.length
+---
+
+{
+  displayedLikes.length > 0 && (bskyPostUrl || mastodonPostUrl) && (
+    <div class="social-likes not-prose">
+      <div class="flex flex-col items-center gap-4">
+        <div class="flex items-center gap-3 text-muted">
+          {bskyPostUrl && (
+            <a
+              href={bskyPostUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-hover transition duration-150"
+              title="View on Bluesky"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 11.388c-.906-1.761-3.372-5.044-5.665-6.662c-2.197-1.55-3.034-1.283-3.583-1.033C2.116 3.978 2 4.955 2 5.528c0 .575.315 4.709.52 5.4c.68 2.28 3.094 3.05 5.32 2.803c-3.26.483-6.157 1.67-2.36 5.898c4.178 4.325 5.726-.927 6.52-3.59c.794 2.663 1.708 7.726 6.444 3.59c3.556-3.59.977-5.415-2.283-5.898c2.225.247 4.64-.523 5.319-2.803c.205-.69.52-4.825.52-5.399c0-.575-.116-1.55-.752-1.838c-.549-.248-1.386-.517-3.583 1.033c-2.293 1.621-4.76 4.904-5.665 6.664"
+                />
+              </svg>
+            </a>
+          )}
+          {mastodonPostUrl && (
+            <a
+              href={mastodonPostUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-hover transition duration-150"
+              title="View on Mastodon"
+            >
+              <svg width="20" height="20" viewBox="0 0 16 16">
+                <path
+                  fill="currentColor"
+                  d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603c.348-1.778.32-4.339.32-4.339c0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091c.083 3.394.626 6.74 3.78 7.57c1.454.383 2.703.463 3.709.408c1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295c-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541c-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046c.456-.505 1.052-.764 1.793-.764c.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983c.74 0 1.336.259 1.791.764c.442.505.661 1.187.661 2.046v4.203z"
+                />
+              </svg>
+            </a>
+          )}
+          <span class="text-sm font-medium">
+            {totalLikeCount} {totalLikeCount === 1 ? ' like' : ' likes'}
+          </span>
+        </div>
+        <div class="flex flex-wrap justify-center -space-x-2">
+          {displayedLikes.map((like) =>
+            like.avatar ? (
+              <a
+                href={like.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-8 h-8"
+              >
+                <img
+                  src={like.avatar}
+                  alt={like.displayName}
+                  title={like.displayName}
+                  class="w-8 h-8 rounded-full border-2 border-background object-cover"
+                  loading="lazy"
+                />
+              </a>
+            ) : (
+              <a
+                href={like.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-8 h-8"
+              >
+                <div
+                  class="w-8 h-8 rounded-full border-2 border-background bg-muted flex items-center justify-center text-background text-xs font-bold"
+                  title={like.displayName}
+                >
+                  {like.displayName.charAt(0).toUpperCase()}
+                </div>
+              </a>
+            ),
+          )}
+          {remainingLikes > 0 && (
+            <div class="w-8 h-8 rounded-full border-2 border-background bg-accent flex items-center justify-center text-foreground text-xs font-bold">
+              +{remainingLikes}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
