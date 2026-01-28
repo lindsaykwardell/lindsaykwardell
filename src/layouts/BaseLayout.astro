@@ -8,88 +8,88 @@ import '@/styles/main.css'
 import { ClientRouter } from 'astro:transitions'
 
 interface Props {
-    title?: string
-    description?: string
-    image?: string
-    permalink?: string
-    hideHeader?: boolean
-    fullScreen?: boolean
+  title?: string
+  description?: string
+  image?: string
+  permalink?: string
+  hideHeader?: boolean
+  fullScreen?: boolean
 }
 
 let { title, description, image, permalink, hideHeader, fullScreen } =
-    Astro.props
+  Astro.props
 
 title = title || details.title
 description = description || details.description
 image = image
-    ? image.includes('http')
-        ? image
-        : details.permalink + image
-    : details.image
+  ? image.includes('http')
+    ? image
+    : details.permalink + image
+  : details.image
 permalink = permalink ? details.permalink + permalink : details.permalink
 ---
 
 <html lang="en">
-    <head>
-        <!-- Global Metadata -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
 
-        <!-- Primary Meta Tags -->
-        <title>{title}</title>
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:site_name" content="Lindsay Wardell" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={permalink} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Lindsay Wardell" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={permalink} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
 
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={permalink} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={image} />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={permalink} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
 
-        <link
-            rel="alternate"
-            type="application/rss+xml"
-            title={details.title}
-            href={new URL('rss.xml', details.permalink)}
-        />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={details.title}
+      href={new URL('rss.xml', details.permalink)}
+    />
 
-        <!-- Bluesky comments -->
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.css"
-        />
+    <!-- Bluesky comments -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.css"
+    />
 
-        <slot name="head" />
+    <slot name="head" />
 
-        <ClientRouter />
-    </head>
+    <ClientRouter />
+  </head>
 
-    <body>
-        <div
-            class="bg-gradient-to-br from-accent via-background to-background h-[75px] w-full absolute top-0 left-0"
-        >
-        </div>
-        {!hideHeader && <Header />}
+  <body>
+    <div
+      class="bg-gradient-to-br from-accent via-background to-background h-[75px] w-full absolute top-0 left-0"
+    >
+    </div>
+    {!hideHeader && <Header />}
 
-        <main
-            class=`${fullScreen ? '' : 'max-w-[1000px] m-auto '}pt-12 md:pb-4 md:px-7`
-        >
-            <slot />
-        </main>
+    <main
+      class=`${fullScreen ? '' : 'max-w-[1000px] m-auto '}pt-12 md:pb-4 md:px-7`
+    >
+      <slot />
+    </main>
 
-        <script
-            data-goatcounter="https://lindsaykwardell.goatcounter.com/count"
-            async
-            src="//gc.zgo.at/count.js"></script>
-    </body>
+    <script
+      data-goatcounter="https://lindsaykwardell.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
+  </body>
 </html>

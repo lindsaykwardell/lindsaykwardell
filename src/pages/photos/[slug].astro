@@ -1,16 +1,16 @@
 ---
-import PhotoLayout from "@/layouts/PhotoLayout.astro";
-import { getCollection, getEntry } from "astro:content";
+import PhotoLayout from '@/layouts/PhotoLayout.astro'
+import { getCollection, getEntry } from 'astro:content'
 
-const { slug } = Astro.params;
+const { slug } = Astro.params
 
-const spotlight = await getEntry("photo", slug!);
+const spotlight = await getEntry('photo', slug!)
 
 if (!spotlight) {
-    return Astro.redirect("/photos")
+  return Astro.redirect('/photos')
 }
 
-const photos = await getCollection("photo");
+const photos = await getCollection('photo')
 ---
 
 <PhotoLayout photos={photos} spotlight={spotlight} />

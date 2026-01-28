@@ -1,23 +1,23 @@
 ---
 interface Props {
-  type: string;
+  type: string
 }
 
-const { type } = Astro.props;
+const { type } = Astro.props
 
 const colorMap: Record<string, string> = {
   // Blog post types
-  Poetry: "bg-badge-creative",
-  Programming: "bg-accent",
-  Fiction: "bg-badge-narrative",
-  Blog: "bg-badge-journal",
+  Poetry: 'bg-badge-creative',
+  Programming: 'bg-accent',
+  Fiction: 'bg-badge-narrative',
+  Blog: 'bg-badge-journal',
   // Show types
-  podcast: "bg-badge-creative",
-  video: "bg-accent",
-  conference: "bg-badge-narrative",
-};
+  podcast: 'bg-badge-creative',
+  video: 'bg-accent',
+  conference: 'bg-badge-narrative',
+}
 
-const bgColor = colorMap[type] ?? "bg-badge-default";
+const bgColor = colorMap[type] ?? 'bg-badge-default'
 ---
 
 <span class={`rounded-lg text-muted text-sm px-2 py-1 ${bgColor}`}>

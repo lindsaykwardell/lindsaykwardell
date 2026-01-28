@@ -3,23 +3,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import SocialLinks from '@/components/SocialLinks.astro'
 import Avatar from '@/components/Avatar.astro'
 import Nav from '@/components/Nav.astro'
+import Newsletter from '@/components/Newsletter.astro'
 ---
 
 <BaseLayout hideHeader fullScreen>
-    <section
-        class="flex flex-col sm:flex-row md:h-screen justify-center items-center max-w-[1000px] m-auto gap-7 p-7"
-    >
-        <Avatar />
-        <div class="flex flex-col gap-7 flex-shrink">
-            <h1 class="text-3xl md:text-5xl">Hi, I'm Lindsay Wardell!</h1>
-            <div class="text-lg md:text-xl">
-                I'm a programmer and writer who loves to learn about the world
-                and build tools to bring people together.
-            </div>
-            <div class="m-auto md:m-0">
-                <Nav />
-            </div>
-            <div class="max-w-[450px]"><SocialLinks /></div>
-        </div>
-    </section>
+  <section
+    class="flex flex-col sm:flex-row md:h-screen justify-center items-center max-w-[1000px] m-auto gap-7 p-7"
+  >
+    <Avatar />
+    <div class="flex flex-col gap-7 flex-shrink">
+      <h1 class="text-3xl md:text-5xl">Hi, I'm Lindsay Wardell!</h1>
+      <div class="text-lg md:text-xl">
+        I'm a programmer and writer who loves to learn about the world and build
+        tools to bring people together.
+      </div>
+      <div class="m-auto md:m-0">
+        <Nav />
+      </div>
+      <div class="max-w-[450px]"><SocialLinks /></div>
+      <Newsletter />
+    </div>
+  </section>
 </BaseLayout>

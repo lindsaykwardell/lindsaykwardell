@@ -1,6 +1,6 @@
 ---
-import MicroblogPost from "../../layouts/MicroblogPost.astro";
-import MicroPost from "../../components/MicroPost.astro";
+import MicroblogPost from '../../layouts/MicroblogPost.astro'
+import MicroPost from '../../components/MicroPost.astro'
 
 interface MastodonAccount {
   avatar: string
@@ -33,44 +33,55 @@ interface MastodonStatus {
   card?: MastodonCard
 }
 
-const { id } = Astro.params;
+const { id } = Astro.params
 
-const data: MastodonStatus = await fetch(`https://mastodon.social/api/v1/statuses/${id}`).then(res => res.json())
-const { ancestors, descendants }: { ancestors: MastodonStatus[], descendants: MastodonStatus[] } = await fetch(`https://mastodon.social/api/v1/statuses/${id}/context`).then(res => res.json())
+const data: MastodonStatus = await fetch(
+  `https://mastodon.social/api/v1/statuses/${id}`,
+).then((res) => res.json())
+const {
+  ancestors,
+  descendants,
+}: { ancestors: MastodonStatus[]; descendants: MastodonStatus[] } = await fetch(
+  `https://mastodon.social/api/v1/statuses/${id}/context`,
+).then((res) => res.json())
 
 const name = data.account.display_name
-const post = data.content.replace(/<[^>]*>?/gm, '');
-let snippet = post.substring(0,30);
+const post = data.content.replace(/<[^>]*>?/gm, '')
+let snippet = post.substring(0, 30)
 
 if (snippet.length === 30) {
-  snippet += "..."
+  snippet += '...'
 }
 
 const content = {
-  title: name + ": " + snippet,
+  title: name + ': ' + snippet,
   snippet: post,
   image: data.media_attachments[0]?.url,
   slug: `/@lindsay/${id}`,
 }
 ---
+
 <MicroblogPost content={content}>
-  {ancestors.length > 0 && ancestors.map((reply) => (
-    <MicroPost
-      avatar={reply.account.avatar}
-      url={reply.url}
-      username={reply.account.username}
-      userPage={reply.account.url}
-      createdAt={reply.created_at}
-      displayName={reply.account.display_name}
-      content={reply.content}
-      postStats={{
-        repliesCount: reply.replies_count,
-        reblogsCount: reply.reblogs_count,
-        favouritesCount: reply.favourites_count,
-      }}
-      notFocus
-    />
-  ))}
+  {
+    ancestors.length > 0 &&
+      ancestors.map((reply) => (
+        <MicroPost
+          avatar={reply.account.avatar}
+          url={reply.url}
+          username={reply.account.username}
+          userPage={reply.account.url}
+          createdAt={reply.created_at}
+          displayName={reply.account.display_name}
+          content={reply.content}
+          postStats={{
+            repliesCount: reply.replies_count,
+            reblogsCount: reply.reblogs_count,
+            favouritesCount: reply.favourites_count,
+          }}
+          notFocus
+        />
+      ))
+  }
   <MicroPost
     avatar={data.account.avatar}
     url={data.url}
@@ -87,23 +98,26 @@ const content = {
       favouritesCount: data.favourites_count,
     }}
   />
-  {descendants.length > 0 && descendants.map((reply) => (
-    <MicroPost
-      avatar={reply.account.avatar}
-      url={reply.url}
-      username={reply.account.username}
-      userPage={reply.account.url}
-      createdAt={reply.created_at}
-      displayName={reply.account.display_name}
-      content={reply.content}
-      postStats={{
-        repliesCount: reply.replies_count,
-        reblogsCount: reply.reblogs_count,
-        favouritesCount: reply.favourites_count,
-      }}
-      notFocus
-    />
-  ))}
+  {
+    descendants.length > 0 &&
+      descendants.map((reply) => (
+        <MicroPost
+          avatar={reply.account.avatar}
+          url={reply.url}
+          username={reply.account.username}
+          userPage={reply.account.url}
+          createdAt={reply.created_at}
+          displayName={reply.account.display_name}
+          content={reply.content}
+          postStats={{
+            repliesCount: reply.replies_count,
+            reblogsCount: reply.reblogs_count,
+            favouritesCount: reply.favourites_count,
+          }}
+          notFocus
+        />
+      ))
+  }
   <div class="flex justify-between py-3">
     <a href="javascript:history.back()">← Back</a>
   </div>

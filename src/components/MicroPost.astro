@@ -27,78 +27,136 @@ interface Props {
   notFocus?: boolean
 }
 
-const { avatar, displayName, username, userPage, content, attachments, card, url, createdAt, postStats, notFocus } = Astro.props;
+const {
+  avatar,
+  displayName,
+  username,
+  userPage,
+  content,
+  attachments,
+  card,
+  url,
+  createdAt,
+  postStats,
+  notFocus,
+} = Astro.props
 
-let displayUsername;
+let displayUsername
 switch (username) {
   case 'lindsaykwardell':
   case undefined:
     displayUsername = '@lindsay@lindsaykwardell.com'
-    break;
+    break
   default:
     displayUsername = `@${username}`
 }
 ---
-<div class={"shadow p-3 rounded my-4 bg-background " + (notFocus ? "text-sm" : "")}>
+
+<div
+  class={'shadow p-3 rounded my-4 bg-background ' + (notFocus ? 'text-sm' : '')}
+>
   <div class="flex flex-wrap items-center gap-4 md:h-12">
     <img src={avatar} class="m-0 w-10 h-10 rounded-full shadow" />
     <div class="flex flex-col flex-grow">
       <div>{displayName}</div>
       <div class="text-sm">
-        <a href={userPage || "https://mastodon.social/@lindsaykwardell"} class="decoration-muted">
+        <a
+          href={userPage || 'https://mastodon.social/@lindsaykwardell'}
+          class="decoration-muted"
+        >
           <span class="text-muted">{displayUsername}</span>
         </a>
       </div>
     </div>
   </div>
-  <article class="px-5 pt-4" set:html={content}></article>
-  {(attachments?.length ?? 0) > 0 && (
-    <div class="flex flex-wrap justify-center">
-      {attachments?.map((attachment) => (
-        <img
-          src={attachment.url}
-          alt={attachment.description}
-          class={"rounded p-2 m-0 object-cover" + (attachments.length <= 1 ? '' : ' w-1/2')} />
-      ))}
-    </div>
-  )}
-  {card &&
-    <div class="shadow w-3/4 m-auto bg-background">
-      <a href={card.url} class="no-underline" target="_blank">
-        {card.image && <img src={card.image} class="object-fill w-full m-0" />}
-        <div class="px-3 py-5">
-          <div class="text-lg font-bold">{card.title}</div>
-          <div class="text-sm text-muted">{card.description}</div>
-        </div>
-      </a>
-    </div>
+  <article class="px-5 pt-4" set:html={content} />
+  {
+    (attachments?.length ?? 0) > 0 && (
+      <div class="flex flex-wrap justify-center">
+        {attachments?.map((attachment) => (
+          <img
+            src={attachment.url}
+            alt={attachment.description}
+            class={
+              'rounded p-2 m-0 object-cover' +
+              (attachments.length <= 1 ? '' : ' w-1/2')
+            }
+          />
+        ))}
+      </div>
+    )
+  }
+  {
+    card && (
+      <div class="shadow w-3/4 m-auto bg-background">
+        <a href={card.url} class="no-underline" target="_blank">
+          {card.image && (
+            <img src={card.image} class="object-fill w-full m-0" />
+          )}
+          <div class="px-3 py-5">
+            <div class="text-lg font-bold">{card.title}</div>
+            <div class="text-sm text-muted">{card.description}</div>
+          </div>
+        </a>
+      </div>
+    )
   }
   <div class="text-sm flex gap-4 px-4 pt-3 text-muted">
     <div class="flex gap-4 md:gap-12 flex-grow">
-      {postStats &&
-        <div class="flex gap-3 items-center">
-          <svg width="24" height="24" viewBox="0 0 28 28"><path fill="currentColor" d="M10.03 5.47a.75.75 0 0 1 0 1.06L5.56 11h8.69C20.187 11 25 15.813 25 21.75a.75.75 0 0 1-1.5 0a9.25 9.25 0 0 0-9.25-9.25H5.56l4.47 4.47a.75.75 0 1 1-1.06 1.06l-5.75-5.75a.75.75 0 0 1 0-1.06l5.75-5.75a.75.75 0 0 1 1.06 0Z"/></svg>
-          {postStats.repliesCount}
-        </div>
-        <div class="flex gap-3 items-center">
-          <svg width="24" height="24" viewBox="0 0 1024 1024"><path fill="currentColor" d="M136 552h63.6c4.4 0 8-3.6 8-8V288.7h528.6v72.6c0 1.9.6 3.7 1.8 5.2a8.3 8.3 0 0 0 11.7 1.4L893 255.4c4.3-5 3.6-10.3 0-13.2L749.7 129.8a8.22 8.22 0 0 0-5.2-1.8c-4.6 0-8.4 3.8-8.4 8.4V209H199.7c-39.5 0-71.7 32.2-71.7 71.8V544c0 4.4 3.6 8 8 8zm752-80h-63.6c-4.4 0-8 3.6-8 8v255.3H287.8v-72.6c0-1.9-.6-3.7-1.8-5.2a8.3 8.3 0 0 0-11.7-1.4L131 768.6c-4.3 5-3.6 10.3 0 13.2l143.3 112.4c1.5 1.2 3.3 1.8 5.2 1.8c4.6 0 8.4-3.8 8.4-8.4V815h536.6c39.5 0 71.7-32.2 71.7-71.8V480c-.2-4.4-3.8-8-8.2-8z"/></svg>
-          {postStats.reblogsCount}
-        </div>
-        <div class="flex gap-3 items-center">
-          <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22 10.1c.1-.5-.3-1.1-.8-1.1l-5.7-.8L12.9 3c-.1-.2-.2-.3-.4-.4c-.5-.3-1.1-.1-1.4.4L8.6 8.2L2.9 9c-.3 0-.5.1-.6.3c-.4.4-.4 1 0 1.4l4.1 4l-1 5.7c0 .2 0 .4.1.6c.3.5.9.7 1.4.4l5.1-2.7l5.1 2.7c.1.1.3.1.5.1h.2c.5-.1.9-.6.8-1.2l-1-5.7l4.1-4c.2-.1.3-.3.3-.5z"/></svg>
-          {postStats.favouritesCount}
-        </div>
+      {
+        postStats && (
+          <>
+            <div class="flex gap-3 items-center">
+              <svg width="24" height="24" viewBox="0 0 28 28">
+                <path
+                  fill="currentColor"
+                  d="M10.03 5.47a.75.75 0 0 1 0 1.06L5.56 11h8.69C20.187 11 25 15.813 25 21.75a.75.75 0 0 1-1.5 0a9.25 9.25 0 0 0-9.25-9.25H5.56l4.47 4.47a.75.75 0 1 1-1.06 1.06l-5.75-5.75a.75.75 0 0 1 0-1.06l5.75-5.75a.75.75 0 0 1 1.06 0Z"
+                />
+              </svg>
+              {postStats.repliesCount}
+            </div>
+            <div class="flex gap-3 items-center">
+              <svg width="24" height="24" viewBox="0 0 1024 1024">
+                <path
+                  fill="currentColor"
+                  d="M136 552h63.6c4.4 0 8-3.6 8-8V288.7h528.6v72.6c0 1.9.6 3.7 1.8 5.2a8.3 8.3 0 0 0 11.7 1.4L893 255.4c4.3-5 3.6-10.3 0-13.2L749.7 129.8a8.22 8.22 0 0 0-5.2-1.8c-4.6 0-8.4 3.8-8.4 8.4V209H199.7c-39.5 0-71.7 32.2-71.7 71.8V544c0 4.4 3.6 8 8 8zm752-80h-63.6c-4.4 0-8 3.6-8 8v255.3H287.8v-72.6c0-1.9-.6-3.7-1.8-5.2a8.3 8.3 0 0 0-11.7-1.4L131 768.6c-4.3 5-3.6 10.3 0 13.2l143.3 112.4c1.5 1.2 3.3 1.8 5.2 1.8c4.6 0 8.4-3.8 8.4-8.4V815h536.6c39.5 0 71.7-32.2 71.7-71.8V480c-.2-4.4-3.8-8-8.2-8z"
+                />
+              </svg>
+              {postStats.reblogsCount}
+            </div>
+            <div class="flex gap-3 items-center">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M22 10.1c.1-.5-.3-1.1-.8-1.1l-5.7-.8L12.9 3c-.1-.2-.2-.3-.4-.4c-.5-.3-1.1-.1-1.4.4L8.6 8.2L2.9 9c-.3 0-.5.1-.6.3c-.4.4-.4 1 0 1.4l4.1 4l-1 5.7c0 .2 0 .4.1.6c.3.5.9.7 1.4.4l5.1-2.7l5.1 2.7c.1.1.3.1.5.1h.2c.5-.1.9-.6.8-1.2l-1-5.7l4.1-4c.2-.1.3-.3.3-.5z"
+                />
+              </svg>
+              {postStats.favouritesCount}
+            </div>
+          </>
+        )
       }
     </div>
     <div class="flex gap-2 md:gap-4 flex-shrink items-center">
-      <a href={url.replace("https://mastodon.social/@lindsaykwardell/", "/@lindsay/")} class="decoration-muted">
-        <time class="text-muted">{dayjs(createdAt).format("MMM DD YYYY")}</time>
+      <a
+        href={url.replace(
+          'https://mastodon.social/@lindsaykwardell/',
+          '/@lindsay/',
+        )}
+        class="decoration-muted"
+      >
+        <time class="text-muted">{dayjs(createdAt).format('MMM DD YYYY')}</time>
       </a>
       <a href={url} aria-label="Open on Mastodon" target="_blank">
         <div class="text-muted hover:text-hover transition duration-150">
-         <svg width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603c.348-1.778.32-4.339.32-4.339c0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091c.083 3.394.626 6.74 3.78 7.57c1.454.383 2.703.463 3.709.408c1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295c-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541c-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046c.456-.505 1.052-.764 1.793-.764c.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983c.74 0 1.336.259 1.791.764c.442.505.661 1.187.661 2.046v4.203z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 16 16"
+            ><path
+              fill="currentColor"
+              d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603c.348-1.778.32-4.339.32-4.339c0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091c.083 3.394.626 6.74 3.78 7.57c1.454.383 2.703.463 3.709.408c1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295c-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541c-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046c.456-.505 1.052-.764 1.793-.764c.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983c.74 0 1.336.259 1.791.764c.442.505.661 1.187.661 2.046v4.203z"
+            ></path></svg
+          >
         </div>
-       </a>
+      </a>
     </div>
   </div>
 </div>

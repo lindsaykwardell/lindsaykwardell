@@ -1,8 +1,8 @@
 ---
-import PhotoLayout from "@/layouts/PhotoLayout.astro"
-import { getCollection } from "astro:content";
+import PhotoLayout from '@/layouts/PhotoLayout.astro'
+import { getCollection } from 'astro:content'
 
-const photos = await getCollection("photo");
+const photos = await getCollection('photo')
 ---
 
 <PhotoLayout photos={photos} />

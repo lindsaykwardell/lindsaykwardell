@@ -10,9 +10,9 @@ interface Props {
 
 const { photos, spotlight, tag } = Astro.props
 
-const allTags = [...new Set(photos.flatMap(photo => photo.data.tags))]
+const allTags = [...new Set(photos.flatMap((photo) => photo.data.tags))]
 
-const photosByTag: {[key: string]: CollectionEntry<"photo">[]} = {}
+const photosByTag: { [key: string]: CollectionEntry<'photo'>[] } = {}
 
 for (const photo of photos) {
   for (const tag of photo.data.tags) {
@@ -27,11 +27,13 @@ for (const photo of photos) {
 
 <BaseLayout>
   <section class="flex flex-col gap-6 relative flex-shrink">
-    {tag && (
-      <div class="sticky top-0 z-30  p-2">
-        <a href="/photos">← Back to all photos</a>
-      </div>
-    )}
+    {
+      tag && (
+        <div class="sticky top-0 z-30  p-2">
+          <a href="/photos">← Back to all photos</a>
+        </div>
+      )
+    }
     {
       spotlight && (
         <div
@@ -62,51 +64,59 @@ for (const photo of photos) {
         </div>
       )
     }
-    { !spotlight && !tag && (
-      <div class="flex flex-wrap gap-3 justify-center md:justify-normal">
-        {allTags.map(t => (
-          <a href={`/photos/tag/${t}`} class="text-center">
-            <div class="grid grid-cols-2 grid-rows-2 h-36 w-36 md:h-48 md:w-48 aspect-square">
-            { photosByTag[t].length === 1 ? (
-              <img
-                  src={photosByTag[t][0].data.url.src}
-                  alt={photosByTag[t][0].data.alt}
-                  class="object-cover col-span-2 row-span-2 h-full overflow-hidden"
-                />
-            ) : photosByTag[t].length === 2 ? (
-            <img
-                  src={photosByTag[t][0].data.url.src}
-                  alt={photosByTag[t][0].data.alt}
-                  class="object-cover row-span-2 h-full overflow-hidden"
-                />
-                <img
-                  src={photosByTag[t][1].data.url.src}
-                  alt={photosByTag[t][1].data.alt}
-                  class="object-cover row-span-2 overflow-hidden h-full"
-                />
-            ) : photosByTag[t].length >= 3 ? (
-            <img
-                  src={photosByTag[t][0].data.url.src}
-                  alt={photosByTag[t][0].data.alt}
-                  class="object-cover row-span-2 h-full overflow-hidden"
-                />
-                <img
-                  src={photosByTag[t][1].data.url.src}
-                  alt={photosByTag[t][1].data.alt}
-                  class="object-cover overflow-hidden h-full"
-                />
-                <img
-                  src={photosByTag[t][2].data.url.src}
-                  alt={photosByTag[t][2].data.alt}
-                  class="object-cover h-full"
-                />
-            ) : <div />}
-          </div>
-          {t}
-          </a>
-        ))}
-      </div>
-    )}
+    {
+      !spotlight && !tag && (
+        <div class="flex flex-wrap gap-3 justify-center md:justify-normal">
+          {allTags.map((t) => (
+            <a href={`/photos/tag/${t}`} class="text-center">
+              <div class="grid grid-cols-2 grid-rows-2 h-36 w-36 md:h-48 md:w-48 aspect-square">
+                {photosByTag[t].length === 1 ? (
+                  <img
+                    src={photosByTag[t][0].data.url.src}
+                    alt={photosByTag[t][0].data.alt}
+                    class="object-cover col-span-2 row-span-2 h-full overflow-hidden"
+                  />
+                ) : photosByTag[t].length === 2 ? (
+                  <>
+                    <img
+                      src={photosByTag[t][0].data.url.src}
+                      alt={photosByTag[t][0].data.alt}
+                      class="object-cover row-span-2 h-full overflow-hidden"
+                    />
+                    <img
+                      src={photosByTag[t][1].data.url.src}
+                      alt={photosByTag[t][1].data.alt}
+                      class="object-cover row-span-2 overflow-hidden h-full"
+                    />
+                  </>
+                ) : photosByTag[t].length >= 3 ? (
+                  <>
+                    <img
+                      src={photosByTag[t][0].data.url.src}
+                      alt={photosByTag[t][0].data.alt}
+                      class="object-cover row-span-2 h-full overflow-hidden"
+                    />
+                    <img
+                      src={photosByTag[t][1].data.url.src}
+                      alt={photosByTag[t][1].data.alt}
+                      class="object-cover overflow-hidden h-full"
+                    />
+                    <img
+                      src={photosByTag[t][2].data.url.src}
+                      alt={photosByTag[t][2].data.alt}
+                      class="object-cover h-full"
+                    />
+                  </>
+                ) : (
+                  <div />
+                )}
+              </div>
+              {t}
+            </a>
+          ))}
+        </div>
+      )
+    }
     <div class="columns-3 gap-2 p-1">
       {
         photos.map((photo) => (

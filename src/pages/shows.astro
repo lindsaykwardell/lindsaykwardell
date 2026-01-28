@@ -1,46 +1,77 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import Badge from "@/components/Badge.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Badge from '@/components/Badge.astro'
+import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 
-const type = Astro.url.searchParams.get("type");
+const type = Astro.url.searchParams.get('type')
 
-const showsByYear = (
-    await getCollection('show'))
-        .filter(show => !type || show.data.type === type)
-        .reduce((byYear, show) => {
-            const year = show.data.pubDate.getFullYear();
+const showsByYear = (await getCollection('show'))
+  .filter((show) => !type || show.data.type === type)
+  .reduce(
+    (byYear, show) => {
+      const year = show.data.pubDate.getFullYear()
 
-            if (!byYear[year]) {
-                byYear[year] = [];
-            }
+      if (!byYear[year]) {
+        byYear[year] = []
+      }
 
-            byYear[year].push(show)
+      byYear[year].push(show)
 
-            return byYear;
-        }, {} as {[key: string]: CollectionEntry<"show">[]})
+      return byYear
+    },
+    {} as { [key: string]: CollectionEntry<'show'>[] },
+  )
 ---
+
 <BaseLayout>
-    {type && (
-        <div class="flex justify-end text-muted">
-            <a href="/shows">← All content</a>
-        </div>
-    )}
-    <ul class="pb-7">
-        {Object.entries(showsByYear).toSorted((a,b) => +b[0] - +a[0]).map(([year, shows]) => (
-            <li transition:name={year} class="font-title text-2xl text-muted py-8 pl-8">{year}</li>
+  {
+    type && (
+      <div class="flex justify-end text-muted">
+        <a href="/shows">← All content</a>
+      </div>
+    )
+  }
+  <ul class="pb-7">
+    {
+      Object.entries(showsByYear)
+        .toSorted((a, b) => +b[0] - +a[0])
+        .map(([year, shows]) => (
+          <>
+            <li
+              transition:name={year}
+              class="font-title text-2xl text-muted py-8 pl-8"
+            >
+              {year}
+            </li>
             <ul class="flex flex-col gap-7 lg:gap-2 px-2 md:px-0">
-                {shows.map(show => (
-                    <li transition:name={show.id} class="text-lg md:text-xl grid grid-cols-2 lg:grid-cols-8 gap-2 lg:gap-7 items-center">
-                        <a href={`/shows/${show.id}`} class="col-span-2 lg:col-span-6 hover:underline">{show.data.title}</a>
-                        <time class="text-sm text-muted">{Intl.DateTimeFormat('en-us').format(new Date(show.data.pubDate))}</time>
-                        <a href={`/shows?type=${show.data.type}`} class="flex justify-end lg:w-full">
-                            <Badge type={show.data.type} />
-                        </a>
-                    </li>
-                ))}
+              {shows.map((show) => (
+                <li
+                  transition:name={show.id}
+                  class="text-lg md:text-xl grid grid-cols-2 lg:grid-cols-8 gap-2 lg:gap-7 items-center"
+                >
+                  <a
+                    href={`/shows/${show.id}`}
+                    class="col-span-2 lg:col-span-6 hover:underline"
+                  >
+                    {show.data.title}
+                  </a>
+                  <time class="text-sm text-muted">
+                    {Intl.DateTimeFormat('en-us').format(
+                      new Date(show.data.pubDate),
+                    )}
+                  </time>
+                  <a
+                    href={`/shows?type=${show.data.type}`}
+                    class="flex justify-end lg:w-full"
+                  >
+                    <Badge type={show.data.type} />
+                  </a>
+                </li>
+              ))}
             </ul>
-        ))}
-    </ul>
+          </>
+        ))
+    }
+  </ul>
 </BaseLayout>

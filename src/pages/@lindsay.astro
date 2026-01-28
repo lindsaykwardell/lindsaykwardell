@@ -1,63 +1,78 @@
 ---
-import MicroblogPost from "../layouts/MicroblogPost.astro";
-import MicroPost from "../components/MicroPost.astro";
+import MicroblogPost from '../layouts/MicroblogPost.astro'
+import MicroPost from '../components/MicroPost.astro'
 
-let maxId = Astro.url.searchParams.get("maxId");
-let minId = Astro.url.searchParams.get("minId");
+let maxId = Astro.url.searchParams.get('maxId')
+let minId = Astro.url.searchParams.get('minId')
 
-if (!maxId) maxId = ""
-if (!minId) minId = ""
+if (!maxId) maxId = ''
+if (!minId) minId = ''
 
-const user = await fetch("https://mastodon.social/api/v1/accounts/109248168582410861").then((res) => res.json());
-const data = await fetch(`https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true&max_id=${maxId}&min_id=${minId}`)
-  .then(res => res.json())
+const user = await fetch(
+  'https://mastodon.social/api/v1/accounts/109248168582410861',
+).then((res) => res.json())
+const data = await fetch(
+  `https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true&max_id=${maxId}&min_id=${minId}`,
+).then((res) => res.json())
 
-const latestPost = (await fetch("https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true&limit=1")
-  .then(res => res.json()))[0]
+const latestPost = (
+  await fetch(
+    'https://mastodon.social/api/v1/accounts/109248168582410861/statuses?exclude_reblogs=true&limit=1',
+  ).then((res) => res.json())
+)[0]
 const oldestId = 109248196558410057
 
-const firstId = data[0]?.id;
-const lastId = data[data.length - 1]?.id;
+const firstId = data[0]?.id
+const lastId = data[data.length - 1]?.id
 
 const content = {
   title: user.display_name,
-  snippet: "Public posts from @lindsay@lindsaykwardell.com",
-  slug: "/@lindsay"
+  snippet: 'Public posts from @lindsay@lindsaykwardell.com',
+  slug: '/@lindsay',
 }
 ---
+
 <MicroblogPost content={content}>
-  {data.map((item: any) => (
-    <MicroPost 
-      avatar={item.account.avatar}
-      url={item.url}
-      username={item.account.username}
-      userPage={item.account.url}
-      createdAt={item.created_at}
-      displayName={item.account.display_name}
-      content={item.content}
-      attachments={item.media_attachments}
-      card={item.card}
-      postStats={{
-        repliesCount: item.replies_count,
-        reblogsCount: item.reblogs_count,
-        favouritesCount: item.favourites_count,
-      }}
-    />
-  ))}
+  {
+    data.map((item: any) => (
+      <MicroPost
+        avatar={item.account.avatar}
+        url={item.url}
+        username={item.account.username}
+        userPage={item.account.url}
+        createdAt={item.created_at}
+        displayName={item.account.display_name}
+        content={item.content}
+        attachments={item.media_attachments}
+        card={item.card}
+        postStats={{
+          repliesCount: item.replies_count,
+          reblogsCount: item.reblogs_count,
+          favouritesCount: item.favourites_count,
+        }}
+      />
+    ))
+  }
   <div class="flex justify-between py-3">
     <div class="flex gap-4">
-      {firstId && 
-        firstId !== latestPost.id && 
-        (<a href="/@lindsay">←← Latest</a>
-        <a href={`/@lindsay?minId=${firstId}`}>← Newer</a>
-        )}
+      {
+        firstId && firstId !== latestPost.id && (
+          <>
+            <a href="/@lindsay">←← Latest</a>
+            <a href={`/@lindsay?minId=${firstId}`}>← Newer</a>
+          </>
+        )
+      }
     </div>
     <div class="flex gap-4">
-      {lastId && 
-        +lastId !== oldestId && 
-        (<a href={`/@lindsay?maxId=${lastId}`}>Older →</a>
-        <a href={`/@lindsay?maxId=${oldestId}`}>Oldest →→</a>
-        )}
+      {
+        lastId && +lastId !== oldestId && (
+          <>
+            <a href={`/@lindsay?maxId=${lastId}`}>Older →</a>
+            <a href={`/@lindsay?maxId=${oldestId}`}>Oldest →→</a>
+          </>
+        )
+      }
     </div>
   </div>
 </MicroblogPost>
