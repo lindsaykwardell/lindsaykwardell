@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "postinstall": "git update-index --assume-unchanged .obsidian/workspace.json || true",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
