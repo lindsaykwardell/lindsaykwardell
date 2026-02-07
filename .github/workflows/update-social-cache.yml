@@ -1,0 +1,33 @@
+name: Update Social Post Cache
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - run: npx tsx scripts/update-social-cache.ts
+
+      - name: Commit and push if changed
+        run: |
+          git diff --quiet src/data/social-post-cache.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/social-post-cache.json
+          git commit -m "Update social post cache"
+          git push

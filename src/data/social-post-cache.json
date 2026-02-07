@@ -1,0 +1,171 @@
+{
+  "/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqowhpmr27",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqowhpmr27"
+    },
+    "mastodon": null
+  },
+  "/%E2%9C%88%EF%B8%8F": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7z73rtkyw2r",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7z73rtkyw2r"
+    },
+    "mastodon": null
+  },
+  "/@lindsay": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqc2hp3k2n",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqc2hp3k2n"
+    },
+    "mastodon": {
+      "id": "110096990248933575",
+      "url": "https://mastodon.social/@lindsaykwardell/110096990248933575"
+    }
+  },
+  "/blog/2022-in-review": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqd5igab27",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqd5igab27"
+    },
+    "mastodon": {
+      "id": "109707564469595436",
+      "url": "https://mastodon.social/@lindsaykwardell/109707564469595436"
+    }
+  },
+  "/blog/at-the-end": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqenz6kg2r",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqenz6kg2r"
+    },
+    "mastodon": null
+  },
+  "/blog/between-hope/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hq53qgnw2r",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hq53qgnw2r"
+    },
+    "mastodon": null
+  },
+  "/blog/coming-into-vue-whats-next-vue-3/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hptlilki2h",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hptlilki2h"
+    },
+    "mastodon": null
+  },
+  "/blog/grief-is-not-a-casual-thing": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3lfizia4atk2s",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3lfizia4atk2s"
+    },
+    "mastodon": null
+  },
+  "/blog/integrate-mastodon-with-astro": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqcmnfye2s",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqcmnfye2s"
+    },
+    "mastodon": {
+      "id": "109389191484508820",
+      "url": "https://mastodon.social/@lindsaykwardell/109389191484508820"
+    }
+  },
+  "/blog/moments-and-moonlight": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3me5rlh6lck2y",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3me5rlh6lck2y"
+    },
+    "mastodon": {
+      "id": "116021140075736147",
+      "url": "https://mastodon.social/@lindsaykwardell/116021140075736147"
+    }
+  },
+  "/blog/native-dialog-in-elm": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqmj5zwz2f",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqmj5zwz2f"
+    },
+    "mastodon": null
+  },
+  "/blog/native-dialog-in-elm/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hpxjzbm523",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hpxjzbm523"
+    },
+    "mastodon": null
+  },
+  "/blog/new-website": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hojhprgm24",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hojhprgm24"
+    },
+    "mastodon": null
+  },
+  "/blog/rebuilding-site-with-astro/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hplerpy524",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hplerpy524"
+    },
+    "mastodon": null
+  },
+  "/blog/rekindling": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mcbvfrmiak2p",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3mcbvfrmiak2p"
+    },
+    "mastodon": {
+      "id": "115886320873829196",
+      "url": "https://mastodon.social/@lindsaykwardell/115886320873829196"
+    }
+  },
+  "/blog/setting-up-elm-in-2022/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hpq5kk3k2t",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hpq5kk3k2t"
+    },
+    "mastodon": null
+  },
+  "/blog/shipping-side-projects/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hpvxbvd52f",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hpvxbvd52f"
+    },
+    "mastodon": null
+  },
+  "/blog/upgrade-astro-0-21/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hpnyekzk2q",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hpnyekzk2q"
+    },
+    "mastodon": null
+  },
+  "/blog/utilizing-elm-in-a-web-worker/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hpui2imv24",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hpui2imv24"
+    },
+    "mastodon": null
+  },
+  "/blog/when-i-grow-up/": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hone7yci2w",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3l7hone7yci2w"
+    },
+    "mastodon": null
+  },
+  "/botc": {
+    "bluesky": null,
+    "mastodon": {
+      "id": "110096988064962112",
+      "url": "https://mastodon.social/@lindsaykwardell/110096988064962112"
+    }
+  },
+  "/recipes/paleo-bread": {
+    "bluesky": null,
+    "mastodon": {
+      "id": "110096989210326930",
+      "url": "https://mastodon.social/@lindsaykwardell/110096989210326930"
+    }
+  }
+}

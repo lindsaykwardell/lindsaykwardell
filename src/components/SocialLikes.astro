@@ -11,6 +11,15 @@ const MASTODON_API = 'https://mastodon.social/api/v1'
 const MASTODON_ACCOUNT_ID = '109248168582410861'
 const LIMIT = 50
 
+// Cache lookup
+import cache from '@/data/social-post-cache.json'
+const cached = (cache as Record<string, any>)[postUrl] as
+  | {
+      bluesky: { uri: string; url: string } | null
+      mastodon: { id: string; url: string } | null
+    }
+  | undefined
+
 // Bluesky types
 type BskyPost = {
   uri: string
@@ -88,138 +97,208 @@ let mastodonPostUrl: string | null = null
 
 // Fetch Bluesky likes
 try {
-  let cursor: string | undefined
-  let found = false
+  if (cached?.bluesky) {
+    // Cache hit: fetch post directly by URI to get like count, then fetch likes
+    bskyPostUrl = cached.bluesky.url
 
-  for (let i = 0; i < 10 && !found; i++) {
-    const feedUrl = `${BSKY_API}app.bsky.feed.getAuthorFeed?actor=${BSKY_HANDLE}&limit=100${cursor ? `&cursor=${cursor}` : ''}`
-    const feedResponse = await fetch(feedUrl)
-
-    if (!feedResponse.ok) break
-
-    const feedData: BskyFeedResponse = await feedResponse.json()
-
-    for (const item of feedData.feed) {
-      const post = item.post
-
-      // Check embedded external link
-      if (post.record.embed?.external?.uri?.includes(postUrl)) {
-        const postId = post.uri.split('/').pop()
-        bskyPostUrl = `https://bsky.app/profile/${BSKY_HANDLE}/post/${postId}`
+    const postsResponse = await fetch(
+      `${BSKY_API}app.bsky.feed.getPosts?uris=${encodeURIComponent(cached.bluesky.uri)}`,
+    )
+    if (postsResponse.ok) {
+      const postsData = await postsResponse.json()
+      const post = postsData.posts?.[0]
+      if (post) {
         totalLikeCount += post.likeCount ?? 0
-
-        const likesResponse = await fetch(
-          `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(post.uri)}&limit=${LIMIT}`,
-        )
-        if (likesResponse.ok) {
-          const likesData: BskyLikesResponse = await likesResponse.json()
-          likes.push(
-            ...likesData.likes.map((like) => ({
-              platform: 'bluesky' as const,
-              id: like.actor.did,
-              displayName: like.actor.displayName || like.actor.handle,
-              avatar: like.actor.avatar?.replace(
-                '/img/avatar/',
-                '/img/avatar_thumbnail/',
-              ),
-              profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
-            })),
-          )
-        }
-        found = true
-        break
       }
-
-      // Check facets (inline links)
-      if (post.record.facets) {
-        for (const facet of post.record.facets) {
-          for (const feature of facet.features) {
-            if (feature.uri?.includes(postUrl)) {
-              const postId = post.uri.split('/').pop()
-              bskyPostUrl = `https://bsky.app/profile/${BSKY_HANDLE}/post/${postId}`
-              totalLikeCount += post.likeCount ?? 0
-
-              const likesResponse = await fetch(
-                `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(post.uri)}&limit=${LIMIT}`,
-              )
-              if (likesResponse.ok) {
-                const likesData: BskyLikesResponse = await likesResponse.json()
-                likes.push(
-                  ...likesData.likes.map((like) => ({
-                    platform: 'bluesky' as const,
-                    id: like.actor.did,
-                    displayName: like.actor.displayName || like.actor.handle,
-                    avatar: like.actor.avatar?.replace(
-                      '/img/avatar/',
-                      '/img/avatar_thumbnail/',
-                    ),
-                    profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
-                  })),
-                )
-              }
-              found = true
-              break
-            }
-          }
-          if (found) break
-        }
-      }
-
-      if (found) break
     }
 
-    cursor = feedData.cursor
-    if (!cursor) break
+    const likesResponse = await fetch(
+      `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(cached.bluesky.uri)}&limit=${LIMIT}`,
+    )
+    if (likesResponse.ok) {
+      const likesData: BskyLikesResponse = await likesResponse.json()
+      likes.push(
+        ...likesData.likes.map((like) => ({
+          platform: 'bluesky' as const,
+          id: like.actor.did,
+          displayName: like.actor.displayName || like.actor.handle,
+          avatar: like.actor.avatar?.replace(
+            '/img/avatar/',
+            '/img/avatar_thumbnail/',
+          ),
+          profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
+        })),
+      )
+    }
+  } else if (cached === undefined) {
+    // Not in cache: fall back to feed search
+    let cursor: string | undefined
+    let found = false
+
+    for (let i = 0; i < 10 && !found; i++) {
+      const feedUrl = `${BSKY_API}app.bsky.feed.getAuthorFeed?actor=${BSKY_HANDLE}&limit=100${cursor ? `&cursor=${cursor}` : ''}`
+      const feedResponse = await fetch(feedUrl)
+
+      if (!feedResponse.ok) break
+
+      const feedData: BskyFeedResponse = await feedResponse.json()
+
+      for (const item of feedData.feed) {
+        const post = item.post
+
+        // Check embedded external link
+        if (post.record.embed?.external?.uri?.includes(postUrl)) {
+          const postId = post.uri.split('/').pop()
+          bskyPostUrl = `https://bsky.app/profile/${BSKY_HANDLE}/post/${postId}`
+          totalLikeCount += post.likeCount ?? 0
+
+          const likesResponse = await fetch(
+            `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(post.uri)}&limit=${LIMIT}`,
+          )
+          if (likesResponse.ok) {
+            const likesData: BskyLikesResponse = await likesResponse.json()
+            likes.push(
+              ...likesData.likes.map((like) => ({
+                platform: 'bluesky' as const,
+                id: like.actor.did,
+                displayName: like.actor.displayName || like.actor.handle,
+                avatar: like.actor.avatar?.replace(
+                  '/img/avatar/',
+                  '/img/avatar_thumbnail/',
+                ),
+                profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
+              })),
+            )
+          }
+          found = true
+          break
+        }
+
+        // Check facets (inline links)
+        if (post.record.facets) {
+          for (const facet of post.record.facets) {
+            for (const feature of facet.features) {
+              if (feature.uri?.includes(postUrl)) {
+                const postId = post.uri.split('/').pop()
+                bskyPostUrl = `https://bsky.app/profile/${BSKY_HANDLE}/post/${postId}`
+                totalLikeCount += post.likeCount ?? 0
+
+                const likesResponse = await fetch(
+                  `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(post.uri)}&limit=${LIMIT}`,
+                )
+                if (likesResponse.ok) {
+                  const likesData: BskyLikesResponse = await likesResponse.json()
+                  likes.push(
+                    ...likesData.likes.map((like) => ({
+                      platform: 'bluesky' as const,
+                      id: like.actor.did,
+                      displayName: like.actor.displayName || like.actor.handle,
+                      avatar: like.actor.avatar?.replace(
+                        '/img/avatar/',
+                        '/img/avatar_thumbnail/',
+                      ),
+                      profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
+                    })),
+                  )
+                }
+                found = true
+                break
+              }
+            }
+            if (found) break
+          }
+        }
+
+        if (found) break
+      }
+
+      cursor = feedData.cursor
+      if (!cursor) break
+    }
   }
+  // If cached.bluesky === null, skip entirely (known no match)
 } catch (error) {
   console.error('Error fetching Bluesky likes:', error)
 }
 
 // Fetch Mastodon likes
 try {
-  let maxId: string | undefined
-  let found = false
+  if (cached?.mastodon) {
+    // Cache hit: fetch status directly to get favourites count, then fetch likes
+    mastodonPostUrl = cached.mastodon.url
 
-  for (let i = 0; i < 10 && !found; i++) {
-    const statusesUrl = `${MASTODON_API}/accounts/${MASTODON_ACCOUNT_ID}/statuses?exclude_reblogs=true&limit=40${maxId ? `&max_id=${maxId}` : ''}`
-    const statusesResponse = await fetch(statusesUrl)
-
-    if (!statusesResponse.ok) break
-
-    const statuses: MastodonStatus[] = await statusesResponse.json()
-    if (statuses.length === 0) break
-
-    for (const status of statuses) {
-      // Check if the status content or card contains the post URL
-      const containsUrl =
-        status.content.includes(postUrl) || status.card?.url?.includes(postUrl)
-
-      if (containsUrl) {
-        mastodonPostUrl = status.url
-        totalLikeCount += status.favourites_count
-
-        const favouritesResponse = await fetch(
-          `${MASTODON_API}/statuses/${status.id}/favourited_by?limit=${LIMIT}`,
-        )
-        if (favouritesResponse.ok) {
-          const accounts: MastodonAccount[] = await favouritesResponse.json()
-          likes.push(
-            ...accounts.map((account) => ({
-              platform: 'mastodon' as const,
-              id: account.id,
-              displayName: account.display_name || account.username,
-              avatar: account.avatar,
-              profileUrl: account.url,
-            })),
-          )
-        }
-        found = true
-        break
-      }
+    const statusResponse = await fetch(
+      `${MASTODON_API}/statuses/${cached.mastodon.id}`,
+    )
+    if (statusResponse.ok) {
+      const status: MastodonStatus = await statusResponse.json()
+      totalLikeCount += status.favourites_count
     }
 
-    maxId = statuses[statuses.length - 1]?.id
+    const favouritesResponse = await fetch(
+      `${MASTODON_API}/statuses/${cached.mastodon.id}/favourited_by?limit=${LIMIT}`,
+    )
+    if (favouritesResponse.ok) {
+      const accounts: MastodonAccount[] = await favouritesResponse.json()
+      likes.push(
+        ...accounts.map((account) => ({
+          platform: 'mastodon' as const,
+          id: account.id,
+          displayName: account.display_name || account.username,
+          avatar: account.avatar,
+          profileUrl: account.url,
+        })),
+      )
+    }
+  } else if (cached === undefined) {
+    // Not in cache: fall back to feed search
+    let maxId: string | undefined
+    let found = false
+
+    for (let i = 0; i < 10 && !found; i++) {
+      const statusesUrl = `${MASTODON_API}/accounts/${MASTODON_ACCOUNT_ID}/statuses?exclude_reblogs=true&limit=40${maxId ? `&max_id=${maxId}` : ''}`
+      const statusesResponse = await fetch(statusesUrl)
+
+      if (!statusesResponse.ok) break
+
+      const statuses: MastodonStatus[] = await statusesResponse.json()
+      if (statuses.length === 0) break
+
+      for (const status of statuses) {
+        // Check if the status content or card contains the post URL
+        const containsUrl =
+          status.content.includes(postUrl) ||
+          status.card?.url?.includes(postUrl)
+
+        if (containsUrl) {
+          mastodonPostUrl = status.url
+          totalLikeCount += status.favourites_count
+
+          const favouritesResponse = await fetch(
+            `${MASTODON_API}/statuses/${status.id}/favourited_by?limit=${LIMIT}`,
+          )
+          if (favouritesResponse.ok) {
+            const accounts: MastodonAccount[] =
+              await favouritesResponse.json()
+            likes.push(
+              ...accounts.map((account) => ({
+                platform: 'mastodon' as const,
+                id: account.id,
+                displayName: account.display_name || account.username,
+                avatar: account.avatar,
+                profileUrl: account.url,
+              })),
+            )
+          }
+          found = true
+          break
+        }
+      }
+
+      maxId = statuses[statuses.length - 1]?.id
+    }
   }
+  // If cached.mastodon === null, skip entirely (known no match)
 } catch (error) {
   console.error('Error fetching Mastodon likes:', error)
 }
