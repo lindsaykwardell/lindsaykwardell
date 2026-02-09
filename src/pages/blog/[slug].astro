@@ -10,7 +10,7 @@ const { slug } = Astro.params
 const post = await getEntry('blog', slug!)
 const posts = await getCollection('blog')
 
-if (!post || !post.data.published) {
+if (!post || (!post.data.published && !import.meta.env.DEV)) {
   return Astro.redirect('/blog')
 }
 
@@ -60,6 +60,13 @@ const { Content } = await post.render()
       <time class="text-sm text-muted px-2 md:px-0"
         >{Intl.DateTimeFormat('en-us').format(post.data.pubDate)}</time
       >
+      {
+        post.data.published === false && (
+          <div class="italic text-3xl text-hover ">
+            ------------- DRAFT -------------
+          </div>
+        )
+      }
     </section>
     <article
       class="prose max-w-full bg-background prose-lg md:prose-xl m-auto p-4 md:p-12 rounded shadow-md"
