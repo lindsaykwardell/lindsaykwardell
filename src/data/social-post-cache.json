@@ -54,6 +54,16 @@
     },
     "mastodon": null
   },
+  "/blog/dont-replace-yourself-with-ai": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mehmeqah5k2t",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3mehmeqah5k2t"
+    },
+    "mastodon": {
+      "id": "116043291145054148",
+      "url": "https://mastodon.social/@lindsaykwardell/116043291145054148"
+    }
+  },
   "/blog/grief-is-not-a-casual-thing": {
     "bluesky": {
       "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3lfizia4atk2s",
