@@ -81,6 +81,16 @@
       "url": "https://mastodon.social/@lindsaykwardell/109389191484508820"
     }
   },
+  "/blog/keep-learning": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mesetcme522s",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3mesetcme522s"
+    },
+    "mastodon": {
+      "id": "116067530378140553",
+      "url": "https://mastodon.social/@lindsaykwardell/116067530378140553"
+    }
+  },
   "/blog/moments-and-moonlight": {
     "bluesky": {
       "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3me5rlh6lck2y",
