@@ -6,6 +6,7 @@ image: /blog/tng-computer.jpg
 tags:
   - Blog
   - StarTrek
+  - AI
 snippet: AI is potentially helpful, but always harmful to creativity and expression. We should not be relying on it, and yet we are.
 type: Blog
 published: true
