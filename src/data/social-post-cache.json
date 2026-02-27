@@ -33,6 +33,16 @@
       "url": "https://mastodon.social/@lindsaykwardell/109707564469595436"
     }
   },
+  "/blog/an-hour-before-showtime": {
+    "bluesky": {
+      "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mfsouegizk2w",
+      "url": "https://bsky.app/profile/lindsaykwardell.com/post/3mfsouegizk2w"
+    },
+    "mastodon": {
+      "id": "116140293841845163",
+      "url": "https://mastodon.social/@lindsaykwardell/116140293841845163"
+    }
+  },
   "/blog/at-the-end": {
     "bluesky": {
       "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqenz6kg2r",
