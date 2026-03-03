@@ -1,0 +1,191 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import resume from '@/data/resume.json'
+
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return 'Present'
+  const [year, month] = dateStr.split('-')
+  if (!month) return year
+  const date = new Date(parseInt(year), parseInt(month) - 1)
+  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+}
+
+function dateDuration(startDate: string, endDate: string | null): string {
+  const [startYear, startMonth] = startDate.split('-').map(Number)
+  const end = endDate ? endDate.split('-').map(Number) : [new Date().getFullYear(), new Date().getMonth() + 1]
+  const totalMonths = (end[0] - startYear) * 12 + (end[1] - startMonth)
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
+  const parts = []
+  if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`)
+  if (months > 0) parts.push(`${months} mo${months > 1 ? 's' : ''}`)
+  return parts.join(' ') || 'Less than a month'
+}
+---
+
+<BaseLayout title="Resume" description="Lindsay Wardell's professional resume and work experience.">
+  <div class="project-wrapper">
+    <div class="bg-background shadow-md rounded my-5 p-6 md:p-10">
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-4xl md:text-5xl font-title mb-2">{resume.name}</h1>
+        <p class="text-xl md:text-2xl text-muted font-title">{resume.headline}</p>
+        <p class="text-base text-muted mt-2">{resume.summary}</p>
+      </div>
+
+      <!-- Experience Summary -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Summary</h2>
+        <ul class="list-disc list-outside ml-4 space-y-1 text-sm md:text-base text-foreground/90">
+          {resume.experienceSummary.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Skills -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Skills</h2>
+        <div class="space-y-4">
+          {Object.entries(resume.skills).map(([category, items]) => (
+            <div>
+              <h3 class="text-sm font-title text-muted mb-2">
+                {category === 'cicd' ? 'CI/CD' : category === 'versionControl' ? 'Version Control' : category.charAt(0).toUpperCase() + category.slice(1)}
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                {(items as string[]).map((skill) => (
+                  <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{skill}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Experience</h2>
+        <div class="space-y-8">
+          {resume.experience.map((job) => (
+            <div class="flex gap-4">
+              <div class="shrink-0 mt-1">
+                {job.logo ? (
+                  <img src={job.logo} alt={`${job.company} logo`} class="w-10 h-10 rounded" />
+                ) : (
+                  <div class="w-10 h-10 rounded bg-accent/20 flex items-center justify-center font-title text-lg text-accent">
+                    {job.company[0]}
+                  </div>
+                )}
+              </div>
+              <div class="flex-1 border-l-2 border-accent pl-4 pb-2">
+                <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
+                  <div>
+                    <h3 class="text-xl font-title">{job.title}</h3>
+                    <p class="text-muted">
+                      {job.company}
+                      <span class="text-divider mx-1">&middot;</span>
+                      {job.type}
+                    </p>
+                  </div>
+                  <div class="text-sm text-muted md:text-right shrink-0">
+                    <p>{formatDate(job.startDate)} &ndash; {formatDate(job.endDate)}</p>
+                    <p class="text-divider">{dateDuration(job.startDate, job.endDate)}{job.location ? ` · ${job.location}` : ''}</p>
+                  </div>
+                </div>
+                {job.highlights.length > 0 && (
+                  <ul class="list-disc list-outside ml-4 mt-2 space-y-1 text-sm md:text-base text-foreground/90">
+                    {job.highlights.map((h) => (
+                      <li>{h}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Education</h2>
+        <div class="space-y-6">
+          {resume.education.map((edu) => (
+            <div class="flex gap-4">
+              <div class="shrink-0 mt-1">
+                {edu.logo ? (
+                  <img src={edu.logo} alt={`${edu.institution} logo`} class="w-10 h-10 rounded" />
+                ) : (
+                  <div class="w-10 h-10 rounded bg-accent/20 flex items-center justify-center font-title text-lg text-accent">
+                    {edu.institution[0]}
+                  </div>
+                )}
+              </div>
+              <div class="flex-1 border-l-2 border-accent pl-4">
+                <h3 class="text-xl font-title">{edu.institution}</h3>
+                {edu.degree && <p class="text-muted">{edu.degree}</p>}
+                <p class="text-sm text-muted">
+                  {edu.location && <span>{edu.location} &middot; </span>}
+                  {edu.startDate} &ndash; {edu.endDate}
+                </p>
+                {edu.details && <p class="text-sm text-foreground/90 mt-2">{edu.details}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Certifications</h2>
+        <div class="flex flex-wrap gap-2">
+          {resume.certifications.map((cert) => (
+            <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{cert}</span>
+          ))}
+        </div>
+      </section>
+
+      <!-- Speaking -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Speaking</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {resume.speaking.map((talk) => (
+            <div class="p-3 rounded bg-background border border-divider/30">
+              <div class="flex items-center gap-3">
+                <span class="text-sm text-muted shrink-0">{talk.year}</span>
+                {talk.url ? (
+                  <a href={talk.url} target="_blank" rel="noopener noreferrer" class="font-title text-base underline hover:text-hover">{talk.event}</a>
+                ) : (
+                  <p class="font-title text-base">{talk.event}</p>
+                )}
+              </div>
+              {talk.title && (
+                <p class="text-sm text-muted mt-1 ml-[3.25rem]">{talk.title}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Languages & Volunteer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section>
+          <h2 class="text-2xl md:text-3xl font-title mb-4 border-b border-divider pb-2">Languages</h2>
+          <div class="flex gap-3">
+            {resume.languages.map((lang) => (
+              <span class="px-3 py-1 rounded-full bg-accent/20 text-sm font-title">{lang}</span>
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 class="text-2xl md:text-3xl font-title mb-4 border-b border-divider pb-2">Volunteer</h2>
+          {resume.volunteer.map((vol) => (
+            <div>
+              <p class="font-title">{vol.role}</p>
+              <p class="text-sm text-muted">{vol.organization} &middot; {formatDate(vol.startDate) === formatDate(vol.endDate) ? formatDate(vol.startDate) : `${formatDate(vol.startDate)} – ${formatDate(vol.endDate)}`}</p>
+            </div>
+          ))}
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
