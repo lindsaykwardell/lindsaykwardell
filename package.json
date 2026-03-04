@@ -9,7 +9,7 @@
     "postinstall": "git update-index --assume-unchanged .obsidian/workspace.json || true",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npx playwright install chromium && tsx scripts/generate-resume-pdf.ts && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "update-social-cache": "tsx scripts/update-social-cache.ts",

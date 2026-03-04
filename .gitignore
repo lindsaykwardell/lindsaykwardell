@@ -17,9 +17,6 @@ pnpm-debug.log*
 .env
 .env.production
 
-# generated resume PDF (built during deploy)
-public/lindsay-wardell-resume.pdf
-
 # macOS-specific files
 .DS_Store
 
