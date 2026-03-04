@@ -57,12 +57,6 @@ const volunteerOrgs = Object.values(resume.volunteer.reduce((acc, vol) => {
             <span class="hidden print:inline">{resume.linkedin}</span>
           </a>
         </div>
-        <button
-          onclick="window.print()"
-          class="mt-4 px-4 py-2 rounded bg-accent/20 text-sm font-title hover:bg-accent/30 transition-colors print:hidden"
-        >
-          Download PDF
-        </button>
       </div>
 
       <!-- Summary & Skills Bento Grid -->
@@ -203,6 +197,35 @@ const volunteerOrgs = Object.values(resume.volunteer.reduce((acc, vol) => {
         </div>
       </section>
 
+      <!-- Projects -->
+      <section class="projects-section mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Projects</h2>
+        <div class="projects-grid grid grid-cols-1 md:grid-cols-2 gap-3">
+          {resume.projects.map((project) => (
+            <div class="p-4 rounded bg-background border border-divider/30">
+              <div class="flex items-baseline gap-2 mb-2">
+                <h3 class="text-lg font-title">
+                  {project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" class="underline hover:text-hover">{project.name}</a>
+                  ) : (
+                    project.name
+                  )}
+                </h3>
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-xs text-muted underline hover:text-hover">GitHub</a>
+                )}
+              </div>
+              <p class="text-sm text-foreground/90 mb-3">{project.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.tech.map((t) => (
+                  <span class="px-3 py-1 rounded-full bg-accent/20 text-xs">{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <!-- Certifications & Languages -->
       <div class="certs-languages grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         <section class="certs-section">
@@ -299,7 +322,7 @@ const volunteerOrgs = Object.values(resume.volunteer.reduce((acc, vol) => {
     }
 
     /* ===== Hide site chrome & non-print content ===== */
-    header, nav, .bg-gradient-to-br, .volunteer-section, .speaking-section, .header-summary {
+    header, nav, .bg-gradient-to-br, .volunteer-section, .speaking-section, .projects-section, .header-summary {
       display: none !important;
     }
 
@@ -505,6 +528,28 @@ const volunteerOrgs = Object.values(resume.volunteer.reduce((acc, vol) => {
     /* ===== Certifications ===== */
     .flex-wrap.gap-2 {
       gap: var(--print-gap) !important;
+    }
+
+    /* ===== Projects ===== */
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: var(--print-gap-lg) !important;
+    }
+
+    .projects-grid > div {
+      padding: var(--print-gap-lg) !important;
+      border: 1px solid #ddd !important;
+      break-inside: avoid;
+    }
+
+    .projects-grid h3 {
+      font-size: var(--print-sm) !important;
+    }
+
+    .projects-grid p,
+    .projects-grid a,
+    .projects-grid span {
+      font-size: var(--print-xs) !important;
     }
 
     /* ===== Page break control ===== */

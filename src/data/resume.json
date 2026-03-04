@@ -1,7 +1,7 @@
 {
   "name": "Lindsay Wardell",
   "headline": "Senior Software Engineer",
-  "summary": "I am a professional web developer, with a love for building stable and powerful software.",
+  "summary": "",
   "location": "Remote",
   "website": "https://lindsaykwardell.com",
   "github": "https://github.com/lindsaykwardell",
@@ -16,10 +16,31 @@
     "Participated in multiple podcasts, conferences, and video streams, and wrote numerous technical articles."
   ],
   "skills": {
-    "languages": ["HTML/CSS", "JavaScript", "TypeScript", "Kotlin", "Java", "PHP", "SQL", "Elm", "Ruby"],
+    "languages": [
+      "HTML/CSS",
+      "JavaScript",
+      "TypeScript",
+      "Kotlin",
+      "Java",
+      "PHP",
+      "SQL",
+      "Elm",
+      "Ruby"
+    ],
     "databases": ["SQL Server", "MySQL", "Postgres"],
-    "frameworks": ["Vue", "Vite", "React", "Astro", "Jest", "Cypress", "Tailwind", "Node", "Express"],
-    "tools": ["Git", "GitHub", "GitLab", "Docker"],
+    "frameworks": [
+      "Vue",
+      "Nuxt",
+      "Vite",
+      "React",
+      "Astro",
+      "Jest",
+      "Cypress",
+      "Tailwind",
+      "Node",
+      "Express"
+    ],
+    "tools": ["Git", "GitHub", "GitLab", "Docker", "Prisma"],
     "cicd": ["GitLab CI/CD", "Jenkins", "GitHub Actions"]
   },
   "certifications": ["CompTIA Project+"],
@@ -176,6 +197,44 @@
       "startDate": "2017",
       "endDate": "2018",
       "details": "Detailed and practical education in software development, HTML, CSS, JavaScript, version control, databases and SQL, C# (.NET Framework), Project Management (Scrum and Agile)."
+    }
+  ],
+  "projects": [
+    {
+      "name": "ClockTracker",
+      "url": "https://clocktracker.app",
+      "github": "https://github.com/lindsaykwardell/clocktracker",
+      "description": "Full-stack web app for recording and analyzing Blood on the Clocktower games. Built with Nuxt, Prisma, Postgres, and Supabase. Deployed on Fly.io.",
+      "tech": [
+        "Nuxt",
+        "Vue",
+        "Prisma",
+        "Postgres",
+        "Supabase",
+        "Tailwind",
+        "Playwright"
+      ]
+    },
+    {
+      "name": "vite-elm-template",
+      "url": "https://vite-elm-template.netlify.app/",
+      "github": "https://github.com/lindsaykwardell/vite-elm-template",
+      "description": "Starter template for building Elm applications with Vite. 146+ stars on GitHub.",
+      "tech": ["Elm", "Vite", "TypeScript"]
+    },
+    {
+      "name": "ParentShield",
+      "url": "https://parentshield.lindsaykwardell.com",
+      "github": null,
+      "description": "React Native Android app for co-parent communication. Uses on-device AI via Llama to analyze message tone and detect harmful patterns, with all data staying on-device.",
+      "tech": ["React Native", "TypeScript", "llama.rn"]
+    },
+    {
+      "name": "Gaze Into Photography",
+      "url": "https://gaze.lindsaykwardell.com",
+      "github": null,
+      "description": "Photo-sharing social app with weekly challenges, leaderboards, and community features. Built with Vue, Supabase, and Capacitor for cross-platform support.",
+      "tech": ["Vue", "Supabase", "Capacitor", "Tailwind", "Playwright"]
     }
   ],
   "speaking": [
