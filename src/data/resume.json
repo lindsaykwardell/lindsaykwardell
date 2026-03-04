@@ -4,6 +4,8 @@
   "summary": "I am a professional web developer, with a love for building stable and powerful software.",
   "location": "Remote",
   "website": "https://lindsaykwardell.com",
+  "github": "https://github.com/lindsaykwardell",
+  "linkedin": "https://linkedin.com/in/lindsaykwardell",
   "experienceSummary": [
     "Created full stack web applications using tools including Vue, React, Elm, Node, Ruby, Java, and Haskell.",
     "Architected APIs and relational databases for use by multiple applications/teams.",
@@ -14,13 +16,13 @@
     "Participated in multiple podcasts, conferences, and video streams, and wrote numerous technical articles."
   ],
   "skills": {
-    "languages": ["HTML/CSS", "JavaScript", "TypeScript", "Java", "PHP", "SQL", "Elm", "Ruby", "Haskell"],
-    "databases": ["SQL Server", "MySQL", "Postgres", "IBM DB2"],
-    "frameworks": ["Vue", "Vite", "React", "Jest", "Cypress", "Tailwind", "Node", "Express", "Ruby on Rails", "Docker"],
-    "versionControl": ["Git", "GitHub", "GitLab", "Gerrit"],
-    "cicd": ["GitLab CI/CD", "IBM UrbanCode", "Jenkins", "GitHub Actions"]
+    "languages": ["HTML/CSS", "JavaScript", "TypeScript", "Kotlin", "Java", "PHP", "SQL", "Elm", "Ruby"],
+    "databases": ["SQL Server", "MySQL", "Postgres"],
+    "frameworks": ["Vue", "Vite", "React", "Astro", "Jest", "Cypress", "Tailwind", "Node", "Express"],
+    "tools": ["Git", "GitHub", "GitLab", "Docker"],
+    "cicd": ["GitLab CI/CD", "Jenkins", "GitHub Actions"]
   },
-  "certifications": ["CompTIA Project+", "CIW Advanced HTML5 & CSS3 Specialist", "CIW User Interface Designer", "ITIL Foundation"],
+  "certifications": ["CompTIA Project+"],
   "experience": [
     {
       "company": "Mangomint",
