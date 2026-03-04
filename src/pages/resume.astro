@@ -1,0 +1,579 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import resume from '@/data/resume.json'
+
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return 'Present'
+  const [year, month] = dateStr.split('-')
+  if (!month) return year
+  const date = new Date(parseInt(year), parseInt(month) - 1)
+  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+}
+
+function dateDuration(startDate: string, endDate: string | null): string {
+  const [startYear, startMonth] = startDate.split('-').map(Number)
+  const end = endDate ? endDate.split('-').map(Number) : [new Date().getFullYear(), new Date().getMonth() + 1]
+  const totalMonths = (end[0] - startYear) * 12 + (end[1] - startMonth)
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
+  const parts = []
+  if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`)
+  if (months > 0) parts.push(`${months} mo${months > 1 ? 's' : ''}`)
+  return parts.join(' ') || 'Less than a month'
+}
+
+const volunteerOrgs = Object.values(resume.volunteer.reduce((acc, vol) => {
+  if (!acc[vol.organization]) {
+    acc[vol.organization] = { organization: vol.organization, startDate: vol.startDate, endDate: vol.endDate }
+  } else {
+    if (vol.startDate < acc[vol.organization].startDate) acc[vol.organization].startDate = vol.startDate
+    if (vol.endDate > acc[vol.organization].endDate) acc[vol.organization].endDate = vol.endDate
+  }
+  return acc
+}, {} as Record<string, { organization: string; startDate: string; endDate: string }>))
+---
+
+<BaseLayout title="Resume" description="Lindsay Wardell's professional resume and work experience.">
+  <div class="project-wrapper">
+    <div class="bg-background shadow-md rounded my-5 p-6 md:p-10">
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-4xl md:text-5xl font-title mb-2">{resume.name}</h1>
+        <p class="text-xl md:text-2xl text-muted font-title">{resume.headline}</p>
+        <p class="header-summary text-base text-muted mt-2">{resume.summary}</p>
+        <div class="flex justify-center gap-4 mt-3 text-sm text-muted">
+          <a href={resume.website} target="_blank" rel="noopener noreferrer" class="resume-link underline hover:text-hover">
+            <span class="print:hidden">lindsaykwardell.com</span>
+            <span class="hidden print:inline">{resume.website}</span>
+          </a>
+          <span class="text-divider">&middot;</span>
+          <a href={resume.github} target="_blank" rel="noopener noreferrer" class="resume-link underline hover:text-hover">
+            <span class="print:hidden">GitHub</span>
+            <span class="hidden print:inline">{resume.github}</span>
+          </a>
+          <span class="text-divider">&middot;</span>
+          <a href={resume.linkedin} target="_blank" rel="noopener noreferrer" class="resume-link underline hover:text-hover">
+            <span class="print:hidden">LinkedIn</span>
+            <span class="hidden print:inline">{resume.linkedin}</span>
+          </a>
+        </div>
+        <a href="/lindsay-wardell-resume.pdf" download class="print:hidden inline-block mt-4 px-4 py-2 rounded bg-accent/20 text-sm font-title hover:bg-accent/30 transition-colors">
+          Download PDF
+        </a>
+      </div>
+
+      <!-- Summary & Skills Bento Grid -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2 print:hidden">Summary & Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 [&>div]:bg-background [&>div]:border [&>div]:border-divider/30 [&>div]:rounded [&>div]:p-4">
+          <!-- Summary -->
+          <div class="summary-card md:col-span-2 md:row-span-2 !border-accent/40 !border-2 print:!border-divider print:!border">
+            <h3 class="text-sm font-title text-muted mb-3">Summary</h3>
+            <ul class="list-disc list-outside ml-4 space-y-1 text-sm md:text-base text-foreground/90">
+              {resume.experienceSummary.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Languages -->
+          <div>
+            <h3 class="text-sm font-title text-muted mb-3">Languages</h3>
+            <div class="flex flex-wrap gap-2">
+              {(resume.skills.languages as string[]).map((skill) => (
+                <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{skill}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Frameworks -->
+          <div>
+            <h3 class="text-sm font-title text-muted mb-3">Frameworks</h3>
+            <div class="flex flex-wrap gap-2">
+              {(resume.skills.frameworks as string[]).map((skill) => (
+                <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{skill}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div>
+            <h3 class="text-sm font-title text-muted mb-3">Databases</h3>
+            <div class="flex flex-wrap gap-2">
+              {(resume.skills.databases as string[]).map((skill) => (
+                <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{skill}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- CI/CD -->
+          <div>
+            <h3 class="text-sm font-title text-muted mb-3">CI/CD</h3>
+            <div class="flex flex-wrap gap-2">
+              {(resume.skills.cicd as string[]).map((skill) => (
+                <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{skill}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div>
+            <h3 class="text-sm font-title text-muted mb-3">Tools</h3>
+            <div class="flex flex-wrap gap-2">
+              {(resume.skills.tools as string[]).map((skill) => (
+                <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{skill}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Experience</h2>
+        <div class="experience-list space-y-8">
+          {resume.experience.map((job) => (
+            <div class="experience-item flex gap-4">
+              <div class="job-logo shrink-0 mt-1">
+                {job.logo ? (
+                  <img src={job.logo} alt={`${job.company} logo`} class="w-10 h-10 rounded" />
+                ) : (
+                  <div class="w-10 h-10 rounded bg-accent/20 flex items-center justify-center font-title text-lg text-accent">
+                    {job.company[0]}
+                  </div>
+                )}
+              </div>
+              <div class="flex-1 job-border border-l-2 border-accent pl-4 pb-2">
+                <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
+                  <div>
+                    <h3 class="text-xl font-title">{job.title}</h3>
+                    <p class="text-muted">
+                      {job.company}
+                      <span class="text-divider mx-1">&middot;</span>
+                      {job.type}
+                    </p>
+                  </div>
+                  <div class="text-sm text-muted md:text-right shrink-0">
+                    <p>{formatDate(job.startDate)} &ndash; {formatDate(job.endDate)}</p>
+                    <p class="job-duration text-divider">{dateDuration(job.startDate, job.endDate)}{job.location ? ` · ${job.location}` : ''}</p>
+                  </div>
+                </div>
+                {job.highlights.length > 0 && (
+                  <ul class="list-disc list-outside ml-4 mt-2 space-y-1 text-sm md:text-base text-foreground/90">
+                    {job.highlights.map((h) => (
+                      <li>{h}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Education</h2>
+        <div class="space-y-6">
+          {resume.education.map((edu) => (
+            <div class="flex gap-4">
+              <div class="edu-logo shrink-0 mt-1">
+                {edu.logo ? (
+                  <img src={edu.logo} alt={`${edu.institution} logo`} class="w-10 h-10 rounded" />
+                ) : (
+                  <div class="w-10 h-10 rounded bg-accent/20 flex items-center justify-center font-title text-lg text-accent">
+                    {edu.institution[0]}
+                  </div>
+                )}
+              </div>
+              <div class="flex-1 edu-border border-l-2 border-accent pl-4">
+                <h3 class="text-xl font-title">{edu.institution}</h3>
+                {edu.degree && <p class="text-muted">{edu.degree}</p>}
+                <p class="text-sm text-muted">
+                  {edu.location && <span>{edu.location} &middot; </span>}
+                  {edu.startDate} &ndash; {edu.endDate}
+                </p>
+                {edu.details && <p class="text-sm text-foreground/90 mt-2">{edu.details}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="projects-section mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Projects</h2>
+        <div class="projects-grid grid grid-cols-1 md:grid-cols-2 gap-3">
+          {resume.projects.map((project) => (
+            <div class="p-4 rounded bg-background border border-divider/30">
+              <div class="flex items-baseline gap-2 mb-2">
+                <h3 class="text-lg font-title">
+                  {project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" class="underline hover:text-hover">{project.name}</a>
+                  ) : (
+                    project.name
+                  )}
+                </h3>
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-xs text-muted underline hover:text-hover">GitHub</a>
+                )}
+              </div>
+              <p class="text-sm text-foreground/90 mb-3">{project.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.tech.map((t) => (
+                  <span class="px-3 py-1 rounded-full bg-accent/20 text-xs">{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Certifications & Languages -->
+      <div class="certs-languages grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <section class="certs-section">
+          <h2 class="text-2xl md:text-3xl font-title mb-4 border-b border-divider pb-2">Certifications</h2>
+          <div class="flex flex-wrap gap-2">
+            {resume.certifications.map((cert) => (
+              <span class="px-3 py-1 rounded-full bg-accent/20 text-sm">{cert}</span>
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 class="text-2xl md:text-3xl font-title mb-4 border-b border-divider pb-2">Languages</h2>
+          <div class="flex gap-3">
+            {resume.languages.map((lang) => (
+              <span class="px-3 py-1 rounded-full bg-accent/20 text-sm font-title">{lang}</span>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <!-- Speaking -->
+      <section class="speaking-section mb-10">
+        <h2 class="text-2xl md:text-3xl font-title mb-6 border-b border-divider pb-2">Speaking</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {resume.speaking.map((talk) => (
+            <div class="p-4 rounded bg-background border border-divider/30">
+              <span class="text-xs font-title text-muted">{talk.year}</span>
+              <div class="mt-1">
+                {talk.url ? (
+                  <a href={talk.url} target="_blank" rel="noopener noreferrer" class="font-title text-sm underline hover:text-hover">{talk.event}</a>
+                ) : (
+                  <p class="font-title text-sm">{talk.event}</p>
+                )}
+              </div>
+              {talk.title && (
+                <p class="text-xs text-muted mt-1">{talk.title}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Volunteer -->
+      <section class="volunteer-section">
+        <h2 class="text-2xl md:text-3xl font-title mb-4 border-b border-divider pb-2">Volunteer</h2>
+        <div class="flex flex-wrap gap-3">
+          {volunteerOrgs.map((org) => {
+            const startYear = org.startDate.split('-')[0]
+            const endYear = org.endDate.split('-')[0]
+            const dateStr = startYear !== endYear ? `${startYear}–${endYear}` : startYear
+            return (
+              <span class="px-3 py-1 rounded-full bg-accent/20 text-sm font-title">
+                {org.organization} <span class="text-muted font-normal">&middot; {dateStr}</span>
+              </span>
+            )
+          })}
+        </div>
+      </section>
+    </div>
+  </div>
+<style is:global>
+  @media print {
+    /* ===== Scale variables — adjust these to resize everything ===== */
+    :root {
+      --print-base: 14px;
+      --print-title: calc(var(--print-base) * 1.7);   /* ~24px */
+      --print-h2: calc(var(--print-base) * 1.15);      /* ~16px */
+      --print-h3: calc(var(--print-base) * 1.15);      /* ~16px */
+      --print-body: var(--print-base);                  /* 14px */
+      --print-sm: calc(var(--print-base) * 0.85);       /* ~12px */
+      --print-xs: calc(var(--print-base) * 0.78);       /* ~11px */
+      --print-gap: calc(var(--print-base) * 0.3);       /* ~4px */
+      --print-gap-lg: calc(var(--print-base) * 0.45);   /* ~6px */
+      --print-section-gap: calc(var(--print-base) * 1.5); /* ~21px */
+      --print-icon: calc(var(--print-base) * 1.1);      /* ~15px */
+    }
+
+    /* ===== Print-friendly colors ===== */
+    *, *::before, *::after {
+      color: black !important;
+      background: white !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    @page {
+      margin: 0.4in 0.5in;
+      size: letter;
+    }
+
+    body {
+      font-size: var(--print-base) !important;
+      line-height: 1.3 !important;
+    }
+
+    /* ===== Hide site chrome & non-print content ===== */
+    header, nav, .bg-gradient-to-br, .volunteer-section, .speaking-section, .projects-section, .header-summary {
+      display: none !important;
+    }
+
+    /* Only show first 5 jobs */
+    .experience-item:nth-child(n+6) {
+      display: none !important;
+    }
+
+    /* ===== Strip wrapper padding/margins ===== */
+    .project-wrapper,
+    .project-wrapper > div {
+      margin: 0 !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+    }
+
+    main {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* ===== Header section ===== */
+    .text-center.mb-10 {
+      margin-bottom: var(--print-section-gap) !important;
+    }
+
+    .text-center.mb-10 h1 {
+      font-size: var(--print-title) !important;
+      margin-bottom: 0.1rem !important;
+    }
+
+    .text-center.mb-10 p {
+      font-size: var(--print-body) !important;
+      margin-top: 0.1rem !important;
+    }
+
+    /* ===== Section spacing ===== */
+    section {
+      margin-bottom: var(--print-section-gap) !important;
+    }
+
+    section h2 {
+      font-size: var(--print-h2) !important;
+      margin-bottom: var(--print-gap) !important;
+      padding-bottom: var(--print-gap) !important;
+    }
+
+    /* ===== Bento grid ===== */
+    .grid.md\:grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: var(--print-gap-lg) !important;
+    }
+    .md\:col-span-2 { grid-column: span 2 !important; }
+    .md\:row-span-2 { grid-row: span 2 !important; }
+
+    .grid.md\:grid-cols-3 > div {
+      padding: var(--print-gap-lg) !important;
+      border: 1px solid #ddd !important;
+    }
+
+
+    .grid.md\:grid-cols-3 h3 {
+      font-size: var(--print-sm) !important;
+      margin-bottom: var(--print-gap) !important;
+    }
+
+    .grid.md\:grid-cols-3 li,
+    .grid.md\:grid-cols-3 span {
+      font-size: var(--print-sm) !important;
+    }
+
+    .grid.md\:grid-cols-3 ul {
+      margin-left: 0.8rem !important;
+    }
+
+    .grid.md\:grid-cols-3 ul li {
+      margin-bottom: 0 !important;
+    }
+
+    /* Skill pills */
+    .rounded-full {
+      padding: 0.1rem 0.4rem !important;
+      font-size: var(--print-xs) !important;
+      border: 1px solid #ccc !important;
+    }
+
+    /* ===== Hide logos and left borders in print ===== */
+    .job-logo, .edu-logo {
+      display: none !important;
+    }
+
+    .job-duration {
+      display: none !important;
+    }
+
+    .job-border, .edu-border {
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+
+    /* ===== Experience ===== */
+    .experience-list {
+      gap: var(--print-gap-lg) !important;
+    }
+
+    .experience-list > div {
+      gap: var(--print-gap) !important;
+    }
+
+    .experience-list.space-y-8 > * + * {
+      margin-top: var(--print-gap-lg) !important;
+    }
+
+    .experience-item img,
+    .experience-item .w-10 {
+      width: var(--print-icon) !important;
+      height: var(--print-icon) !important;
+      font-size: var(--print-sm) !important;
+    }
+
+    .experience-item h3 {
+      font-size: var(--print-h3) !important;
+    }
+
+    .experience-item p,
+    .experience-item li {
+      font-size: var(--print-sm) !important;
+    }
+
+    .experience-item ul {
+      margin-top: var(--print-gap) !important;
+      margin-left: 0.8rem !important;
+    }
+
+    .experience-item ul li {
+      margin-bottom: 0 !important;
+    }
+
+    .experience-item .border-l-2 {
+      padding-left: 0.5rem !important;
+      padding-bottom: 0 !important;
+    }
+
+    .experience-item .flex-col {
+      flex-direction: row !important;
+      align-items: baseline !important;
+      justify-content: space-between !important;
+      gap: var(--print-gap) !important;
+      margin-bottom: 0.1rem !important;
+    }
+
+    /* ===== Education ===== */
+    .space-y-6 > * + * {
+      margin-top: var(--print-gap) !important;
+    }
+
+    .space-y-6 .flex.gap-4 {
+      gap: var(--print-gap) !important;
+    }
+
+    .space-y-6 img,
+    .space-y-6 .w-10 {
+      width: var(--print-icon) !important;
+      height: var(--print-icon) !important;
+      font-size: var(--print-sm) !important;
+    }
+
+    .space-y-6 h3 {
+      font-size: var(--print-h3) !important;
+    }
+
+    .space-y-6 p {
+      font-size: var(--print-sm) !important;
+    }
+
+    .space-y-6 .border-l-2 {
+      padding-left: 0.5rem !important;
+    }
+
+    /* ===== Grids (speaking, languages) ===== */
+    .grid.md\:grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: var(--print-gap) !important;
+    }
+
+    .grid.md\:grid-cols-2 > div {
+      padding: var(--print-gap) var(--print-gap-lg) !important;
+      border: 1px solid #ddd !important;
+    }
+
+    .grid.md\:grid-cols-2 p,
+    .grid.md\:grid-cols-2 a,
+    .grid.md\:grid-cols-2 span {
+      font-size: var(--print-xs) !important;
+    }
+
+    .grid.grid-cols-1.md\:grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: var(--print-gap) !important;
+    }
+
+    /* ===== Certifications & Languages ===== */
+    .certs-languages {
+      gap: 2rem !important;
+    }
+
+    /* ===== Certifications ===== */
+    .flex-wrap.gap-2 {
+      gap: var(--print-gap) !important;
+    }
+
+    /* ===== Projects ===== */
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: var(--print-gap-lg) !important;
+    }
+
+    .projects-grid > div {
+      padding: var(--print-gap-lg) !important;
+      border: 1px solid #ddd !important;
+      break-inside: avoid;
+    }
+
+    .projects-grid h3 {
+      font-size: var(--print-sm) !important;
+    }
+
+    .projects-grid p,
+    .projects-grid a,
+    .projects-grid span {
+      font-size: var(--print-xs) !important;
+    }
+
+    /* ===== Page break control ===== */
+    .grid > div,
+    .experience-item {
+      break-inside: avoid;
+    }
+
+    /* ===== Links: no underlines in print ===== */
+    a {
+      text-decoration: none !important;
+    }
+
+    a.resume-link {
+      text-decoration: underline !important;
+    }
+  }
+</style>
+</BaseLayout>

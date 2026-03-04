@@ -1,0 +1,329 @@
+{
+  "name": "Lindsay Wardell",
+  "headline": "Senior Software Engineer",
+  "summary": "",
+  "location": "Remote",
+  "website": "https://lindsaykwardell.com",
+  "github": "https://github.com/lindsaykwardell",
+  "linkedin": "https://linkedin.com/in/lindsaykwardell",
+  "experienceSummary": [
+    "Created full stack web applications using tools including Vue, React, Elm, Node, Ruby, Java, and Haskell.",
+    "Architected APIs and relational databases for use by multiple applications/teams.",
+    "Deployed applications into containers via Docker and CI/CD tools such as Jenkins.",
+    "Redesigned and maintained existing legacy software and procedures to better meet the needs of clients.",
+    "Worked solo and as part of a team on multiple projects for clients.",
+    "Led development of reports and data analysis for better data reporting to clients.",
+    "Participated in multiple podcasts, conferences, and video streams, and wrote numerous technical articles."
+  ],
+  "skills": {
+    "languages": [
+      "HTML/CSS",
+      "JavaScript",
+      "TypeScript",
+      "Kotlin",
+      "Java",
+      "PHP",
+      "SQL",
+      "Elm",
+      "Ruby"
+    ],
+    "databases": ["SQL Server", "MySQL", "Postgres"],
+    "frameworks": [
+      "Vue",
+      "Nuxt",
+      "Vite",
+      "React",
+      "Astro",
+      "Jest",
+      "Cypress",
+      "Tailwind",
+      "Node",
+      "Express"
+    ],
+    "tools": ["Git", "GitHub", "GitLab", "Docker", "Prisma"],
+    "cicd": ["GitLab CI/CD", "Jenkins", "GitHub Actions"]
+  },
+  "certifications": ["CompTIA Project+"],
+  "experience": [
+    {
+      "company": "Mangomint",
+      "logo": "https://www.google.com/s2/favicons?domain=mangomint.com&sz=128",
+      "title": "Senior Software Engineer",
+      "type": "Full-time",
+      "startDate": "2024-10",
+      "endDate": null,
+      "location": "Remote",
+      "highlights": []
+    },
+    {
+      "company": "Khan Academy",
+      "logo": "https://www.google.com/s2/favicons?domain=khanacademy.org&sz=128",
+      "title": "Senior Software Engineer",
+      "type": "Full-time",
+      "startDate": "2024-07",
+      "endDate": "2024-10",
+      "location": "Remote",
+      "highlights": [
+        "Developed a reusable rich-text editor for teachers and students as part of Khan Academy's Writing Coach offering, utilizing Slate and React. The editor saved content in Markdown with synchronized styles between editor and viewer.",
+        "Tests were written in Cypress to work around the limitations of testing contenteditable DOM nodes in Jest."
+      ]
+    },
+    {
+      "company": "NoRedInk",
+      "logo": "https://www.google.com/s2/favicons?domain=noredink.com&sz=128",
+      "title": "Senior Software Engineer",
+      "type": "Full-time",
+      "startDate": "2021-10",
+      "endDate": "2024-06",
+      "location": "Remote",
+      "highlights": [
+        "Maintained and developed a highly used education platform using Elm, Ruby, and Haskell.",
+        "Led engineering efforts and teams in improving or developing new features.",
+        "Worked with other teams to support their efforts in common areas of ownership.",
+        "Mentored and trained new team members in company processes and responsibilities.",
+        "Acted as ambassador for the company through podcasting, blogging, and developer community involvement.",
+        "When the lead of a months-long epic to implement learning modules left unexpectedly, took ownership and brought the epic to completion by the established due date for the August back-to-school release.",
+        "Led multiple projects expanding the assignment library to support grades 3 to 5, requiring cross-team coordination on requirements and task breakdowns."
+      ]
+    },
+    {
+      "company": "This Dot, Inc",
+      "logo": "https://www.google.com/s2/favicons?domain=thisdot.co&sz=128",
+      "title": "Senior Software Engineer",
+      "type": "Full-time",
+      "startDate": "2021-02",
+      "endDate": "2021-10",
+      "location": "Remote",
+      "highlights": [
+        "Consulted with multiple clients on complex web-based projects in multiple programming languages.",
+        "Created blog posts, podcasts, and video presentations to support the developer community.",
+        "Mentored junior developers, reviewing code and discussing processes.",
+        "Consulted with the Wikimedia Foundation on the Abstract Wikipedia/Wikifunctions project, developing the frontend interface, implementing testing functionality, and supporting migration to Vue 3 and TypeScript.",
+        "Supported work for a large-scale online conference using React, Next.js, and third-party CMSs."
+      ]
+    },
+    {
+      "company": "Daimler Trucks North America",
+      "logo": "https://www.google.com/s2/favicons?domain=daimlertruck.com&sz=128",
+      "title": "Full Stack Developer",
+      "type": "Contract",
+      "startDate": "2019-02",
+      "endDate": "2021-02",
+      "location": "Portland, Oregon",
+      "highlights": [
+        "Senior developer on multiple projects for internal and external use.",
+        "Led design and implementation of backend systems, and coordinated compatibility with other services.",
+        "Developed frontend single-page applications using React and Vue (both server-rendered and client-rendered).",
+        "Instructed established teams in new technologies or methodologies.",
+        "As the sole full-stack developer, initiated and successfully deployed an application for internal use by Daimler Trucks, implementing Next.js and Express for the UI server, and Spring Boot for the API server, both hosted using Docker. Successfully deployed the application two months ahead of schedule.",
+        "Developed an external-facing tool for guided diagnostics and repair of Daimler Trucks vehicles. As lead backend developer, designed and implemented relational database schema in SQL Server, and developed multiple services running on Node.js, Java Spring Boot, and .NET Core to handle APIs for the application. Architected Vue CLI and multiple Nuxt applications to improve development. Initiated application testing using Jest."
+      ]
+    },
+    {
+      "company": "Freelance",
+      "logo": "/favicon.png",
+      "title": "IT Specialist and Developer",
+      "type": "Self-employed",
+      "startDate": "2015-04",
+      "endDate": "2019-03",
+      "location": "Portland, Oregon",
+      "highlights": [
+        "Built full stack web applications using Vue, React, Node, and Firebase for clients.",
+        "Found hosting solutions and offered ongoing hosting and maintenance.",
+        "Provided computer and technology-related services to individuals and small businesses.",
+        "Performed maintenance including virus removal, networking, software installation, and hardware maintenance.",
+        "Recommended new hardware or software purchases and implementation."
+      ]
+    },
+    {
+      "company": "Lindsey Forwarders, Inc",
+      "logo": "/lindsey-forwarders-favicon.ico",
+      "title": "Operations Manager/Developer",
+      "type": "Full-time",
+      "startDate": "2015-11",
+      "endDate": "2019-02",
+      "location": "Portland, Oregon",
+      "highlights": [
+        "Administered and updated legacy software, ensuring continued compatibility with modern business needs.",
+        "Initiated development of new freight forwarding software using Vue, Node.js, and Express, targeting multiple browsers and views.",
+        "Engaged with end users to build quality UX solutions.",
+        "Communicated all IT procedures to employees. Maintained IT operations manual for the business.",
+        "Built a rate matrix application to track shipping costs between various ports for each shipping line per client. This expanded later to be a full replacement for the legacy freight forwarding software originally developed in 1995, allowing all documentation to be generated from a web-based interface using Vue and Node, and allowed clients to view their rates and request bookings directly instead of using email."
+      ]
+    },
+    {
+      "company": "Prosper IT Consulting",
+      "logo": "https://www.google.com/s2/favicons?domain=learncodinganywhere.com&sz=128",
+      "title": "Front End Developer Intern",
+      "type": "Internship",
+      "startDate": "2018-01",
+      "endDate": "2018-02",
+      "location": "Portland, Oregon",
+      "highlights": [
+        "Contributed to bewander.com development as a team member.",
+        "Implemented UI additions to text entry fields and messaging system using JavaScript, CSS, and HTML."
+      ]
+    },
+    {
+      "company": "Office Depot",
+      "logo": "https://www.google.com/s2/favicons?domain=officedepot.com&sz=128",
+      "title": "Senior Sales Consultant",
+      "type": "Full-time",
+      "startDate": "2013-10",
+      "endDate": "2015-11",
+      "location": "Portland, Oregon",
+      "highlights": [
+        "Performed maintenance on customers' computers, including virus removal and hardware repair.",
+        "Documented all work done for customers and tracked progress for all technicians.",
+        "Acted as department manager when needed in all aspects of the store."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Western Governors University",
+      "logo": "https://www.google.com/s2/favicons?domain=wgu.edu&sz=128",
+      "degree": "Bachelor of Science, Software Development",
+      "location": "Salt Lake City, UT",
+      "startDate": "2015",
+      "endDate": "2020",
+      "details": "Coursework: CompTIA A+, CompTIA Project+, CompTIA Security+, CompTIA Linux+, CIW Advanced HTML5 & CSS3 Specialist, CIW User Interface Designer. Capstone project awarded certificate of excellence for superior quality application."
+    },
+    {
+      "institution": "The Tech Academy",
+      "logo": "https://www.google.com/s2/favicons?domain=learncodinganywhere.com&sz=128",
+      "degree": "Software and Web Development",
+      "location": "Portland, OR",
+      "startDate": "2017",
+      "endDate": "2018",
+      "details": "Detailed and practical education in software development, HTML, CSS, JavaScript, version control, databases and SQL, C# (.NET Framework), Project Management (Scrum and Agile)."
+    }
+  ],
+  "projects": [
+    {
+      "name": "ClockTracker",
+      "url": "https://clocktracker.app",
+      "github": "https://github.com/lindsaykwardell/clocktracker",
+      "description": "Full-stack web app for recording and analyzing Blood on the Clocktower games. Built with Nuxt, Prisma, Postgres, and Supabase. Deployed on Fly.io.",
+      "tech": [
+        "Nuxt",
+        "Vue",
+        "Prisma",
+        "Postgres",
+        "Supabase",
+        "Tailwind",
+        "Playwright"
+      ]
+    },
+    {
+      "name": "vite-elm-template",
+      "url": "https://vite-elm-template.netlify.app/",
+      "github": "https://github.com/lindsaykwardell/vite-elm-template",
+      "description": "Starter template for building Elm applications with Vite. 146+ stars on GitHub.",
+      "tech": ["Elm", "Vite", "TypeScript"]
+    },
+    {
+      "name": "ParentShield",
+      "url": "https://parentshield.lindsaykwardell.com",
+      "github": null,
+      "description": "React Native Android app for co-parent communication. Uses on-device AI via Llama to analyze message tone and detect harmful patterns, with all data staying on-device.",
+      "tech": ["React Native", "TypeScript", "llama.rn"]
+    },
+    {
+      "name": "Gaze Into Photography",
+      "url": "https://gaze.lindsaykwardell.com",
+      "github": null,
+      "description": "Photo-sharing social app with weekly challenges, leaderboards, and community features. Built with Vue, Supabase, and Capacitor for cross-platform support.",
+      "tech": ["Vue", "Supabase", "Capacitor", "Tailwind", "Playwright"]
+    }
+  ],
+  "speaking": [
+    {
+      "event": "Web Dev Challenge",
+      "title": "Build a retro gaming app — S1E2",
+      "year": "2024",
+      "url": "https://www.youtube.com/watch?v=jVHoffCdKa4"
+    },
+    {
+      "event": "ViteConf 2023",
+      "title": "Functional Programming in Vite",
+      "year": "2023",
+      "url": "https://www.youtube.com/watch?v=MQ0A6c0f6x0"
+    },
+    {
+      "event": "ViteConf 2022",
+      "title": "Functional Programming in Vite with Elm",
+      "year": "2022",
+      "url": "https://www.youtube.com/watch?v=ZPVGK2OSTog"
+    },
+    {
+      "event": "Vue Global Summit 2022",
+      "title": null,
+      "year": "2022",
+      "url": null
+    },
+    {
+      "event": "The Tech Academy",
+      "title": "Side Projects - The Value of Building in Public",
+      "year": "2022",
+      "url": "https://www.youtube.com/watch?v=W13X7wjKejs"
+    },
+    {
+      "event": "VueJS Athens Meetup",
+      "title": "Script Setup API in Vue 3",
+      "year": "2021",
+      "url": "https://www.youtube.com/watch?v=adkxGYeW97c"
+    },
+    {
+      "event": "Wikimania",
+      "title": "Wikifunctions and Abstract Wikipedia",
+      "year": "2021",
+      "url": "https://www.youtube.com/watch?v=LecYqXHvHfg&t=839s"
+    },
+    {
+      "event": "Vue Global Summit 2021",
+      "title": null,
+      "year": "2021",
+      "url": null
+    },
+    {
+      "event": "The Tech Academy",
+      "title": "The Importance of Side Projects and Networking",
+      "year": "2021",
+      "url": "https://www.youtube.com/watch?v=G1FtGIAN2lo"
+    }
+  ],
+  "languages": ["English", "Portuguese"],
+  "volunteer": [
+    {
+      "organization": "Boy Scouts of America",
+      "role": "Program Director",
+      "startDate": "2014",
+      "endDate": "2014"
+    },
+    {
+      "organization": "Nonprofit in Brazil",
+      "role": "Financial Secretary",
+      "startDate": "2012-11",
+      "endDate": "2013-09"
+    },
+    {
+      "organization": "Boy Scouts of America",
+      "role": "Assistant Program Director",
+      "startDate": "2011",
+      "endDate": "2011"
+    },
+    {
+      "organization": "Boy Scouts of America",
+      "role": "Trading Post Manager",
+      "startDate": "2007",
+      "endDate": "2011"
+    },
+    {
+      "organization": "Boy Scouts of America",
+      "role": "Staff",
+      "startDate": "2006",
+      "endDate": "2006"
+    }
+  ]
+}

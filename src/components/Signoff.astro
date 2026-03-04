@@ -1,31 +1,42 @@
 ---
 import Newsletter from './Newsletter.astro'
 import SocialLinks from './SocialLinks.astro'
+
+interface Props {
+  hideIntro?: boolean
+}
+
+const { hideIntro = false } = Astro.props
 ---
 
-<hr class="mx-auto my-4 border-foreground" />
+{!hideIntro && <hr class="mx-auto my-4 border-foreground" />}
 
 <section class="prose m-auto">
-  <div class="flex flex-col md:flex-row justify-between md:gap-8 items-center">
-    <div class="flex justify-center">
-      <img
-        src="/lindsay2.jpg"
-        alt="Lindsay Wardell"
-        class="aspect-square object-cover rounded-lg shadow-md h-32 min-w-[8rem] object-top"
-      />
-    </div>
-    <div class="px-3">
-      <div class="font-title text-2xl">Hi, I'm Lindsay Wardell!</div>
-      <p>
-        I am a programmer and writer. I work as a Senior Software Engineer at <a
-          class="underline"
-          href="https://mangomint.com">Mangomint</a
-        >. Join me as I explore the place where technology and feelings
-        intersect. I write poetry, fiction, and observations of the world around
-        us.
-      </p>
-
-      <SocialLinks />
+  <div class={`flex flex-col ${hideIntro ? 'items-center gap-4' : 'md:flex-row justify-between md:gap-8 items-center'}`}>
+    {!hideIntro && (
+      <div class="flex justify-center">
+        <img
+          src="/lindsay2.jpg"
+          alt="Lindsay Wardell"
+          class="aspect-square object-cover rounded-lg shadow-md h-32 min-w-[8rem] object-top"
+        />
+      </div>
+    )}
+    <div class={hideIntro ? '' : 'px-3'}>
+      {!hideIntro && (
+        <>
+          <div class="font-title text-2xl">Hi, I'm Lindsay Wardell!</div>
+          <p>
+            I am a programmer and writer. I work as a Senior Software Engineer at <a
+              class="underline"
+              href="https://mangomint.com">Mangomint</a
+            >. Join me as I explore the place where technology and feelings
+            intersect. I write poetry, fiction, and observations of the world around
+            us.
+          </p>
+        </>
+      )}
+      <SocialLinks class={hideIntro ? 'justify-center gap-4' : ''} />
     </div>
   </div>
   <Newsletter />
