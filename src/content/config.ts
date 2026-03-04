@@ -35,13 +35,43 @@ const show = defineCollection({
   }),
 })
 
+const GAZE_API_URL = import.meta.env.GAZE_API_URL || process.env.GAZE_API_URL
+const GAZE_USER_ID = import.meta.env.GAZE_USER_ID || process.env.GAZE_USER_ID
+
 const photo = defineCollection({
-  schema: ({ image }) =>
-    z.object({
-      url: image(),
-      alt: z.string(),
-      tags: z.array(z.string()),
-    }),
+  loader: async () => {
+    if (!GAZE_API_URL || !GAZE_USER_ID) {
+      console.warn('GAZE_API_URL or GAZE_USER_ID not set, returning empty photo collection')
+      return []
+    }
+
+    try {
+      const res = await fetch(`${GAZE_API_URL}/public-photos?user_id=${GAZE_USER_ID}`)
+      if (!res.ok) {
+        console.error(`Failed to fetch photos: ${res.status} ${res.statusText}`)
+        return []
+      }
+      const data = await res.json()
+      return data.photos.map((p: any) => ({
+        id: p.id,
+        url: p.url,
+        alt: p.description || '',
+        tags: [p.word].filter(Boolean),
+        week_of: p.week_of,
+        created_at: p.created_at,
+      }))
+    } catch (err) {
+      console.error('Error fetching photos from Gaze:', err)
+      return []
+    }
+  },
+  schema: z.object({
+    url: z.string(),
+    alt: z.string(),
+    tags: z.array(z.string()),
+    week_of: z.string(),
+    created_at: z.string(),
+  }),
 })
 
 export const collections = {

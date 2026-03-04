@@ -2,7 +2,7 @@
 import dayjs from 'dayjs'
 
 interface Props {
-  platform: 'mastodon' | 'bluesky'
+  platform: 'mastodon' | 'bluesky' | 'gaze'
   avatar: string
   username?: string
   userPage?: string
@@ -47,7 +47,8 @@ let displayUsername
 switch (username) {
   case 'lindsaykwardell':
   case undefined:
-    displayUsername = '@lindsay@lindsaykwardell.com'
+    displayUsername =
+      platform === 'gaze' ? '@lindsaykwardell' : '@lindsay@lindsaykwardell.com'
     break
   default:
     displayUsername = `@${username}`
@@ -58,7 +59,7 @@ switch (username) {
   class={'shadow p-3 rounded my-4 bg-background ' + (notFocus ? 'text-sm' : '')}
 >
   <div class="flex flex-wrap items-center gap-4 md:h-12">
-    <img src={avatar} class="m-0 w-10 h-10 rounded-full shadow" />
+    <img src={avatar} class="m-0! w-10! h-10! shrink-0 rounded-full shadow object-cover object-top" />
     <div class="flex flex-col flex-grow">
       <div>{displayName}</div>
       <div class="text-sm">
@@ -103,8 +104,8 @@ switch (username) {
       </div>
     )
   }
-  <div class="text-sm flex gap-4 px-4 pt-3 text-muted">
-    <div class="flex gap-4 md:gap-12 flex-grow">
+  <div class="text-sm flex gap-4 px-4 pt-3 text-muted justify-end">
+    <div class={`flex gap-4 md:gap-12${postStats ? ' flex-grow' : ''}`}>
       {
         postStats && (
           <>
@@ -141,26 +142,40 @@ switch (username) {
     </div>
     <div class="flex gap-2 md:gap-4 flex-shrink items-center">
       <a
-        href={
-          platform === 'bluesky'
+        href={platform === 'gaze'
+          ? url
+          : platform === 'bluesky'
             ? url.replace(
                 /https:\/\/bsky\.app\/profile\/lindsaykwardell\.com\/post\//,
                 '/@lindsay/bsky/',
               )
-            : url.replace('https://mastodon.social/@lindsaykwardell/', '/@lindsay/')
-        }
+            : url.replace(
+                'https://mastodon.social/@lindsaykwardell/',
+                '/@lindsay/',
+              )}
+        target={platform === 'gaze' ? '_blank' : undefined}
         class="decoration-muted"
       >
         <time class="text-muted">{dayjs(createdAt).format('MMM DD YYYY')}</time>
       </a>
       <a
         href={url}
-        aria-label={platform === 'bluesky' ? 'Open on Bluesky' : 'Open on Mastodon'}
+        aria-label={platform === 'bluesky'
+          ? 'Open on Bluesky'
+          : platform === 'gaze'
+            ? 'Open on Gaze'
+            : 'Open on Mastodon'}
         target="_blank"
       >
         <div class="text-muted hover:text-hover transition duration-150">
           {
-            platform === 'bluesky' ? (
+            platform === 'gaze' ? (
+              <img
+                src="/gaze-icon.png"
+                alt="Gaze"
+                class="relative bottom-1.5 m-0! p-0 h-5 w-5 block gaze-icon"
+              />
+            ) : platform === 'bluesky' ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -190,5 +205,14 @@ switch (username) {
 <style is:global lang="pcss">
   article a {
     word-break: break-word;
+  }
+
+  .gaze-icon {
+    filter: invert(50%);
+    transition: filter 150ms;
+  }
+
+  a:hover .gaze-icon {
+    filter: invert(48%) sepia(90%) saturate(1500%) hue-rotate(345deg) brightness(85%);
   }
 </style>

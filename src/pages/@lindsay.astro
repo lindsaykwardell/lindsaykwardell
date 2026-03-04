@@ -1,6 +1,7 @@
 ---
 import MicroblogPost from '../layouts/MicroblogPost.astro'
 import MicroPost from '../components/MicroPost.astro'
+import { getCollection } from 'astro:content'
 
 const MASTODON_API = 'https://mastodon.social/api/v1'
 const MASTODON_ACCOUNT_ID = '109248168582410861'
@@ -9,7 +10,7 @@ const BSKY_HANDLE = 'lindsaykwardell.com'
 
 // Unified post type
 type UnifiedPost = {
-  platform: 'mastodon' | 'bluesky'
+  platform: 'mastodon' | 'bluesky' | 'gaze'
   id: string
   avatar: string
   username: string
@@ -184,8 +185,35 @@ mastodonPosts = mastodonStatuses
     return new Date(post.createdAt) >= oldestBskyDate
   })
 
-// Step 3: Merge and sort by date (newest first)
-const allPosts = [...bskyPosts, ...mastodonPosts].sort(
+// Step 3: Fetch Gaze photos and convert to posts
+const gazePhotos = await getCollection('photo')
+const gazePosts: UnifiedPost[] = gazePhotos
+  .filter((photo) => photo.data.created_at)
+  .map((photo) => {
+    const word = photo.data.tags[0] || ''
+    const content = word ? `<p><em>${word}</em></p>` : ''
+
+    return {
+      platform: 'gaze' as const,
+      id: photo.id,
+      avatar: '/lindsay2.jpg',
+      username: 'lindsaykwardell',
+      userPage: 'https://gaze.lindsaykwardell.com/@lindsaykwardell',
+      url: `https://gaze.lindsaykwardell.com/photos/${photo.id}`,
+      createdAt: photo.data.created_at,
+      displayName: 'Lindsay Wardell',
+      content,
+      attachments: [
+        {
+          url: photo.data.url,
+          description: photo.data.alt,
+        },
+      ],
+    }
+  })
+
+// Step 4: Merge and sort by date (newest first)
+const allPosts = [...bskyPosts, ...mastodonPosts, ...gazePosts].sort(
   (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
 )
 

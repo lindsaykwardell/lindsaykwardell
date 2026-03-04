@@ -4,159 +4,33 @@ import type { CollectionEntry } from 'astro:content'
 
 interface Props {
   photos: CollectionEntry<'photo'>[]
-  tag?: string
-  spotlight?: CollectionEntry<'photo'>
 }
 
-const { photos, spotlight, tag } = Astro.props
-
-const allTags = [...new Set(photos.flatMap((photo) => photo.data.tags))]
-
-const photosByTag: { [key: string]: CollectionEntry<'photo'>[] } = {}
-
-for (const photo of photos) {
-  for (const tag of photo.data.tags) {
-    if (!photosByTag[tag]) {
-      photosByTag[tag] = []
-    }
-
-    photosByTag[tag].push(photo)
-  }
-}
+const { photos } = Astro.props
 ---
 
 <BaseLayout>
-  <section class="flex flex-col gap-6 relative flex-shrink">
+  <div class="photo-grid columns-2 md:columns-3 gap-2 p-1">
     {
-      tag && (
-        <div class="sticky top-0 z-30  p-2">
-          <a href="/photos">← Back to all photos</a>
-        </div>
-      )
+      photos.map((photo) => (
+        <a href={`https://gaze.lindsaykwardell.com/photos/${photo.id}`} target="_blank" rel="noopener noreferrer" class="mb-2 block">
+          <img
+            src={photo.data.url}
+            alt={photo.data.alt}
+            class="rounded transition-opacity duration-300"
+            loading="lazy"
+          />
+        </a>
+      ))
     }
-    {
-      spotlight && (
-        <div
-          transition:name="spotlight"
-          transition:animate="none"
-          class="flex flex-col gap-6 sticky top-0 z-10 bg-background pt-6 rounded"
-        >
-          <a href={spotlight.data.url.src}>
-            <img
-              transition:name={spotlight.id}
-              loading="eager"
-              src={spotlight.data.url.src}
-              alt={spotlight.data.alt}
-              class="object-contain aspect-video"
-            />
-          </a>
-          <div class="flex flex-wrap justify-center gap-4">
-            {spotlight.data.tags.map((t: string) => (
-              <a
-                href={`/photos/tag/${t}`}
-                class=" transition duration-150 rounded-lg px-2 py-1"
-              >
-                {t}
-              </a>
-            ))}
-          </div>
-          <p class="text-center">{spotlight.data.alt}</p>
-        </div>
-      )
-    }
-    {
-      !spotlight && !tag && (
-        <div class="flex flex-wrap gap-3 justify-center md:justify-normal">
-          {allTags.map((t) => (
-            <a href={`/photos/tag/${t}`} class="text-center">
-              <div class="grid grid-cols-2 grid-rows-2 h-36 w-36 md:h-48 md:w-48 aspect-square">
-                {photosByTag[t].length === 1 ? (
-                  <img
-                    src={photosByTag[t][0].data.url.src}
-                    alt={photosByTag[t][0].data.alt}
-                    class="object-cover col-span-2 row-span-2 h-full overflow-hidden"
-                  />
-                ) : photosByTag[t].length === 2 ? (
-                  <>
-                    <img
-                      src={photosByTag[t][0].data.url.src}
-                      alt={photosByTag[t][0].data.alt}
-                      class="object-cover row-span-2 h-full overflow-hidden"
-                    />
-                    <img
-                      src={photosByTag[t][1].data.url.src}
-                      alt={photosByTag[t][1].data.alt}
-                      class="object-cover row-span-2 overflow-hidden h-full"
-                    />
-                  </>
-                ) : photosByTag[t].length >= 3 ? (
-                  <>
-                    <img
-                      src={photosByTag[t][0].data.url.src}
-                      alt={photosByTag[t][0].data.alt}
-                      class="object-cover row-span-2 h-full overflow-hidden"
-                    />
-                    <img
-                      src={photosByTag[t][1].data.url.src}
-                      alt={photosByTag[t][1].data.alt}
-                      class="object-cover overflow-hidden h-full"
-                    />
-                    <img
-                      src={photosByTag[t][2].data.url.src}
-                      alt={photosByTag[t][2].data.alt}
-                      class="object-cover h-full"
-                    />
-                  </>
-                ) : (
-                  <div />
-                )}
-              </div>
-              {t}
-            </a>
-          ))}
-        </div>
-      )
-    }
-    <div class="columns-3 gap-2 p-1">
-      {
-        photos.map((photo) => (
-          <div class="mb-2">
-            {spotlight?.id === photo.id ? (
-              <img
-                transition:name={`${photo.id}-spotlight`}
-                src={photo.data.url.src}
-                alt={photo.data.alt}
-                class="opacity-25"
-              />
-            ) : (
-              <a href={`/photos/${tag ? `tag/${tag}/` : ''}${photo.slug}`}>
-                <img
-                  transition:name={photo.id}
-                  src={photo.data.url.src}
-                  alt={photo.data.alt}
-                />
-              </a>
-            )}
-          </div>
-        ))
-      }
-    </div>
-  </section>
+  </div>
 </BaseLayout>
 
-<script>
-  document.addEventListener('astro:before-swap', () => {
-    sessionStorage.setItem('scrollPosition', window.scrollY.toString())
-  })
-
-  document.addEventListener('astro:after-swap', () => {
-    const scrollPosition = sessionStorage.getItem('scrollPosition')
-    if (scrollPosition) {
-      window.scrollTo({
-        top: parseInt(scrollPosition, 10),
-        behavior: 'instant',
-      })
-      sessionStorage.removeItem('scrollPosition')
-    }
-  })
-</script>
+<style>
+  .photo-grid:hover img {
+    opacity: 0.6;
+  }
+  .photo-grid a:hover img {
+    opacity: 1;
+  }
+</style>
