@@ -22,7 +22,7 @@ export async function GET(context: APIContext) {
     items: posts
       .toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .map((post) => ({
-        link: post.data.link ?? `/blog/${post.slug}`,
+        link: post.data.link ?? `/blog/${post.id}`,
         title: post.data.title,
         content: post.body
           ? sanitizeHtml(parser.render(post.body), {
