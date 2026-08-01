@@ -745,6 +745,18 @@ class SequoiaRecommend extends SequoiaActionBase {
 		return this.actioned ? config.unaction : config.action;
 	}
 
+	getDefaultActionLabel() {
+		return (
+			RECOMMEND_ICON_TYPES[this.buttonType] ?? RECOMMEND_ICON_TYPES.heart
+		).action;
+	}
+
+	getDefaultUnactionLabel() {
+		return (
+			RECOMMEND_ICON_TYPES[this.buttonType] ?? RECOMMEND_ICON_TYPES.heart
+		).unaction;
+	}
+
 	getIcon() {
 		const config =
 			RECOMMEND_ICON_TYPES[this.buttonType] ?? RECOMMEND_ICON_TYPES.heart;

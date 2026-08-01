@@ -1,4 +1,4 @@
-name: Publish Standard.site
+name: Publish
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     paths:
       - 'src/content/blog/**'
       - 'sequoia.json'
-      - '.github/workflows/publish-standard-site.yml'
+      - '.github/workflows/publish.yml'
   workflow_dispatch:
 
 permissions:
@@ -33,6 +33,16 @@ jobs:
             exit 1
           fi
 
+      - name: Require AT Proto secrets
+        env:
+          ATP_IDENTIFIER: ${{ secrets.ATP_IDENTIFIER }}
+          ATP_APP_PASSWORD: ${{ secrets.ATP_APP_PASSWORD }}
+        run: |
+          if [ -z "$ATP_IDENTIFIER" ] || [ -z "$ATP_APP_PASSWORD" ]; then
+            echo "::error::Set GitHub secrets ATP_IDENTIFIER and ATP_APP_PASSWORD (app password from bsky.app)."
+            exit 1
+          fi
+
       - name: Publish to AT Proto
         env:
           ATP_IDENTIFIER: ${{ secrets.ATP_IDENTIFIER }}
@@ -45,7 +55,7 @@ jobs:
           MASTODON_URL: ${{ secrets.MASTODON_URL }}
         run: |
           if [ -z "$MASTODON_ACCESS_TOKEN" ]; then
-            echo "MASTODON_ACCESS_TOKEN not set; skipping Mastodon announce"
+            echo "::warning::MASTODON_ACCESS_TOKEN secret not set — skipping Mastodon announce. Add it under repo Settings → Secrets."
             exit 0
           fi
           npx tsx scripts/announce-mastodon.ts

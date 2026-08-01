@@ -1,0 +1,136 @@
+---
+/**
+ * Soft webmention display via webmention.io.
+ * Sign up at https://webmention.io with https://lindsaykwardell.com — endpoint links are in BaseLayout.
+ */
+interface Props {
+  targetUrl: string
+}
+
+const { targetUrl } = Astro.props
+
+type Mention = {
+  type?: string
+  author?: {
+    name?: string
+    photo?: string
+    url?: string
+  }
+  url?: string
+  published?: string
+  content?: { text?: string }
+  'wm-property'?: string
+}
+
+let mentions: Mention[] = []
+
+try {
+  const api = new URL('https://webmention.io/api/mentions.jf2')
+  api.searchParams.set('target', targetUrl)
+  api.searchParams.set('per-page', '50')
+  const res = await fetch(api)
+  if (res.ok) {
+    const data = await res.json()
+    mentions = (data.children ?? []) as Mention[]
+  }
+} catch (err) {
+  console.error('Webmention fetch failed:', err)
+}
+
+const likes = mentions.filter((m) =>
+  ['like-of', 'bookmark-of'].includes(m['wm-property'] ?? ''),
+)
+const replies = mentions.filter((m) =>
+  ['in-reply-to', 'mention-of'].includes(m['wm-property'] ?? ''),
+)
+const reposts = mentions.filter((m) => m['wm-property'] === 'repost-of')
+
+const hasAny = likes.length + replies.length + reposts.length > 0
+---
+
+{
+  hasAny && (
+    <section class="not-prose flex flex-col gap-3" aria-label="Webmentions">
+      <h2 class="font-title text-lg text-foreground">Mentions</h2>
+
+      {likes.length > 0 && (
+        <div>
+          <h3 class="text-sm text-muted mb-2">
+            {likes.length} {likes.length === 1 ? 'like' : 'likes'} & bookmarks
+          </h3>
+          <div class="flex flex-wrap -space-x-2">
+            {likes.map((m) =>
+              m.author?.photo ? (
+                <a
+                  href={m.author.url || m.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block w-8 h-8"
+                  title={m.author.name}
+                >
+                  <img
+                    src={m.author.photo}
+                    alt={m.author.name ?? ''}
+                    class="w-8 h-8 rounded-full border-2 border-background object-cover"
+                    loading="lazy"
+                  />
+                </a>
+              ) : null,
+            )}
+          </div>
+        </div>
+      )}
+
+      {reposts.length > 0 && (
+        <p class="text-sm text-muted">
+          Reposted {reposts.length} {reposts.length === 1 ? 'time' : 'times'}
+        </p>
+      )}
+
+      {replies.length > 0 && (
+        <ul class="flex flex-col gap-4">
+          {replies.map((m) => (
+            <li class="border-l-2 border-divider pl-4">
+              <div class="flex items-center gap-2 text-sm">
+                {m.author?.photo && (
+                  <img
+                    src={m.author.photo}
+                    alt=""
+                    class="w-6 h-6 rounded-full object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <a
+                  href={m.author?.url || m.url}
+                  class="font-title hover:text-hover"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {m.author?.name ?? 'Someone'}
+                </a>
+                {m.published && (
+                  <time class="text-muted">
+                    {Intl.DateTimeFormat('en-us').format(new Date(m.published))}
+                  </time>
+                )}
+              </div>
+              {m.content?.text && (
+                <p class="text-sm mt-1 text-foreground/90">{m.content.text}</p>
+              )}
+              {m.url && (
+                <a
+                  href={m.url}
+                  class="text-xs text-muted underline hover:text-hover"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View mention
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )
+}

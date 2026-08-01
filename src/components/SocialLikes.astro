@@ -1,46 +1,39 @@
 ---
+/**
+ * Quiet engagement row: avatars (likes + recommends) + Recommend / Leave a comment.
+ */
 interface Props {
   blueskyUri?: string | null
   blueskyUrl?: string | null
   mastodonId?: string | null
   mastodonUrl?: string | null
+  /** standard.site document AT-URI — used for recommend backlinks */
+  documentAtUri?: string | null
+  showRecommend?: boolean
 }
 
-const { blueskyUri, blueskyUrl, mastodonId, mastodonUrl } = Astro.props
+const {
+  blueskyUri,
+  blueskyUrl,
+  mastodonId,
+  mastodonUrl,
+  documentAtUri,
+  showRecommend = false,
+} = Astro.props
 
 const BSKY_API = 'https://public.api.bsky.app/xrpc/'
 const BSKY_HANDLE = 'lindsaykwardell.com'
 const MASTODON_API = 'https://mastodon.social/api/v1'
+const CONSTELLATION =
+  'https://constellation.microcosm.blue/xrpc/blue.microcosm.links.getBacklinks'
 const LIMIT = 50
 
-type BskyLike = {
-  actor: {
-    did: string
-    handle: string
-    displayName?: string
-    avatar?: string
-  }
-}
-
-type BskyLikesResponse = {
-  likes: BskyLike[]
-  cursor?: string
-}
-
-type MastodonAccount = {
-  id: string
-  username: string
-  display_name: string
-  avatar: string
-  url: string
-}
-
-type SocialLike = {
-  platform: 'bluesky' | 'mastodon'
+type SocialFace = {
   id: string
   displayName: string
   avatar?: string
   profileUrl: string
+  source: 'bluesky' | 'mastodon' | 'recommend'
 }
 
 function bskyUrlFromUri(uri: string): string {
@@ -48,33 +41,53 @@ function bskyUrlFromUri(uri: string): string {
   return `https://bsky.app/profile/${BSKY_HANDLE}/post/${rkey}`
 }
 
-let likes: SocialLike[] = []
-let totalLikeCount = 0
+async function profilesForDids(
+  dids: string[],
+): Promise<Map<string, { handle: string; displayName: string; avatar?: string }>> {
+  const map = new Map<
+    string,
+    { handle: string; displayName: string; avatar?: string }
+  >()
+  const unique = [...new Set(dids)].slice(0, LIMIT)
+  if (unique.length === 0) return map
+
+  // getProfiles accepts repeated actors= params; batch in chunks of 25
+  for (let i = 0; i < unique.length; i += 25) {
+    const chunk = unique.slice(i, i + 25)
+    const url = new URL(`${BSKY_API}app.bsky.actor.getProfiles`)
+    for (const did of chunk) url.searchParams.append('actors', did)
+    const res = await fetch(url)
+    if (!res.ok) continue
+    const data = await res.json()
+    for (const profile of data.profiles ?? []) {
+      map.set(profile.did, {
+        handle: profile.handle,
+        displayName: profile.displayName || profile.handle,
+        avatar: profile.avatar?.replace(
+          '/img/avatar/',
+          '/img/avatar_thumbnail/',
+        ),
+      })
+    }
+  }
+  return map
+}
+
 const resolvedBskyUrl =
   blueskyUrl || (blueskyUri ? bskyUrlFromUri(blueskyUri) : null)
 const resolvedMastodonUrl = mastodonUrl || null
 
+const faces: SocialFace[] = []
+
 try {
   if (blueskyUri) {
-    const postsResponse = await fetch(
-      `${BSKY_API}app.bsky.feed.getPosts?uris=${encodeURIComponent(blueskyUri)}`,
-    )
-    if (postsResponse.ok) {
-      const postsData = await postsResponse.json()
-      const post = postsData.posts?.[0]
-      if (post) {
-        totalLikeCount += post.likeCount ?? 0
-      }
-    }
-
     const likesResponse = await fetch(
       `${BSKY_API}app.bsky.feed.getLikes?uri=${encodeURIComponent(blueskyUri)}&limit=${LIMIT}`,
     )
     if (likesResponse.ok) {
-      const likesData: BskyLikesResponse = await likesResponse.json()
-      likes.push(
-        ...likesData.likes.map((like) => ({
-          platform: 'bluesky' as const,
+      const likesData = await likesResponse.json()
+      for (const like of likesData.likes ?? []) {
+        faces.push({
           id: like.actor.did,
           displayName: like.actor.displayName || like.actor.handle,
           avatar: like.actor.avatar?.replace(
@@ -82,8 +95,9 @@ try {
             '/img/avatar_thumbnail/',
           ),
           profileUrl: `https://bsky.app/profile/${like.actor.handle}`,
-        })),
-      )
+          source: 'bluesky',
+        })
+      }
     }
   }
 } catch (error) {
@@ -92,129 +106,176 @@ try {
 
 try {
   if (mastodonId) {
-    const statusResponse = await fetch(
-      `${MASTODON_API}/statuses/${mastodonId}`,
-    )
-    if (statusResponse.ok) {
-      const status = await statusResponse.json()
-      totalLikeCount += status.favourites_count ?? 0
-    }
-
     const favouritesResponse = await fetch(
       `${MASTODON_API}/statuses/${mastodonId}/favourited_by?limit=${LIMIT}`,
     )
     if (favouritesResponse.ok) {
-      const accounts: MastodonAccount[] = await favouritesResponse.json()
-      likes.push(
-        ...accounts.map((account) => ({
-          platform: 'mastodon' as const,
-          id: account.id,
+      const accounts = await favouritesResponse.json()
+      for (const account of accounts) {
+        faces.push({
+          id: `mastodon:${account.id}`,
           displayName: account.display_name || account.username,
           avatar: account.avatar,
           profileUrl: account.url,
-        })),
-      )
+          source: 'mastodon',
+        })
+      }
     }
   }
 } catch (error) {
   console.error('Error fetching Mastodon likes:', error)
 }
 
-const uniqueLikes = likes.filter(
-  (like, index, self) =>
-    index ===
-    self.findIndex((l) => l.id === like.id && l.platform === like.platform),
-)
+try {
+  if (documentAtUri) {
+    const url = new URL(CONSTELLATION)
+    url.searchParams.set('subject', documentAtUri)
+    url.searchParams.set('source', 'site.standard.graph.recommend:document')
+    url.searchParams.set('limit', String(LIMIT))
+    const res = await fetch(url)
+    if (res.ok) {
+      const data = await res.json()
+      const records: { did: string }[] = data.records ?? []
+      const already = new Set(faces.map((f) => f.id))
+      const missingDids = records
+        .map((r) => r.did)
+        .filter((did) => did && !already.has(did))
+      const profiles = await profilesForDids(missingDids)
 
-const displayedLikes = uniqueLikes.slice(0, LIMIT)
-const remainingLikes = totalLikeCount - displayedLikes.length
+      for (const record of records) {
+        if (!record.did || already.has(record.did)) continue
+        already.add(record.did)
+        const profile = profiles.get(record.did)
+        faces.push({
+          id: record.did,
+          displayName: profile?.displayName || profile?.handle || 'Someone',
+          avatar: profile?.avatar,
+          profileUrl: profile
+            ? `https://bsky.app/profile/${profile.handle}`
+            : `https://bsky.app/profile/${record.did}`,
+          source: 'recommend',
+        })
+      }
+    }
+  }
+} catch (error) {
+  console.error('Error fetching recommends:', error)
+}
+
+// Prefer one face per person (DID); Mastodon entries keep their own ids
+const displayed = faces
+  .filter(
+    (face, index, self) => index === self.findIndex((f) => f.id === face.id),
+  )
+  .slice(0, LIMIT)
+
+const hasFaces = displayed.length > 0
+const showComment = Boolean(resolvedBskyUrl)
+const showBlock = hasFaces || showRecommend || showComment
 ---
 
 {
-  displayedLikes.length > 0 && (resolvedBskyUrl || resolvedMastodonUrl) && (
-    <div class="social-likes not-prose">
-      <div class="flex flex-col items-center gap-4">
-        <div class="flex items-center gap-3 text-muted">
-          {resolvedBskyUrl && (
+  showBlock && (
+    <div class="social-likes not-prose" aria-label="Responses">
+      <div class="flex flex-col items-center gap-3">
+        <div class="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 text-muted">
+          {showRecommend && <sequoia-recommend hide="auto" />}
+
+          {showRecommend && showComment && (
+            <span class="text-divider/80 px-1 select-none" aria-hidden="true">
+              ·
+            </span>
+          )}
+
+          {showComment && (
             <a
-              href={resolvedBskyUrl}
+              href={resolvedBskyUrl!}
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-hover transition duration-150"
-              title="View on Bluesky"
+              class="social-action-link"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   fill="currentColor"
-                  d="M12 11.388c-.906-1.761-3.372-5.044-5.665-6.662c-2.197-1.55-3.034-1.283-3.583-1.033C2.116 3.978 2 4.955 2 5.528c0 .575.315 4.709.52 5.4c.68 2.28 3.094 3.05 5.32 2.803c-3.26.483-6.157 1.67-2.36 5.898c4.178 4.325 5.726-.927 6.52-3.59c.794 2.663 1.708 7.726 6.444 3.59c3.556-3.59.977-5.415-2.283-5.898c2.225.247 4.64-.523 5.319-2.803c.205-.69.52-4.825.52-5.399c0-.575-.116-1.55-.752-1.838c-.549-.248-1.386-.517-3.583 1.033c-2.293 1.621-4.76 4.904-5.665 6.664"
+                  d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 14H5.2L4 17.2V4h16z"
                 />
               </svg>
+              Leave a comment
             </a>
           )}
+
           {resolvedMastodonUrl && (
-            <a
-              href={resolvedMastodonUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:text-hover transition duration-150"
-              title="View on Mastodon"
-            >
-              <svg width="20" height="20" viewBox="0 0 16 16">
-                <path
-                  fill="currentColor"
-                  d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603c.348-1.778.32-4.339.32-4.339c0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091c.083 3.394.626 6.74 3.78 7.57c1.454.383 2.703.463 3.709.408c1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295c-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541c-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046c.456-.505 1.052-.764 1.793-.764c.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983c.74 0 1.336.259 1.791.764c.442.505.661 1.187.661 2.046v4.203z"
-                />
-              </svg>
-            </a>
-          )}
-          <span class="text-sm font-medium">
-            {totalLikeCount} {totalLikeCount === 1 ? ' like' : ' likes'}
-          </span>
-        </div>
-        <div class="flex flex-wrap justify-center -space-x-2">
-          {displayedLikes.map((like) =>
-            like.avatar ? (
-              <a
-                href={like.profileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block w-8 h-8"
-              >
-                <img
-                  src={like.avatar}
-                  alt={like.displayName}
-                  title={like.displayName}
-                  class="w-8 h-8 rounded-full border-2 border-background object-cover"
-                  loading="lazy"
-                />
-              </a>
-            ) : (
-              <a
-                href={like.profileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block w-8 h-8"
-              >
-                <div
-                  class="w-8 h-8 rounded-full border-2 border-background bg-muted flex items-center justify-center text-background text-xs font-bold"
-                  title={like.displayName}
+            <>
+              {(showRecommend || showComment) && (
+                <span
+                  class="text-divider/80 px-1 select-none"
+                  aria-hidden="true"
                 >
-                  {like.displayName.charAt(0).toUpperCase()}
-                </div>
+                  ·
+                </span>
+              )}
+              <a
+                href={resolvedMastodonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-action-link"
+                title="View on Mastodon"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603c.348-1.778.32-4.339.32-4.339c0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091c.083 3.394.626 6.74 3.78 7.57c1.454.383 2.703.463 3.709.408c1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295c-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541c-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046c.456-.505 1.052-.764 1.793-.764c.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983c.74 0 1.336.259 1.791.764c.442.505.661 1.187.661 2.046v4.203z"
+                  />
+                </svg>
+                Mastodon
               </a>
-            ),
-          )}
-          {remainingLikes > 0 && (
-            <div class="w-8 h-8 rounded-full border-2 border-background bg-accent flex items-center justify-center text-foreground text-xs font-bold">
-              +{remainingLikes}
-            </div>
+            </>
           )}
         </div>
+
+        {hasFaces && (
+          <div class="flex flex-wrap justify-center -space-x-2">
+            {displayed.map((face) =>
+              face.avatar ? (
+                <a
+                  href={face.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block w-8 h-8 transition-transform duration-150 hover:z-10 hover:scale-110"
+                  title={face.displayName}
+                >
+                  <img
+                    src={face.avatar}
+                    alt=""
+                    class="w-8 h-8 rounded-full border-2 border-background object-cover"
+                    loading="lazy"
+                  />
+                </a>
+              ) : (
+                <a
+                  href={face.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block w-8 h-8 transition-transform duration-150 hover:z-10 hover:scale-110"
+                  title={face.displayName}
+                >
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-background bg-divider/60 flex items-center justify-center text-foreground text-xs font-title"
+                    aria-hidden="true"
+                  >
+                    {face.displayName.charAt(0).toUpperCase()}
+                  </div>
+                </a>
+              ),
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

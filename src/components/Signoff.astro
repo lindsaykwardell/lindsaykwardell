@@ -1,5 +1,4 @@
 ---
-import Newsletter from './Newsletter.astro'
 import SocialLinks from './SocialLinks.astro'
 
 interface Props {
@@ -46,5 +45,4 @@ const { hideIntro = false } = Astro.props
       <SocialLinks class={hideIntro ? 'justify-center gap-4' : ''} />
     </div>
   </div>
-  <Newsletter />
 </section>

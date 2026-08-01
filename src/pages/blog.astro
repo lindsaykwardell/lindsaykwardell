@@ -38,16 +38,6 @@ const postsByYear = (await getCollection('blog'))
       </div>
     )
   }
-  {
-    publicationAtUri && (
-      <div class="flex justify-end px-2 md:px-0 pb-4">
-        <sequoia-subscribe button-type="bluesky" hide="auto" />
-        <script>
-          import '@/components/sequoia-subscribe.js'
-        </script>
-      </div>
-    )
-  }
   <ul class="pb-7">
     {
       Object.entries(postsByYear)

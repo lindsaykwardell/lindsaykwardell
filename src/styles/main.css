@@ -21,11 +21,78 @@ body {
   @apply bg-gradient-to-br from-background via-background to-accent text-foreground font-body min-h-screen;
 
   --sequoia-fg-color: var(--color-foreground);
-  --sequoia-bg-color: var(--color-background);
+  --sequoia-bg-color: transparent;
   --sequoia-border-color: var(--color-divider);
   --sequoia-accent-color: var(--color-hover);
   --sequoia-secondary-color: var(--color-muted);
-  --sequoia-border-radius: 6px;
+  --sequoia-border-radius: 4px;
+}
+
+/* Quiet post afterword — engagement stays secondary to the essay */
+.post-afterword {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+}
+
+/* Recommend sits in the likes meta row — same weight as action links */
+.social-likes sequoia-recommend::part(button),
+.social-likes .social-action-link {
+  background: transparent;
+  color: var(--color-muted);
+  border: none;
+  border-radius: 4px;
+  padding: 0.15rem 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  box-shadow: none;
+  gap: 0.35rem;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.social-likes .social-action-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.social-likes sequoia-recommend::part(button):hover:not(:disabled),
+.social-likes .social-action-link:hover {
+  background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  color: var(--color-hover);
+}
+
+.social-likes sequoia-recommend::part(button):focus-visible,
+.social-likes .social-action-link:focus-visible {
+  outline: 2px solid var(--color-hover);
+  outline-offset: 2px;
+}
+
+.post-comments:has(sequoia-comments[style*='display: none']),
+.post-comments:not(:has(sequoia-comments)) {
+  display: none;
+}
+
+.post-comments {
+  font-family: var(--font-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-likes a,
+  .social-likes sequoia-recommend::part(button),
+  .social-likes .social-action-link {
+    transition: none;
+  }
+
+  .social-likes a:hover {
+    transform: none;
+  }
 }
 
 html {

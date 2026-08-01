@@ -107,53 +107,57 @@ const styles = `
 .sequoia-comments-header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 1rem;
-	padding-bottom: 0.75rem;
+	align-items: baseline;
+	gap: 1rem;
+	margin-bottom: 0.75rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--sequoia-border-color, #e5e7eb) 70%, transparent);
 }
 
 .sequoia-comments-title {
 	font-size: 1.125rem;
 	font-weight: 600;
 	margin: 0;
+	font-family: var(--font-title, Georgia, serif);
+	color: var(--sequoia-fg-color, #1f2937);
 }
 
 .sequoia-reply-button {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.375rem;
-	padding: 0.5rem 1rem;
-	border: none;
-	border-radius: var(--sequoia-border-radius, 15px);
-	font-size: 0.875rem;
+	padding: 0.35rem 0.75rem;
+	border: 1px solid color-mix(in srgb, var(--sequoia-border-color, #e5e7eb) 80%, transparent);
+	border-radius: var(--sequoia-border-radius, 4px);
+	font-size: 0.8125rem;
 	font-weight: 500;
 	cursor: pointer;
 	text-decoration: none;
-	transition: background-color 0.15s ease;
-	margin-left:10px;
+	transition:
+		color 0.15s ease,
+		border-color 0.15s ease,
+		background-color 0.15s ease;
+	background: transparent;
+	color: var(--sequoia-secondary-color, #6b7280);
+	margin-left: 0;
 }
 
-.sequoia-reply-bluesky {
-	background: var(--sequoia-accent-color, #2563eb);
-	color: #ffffff;
-}
-
+.sequoia-reply-bluesky,
 .sequoia-reply-blacksky {
-	background: var(--sequoia-accent-color, #6060E9);
-	color: #ffffff;
+	background: transparent;
+	color: var(--sequoia-secondary-color, #6b7280);
 }
 
-.sequoia-reply-bluesky:hover {
-	background: color-mix(in srgb, var(--sequoia-accent-color, #2563eb) 85%, black);
-}
-
+.sequoia-reply-bluesky:hover,
 .sequoia-reply-blacksky:hover {
-	background: color-mix(in srgb, var(--sequoia-accent-color, #5252c3) 85%, black);
+	background: color-mix(in srgb, var(--sequoia-accent-color, #2563eb) 12%, transparent);
+	color: var(--sequoia-accent-color, #2563eb);
+	border-color: color-mix(in srgb, var(--sequoia-accent-color, #2563eb) 40%, var(--sequoia-border-color, #e5e7eb));
 }
 
 .sequoia-reply-button svg {
-	width: 1rem;
-	height: 1rem;
+	width: 0.875rem;
+	height: 0.875rem;
 }
 
 .sequoia-comments-list {
@@ -831,9 +835,23 @@ class SequoiaComments extends BaseElement {
 		}
 	}
 
+	hideContainer() {
+		this.commentsContainer.innerHTML = "";
+		this.style.display = "none";
+	}
+
+	showContainer() {
+		this.style.display = "";
+	}
+
 	render() {
 		switch (this.state.type) {
 			case "loading":
+				if (this.hide) {
+					this.hideContainer();
+					break;
+				}
+				this.showContainer();
 				this.commentsContainer.innerHTML = `
 					<div class="sequoia-loading">
 						<span class="sequoia-loading-spinner"></span>
@@ -843,18 +861,20 @@ class SequoiaComments extends BaseElement {
 				break;
 
 			case "no-document":
-				this.commentsContainer.innerHTML = `
+			case "no-comments-enabled":
+				if (this.hide) {
+					this.hideContainer();
+					break;
+				}
+				this.showContainer();
+				this.commentsContainer.innerHTML =
+					this.state.type === "no-document"
+						? `
 					<div class="sequoia-warning">
 						No document found. Add a <code>&lt;link rel="site.standard.document" href="at://..."&gt;</code> tag to your page.
 					</div>
-				`;
-				if (this.hide) {
-					this.commentsContainer.style.display = "none";
-				}
-				break;
-
-			case "no-comments-enabled":
-				this.commentsContainer.innerHTML = `
+				`
+						: `
 					<div class="sequoia-empty">
 						Comments are not enabled for this post.
 					</div>
@@ -862,6 +882,12 @@ class SequoiaComments extends BaseElement {
 				break;
 
 			case "empty":
+				// Quiet mode: no empty chrome — replies live on Bluesky when they exist.
+				if (this.hide) {
+					this.hideContainer();
+					break;
+				}
+				this.showContainer();
 				this.commentsContainer.innerHTML = `
 					<div class="sequoia-comments-header">
 						<h3 class="sequoia-comments-title">Comments</h3>
@@ -874,6 +900,11 @@ class SequoiaComments extends BaseElement {
 				break;
 
 			case "error":
+				if (this.hide) {
+					this.hideContainer();
+					break;
+				}
+				this.showContainer();
 				this.commentsContainer.innerHTML = `
 					<div class="sequoia-error">
 						Failed to load comments: ${escapeHtml(this.state.message)}
@@ -882,6 +913,7 @@ class SequoiaComments extends BaseElement {
 				break;
 
 			case "loaded": {
+				this.showContainer();
 				const replies =
 					this.state.thread.replies?.filter(isThreadViewPost) ?? [];
 				const quotes = this.state.quotes ?? [];
@@ -937,14 +969,12 @@ class SequoiaComments extends BaseElement {
 	 * light DOM is projected here and remains styleable by external CSS.
 	 * The default Bluesky/Blacksky buttons are used as fallback content.
 	 */
-	renderReplyButtons(postUrl, blackskyPostUrl) {
+	renderReplyButtons(postUrl, _blackskyPostUrl) {
 		return `
 			<slot name="reply-button">
-				<a href="${escapeHtml(postUrl)}" target="_blank" rel="noopener noreferrer" class="sequoia-reply-button sequoia-reply-bluesky">
+				<a href="${escapeHtml(postUrl)}" target="_blank" rel="noopener noreferrer" class="sequoia-reply-button sequoia-reply-bluesky" title="Reply on Bluesky" aria-label="Reply on Bluesky">
 					${BLUESKY_ICON}
-				</a>
-				<a href="${escapeHtml(blackskyPostUrl)}" target="_blank" rel="noopener noreferrer" class="sequoia-reply-button sequoia-reply-blacksky">
-					${BLACKSKY_ICON}
+					<span>Reply</span>
 				</a>
 			</slot>
 		`;
