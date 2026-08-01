@@ -4,10 +4,11 @@
  * ?type= falls back to a denser archive for that kind.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import Badge from '@/components/Badge.astro'
+import PhotoGrid from '@/components/PhotoGrid.astro'
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import { getPublicationUri } from '@/lib/standard-site'
+import { readingPostHref } from '@/lib/reading'
 
 type Post = CollectionEntry<'blog'>
 
@@ -123,6 +124,18 @@ function poemExcerpt(body: string | undefined, stanzas = 2): {
 }
 
 const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
+
+const photoArchive =
+  typeFilter === 'Photo'
+    ? filtered
+        .filter((post) => post.data.image && post.data.image !== 'null')
+        .map((post) => ({
+          id: post.id,
+          href: readingPostHref(post.id, 'Photo'),
+          url: post.data.image!,
+          alt: post.data.snippet || post.data.title,
+        }))
+    : []
 ---
 
 <BaseLayout
@@ -143,7 +156,13 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
             </h1>
             <p class="text-muted mt-2 text-base">
               {filtered.length}{' '}
-              {filtered.length === 1 ? 'piece' : 'pieces'}
+              {filtered.length === 1
+                ? typeFilter === 'Photo'
+                  ? 'photo'
+                  : 'piece'
+                : typeFilter === 'Photo'
+                  ? 'photos'
+                  : 'pieces'}
             </p>
           </div>
           <a href="/blog" class="text-muted hover:text-hover text-sm">
@@ -151,44 +170,50 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
           </a>
         </header>
 
-        <ul class="pt-2">
-          {Object.entries(filteredByYear)
-            .toSorted((a, b) => +b[0] - +a[0])
-            .map(([year, posts]) => (
-              <li class="pt-10">
-                <h2 class="font-title text-xl text-muted mb-5">{year}</h2>
-                <ul class="flex flex-col gap-6">
-                  {posts.map((post) => (
-                    <li
-                      class:list={[
-                        'grid gap-1 md:grid-cols-[1fr_auto] md:gap-x-6 md:items-baseline',
-                        post.data.draft && 'italic opacity-80',
-                      ]}
-                    >
-                      <div>
-                        <a
-                          href={`/blog/${post.id}`}
-                          class="font-title text-xl md:text-2xl text-foreground hover:text-hover"
-                          transition:name={`${post.id}-name`}
-                        >
-                          {post.data.title}
-                          {post.data.draft ? ' (Draft)' : ''}
-                        </a>
-                        {post.data.snippet && (
-                          <p class="text-muted mt-1 text-base leading-relaxed max-w-prose line-clamp-2">
-                            {post.data.snippet}
-                          </p>
-                        )}
-                      </div>
-                      <time class="text-sm text-muted shrink-0">
-                        {formatDate(post.data.pubDate)}
-                      </time>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-        </ul>
+        {typeFilter === 'Photo' ? (
+          <div class="pt-8">
+            <PhotoGrid photos={photoArchive} />
+          </div>
+        ) : (
+          <ul class="pt-2">
+            {Object.entries(filteredByYear)
+              .toSorted((a, b) => +b[0] - +a[0])
+              .map(([year, posts]) => (
+                <li class="pt-10">
+                  <h2 class="font-title text-xl text-muted mb-5">{year}</h2>
+                  <ul class="flex flex-col gap-6">
+                    {posts.map((post) => (
+                      <li
+                        class:list={[
+                          'grid gap-1 md:grid-cols-[1fr_auto] md:gap-x-6 md:items-baseline',
+                          post.data.draft && 'italic opacity-80',
+                        ]}
+                      >
+                        <div>
+                          <a
+                            href={readingPostHref(post.id, typeFilter)}
+                            class="font-title text-xl md:text-2xl text-foreground hover:text-hover"
+                            transition:name={`${post.id}-name`}
+                          >
+                            {post.data.title}
+                            {post.data.draft ? ' (Draft)' : ''}
+                          </a>
+                          {post.data.snippet && (
+                            <p class="text-muted mt-1 text-base leading-relaxed max-w-prose line-clamp-2">
+                              {post.data.snippet}
+                            </p>
+                          )}
+                        </div>
+                        <time class="text-sm text-muted shrink-0">
+                          {formatDate(post.data.pubDate)}
+                        </time>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+          </ul>
+        )}
       </div>
     ) : (
       <div class="blog-issue px-2 md:px-0 pb-16">
@@ -208,9 +233,6 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
                 <span class="text-divider/80" aria-hidden="true">
                   ·
                 </span>
-                <a href={`/blog?type=${lead.data.type}`}>
-                  <Badge type={lead.data.type ?? 'Personal'} />
-                </a>
                 <time datetime={lead.data.pubDate.toISOString()}>
                   {formatDate(lead.data.pubDate)}
                 </time>
@@ -340,7 +362,7 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
                     <img
                       src={photo.data.image}
                       alt={photo.data.snippet || photo.data.title}
-                      class="w-full aspect-square object-cover mb-4"
+                      class="w-full h-auto max-h-[28rem] object-contain mb-4"
                       loading="lazy"
                     />
                   )}
@@ -359,7 +381,7 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
                 </a>
                 <p class="mt-4">
                   <a
-                    href="/photos"
+                    href="/blog?type=Photo"
                     class="text-sm text-muted hover:text-hover"
                   >
                     Photo gallery
@@ -377,9 +399,6 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
                   <span class="text-divider/80" aria-hidden="true">
                     ·
                   </span>
-                  <a href={`/blog?type=${appearance.data.type}`}>
-                    <Badge type={appearance.data.type ?? 'Podcast'} />
-                  </a>
                   <time datetime={appearance.data.pubDate.toISOString()}>
                     {formatDate(appearance.data.pubDate)}
                   </time>
@@ -462,18 +481,13 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
                     {formatDate(post.data.pubDate)}
                   </time>
                   <div>
-                    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <a
-                        href={`/blog/${post.id}`}
-                        class="font-title text-xl md:text-2xl text-foreground hover:text-hover"
-                        transition:name={`${post.id}-name`}
-                      >
-                        {post.data.title}
-                      </a>
-                      <a href={`/blog?type=${post.data.type}`}>
-                        <Badge type={post.data.type ?? 'Personal'} />
-                      </a>
-                    </div>
+                    <a
+                      href={`/blog/${post.id}`}
+                      class="font-title text-xl md:text-2xl text-foreground hover:text-hover"
+                      transition:name={`${post.id}-name`}
+                    >
+                      {post.data.title}
+                    </a>
                     {post.data.snippet && (
                       <p class="mt-1.5 text-muted leading-relaxed max-w-2xl line-clamp-2">
                         {post.data.snippet}
@@ -497,16 +511,13 @@ const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
             </h2>
             <ul class="flex flex-col gap-5">
               {recentAppearances.map((post) => (
-                <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <li>
                   <a
                     href={`/blog/${post.id}`}
                     class="font-title text-lg md:text-xl text-foreground hover:text-hover"
                     transition:name={`${post.id}-name`}
                   >
                     {post.data.title}
-                  </a>
-                  <a href={`/blog?type=${post.data.type}`}>
-                    <Badge type={post.data.type ?? 'Podcast'} />
                   </a>
                 </li>
               ))}

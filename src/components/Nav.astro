@@ -1,6 +1,14 @@
 ---
-const pathname = new URL(Astro.request.url).pathname
+const url = new URL(Astro.request.url)
+const pathname = url.pathname
+const type = url.searchParams.get('type')
 const currentPath = pathname.slice(1) // remove the first "/"
+
+const isPhotos =
+  currentPath.startsWith('photos') ||
+  (currentPath.startsWith('blog') && type === 'Photo')
+const isReading =
+  currentPath.startsWith('blog') && type !== 'Photo'
 ---
 
 <nav class="flex gap-2 text-sm md:text-base" transition:name="nav">
@@ -14,15 +22,13 @@ const currentPath = pathname.slice(1) // remove the first "/"
   >
   <div class="text-divider">/</div>
   <a
-    class={currentPath.includes('blog') ? 'underline font-title' : 'font-title'}
+    class={isReading ? 'underline font-title' : 'font-title'}
     href="/blog">Reading</a
   >
   <div class="text-divider">/</div>
   <a
-    class={currentPath.includes('photos')
-      ? 'underline font-title'
-      : 'font-title'}
-    href="/photos">Photos</a
+    class={isPhotos ? 'underline font-title' : 'font-title'}
+    href="/blog?type=Photo">Photos</a
   >
   <div class="text-divider">/</div>
   <a
