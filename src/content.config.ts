@@ -15,6 +15,10 @@ const blog = defineCollection({
     link: z.string().url().optional(),
     name: z.string().optional(),
     published: z.boolean(),
+    /** Skip Sequoia publish when true (use alongside published: false). */
+    draft: z.boolean().optional(),
+    /** AT-URI for site.standard.document, written by `sequoia publish`. */
+    atUri: z.string().optional(),
   }),
 })
 

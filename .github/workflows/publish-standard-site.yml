@@ -1,0 +1,52 @@
+name: Publish Standard.site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/blog/**'
+      - 'sequoia.json'
+      - '.github/workflows/publish-standard-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Check publication is configured
+        run: |
+          uri=$(node -e "console.log(require('./sequoia.json').publicationUri||'')")
+          if [ -z "$uri" ]; then
+            echo "sequoia.json has no publicationUri. Run npm run sequoia:setup locally first."
+            exit 1
+          fi
+
+      - name: Publish to AT Proto
+        env:
+          ATP_IDENTIFIER: ${{ secrets.ATP_IDENTIFIER }}
+          ATP_APP_PASSWORD: ${{ secrets.ATP_APP_PASSWORD }}
+        run: npx sequoia publish
+
+      - name: Commit AT URIs and state if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sequoia.json .sequoia-state.json src/content/blog public/.well-known || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Publish standard.site documents to AT Proto"
+          git push

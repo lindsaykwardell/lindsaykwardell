@@ -6,6 +6,7 @@ author: "Lindsay Wardell"
 snippet: I hold up my life to the light and observe the shapes drawn across it.
 type: Poetry
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrfxmam2b"
 ---
 I hold up my life to the light\
 and observe the shapes drawn across it.

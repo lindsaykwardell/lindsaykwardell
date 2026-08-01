@@ -11,4 +11,5 @@ tags:
 name: 'This Dot Labs'
 type: Programming
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrvuv3h26"
 ---

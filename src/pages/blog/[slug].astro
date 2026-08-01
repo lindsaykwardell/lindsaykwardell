@@ -4,6 +4,10 @@ import Signoff from '@/components/Signoff.astro'
 import SocialLikes from '@/components/SocialLikes.astro'
 import { getCollection, getEntry, render } from 'astro:content'
 import Fuse from 'fuse.js'
+import {
+  getDocumentAtUri,
+  getPublicationUri,
+} from '@/lib/standard-site'
 
 const { slug } = Astro.params
 
@@ -36,6 +40,8 @@ const results = fuse
   .slice(0, 3)
 
 const { Content } = await render(post)
+const documentAtUri = getDocumentAtUri(post.id, post.data.atUri)
+const publicationAtUri = getPublicationUri()
 ---
 
 <BaseLayout
@@ -43,6 +49,8 @@ const { Content } = await render(post)
   description={post.data.snippet ?? ''}
   image={post.data.image ?? undefined}
   permalink={`/blog/${post.id}`}
+  documentAtUri={documentAtUri}
+  publicationAtUri={publicationAtUri}
 >
   <RootElement>
     <section class="flex flex-col gap-4 items-center pb-12">
@@ -75,8 +83,27 @@ const { Content } = await render(post)
         <Content />
       </article>
       <SocialLikes postUrl={`/blog/${post.id}`} />
+      {
+        documentAtUri && (
+          <div class="not-prose mt-8 flex flex-col gap-6">
+            <sequoia-recommend hide="auto" />
+            <div>
+              <h2 class="font-title text-2xl mb-4">Comments</h2>
+              <sequoia-comments hide="auto" />
+            </div>
+          </div>
+        )
+      }
       <Signoff />
     </div>
+    {
+      documentAtUri && (
+        <script>
+          import '@/components/sequoia-comments.js'
+          import '@/components/sequoia-subscribe.js'
+        </script>
+      )
+    }
     {
       results.length && (
         <aside class="py-8">

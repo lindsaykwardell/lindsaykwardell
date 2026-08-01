@@ -3,8 +3,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import Badge from '@/components/Badge.astro'
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
+import { getPublicationUri } from '@/lib/standard-site'
 
 const type = Astro.url.searchParams.get('type')
+const publicationAtUri = getPublicationUri()
 
 const postsByYear = (await getCollection('blog'))
   .filter(
@@ -28,11 +30,21 @@ const postsByYear = (await getCollection('blog'))
   )
 ---
 
-<BaseLayout>
+<BaseLayout publicationAtUri={publicationAtUri}>
   {
     type && (
       <div class="flex justify-end text-muted">
         <a href="/blog">← All content</a>
+      </div>
+    )
+  }
+  {
+    publicationAtUri && (
+      <div class="flex justify-end px-2 md:px-0 pb-4">
+        <sequoia-subscribe button-type="bluesky" hide="auto" />
+        <script>
+          import '@/components/sequoia-subscribe.js'
+        </script>
       </div>
     )
   }

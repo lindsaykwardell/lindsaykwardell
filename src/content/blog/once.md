@@ -6,6 +6,7 @@ author: "Lindsay Wardell"
 snippet: Once, the dream died. But only once.
 type: Poetry
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrgnr6v2l"
 ---
 Once, I dreamt of stars blazing,\
 Sunrise burning,\

@@ -8,6 +8,7 @@ tags:
 snippet: For 2026, I'm rekindling my website as a place for creativity and joy.
 type: Blog
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4u54x2f"
 ---
 It's been awhile since I just wrote a blog post, and a lot has happened. My last actual blog post was a review of 2022, which was probably the worst year of my life. Since then, I've gotten married, I have a new job that I love, and have discovered that I was probably hyperfixating a bit too much on tech.
 

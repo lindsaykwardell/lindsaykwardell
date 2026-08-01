@@ -6,6 +6,7 @@ author: "Lindsay Wardell"
 snippet: My overview of how things went in 2021
 type: Blog
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrlckuz2h"
 ---
 2021 was certainly a hectic year, to say the least. I'm going to dive into some of the key events that happened in my life this year, both personal and professional. 
 

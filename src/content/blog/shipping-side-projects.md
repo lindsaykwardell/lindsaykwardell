@@ -6,6 +6,7 @@ author: "Lindsay Wardell"
 snippet: The value of side projects is in how much value they give to us. Avoid the stress of unfinished side projects by correctly scoping them.
 type: Blog
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrjtsr62i"
 ---
 It's late at night. Everyone else has gone to bed, but you're up just a bit later. Your fingers are flying across the keys, your brain fighting against exhaustion but flowing with great ideas. In front of you, your laptop's fans hum gently as your side project's local environment runs in the terminal. Constantly switching between your IDE and the browser, you watch as your ideas come to life before you. It's truly a magical moment. Just one more feature, and it'll be ready to ship...
 

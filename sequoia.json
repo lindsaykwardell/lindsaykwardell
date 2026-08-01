@@ -1,0 +1,25 @@
+{
+  "$schema": "https://tangled.org/stevedylan.dev/sequoia/raw/main/sequoia.schema.json",
+  "siteUrl": "https://lindsaykwardell.com",
+  "contentDir": "./src/content/blog",
+  "imagesDir": "./public/blog",
+  "publicDir": "./public",
+  "outputDir": "./dist",
+  "pathPrefix": "/blog",
+  "publicationUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.publication/3mryg3h7oou2i",
+  "identity": "lindsaykwardell.com",
+  "publishContent": true,
+  "autoSync": true,
+  "frontmatter": {
+    "publishDate": "pubDate",
+    "description": "snippet",
+    "coverImage": "image"
+  },
+  "bluesky": {
+    "enabled": true,
+    "maxAgeDays": 30
+  },
+  "ui": {
+    "components": "src/components"
+  }
+}

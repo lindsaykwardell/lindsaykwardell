@@ -9,6 +9,7 @@ tags:
 snippet: If there's one thing that the Kindle got right, it was made to endure. And endure it did.
 type: Blog
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqyvw5v22"
 ---
 At the beginning of April, a notice went out to owners of older Kindle models that [their devices would no longer be supported](https://www.zdnet.com/article/amazon-ending-support-for-older-kindle-e-readers-in-may/). As an owner of a 3rd generation Kindle Keyboard that would soon be deprecated, it made me think about how long I've had the device, and how amazing it is that after 15 years, it's still working and in pretty good shape.
 

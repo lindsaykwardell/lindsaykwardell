@@ -11,6 +11,7 @@ tags:
 snippet: Hosting a static site is great, but what about comments? What can we do to store comments in a static site?
 type: Programming
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrzgtq522"
 ---
 
 ## From Wordpress to Jamstack

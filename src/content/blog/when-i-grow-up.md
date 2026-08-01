@@ -9,6 +9,7 @@ tags:
 snippet: "What do you want to be when you grow up?"
 type: Blog
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2yz2v2z"
 ---
 
 **"What do you want to be when you grow up?"** 

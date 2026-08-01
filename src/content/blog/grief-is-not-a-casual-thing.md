@@ -8,6 +8,7 @@ tags:
 snippet: It's not something you pick up as a hobby, or go to watch at the movies. Grief is more than that.
 type: Poetry
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr5v6ol2m"
 ---
 Grief is not a casual thing.
 

@@ -1,0 +1,332 @@
+{
+  "posts": {
+    "src/content/blog/kindle-in-memorial.md": {
+      "contentHash": "bfa78d48002e4503811c69dd7c39c88bfe01afc7ff661cbb3871a876be95a522",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqyvw5v22",
+      "lastPublished": "2026-08-01T02:54:53.628Z",
+      "slug": "kindle-in-memorial"
+    },
+    "src/content/blog/an-hour-before-showtime.md": {
+      "contentHash": "9e4dd1fd05cd1d1293f5f2230ee6c4167b52074a9ab044a87ba0fb1865ab73b1",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqzt3ln26",
+      "lastPublished": "2026-08-01T02:54:54.795Z",
+      "slug": "an-hour-before-showtime"
+    },
+    "src/content/blog/keep-learning.md": {
+      "contentHash": "95752af3ee55c8c7187b85ae9dcf270dbd1e34c8ff27bb4615956e33e1b497cb",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr2gych23",
+      "lastPublished": "2026-08-01T02:54:54.876Z",
+      "slug": "keep-learning"
+    },
+    "src/content/blog/dont-replace-yourself-with-ai.md": {
+      "contentHash": "95d7d654671b73a96df952867f459f125afe2cf333949a380e64ff10841db440",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr2uvmc2m",
+      "lastPublished": "2026-08-01T02:54:55.716Z",
+      "slug": "dont-replace-yourself-with-ai"
+    },
+    "src/content/blog/moments-and-moonlight.md": {
+      "contentHash": "f9773242163836d2980a6ba8f788c5d75dd863d72517227b533599b389b0f482",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4b7kz25",
+      "lastPublished": "2026-08-01T02:54:57.092Z",
+      "slug": "moments-and-moonlight"
+    },
+    "src/content/blog/rekindling.md": {
+      "contentHash": "0c573b2a7acedd3589f3b594c3ed25bca40c2d2ca1fc3dab52cb6be4abaa0aa2",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4u54x2f",
+      "lastPublished": "2026-08-01T02:54:57.656Z",
+      "slug": "rekindling"
+    },
+    "src/content/blog/no-words.md": {
+      "contentHash": "dbb5d9c26ea84e25a36c4955c08640779e3b1388c5c10d90ffe20f92af7f9978",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr56baq2h",
+      "lastPublished": "2026-08-01T02:54:57.736Z",
+      "slug": "no-words"
+    },
+    "src/content/blog/grief-is-not-a-casual-thing.md": {
+      "contentHash": "5985bd12994b7e4cdebcf3854d2b36ae770c0bd4f874a782d53af2628cae05f1",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr5v6ol2m",
+      "lastPublished": "2026-08-01T02:54:58.767Z",
+      "slug": "grief-is-not-a-casual-thing"
+    },
+    "src/content/blog/to-the-past.md": {
+      "contentHash": "e6bde40f068d3ea46702c445f6fef82584ee00709adf35b108a7ba3494dc794e",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr6etnn2l",
+      "lastPublished": "2026-08-01T02:54:59.024Z",
+      "slug": "to-the-past"
+    },
+    "src/content/blog/divorce.md": {
+      "contentHash": "6c785484c41c296b84c27f17c2e5a00a49afbb0c41a2035f9a787c85fe2a605a",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr6pdjw2i",
+      "lastPublished": "2026-08-01T02:54:59.361Z",
+      "slug": "divorce"
+    },
+    "src/content/blog/a-mistake.md": {
+      "contentHash": "39fd0ac901f1d0cea0cf77bf5ac75a049bd6207c7d6af196562d51cff4b4d28d",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrbfieo2i",
+      "lastPublished": "2026-08-01T02:55:06.387Z",
+      "slug": "a-mistake"
+    },
+    "src/content/blog/when-you-dream.md": {
+      "contentHash": "cf1f53617c19e03f5b2f67694479fc5cf57a8039180d34116bc80545db45d607",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrfj5f72f",
+      "lastPublished": "2026-08-01T02:55:06.483Z",
+      "slug": "when-you-dream"
+    },
+    "src/content/blog/the-life.md": {
+      "contentHash": "eb195ee37e52d9e0d83581ded1026b54d16fdb43a7dbb661686cbf1479988a2d",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrfxmam2b",
+      "lastPublished": "2026-08-01T02:55:07.263Z",
+      "slug": "the-life"
+    },
+    "src/content/blog/once.md": {
+      "contentHash": "61e37dd806e9dae016955c5dd1842ff4f1c2b30015c6ee2d8c53f55c0f83358a",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrgnr6v2l",
+      "lastPublished": "2026-08-01T02:55:07.934Z",
+      "slug": "once"
+    },
+    "src/content/blog/at-the-end.md": {
+      "contentHash": "bb7b72d396b69bcb61b78ce0cd26c6172c44c1c8f196196c3a679eb738412b29",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrgxth723",
+      "lastPublished": "2026-08-01T02:55:08.012Z",
+      "slug": "at-the-end"
+    },
+    "src/content/blog/2022-in-review.md": {
+      "contentHash": "5f1dfeb58d502ccdb617f4f55dafbd6b927e612c38aac87bf48525197a0499df",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh2cm522",
+      "lastPublished": "2026-08-01T02:55:08.094Z",
+      "slug": "2022-in-review"
+    },
+    "src/content/blog/what-could-i-say.md": {
+      "contentHash": "62bfc24129be3caf94600ac6ba8452797986d293d7aa24d2409096c95acc89f6",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh4rov2z",
+      "lastPublished": "2026-08-01T02:55:08.177Z",
+      "slug": "what-could-i-say"
+    },
+    "src/content/blog/i-am-not-dead.md": {
+      "contentHash": "927a141cb9212061d9fe8576c4b078a91bb63874ee923461ab453b54427e6230",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrhjzjf2z",
+      "lastPublished": "2026-08-01T02:55:08.875Z",
+      "slug": "i-am-not-dead"
+    },
+    "src/content/blog/integrate-mastodon-with-astro.md": {
+      "contentHash": "38d09969a23f12f00af8f6880a515e7ed4fe283f15eef284ac61cb21689fe7e9",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhri2yhf2l",
+      "lastPublished": "2026-08-01T02:55:09.357Z",
+      "slug": "integrate-mastodon-with-astro"
+    },
+    "src/content/blog/between-hope.md": {
+      "contentHash": "6a01250bc91aab46fb5117d07a3769caf4104afb4d080b079a2af43671f28ff6",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrikjjc2m",
+      "lastPublished": "2026-08-01T02:55:09.901Z",
+      "slug": "between-hope"
+    },
+    "src/content/blog/native-dialog-in-elm.md": {
+      "contentHash": "e9b52acb1b47b354c6fba7db2261654398e4175caeefe8fc49c45828cca76ab8",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrjfzez2h",
+      "lastPublished": "2026-08-01T02:55:10.930Z",
+      "slug": "native-dialog-in-elm"
+    },
+    "src/content/blog/shipping-side-projects.md": {
+      "contentHash": "d24bc8d34378f2e214c05c1fd8892392e06d32280d8e4151d52bd7dded22b719",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrjtsr62i",
+      "lastPublished": "2026-08-01T02:55:11.030Z",
+      "slug": "shipping-side-projects"
+    },
+    "src/content/blog/utilizing-elm-in-a-web-worker.md": {
+      "contentHash": "f0da576aab06e4be0bbc7c2496d8e71987653eb3dd3dd5981223772485dcff02",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrkaqw22x",
+      "lastPublished": "2026-08-01T02:55:11.705Z",
+      "slug": "utilizing-elm-in-a-web-worker"
+    },
+    "src/content/blog/coming-into-vue-whats-next-vue-3.md": {
+      "contentHash": "9b3becad7c3c346f5b05cd2cacb9109a9c64fed98abd7196a2caaf012cba31e3",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrkvsph26",
+      "lastPublished": "2026-08-01T02:55:12.464Z",
+      "slug": "coming-into-vue-whats-next-vue-3"
+    },
+    "src/content/blog/2021-in-review.md": {
+      "contentHash": "b5eeb2f3b531f615dc4d5b42cef6d8876152b84b4fee417ef3acccce5668166d",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrlckuz2h",
+      "lastPublished": "2026-08-01T02:55:12.560Z",
+      "slug": "2021-in-review"
+    },
+    "src/content/blog/setting-up-elm-in-2022.md": {
+      "contentHash": "006652eae498dfa4deed18295ed3fcdebaf6bca1adac9a72cdb58b429f75803b",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrlpup22t",
+      "lastPublished": "2026-08-01T02:55:13.268Z",
+      "slug": "setting-up-elm-in-2022"
+    },
+    "src/content/blog/upgrade-astro-0-21.md": {
+      "contentHash": "95d2afcf3f42baa8ef2b0b0cdf130f4b115e78e2ab876e58bff78ee8ae6f22e6",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrmbqx723",
+      "lastPublished": "2026-08-01T02:55:13.818Z",
+      "slug": "upgrade-astro-0-21"
+    },
+    "src/content/blog/2021-11-04-styling-sfc.md": {
+      "contentHash": "2847c18be28f37009fd99a34b23e23175f5d362880e33cffa230b809db21d513",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrmspwf2l",
+      "lastPublished": "2026-08-01T02:55:14.437Z",
+      "slug": "2021-11-04-styling-sfc"
+    },
+    "src/content/blog/rebuilding-site-with-astro.md": {
+      "contentHash": "4375b91861118366fe6aab8af0c9d040e709c716e9077f27eacfaeedfb16ba7f",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrnkct72p",
+      "lastPublished": "2026-08-01T02:55:15.154Z",
+      "slug": "rebuilding-site-with-astro"
+    },
+    "src/content/blog/2021-10-09-building-web-components-with-vue-3-2.md": {
+      "contentHash": "352e8d381faa4bcc19544b788eed259aadd7c165775421cbfbcb2f13b61dcbc5",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhro62sn22",
+      "lastPublished": "2026-08-01T02:55:15.844Z",
+      "slug": "2021-10-09-building-web-components-with-vue-3-2"
+    },
+    "src/content/blog/2021-09-20-vue-3-2-using-composition-api-with-script-setup.md": {
+      "contentHash": "986e2a73ff4600ae9745feab670910a6ae2563f89d0277f2f9783be7efc9db5b",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrp45jp23",
+      "lastPublished": "2026-08-01T02:55:16.768Z",
+      "slug": "2021-09-20-vue-3-2-using-composition-api-with-script-setup"
+    },
+    "src/content/blog/2021-08-18-tc39-how-changes-are-made-to-javascript.md": {
+      "contentHash": "cde6af9daf0f40b4cd53e7697f3ec2ae8bf95ea96291b39d285187624ed2032c",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrpt2xu2b",
+      "lastPublished": "2026-08-01T02:55:17.678Z",
+      "slug": "2021-08-18-tc39-how-changes-are-made-to-javascript"
+    },
+    "src/content/blog/2021-07-22-progressive-web-apps-and-mobile-apps.md": {
+      "contentHash": "cfd3c6b6729e8fff2ded423a9a67ddc8dce38d25086d9acdf4dfa4303b4a5793",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrr3gvj2h",
+      "lastPublished": "2026-08-01T02:55:18.936Z",
+      "slug": "2021-07-22-progressive-web-apps-and-mobile-apps"
+    },
+    "src/content/blog/2021-07-19-getting-started-with-tailwind-in-vue.md": {
+      "contentHash": "6f28bfbd4d400468458b67de2a1ca8780f3161d43ab1f469c8468e8bbf25158f",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrs3wxc2m",
+      "lastPublished": "2026-08-01T02:55:20.038Z",
+      "slug": "2021-07-19-getting-started-with-tailwind-in-vue"
+    },
+    "src/content/blog/2021-06-30-vue-3-1-official-migration-build-from-vue-2-to-3.md": {
+      "contentHash": "9fb94599bed125a23936b6958e6ef04a15f9173edc97e1399e2a159a34c86795",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrt35y22m",
+      "lastPublished": "2026-08-01T02:55:21.003Z",
+      "slug": "2021-06-30-vue-3-1-official-migration-build-from-vue-2-to-3"
+    },
+    "src/content/blog/2021-05-21-custom-composable-methods-with-vue-3.md": {
+      "contentHash": "14887a2432e9dd45ea212f0fff44b70aa39c0c320b1ee4f9de022b4697a6236a",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrtnhx22p",
+      "lastPublished": "2026-08-01T02:55:21.572Z",
+      "slug": "2021-05-21-custom-composable-methods-with-vue-3"
+    },
+    "src/content/blog/2021-05-18-provide-inject-api-with-vue-3.md": {
+      "contentHash": "c746b203de7ed7fada579accb859218ef70ef81c705e14be0fc6bde1537f30c1",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhruegd22p",
+      "lastPublished": "2026-08-01T02:55:22.330Z",
+      "slug": "2021-05-18-provide-inject-api-with-vue-3"
+    },
+    "src/content/blog/2021-04-29-watch-watcheffect.md": {
+      "contentHash": "390a97ed812936ee9cd1ad88b90ba6411995a61435d8dfd2805dd7ec65f9a667",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrv3reh23",
+      "lastPublished": "2026-08-01T02:55:23.166Z",
+      "slug": "2021-04-29-watch-watcheffect"
+    },
+    "src/content/blog/2021-04-27-computed-application-state.md": {
+      "contentHash": "85e5cac8405c1ec441922b4d25d2c8ec8f6ca7f9ca6fbb03be001cffcc565231",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrvuv3h26",
+      "lastPublished": "2026-08-01T02:55:23.872Z",
+      "slug": "2021-04-27-computed-application-state"
+    },
+    "src/content/blog/2021-03-24-vue-3-suspense.md": {
+      "contentHash": "2a369c17444cc72ff540cb726b7414374de59d30dba01f96508f34709b2f556a",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrwenyc2p",
+      "lastPublished": "2026-08-01T02:55:24.466Z",
+      "slug": "2021-03-24-vue-3-suspense"
+    },
+    "src/content/blog/2021-03-23-vue-3-ref-reactive.md": {
+      "contentHash": "a6ddb5e081b6eb4732a708fc1110d1024df659340c62b30c3ce2dc07aedbce0b",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrwybv22m",
+      "lastPublished": "2026-08-01T02:55:25.143Z",
+      "slug": "2021-03-23-vue-3-ref-reactive"
+    },
+    "src/content/blog/2021-03-16-intro-to-vite.md": {
+      "contentHash": "38e1344587d49dd00623143a17f4c4c577e81ab4b6482f2cede7650d6346b56a",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrxyk5n2z",
+      "lastPublished": "2026-08-01T02:55:26.324Z",
+      "slug": "2021-03-16-intro-to-vite"
+    },
+    "src/content/blog/git-comment-system.md": {
+      "contentHash": "308730447d8f4ac11fc6481de640a863c5707a4cfc10714ad1971bdbab7f7812",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrzgtq522",
+      "lastPublished": "2026-08-01T02:55:27.950Z",
+      "slug": "git-comment-system"
+    },
+    "src/content/blog/intro-to-http-wrapper.md": {
+      "contentHash": "726c5d160e25ddfc8f933ec52484e1f5fa394170d529cf895ba9b92c58afbab0",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2bsu22t",
+      "lastPublished": "2026-08-01T02:55:28.525Z",
+      "slug": "intro-to-http-wrapper"
+    },
+    "src/content/blog/when-i-grow-up.md": {
+      "contentHash": "36748f192b395ed8f89aafb3de0e5a217cb4967677c2b1fdbfe94b40a2abe0ea",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2yz2v2z",
+      "lastPublished": "2026-08-01T02:55:29.292Z",
+      "slug": "when-i-grow-up"
+    },
+    "src/content/blog/new-website.md": {
+      "contentHash": "cec80afab57ca8c8faba2806e169b871bf3871bb00b3bef8b247455005f2214c",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs3mbas2t",
+      "lastPublished": "2026-08-01T02:55:29.971Z",
+      "slug": "new-website"
+    },
+    "src/content/blog/where-do-you-turn.md": {
+      "contentHash": "a3a3d2aa279ddac39295ab024896c64790e865498ba1d632c21a164ffd6f125c",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs4lahl2m",
+      "lastPublished": "2026-08-01T02:55:30.990Z",
+      "slug": "where-do-you-turn"
+    },
+    "src/content/blog/the-character-and-the-narrator.md": {
+      "contentHash": "deed23fb73ad2676f29570becb113721b412dc4b0962f96dffebacea850f0257",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs5b5mv2l",
+      "lastPublished": "2026-08-01T02:55:31.638Z",
+      "slug": "the-character-and-the-narrator"
+    },
+    "src/content/blog/for-the-present.md": {
+      "contentHash": "bfb2fbcca34438b16101d3dabebc0ffcff5f1f4aedef63612d27c872aaa2c72e",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs63cim2i",
+      "lastPublished": "2026-08-01T02:55:32.548Z",
+      "slug": "for-the-present"
+    },
+    "src/content/blog/wars-of-the-juriels-live-demo.md": {
+      "contentHash": "a3e22b078c1585b20e18e7ae2221534dcb57a45c3a60cd5a9d15fca5cc3fd792",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs6ul652z",
+      "lastPublished": "2026-08-01T02:55:33.310Z",
+      "slug": "wars-of-the-juriels-live-demo"
+    },
+    "src/content/blog/wars-of-the-juriels.md": {
+      "contentHash": "be5780c65a84166a35a14dd9a5f0271d1fcfb7e7332d78a24e3bef0503148906",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs7gzy22p",
+      "lastPublished": "2026-08-01T02:55:33.975Z",
+      "slug": "wars-of-the-juriels"
+    },
+    "src/content/blog/short-story-the-last-wizard.md": {
+      "contentHash": "ceacbe669fbc5571ddd57f0432fc181fc489d94040a469e94f1b770a4cb03b7c",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsa6xm22p",
+      "lastPublished": "2026-08-01T02:55:34.725Z",
+      "slug": "short-story-the-last-wizard"
+    },
+    "src/content/blog/a-song-unsung.md": {
+      "contentHash": "42e1aadc9406809b3c0a2ca832a3db03524084f48dc6582dcba91ee12d848cb1",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsajlg22m",
+      "lastPublished": "2026-08-01T02:55:34.820Z",
+      "slug": "a-song-unsung"
+    },
+    "src/content/blog/it-was-meant-to-last-forever.md": {
+      "contentHash": "da2427a4a4c36ce5ee2bc57ea3d930911b1f7323697b293a144c2c06627dee05",
+      "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsbcvwg2i",
+      "lastPublished": "2026-08-01T02:55:36.139Z",
+      "slug": "it-was-meant-to-last-forever"
+    }
+  },
+  "publication": {
+    "cid": "bafyreigiaelsdt22cosjpwxmzpqtgs5vxgtiy7sp762mkkjxtlmihqdr2y",
+    "uri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.publication/3mryg3h7oou2i"
+  }
+}

@@ -14,10 +14,22 @@ interface Props {
   permalink?: string
   hideHeader?: boolean
   fullScreen?: boolean
+  /** site.standard.document AT-URI for verification */
+  documentAtUri?: string | null
+  /** site.standard.publication AT-URI for verification */
+  publicationAtUri?: string | null
 }
 
-let { title, description, image, permalink, hideHeader, fullScreen } =
-  Astro.props
+let {
+  title,
+  description,
+  image,
+  permalink,
+  hideHeader,
+  fullScreen,
+  documentAtUri,
+  publicationAtUri,
+} = Astro.props
 
 title = title || details.title
 description = description || details.description
@@ -62,6 +74,17 @@ permalink = permalink ? details.permalink + permalink : details.permalink
       title={details.title}
       href={new URL('rss.xml', details.permalink)}
     />
+
+    {
+      publicationAtUri && (
+        <link rel="site.standard.publication" href={publicationAtUri} />
+      )
+    }
+    {
+      documentAtUri && (
+        <link rel="site.standard.document" href={documentAtUri} />
+      )
+    }
 
     <!-- Bluesky comments -->
     <link

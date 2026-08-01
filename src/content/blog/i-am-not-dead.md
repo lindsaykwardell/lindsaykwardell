@@ -6,6 +6,7 @@ author: "Lindsay Wardell"
 snippet: I became myself. I will not apologize for it.
 type: Poetry
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrhjzjf2z"
 ---
 I am not dead.\
 I did not die.\

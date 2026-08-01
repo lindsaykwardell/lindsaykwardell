@@ -8,6 +8,7 @@ tags:
 snippet: I feared divorce because of what it meant.
 type: Poetry
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr6pdjw2i"
 ---
 
 I feared divorce because of what it meant.

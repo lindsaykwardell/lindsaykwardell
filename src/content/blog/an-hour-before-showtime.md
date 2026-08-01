@@ -9,6 +9,7 @@ tags:
 snippet: I am grateful that time is passed. I regret that I walked into it at all.
 type: Blog
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqzt3ln26"
 ---
 "I think we should start looking for other people."
 

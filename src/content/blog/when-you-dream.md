@@ -6,6 +6,7 @@ author: "Lindsay Wardell"
 snippet: When you dream, dream a big dream
 type: Poetry
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrfj5f72f"
 ---
 When you dream,\
 Dream a big dream.

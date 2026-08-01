@@ -8,6 +8,7 @@ tags:
 snippet: The universe may never know we're there, but we can still enjoy its beauty in the quiet moments, watching starlight that has taken years to reach us.
 type: Blog
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4b7kz25"
 ---
 I often feel like I don't have much to write about, much less something to write about that others will find interesting. I'm hoping to break that pattern this year, but it's something that has stopped me from joining in conversations online (such as on Bluesky) on more than one occasion. I'm just someone online, after all; why would anyone read what I have to say?
 

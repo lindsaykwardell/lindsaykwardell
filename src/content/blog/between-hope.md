@@ -8,6 +8,7 @@ tags:
 snippet: For now, I stand between hope, between joy, between lives.
 type: Poetry
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrikjjc2m"
 ---
 
 When I look to my past, \

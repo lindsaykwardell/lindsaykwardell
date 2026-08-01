@@ -9,6 +9,7 @@ tags:
 snippet: “Then it worked,” he finally said, breathless. “Yes, professor,” I agree. “It worked. You traveled in time.”
 type: Fiction
 published: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs63cim2i"
 ---
 *Note: This story touches briefly on suicide.*
 

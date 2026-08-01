@@ -19,6 +19,13 @@
 
 body {
   @apply bg-gradient-to-br from-background via-background to-accent text-foreground font-body min-h-screen;
+
+  --sequoia-fg-color: var(--color-foreground);
+  --sequoia-bg-color: var(--color-background);
+  --sequoia-border-color: var(--color-divider);
+  --sequoia-accent-color: var(--color-hover);
+  --sequoia-secondary-color: var(--color-muted);
+  --sequoia-border-radius: 6px;
 }
 
 html {

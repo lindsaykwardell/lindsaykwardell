@@ -7,4 +7,5 @@ tags:
 snippet:
 type: Blog
 published: false
+draft: true
 ---
