@@ -26,6 +26,8 @@ body {
   --sequoia-accent-color: var(--color-hover);
   --sequoia-secondary-color: var(--color-muted);
   --sequoia-border-radius: 4px;
+  --sequoia-font-family: var(--font-body);
+  --sequoia-title-font: var(--font-title);
 }
 
 /* Quiet post afterword — engagement stays secondary to the essay */
@@ -74,13 +76,8 @@ body {
   outline-offset: 2px;
 }
 
-.post-comments:has(sequoia-comments[style*='display: none']),
-.post-comments:not(:has(sequoia-comments)) {
+.post-comments:empty {
   display: none;
-}
-
-.post-comments {
-  font-family: var(--font-body);
 }
 
 @media (prefers-reduced-motion: reduce) {

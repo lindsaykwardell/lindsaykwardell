@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import Signoff from '@/components/Signoff.astro'
 import SocialLikes from '@/components/SocialLikes.astro'
+import PostComments from '@/components/PostComments.astro'
 import Webmentions from '@/components/Webmentions.astro'
 import { getCollection, getEntry, render } from 'astro:content'
 import Fuse from 'fuse.js'
@@ -95,13 +96,11 @@ const canonicalUrl = `${details.permalink}/blog/${post.id}`
           showRecommend={Boolean(documentAtUri)}
         />
         {
-          post.data.blueskyUri && (
-            <div class="post-comments">
-              <sequoia-comments
-                hide="auto"
-                post-uri={post.data.blueskyUri}
-              />
-            </div>
+          (post.data.blueskyUri || post.data.mastodonId) && (
+            <PostComments
+              blueskyUri={post.data.blueskyUri}
+              mastodonId={post.data.mastodonId}
+            />
           )
         }
         <Webmentions targetUrl={canonicalUrl} />
@@ -109,9 +108,8 @@ const canonicalUrl = `${details.permalink}/blog/${post.id}`
       <Signoff />
     </div>
     {
-      (documentAtUri || post.data.blueskyUri) && (
+      documentAtUri && (
         <script>
-          import '@/components/sequoia-comments.js'
           import '@/components/sequoia-subscribe.js'
         </script>
       )

@@ -1,0 +1,197 @@
+---
+/**
+ * Unified Bluesky + Mastodon replies, styled as a quiet afterword.
+ */
+interface Props {
+  blueskyUri?: string | null
+  mastodonId?: string | null
+}
+
+const { blueskyUri, mastodonId } = Astro.props
+
+const BSKY_API = 'https://public.api.bsky.app/xrpc/'
+const MASTODON_API = 'https://mastodon.social/api/v1'
+
+type Comment = {
+  id: string
+  platform: 'bluesky' | 'mastodon'
+  displayName: string
+  handle: string
+  profileUrl: string
+  url: string
+  text: string
+  /** Mastodon returns HTML; Bluesky is plain text */
+  html?: string
+  published: Date
+}
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>?/gm, '').trim()
+}
+
+function relativeTime(date: Date): string {
+  const diffMs = Date.now() - date.getTime()
+  const sec = Math.floor(diffMs / 1000)
+  const min = Math.floor(sec / 60)
+  const hr = Math.floor(min / 60)
+  const day = Math.floor(hr / 24)
+  const week = Math.floor(day / 7)
+  const month = Math.floor(day / 30)
+  const year = Math.floor(day / 365)
+  if (sec < 60) return 'just now'
+  if (min < 60) return `${min}m ago`
+  if (hr < 24) return `${hr}h ago`
+  if (day < 7) return `${day}d ago`
+  if (week < 4) return `${week}w ago`
+  if (month < 12) return `${month}mo ago`
+  return `${year}y ago`
+}
+
+type BskyThread = {
+  $type?: string
+  post?: {
+    uri: string
+    author: {
+      did: string
+      handle: string
+      displayName?: string
+    }
+    record?: { text?: string; createdAt?: string }
+    indexedAt?: string
+  }
+  replies?: BskyThread[]
+}
+
+function flattenBskyReplies(thread: BskyThread, out: Comment[] = []): Comment[] {
+  if (thread.$type !== 'app.bsky.feed.defs#threadViewPost' || !thread.post) {
+    return out
+  }
+  const { post } = thread
+  const text = post.record?.text?.trim()
+  if (text) {
+    const rkey = post.uri.split('/').pop()
+    out.push({
+      id: post.uri,
+      platform: 'bluesky',
+      displayName: post.author.displayName || post.author.handle,
+      handle: post.author.handle,
+      profileUrl: `https://bsky.app/profile/${post.author.handle}`,
+      url: `https://bsky.app/profile/${post.author.did}/post/${rkey}`,
+      text,
+      published: new Date(post.record?.createdAt || post.indexedAt || Date.now()),
+    })
+  }
+  for (const reply of thread.replies ?? []) {
+    flattenBskyReplies(reply, out)
+  }
+  return out
+}
+
+const comments: Comment[] = []
+
+try {
+  if (blueskyUri) {
+    const url = new URL(`${BSKY_API}app.bsky.feed.getPostThread`)
+    url.searchParams.set('uri', blueskyUri)
+    url.searchParams.set('depth', '6')
+    const res = await fetch(url)
+    if (res.ok) {
+      const data = await res.json()
+      const thread = data.thread as BskyThread
+      if (thread?.$type === 'app.bsky.feed.defs#threadViewPost') {
+        for (const reply of thread.replies ?? []) {
+          flattenBskyReplies(reply, comments)
+        }
+      }
+    }
+  }
+} catch (err) {
+  console.error('Bluesky comments fetch failed:', err)
+}
+
+try {
+  if (mastodonId) {
+    const res = await fetch(`${MASTODON_API}/statuses/${mastodonId}/context`)
+    if (res.ok) {
+      const data = await res.json()
+      for (const status of data.descendants ?? []) {
+        const html = status.content as string
+        const text = stripHtml(html)
+        if (!text) continue
+        comments.push({
+          id: `mastodon:${status.id}`,
+          platform: 'mastodon',
+          displayName: status.account.display_name || status.account.username,
+          handle: status.account.acct || status.account.username,
+          profileUrl: status.account.url,
+          url: status.url,
+          text,
+          html,
+          published: new Date(status.created_at),
+        })
+      }
+    }
+  }
+} catch (err) {
+  console.error('Mastodon comments fetch failed:', err)
+}
+
+comments.sort((a, b) => a.published.getTime() - b.published.getTime())
+const count = comments.length
+---
+
+{
+  count > 0 && (
+    <section class="post-comments not-prose" aria-label="Comments">
+      <h2 class="font-title text-lg text-foreground mb-4">
+        {count} {count === 1 ? 'Comment' : 'Comments'}
+      </h2>
+      <ul class="flex flex-col gap-5">
+        {comments.map((comment) => (
+          <li class="border-l-2 border-divider/55 pl-4">
+            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-sm mb-1.5">
+              <a
+                href={comment.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-title font-semibold text-foreground hover:text-hover"
+              >
+                {comment.displayName}
+              </a>
+              <span class="text-muted text-[0.8125rem]">
+                @{comment.handle}
+                <span class="text-divider/80 mx-1" aria-hidden="true">
+                  ·
+                </span>
+                <a
+                  href={comment.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-hover"
+                >
+                  {relativeTime(comment.published)}
+                </a>
+                <span class="text-divider/80 mx-1" aria-hidden="true">
+                  ·
+                </span>
+                <span class="text-muted/80">
+                  {comment.platform === 'bluesky' ? 'Bluesky' : 'Mastodon'}
+                </span>
+              </span>
+            </div>
+            {comment.html ? (
+              <div
+                class="comment-body text-foreground/90 leading-relaxed [&_a]:text-hover [&_a]:underline [&_a]:underline-offset-2 text-base"
+                set:html={comment.html}
+              />
+            ) : (
+              <p class="text-foreground/90 leading-relaxed whitespace-pre-wrap text-base">
+                {comment.text}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

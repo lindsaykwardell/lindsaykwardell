@@ -1,7 +1,7 @@
 ---
 /**
  * Soft webmention display via webmention.io.
- * Sign up at https://webmention.io with https://lindsaykwardell.com — endpoint links are in BaseLayout.
+ * Account: www.lindsaykwardell.com — discovery endpoints are in BaseLayout.
  */
 interface Props {
   targetUrl: string
@@ -20,18 +20,48 @@ type Mention = {
   published?: string
   content?: { text?: string }
   'wm-property'?: string
+  'wm-id'?: number | string
+}
+
+/** Fetch mentions for both apex and www, since Netlify redirects and links vary. */
+function targetVariants(url: string): string[] {
+  try {
+    const u = new URL(url)
+    const apex = new URL(url)
+    const www = new URL(url)
+    if (u.hostname.startsWith('www.')) {
+      apex.hostname = u.hostname.slice(4)
+    } else {
+      www.hostname = `www.${u.hostname}`
+    }
+    return [...new Set([apex.toString(), www.toString()])]
+  } catch {
+    return [url]
+  }
+}
+
+async function fetchMentions(target: string): Promise<Mention[]> {
+  const api = new URL('https://webmention.io/api/mentions.jf2')
+  api.searchParams.set('target', target)
+  api.searchParams.set('per-page', '50')
+  const res = await fetch(api)
+  if (!res.ok) return []
+  const data = await res.json()
+  return (data.children ?? []) as Mention[]
 }
 
 let mentions: Mention[] = []
 
 try {
-  const api = new URL('https://webmention.io/api/mentions.jf2')
-  api.searchParams.set('target', targetUrl)
-  api.searchParams.set('per-page', '50')
-  const res = await fetch(api)
-  if (res.ok) {
-    const data = await res.json()
-    mentions = (data.children ?? []) as Mention[]
+  const batches = await Promise.all(targetVariants(targetUrl).map(fetchMentions))
+  const seen = new Set<string>()
+  for (const batch of batches) {
+    for (const m of batch) {
+      const key = String(m['wm-id'] ?? m.url ?? JSON.stringify(m))
+      if (seen.has(key)) continue
+      seen.add(key)
+      mentions.push(m)
+    }
   }
 } catch (err) {
   console.error('Webmention fetch failed:', err)

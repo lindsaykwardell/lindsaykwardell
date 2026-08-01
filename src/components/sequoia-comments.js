@@ -42,9 +42,10 @@
 const styles = `
 :host {
 	display: block;
-	font-family: var(--sequoia-font-family, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
-	color: var(--sequoia-fg-color, #1f2937);
-	line-height: 1.5;
+	font-family: var(--sequoia-font-family, var(--font-body, system-ui, sans-serif));
+	color: var(--sequoia-fg-color, #27241a);
+	line-height: 1.6;
+	font-size: 1rem;
 }
 
 * {
@@ -59,23 +60,18 @@ const styles = `
 .sequoia-error,
 .sequoia-empty,
 .sequoia-warning {
-	padding: 1rem;
-	border-radius: var(--sequoia-border-radius, 8px);
-	text-align: center;
-}
-
-.sequoia-loading {
-	background: var(--sequoia-bg-color, #ffffff);
-	border: 1px solid var(--sequoia-border-color, #e5e7eb);
-	color: var(--sequoia-secondary-color, #6b7280);
+	padding: 0.5rem 0;
+	text-align: left;
+	font-size: 0.875rem;
+	color: var(--sequoia-secondary-color, #4c4636);
 }
 
 .sequoia-loading-spinner {
 	display: inline-block;
-	width: 1.25rem;
-	height: 1.25rem;
-	border: 2px solid var(--sequoia-border-color, #e5e7eb);
-	border-top-color: var(--sequoia-accent-color, #2563eb);
+	width: 1rem;
+	height: 1rem;
+	border: 2px solid color-mix(in srgb, var(--sequoia-border-color, #a79c89) 50%, transparent);
+	border-top-color: var(--sequoia-accent-color, #cf492b);
 	border-radius: 50%;
 	animation: sequoia-spin 0.8s linear infinite;
 	margin-right: 0.5rem;
@@ -87,21 +83,7 @@ const styles = `
 }
 
 .sequoia-error {
-	background: #fef2f2;
-	border: 1px solid #fecaca;
-	color: #dc2626;
-}
-
-.sequoia-warning {
-	background: #fffbeb;
-	border: 1px solid #fde68a;
-	color: #d97706;
-}
-
-.sequoia-empty {
-	background: var(--sequoia-bg-color, #ffffff);
-	border: 1px solid var(--sequoia-border-color, #e5e7eb);
-	color: var(--sequoia-secondary-color, #6b7280);
+	color: var(--sequoia-accent-color, #cf492b);
 }
 
 .sequoia-comments-header {
@@ -109,125 +91,63 @@ const styles = `
 	justify-content: space-between;
 	align-items: baseline;
 	gap: 1rem;
-	margin-bottom: 0.75rem;
-	padding-bottom: 0.5rem;
-	border-bottom: 1px solid color-mix(in srgb, var(--sequoia-border-color, #e5e7eb) 70%, transparent);
+	margin-bottom: 1rem;
+	padding-bottom: 0;
+	border-bottom: none;
 }
 
 .sequoia-comments-title {
 	font-size: 1.125rem;
-	font-weight: 600;
+	font-weight: 400;
 	margin: 0;
-	font-family: var(--font-title, Georgia, serif);
-	color: var(--sequoia-fg-color, #1f2937);
+	font-family: var(--sequoia-title-font, var(--font-title, Georgia, serif));
+	color: var(--sequoia-fg-color, #27241a);
 }
 
 .sequoia-reply-button {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.375rem;
-	padding: 0.35rem 0.75rem;
-	border: 1px solid color-mix(in srgb, var(--sequoia-border-color, #e5e7eb) 80%, transparent);
-	border-radius: var(--sequoia-border-radius, 4px);
-	font-size: 0.8125rem;
-	font-weight: 500;
-	cursor: pointer;
-	text-decoration: none;
-	transition:
-		color 0.15s ease,
-		border-color 0.15s ease,
-		background-color 0.15s ease;
-	background: transparent;
-	color: var(--sequoia-secondary-color, #6b7280);
-	margin-left: 0;
-}
-
-.sequoia-reply-bluesky,
-.sequoia-reply-blacksky {
-	background: transparent;
-	color: var(--sequoia-secondary-color, #6b7280);
-}
-
-.sequoia-reply-bluesky:hover,
-.sequoia-reply-blacksky:hover {
-	background: color-mix(in srgb, var(--sequoia-accent-color, #2563eb) 12%, transparent);
-	color: var(--sequoia-accent-color, #2563eb);
-	border-color: color-mix(in srgb, var(--sequoia-accent-color, #2563eb) 40%, var(--sequoia-border-color, #e5e7eb));
-}
-
-.sequoia-reply-button svg {
-	width: 0.875rem;
-	height: 0.875rem;
+	display: none;
 }
 
 .sequoia-comments-list {
 	display: flex;
 	flex-direction: column;
+	gap: 1.25rem;
 }
 
 .sequoia-thread {
-	border-top: 1px solid var(--sequoia-border-color, #e5e7eb);
-	padding-bottom: 1rem;
+	border: none;
+	padding: 0;
+	margin: 0;
 }
 
 .sequoia-thread + .sequoia-thread {
-	margin-top: 0.5rem;
+	margin-top: 0;
 }
 
 .sequoia-thread:last-child {
-	border-bottom: 1px solid var(--sequoia-border-color, #e5e7eb);
+	border-bottom: none;
 }
 
 .sequoia-comment {
 	display: flex;
 	gap: 0.75rem;
-	padding-top: 1rem;
+	padding: 0;
+	border-left: 2px solid color-mix(in srgb, var(--sequoia-border-color, #a79c89) 55%, transparent);
+	padding-left: 1rem;
+	margin-left: 0;
 }
 
 .sequoia-comment-avatar-column {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	flex-shrink: 0;
-	width: 2.5rem;
-	position: relative;
+	display: none;
 }
 
-.sequoia-comment-avatar {
-	width: 2.5rem;
-	height: 2.5rem;
-	border-radius: 50%;
-	background: var(--sequoia-border-color, #e5e7eb);
-	object-fit: cover;
-	flex-shrink: 0;
-	position: relative;
-	z-index: 1;
-}
-
+.sequoia-comment-avatar,
 .sequoia-comment-avatar-placeholder {
-	width: 2.5rem;
-	height: 2.5rem;
-	border-radius: 50%;
-	background: var(--sequoia-border-color, #e5e7eb);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	color: var(--sequoia-secondary-color, #6b7280);
-	font-weight: 600;
-	font-size: 1rem;
-	position: relative;
-	z-index: 1;
+	display: none;
 }
 
 .sequoia-thread-line {
-	position: absolute;
-	top: 2.5rem;
-	bottom: calc(-1rem - 0.5rem);
-	left: 50%;
-	transform: translateX(-50%);
-	width: 2px;
-	background: var(--sequoia-border-color, #e5e7eb);
+	display: none;
 }
 
 .sequoia-comment-content {
@@ -239,39 +159,44 @@ const styles = `
 	display: flex;
 	align-items: baseline;
 	gap: 0.5rem;
-	margin-bottom: 0.25rem;
+	margin-bottom: 0.35rem;
 	flex-wrap: wrap;
+	font-size: 0.875rem;
 }
 
 .sequoia-comment-author {
 	font-weight: 600;
-	color: var(--sequoia-fg-color, #1f2937);
+	font-family: var(--sequoia-title-font, var(--font-title, Georgia, serif));
+	font-size: 1rem;
+	color: var(--sequoia-fg-color, #27241a);
 	text-decoration: none;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	max-width: 100%;
 }
 
 .sequoia-comment-author:hover {
-	color: var(--sequoia-accent-color, #2563eb);
+	color: var(--sequoia-accent-color, #cf492b);
 }
 
 .sequoia-comment-handle {
-	font-size: 0.875rem;
-	color: var(--sequoia-secondary-color, #6b7280);
+	font-size: 0.8125rem;
+	color: var(--sequoia-secondary-color, #4c4636);
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
 .sequoia-comment-handle::after {
-  content: "·";
+	content: "·";
 	margin-left: 0.5rem;
+	color: color-mix(in srgb, var(--sequoia-border-color, #a79c89) 80%, transparent);
 }
 
 .sequoia-comment-time {
-	font-size: 0.875rem;
-	color: var(--sequoia-secondary-color, #6b7280);
+	font-size: 0.8125rem;
+	color: var(--sequoia-secondary-color, #4c4636);
 	flex-shrink: 0;
 }
 
@@ -279,15 +204,19 @@ const styles = `
 	margin: 0;
 	white-space: pre-wrap;
 	word-wrap: break-word;
+	font-size: 1rem;
+	line-height: 1.65;
+	color: color-mix(in srgb, var(--sequoia-fg-color, #27241a) 92%, transparent);
 }
 
 .sequoia-comment-text a {
-	color: var(--sequoia-accent-color, #2563eb);
-	text-decoration: none;
+	color: var(--sequoia-accent-color, #cf492b);
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
 }
 
 .sequoia-comment-text a:hover {
-	text-decoration: underline;
+	opacity: 0.85;
 }
 
 .sequoia-bsky-logo {
@@ -296,27 +225,28 @@ const styles = `
 }
 
 .sequoia-quotes-section {
-	margin-top: 1.75rem;
+	margin-top: 1.5rem;
 }
 
 .sequoia-quotes-header {
-	font-size: 0.75rem;
-	font-weight: 600;
-	color: var(--sequoia-secondary-color, #6b7280);
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-	margin: 0;
-	padding-bottom: 0.75rem;
-	border-bottom: 1px solid var(--sequoia-border-color, #e5e7eb);
+	font-size: 1.125rem;
+	font-weight: 400;
+	font-family: var(--sequoia-title-font, var(--font-title, Georgia, serif));
+	color: var(--sequoia-fg-color, #27241a);
+	letter-spacing: normal;
+	text-transform: none;
+	margin: 0 0 1rem;
+	padding-bottom: 0;
+	border-bottom: none;
 }
 
 a.sequoia-comment-time {
 	text-decoration: none;
-	color: var(--sequoia-secondary-color, #6b7280);
+	color: var(--sequoia-secondary-color, #4c4636);
 }
 
 a.sequoia-comment-time:hover {
-	text-decoration: underline;
+	color: var(--sequoia-accent-color, #cf492b);
 }
 `;
 
@@ -930,7 +860,6 @@ class SequoiaComments extends BaseElement {
 				this.commentsContainer.innerHTML = `
 					<div class="sequoia-comments-header">
 						<h3 class="sequoia-comments-title">${titleText}</h3>
-						<div>${this.renderReplyButtons(this.state.postUrl, this.state.blackskyPostUrl)}</div>
 					</div>
 					<div class="sequoia-comments-list">
 						${threadsHtml}

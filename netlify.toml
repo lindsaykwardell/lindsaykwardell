@@ -7,8 +7,7 @@
   [headers.values]
     Link = '''
     </.well-known/webfinger.json>; rel="lrdd"; type="application/jrd+json",
-    <https://webmention.io/lindsaykwardell.com/webmention>; rel="webmention",
-    <https://webmention.io/lindsaykwardell.com/xmlrpc>; rel="pingback"'''
+    <https://webmention.io/www.lindsaykwardell.com/webmention>; rel="webmention"'''
 
 [[headers]]
   for = "/@lindsay/*"
