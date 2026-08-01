@@ -5,7 +5,6 @@ image: https://images.unsplash.com/photo-1536893827774-411e1dc7c902?q=80&w=1664&
 author: "Lindsay Wardell"
 snippet: When you dream, dream a big dream
 type: Poetry
-published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrfj5f72f"
 ---
 When you dream,\

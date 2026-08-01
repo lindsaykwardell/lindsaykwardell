@@ -185,28 +185,33 @@ mastodonPosts = mastodonStatuses
     return new Date(post.createdAt) >= oldestBskyDate
   })
 
-// Step 3: Fetch Gaze photos and convert to posts
-const gazePhotos = await getCollection('photo')
-const gazePosts: UnifiedPost[] = gazePhotos
-  .filter((photo) => photo.data.created_at)
-  .map((photo) => {
-    const word = photo.data.tags[0] || ''
+// Step 3: Photo posts from the blog collection
+const photoEntries = await getCollection('blog')
+const gazePosts: UnifiedPost[] = photoEntries
+  .filter(
+    (post) =>
+      post.data.type === 'Photo' &&
+      !post.data.draft &&
+      post.data.image,
+  )
+  .map((post) => {
+    const word = (post.data.tags ?? []).filter(Boolean)[0] || ''
     const content = word ? `<p><em>${word}</em></p>` : ''
 
     return {
       platform: 'gaze' as const,
-      id: photo.id,
+      id: post.id,
       avatar: '/lindsay2.jpg',
       username: 'lindsaykwardell',
-      userPage: 'https://gaze.lindsaykwardell.com/@lindsaykwardell',
-      url: `https://gaze.lindsaykwardell.com/photos/${photo.id}`,
-      createdAt: photo.data.created_at,
+      userPage: '/photos',
+      url: `/blog/${post.id}`,
+      createdAt: post.data.pubDate.toISOString(),
       displayName: 'Lindsay Wardell',
       content,
       attachments: [
         {
-          url: photo.data.url,
-          description: photo.data.alt,
+          url: post.data.image!,
+          description: post.data.snippet || post.data.title,
         },
       ],
     }

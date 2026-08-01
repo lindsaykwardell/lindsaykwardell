@@ -5,7 +5,6 @@ author: Lindsay Wardell
 image:
 tags:
 snippet:
-type: Blog
-published: false
+type: Personal
 draft: true
 ---

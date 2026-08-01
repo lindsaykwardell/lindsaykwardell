@@ -2,7 +2,20 @@
 import PhotoLayout from '@/layouts/PhotoLayout.astro'
 import { getCollection } from 'astro:content'
 
-const photos = await getCollection('photo')
+const photos = (await getCollection('blog'))
+  .filter(
+    (post) =>
+      post.data.type === 'Photo' &&
+      (import.meta.env.DEV || !post.data.draft) &&
+      post.data.image,
+  )
+  .toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .map((post) => ({
+    id: post.id,
+    href: `/blog/${post.id}`,
+    url: post.data.image!,
+    alt: post.data.snippet || post.data.title,
+  }))
 ---
 
 <PhotoLayout photos={photos} />

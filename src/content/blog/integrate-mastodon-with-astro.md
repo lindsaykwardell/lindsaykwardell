@@ -10,12 +10,13 @@ tags:
   - SSR
 snippet: I didn't want to run a personal Mastodon instance, but I wanted to incorporate it into my personal domain. Let's explore what we can do to integrate with the Fediverse!
 type: Programming
-published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhri2yhf2l"
 blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqcmnfye2s"
 blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqcmnfye2s"
 mastodonId: "109389191484508820"
 mastodonUrl: "https://mastodon.social/@lindsaykwardell/109389191484508820"
+devtoId: "1267757"
+devtoUrl: "https://dev.to/lindsaykwardell/integrating-mastodon-with-astro-4na6"
 ---
 
 In case you have missed it, Twitter is going through a series of upheavals. This has led to a large number of folks leaving the platform for alternatives. I've been interested in [Mastodon](https://joinmastodon.org/) as a potential alternative to Twitter for some time, especially since it's open source, but I was never able to make the jump. Now that it feels everyone is trying out alternative platforms, the number of folks I know on Mastodon has grown significantly, and I've been able to replicate a lot of what I was doing on Twitter.

@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import type { CollectionEntry } from 'astro:content'
+
+export type PhotoCard = {
+  id: string
+  href: string
+  url: string
+  alt: string
+}
 
 interface Props {
-  photos: CollectionEntry<'photo'>[]
+  photos: PhotoCard[]
 }
 
 const { photos } = Astro.props
@@ -13,10 +19,10 @@ const { photos } = Astro.props
   <div class="photo-grid columns-2 md:columns-3 gap-2 p-1">
     {
       photos.map((photo) => (
-        <a href={`https://gaze.lindsaykwardell.com/photos/${photo.id}`} target="_blank" rel="noopener noreferrer" class="mb-2 block">
+        <a href={photo.href} class="mb-2 block">
           <img
-            src={photo.data.url}
-            alt={photo.data.alt}
+            src={photo.url}
+            alt={photo.alt}
             class="rounded transition-opacity duration-300"
             loading="lazy"
           />

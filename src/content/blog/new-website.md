@@ -7,8 +7,7 @@ tags:
   - Web Development
   - Personal
 snippet: I have never been satisfied with Wordpress as my platform of choice for my website.
-type: Blog
-published: true
+type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs3mbas2t"
 blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hojhprgm24"
 blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hojhprgm24"

@@ -1,12 +1,19 @@
 ---
 /**
- * Quiet engagement row: avatars + Recommend / Bluesky / Mastodon.
+ * Quiet engagement row: total count + Recommend / Bluesky / Mastodon / Dev.to,
+ * with avatar faces when Bluesky / Mastodon / recommends provide them.
+ *
+ * Dev.to only exposes reaction counts (not who reacted). Those feed the total
+ * in the action bar, and a +N chip sits in the avatar stack only when there
+ * are other faces (never as an orphan alone).
  */
 interface Props {
   blueskyUri?: string | null
   blueskyUrl?: string | null
   mastodonId?: string | null
   mastodonUrl?: string | null
+  devtoId?: string | null
+  devtoUrl?: string | null
   /** standard.site document AT-URI — used for recommend backlinks */
   documentAtUri?: string | null
   showRecommend?: boolean
@@ -17,6 +24,8 @@ const {
   blueskyUrl,
   mastodonId,
   mastodonUrl,
+  devtoId,
+  devtoUrl,
   documentAtUri,
   showRecommend = false,
 } = Astro.props
@@ -24,6 +33,7 @@ const {
 const BSKY_API = 'https://public.api.bsky.app/xrpc/'
 const BSKY_HANDLE = 'lindsaykwardell.com'
 const MASTODON_API = 'https://mastodon.social/api/v1'
+const DEVTO_API = 'https://dev.to/api'
 const CONSTELLATION =
   'https://constellation.microcosm.blue/xrpc/blue.microcosm.links.getBacklinks'
 const LIMIT = 50
@@ -75,8 +85,12 @@ async function profilesForDids(
 const resolvedBskyUrl =
   blueskyUrl || (blueskyUri ? bskyUrlFromUri(blueskyUri) : null)
 const resolvedMastodonUrl = mastodonUrl || null
+const resolvedDevtoUrl = devtoUrl || null
 
 const faces: SocialFace[] = []
+let likeCount = 0
+let recommendCount = 0
+let devtoReactionCount = 0
 
 try {
   if (blueskyUri) {
@@ -85,7 +99,9 @@ try {
     )
     if (likesResponse.ok) {
       const likesData = await likesResponse.json()
-      for (const like of likesData.likes ?? []) {
+      const likes = likesData.likes ?? []
+      likeCount += likes.length
+      for (const like of likes) {
         faces.push({
           id: like.actor.did,
           displayName: like.actor.displayName || like.actor.handle,
@@ -110,6 +126,7 @@ try {
     )
     if (favouritesResponse.ok) {
       const accounts = await favouritesResponse.json()
+      likeCount += accounts.length
       for (const account of accounts) {
         faces.push({
           id: `mastodon:${account.id}`,
@@ -135,6 +152,7 @@ try {
     if (res.ok) {
       const data = await res.json()
       const records: { did: string }[] = data.records ?? []
+      recommendCount = records.length
       const already = new Set(faces.map((f) => f.id))
       const missingDids = records
         .map((r) => r.did)
@@ -161,6 +179,24 @@ try {
   console.error('Error fetching recommends:', error)
 }
 
+try {
+  if (devtoId) {
+    const res = await fetch(`${DEVTO_API}/articles/${devtoId}`, {
+      headers: { Accept: 'application/vnd.forem.api-v1+json' },
+    })
+    if (res.ok) {
+      const article = await res.json()
+      const count = Number(
+        article.public_reactions_count ?? article.positive_reactions_count ?? 0,
+      )
+      devtoReactionCount = count
+      likeCount += count
+    }
+  }
+} catch (error) {
+  console.error('Error fetching Dev.to reactions:', error)
+}
+
 const displayed = faces
   .filter(
     (face, index, self) => index === self.findIndex((f) => f.id === face.id),
@@ -168,12 +204,22 @@ const displayed = faces
   .slice(0, LIMIT)
 
 const hasFaces = displayed.length > 0
+/** Count chip only beside other avatars — never as an orphan alone. */
+const showDevtoChip = hasFaces && Boolean(resolvedDevtoUrl) && devtoReactionCount > 0
+const totalCount = likeCount + recommendCount
 const showBluesky = Boolean(resolvedBskyUrl)
 const showMastodon = Boolean(resolvedMastodonUrl)
-const showBlock = hasFaces || showRecommend || showBluesky || showMastodon
+const showDevto = Boolean(resolvedDevtoUrl)
+const showBlock =
+  hasFaces ||
+  totalCount > 0 ||
+  showRecommend ||
+  showBluesky ||
+  showMastodon ||
+  showDevto
 
-const actions: { href: string; label: string; icon: 'bluesky' | 'mastodon' }[] =
-  []
+type ActionIcon = 'bluesky' | 'mastodon' | 'devto'
+const actions: { href: string; label: string; icon: ActionIcon }[] = []
 if (showBluesky) {
   actions.push({ href: resolvedBskyUrl!, label: 'Bluesky', icon: 'bluesky' })
 }
@@ -184,6 +230,11 @@ if (showMastodon) {
     icon: 'mastodon',
   })
 }
+if (showDevto) {
+  actions.push({ href: resolvedDevtoUrl!, label: 'Dev.to', icon: 'devto' })
+}
+
+const likeLabel = totalCount === 1 ? '1 like' : `${totalCount} likes`
 ---
 
 {
@@ -191,6 +242,20 @@ if (showMastodon) {
     <div class="social-likes not-prose" aria-label="Responses">
       <div class="flex flex-col items-center gap-3">
         <div class="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 text-muted">
+          {totalCount > 0 && (
+            <>
+              <span class="social-like-count">{likeLabel}</span>
+              {(showRecommend || actions.length > 0) && (
+                <span
+                  class="text-divider/80 px-1 select-none"
+                  aria-hidden="true"
+                >
+                  ·
+                </span>
+              )}
+            </>
+          )}
+
           {showRecommend && <sequoia-recommend hide="auto" />}
 
           {showRecommend && actions.length > 0 && (
@@ -228,7 +293,7 @@ if (showMastodon) {
                       d="M12 11.388c-.906-1.761-3.372-5.044-5.665-6.662c-2.197-1.55-3.034-1.283-3.583-1.033C2.116 3.978 2 4.955 2 5.528c0 .575.315 4.709.52 5.4c.68 2.28 3.094 3.05 5.32 2.803c-3.26.483-6.157 1.67-2.36 5.898c4.178 4.325 5.726-.927 6.52-3.59c.794 2.663 1.708 7.726 6.444 3.59c3.556-3.59.977-5.415-2.283-5.898c2.225.247 4.64-.523 5.319-2.803c.205-.69.52-4.825.52-5.399c0-.575-.116-1.55-.752-1.838c-.549-.248-1.386-.517-3.583 1.033c-2.293 1.621-4.76 4.904-5.665 6.664"
                     />
                   </svg>
-                ) : (
+                ) : action.icon === 'mastodon' ? (
                   <svg
                     width="16"
                     height="16"
@@ -238,6 +303,19 @@ if (showMastodon) {
                     <path
                       fill="currentColor"
                       d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603c.348-1.778.32-4.339.32-4.339c0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091c.083 3.394.626 6.74 3.78 7.57c1.454.383 2.703.463 3.709.408c1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295c-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541c-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046c.456-.505 1.052-.764 1.793-.764c.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983c.74 0 1.336.259 1.791.764c.442.505.661 1.187.661 2.046v4.203z"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.826 10.083a.784.784 0 0 0-.468-.175h-.701v4.198h.701a.786.786 0 0 0 .469-.175c.155-.117.233-.292.233-.525v-2.798c.001-.233-.079-.408-.234-.525zM19.236 3H4.764C3.791 3 3.002 3.787 3 4.76v14.48c.002.973.791 1.76 1.764 1.76h14.473c.973 0 1.762-.787 1.764-1.76V4.76A1.765 1.765 0 0 0 19.236 3zM9.195 13.414c0 .755-.466 1.901-1.942 1.898H5.389V8.665h1.903c1.424 0 1.902 1.144 1.903 1.899v2.85zm4.045-3.562H11.1v1.544h1.309v1.188H11.1v1.543h2.142v1.188h-2.498a.813.813 0 0 1-.833-.792V9.497a.813.813 0 0 1 .792-.832h2.539l-.002 1.187zm4.165 4.632c-.531 1.235-1.481.99-1.906 0l-1.548-5.818h1.309l1.193 4.569l1.188-4.569h1.31l-1.546 5.818z"
                     />
                   </svg>
                 )}
@@ -281,6 +359,19 @@ if (showMastodon) {
                   </div>
                 </a>
               ),
+            )}
+            {showDevtoChip && (
+              <a
+                href={resolvedDevtoUrl!}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-8 h-8 transition-transform duration-150 hover:z-10 hover:scale-110"
+                title={`${devtoReactionCount} reaction${devtoReactionCount === 1 ? '' : 's'} on Dev.to`}
+              >
+                <div class="w-8 h-8 rounded-full border-2 border-background bg-divider/60 flex items-center justify-center text-foreground text-[10px] font-title leading-none">
+                  +{devtoReactionCount}
+                </div>
+              </a>
             )}
           </div>
         )}

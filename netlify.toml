@@ -2,6 +2,16 @@
   from = "/.well-known/webfinger"
   to = "/.well-known/webfinger.json"
 
+[[redirects]]
+  from = "/shows"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/shows/*"
+  to = "/blog"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

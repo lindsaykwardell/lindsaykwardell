@@ -1,26 +1,29 @@
 ---
 /**
- * Unified Bluesky + Mastodon replies, styled as a quiet afterword.
+ * Unified Bluesky + Mastodon + Dev.to replies, styled as a quiet afterword.
  */
 interface Props {
   blueskyUri?: string | null
   mastodonId?: string | null
+  devtoId?: string | null
+  devtoUrl?: string | null
 }
 
-const { blueskyUri, mastodonId } = Astro.props
+const { blueskyUri, mastodonId, devtoId, devtoUrl } = Astro.props
 
 const BSKY_API = 'https://public.api.bsky.app/xrpc/'
 const MASTODON_API = 'https://mastodon.social/api/v1'
+const DEVTO_API = 'https://dev.to/api'
 
 type Comment = {
   id: string
-  platform: 'bluesky' | 'mastodon'
+  platform: 'bluesky' | 'mastodon' | 'devto'
   displayName: string
   handle: string
   profileUrl: string
   url: string
   text: string
-  /** Mastodon returns HTML; Bluesky is plain text */
+  /** Mastodon / Dev.to return HTML; Bluesky is plain text */
   html?: string
   published: Date
 }
@@ -45,6 +48,12 @@ function relativeTime(date: Date): string {
   if (week < 4) return `${week}w ago`
   if (month < 12) return `${month}mo ago`
   return `${year}y ago`
+}
+
+const PLATFORM_LABEL: Record<Comment['platform'], string> = {
+  bluesky: 'Bluesky',
+  mastodon: 'Mastodon',
+  devto: 'Dev.to',
 }
 
 type BskyThread = {
@@ -83,6 +92,46 @@ function flattenBskyReplies(thread: BskyThread, out: Comment[] = []): Comment[] 
   }
   for (const reply of thread.replies ?? []) {
     flattenBskyReplies(reply, out)
+  }
+  return out
+}
+
+type DevtoComment = {
+  id_code: string
+  created_at: string
+  body_html: string
+  user: {
+    name?: string
+    username: string
+  }
+  children?: DevtoComment[]
+}
+
+function flattenDevtoComments(
+  nodes: DevtoComment[],
+  articleUrl: string,
+  out: Comment[] = [],
+): Comment[] {
+  for (const node of nodes) {
+    const html = node.body_html || ''
+    const text = stripHtml(html)
+    if (text) {
+      const username = node.user.username
+      out.push({
+        id: `devto:${node.id_code}`,
+        platform: 'devto',
+        displayName: node.user.name || username,
+        handle: username,
+        profileUrl: `https://dev.to/${username}`,
+        url: `${articleUrl}#comment-${node.id_code}`,
+        text,
+        html,
+        published: new Date(node.created_at),
+      })
+    }
+    if (node.children?.length) {
+      flattenDevtoComments(node.children, articleUrl, out)
+    }
   }
   return out
 }
@@ -136,6 +185,20 @@ try {
   console.error('Mastodon comments fetch failed:', err)
 }
 
+try {
+  if (devtoId && devtoUrl) {
+    const res = await fetch(`${DEVTO_API}/comments?a_id=${devtoId}`, {
+      headers: { Accept: 'application/vnd.forem.api-v1+json' },
+    })
+    if (res.ok) {
+      const data = (await res.json()) as DevtoComment[]
+      flattenDevtoComments(data, devtoUrl, comments)
+    }
+  }
+} catch (err) {
+  console.error('Dev.to comments fetch failed:', err)
+}
+
 comments.sort((a, b) => a.published.getTime() - b.published.getTime())
 const count = comments.length
 ---
@@ -175,7 +238,7 @@ const count = comments.length
                   ·
                 </span>
                 <span class="text-muted/80">
-                  {comment.platform === 'bluesky' ? 'Bluesky' : 'Mastodon'}
+                  {PLATFORM_LABEL[comment.platform]}
                 </span>
               </span>
             </div>

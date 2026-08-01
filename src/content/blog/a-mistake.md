@@ -6,8 +6,7 @@ image: "/blog/mistake.jpg"
 tags:
   - Poetry
 snippet: I made a mistake one day. Probably more than one.
-type: Poetry
-published: true
+type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrbfieo2i"
 ---
 

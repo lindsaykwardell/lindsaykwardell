@@ -17,16 +17,16 @@ const { slug } = Astro.params
 const post = await getEntry('blog', slug!)
 const posts = await getCollection('blog')
 
-if (!post || (!post.data.published && !import.meta.env.DEV)) {
+if (!post || (post.data.draft && !import.meta.env.DEV)) {
   return Astro.redirect('/blog')
 }
 
 const fuse = new Fuse(
   posts
-    .filter((p) => p.id !== post.id && !p.data.link)
+    .filter((p) => p.id !== post.id)
     .map((p) => ({ ...p.data, slug: p.id })),
   {
-    keys: ['type', 'title', 'snippet'],
+    keys: ['type', 'title', 'snippet', 'name'],
   },
 )
 const results = fuse
@@ -46,6 +46,7 @@ const { Content } = await render(post)
 const documentAtUri = getDocumentAtUri(post.id, post.data.atUri)
 const publicationAtUri = getPublicationUri()
 const canonicalUrl = `${details.permalink}/blog/${post.id}`
+const isExternalAppearance = Boolean(post.data.link)
 ---
 
 <BaseLayout
@@ -73,7 +74,24 @@ const canonicalUrl = `${details.permalink}/blog/${post.id}`
         >{Intl.DateTimeFormat('en-us').format(post.data.pubDate)}</time
       >
       {
-        post.data.published === false && (
+        post.data.name && (
+          <p class="text-sm text-muted px-2 md:px-0">{post.data.name}</p>
+        )
+      }
+      {
+        post.data.link && (
+          <a
+            href={post.data.link}
+            class="break-all text-sm underline text-muted hover:text-hover px-2 md:px-0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {post.data.link}
+          </a>
+        )
+      }
+      {
+        post.data.draft && (
           <div class="italic text-3xl text-hover ">
             ------------- DRAFT -------------
           </div>
@@ -81,53 +99,57 @@ const canonicalUrl = `${details.permalink}/blog/${post.id}`
       }
     </section>
     <div
-      class="prose max-w-full bg-background prose-lg md:prose-xl m-auto p-4 md:p-12 rounded shadow-md"
+      class:list={[
+        'prose max-w-full bg-background prose-lg md:prose-xl m-auto p-4 md:p-12 rounded shadow-md',
+        isExternalAppearance && 'appearance-post',
+      ]}
     >
       <article>
         <Content />
       </article>
-      <footer class="post-afterword not-prose">
-        <SocialLikes
-          blueskyUri={post.data.blueskyUri}
-          blueskyUrl={post.data.blueskyUrl}
-          mastodonId={post.data.mastodonId}
-          mastodonUrl={post.data.mastodonUrl}
-          documentAtUri={documentAtUri}
-          showRecommend={Boolean(documentAtUri)}
-        />
-        {
-          (post.data.blueskyUri || post.data.mastodonId) && (
-            <PostComments
+      {
+        !isExternalAppearance && (
+          <footer class="post-afterword not-prose">
+            <SocialLikes
               blueskyUri={post.data.blueskyUri}
+              blueskyUrl={post.data.blueskyUrl}
               mastodonId={post.data.mastodonId}
+              mastodonUrl={post.data.mastodonUrl}
+              devtoId={post.data.devtoId}
+              devtoUrl={post.data.devtoUrl}
+              documentAtUri={documentAtUri}
+              showRecommend={Boolean(documentAtUri)}
             />
-          )
-        }
-        <Webmentions targetUrl={canonicalUrl} />
-      </footer>
+            {(post.data.blueskyUri ||
+              post.data.mastodonId ||
+              post.data.devtoId) && (
+              <PostComments
+                blueskyUri={post.data.blueskyUri}
+                mastodonId={post.data.mastodonId}
+                devtoId={post.data.devtoId}
+                devtoUrl={post.data.devtoUrl}
+              />
+            )}
+            <Webmentions targetUrl={canonicalUrl} />
+          </footer>
+        )
+      }
       <Signoff />
     </div>
     {
-      documentAtUri && (
+      documentAtUri && !isExternalAppearance && (
         <script>
           import '@/components/sequoia-subscribe.js'
         </script>
       )
     }
     {
-      results.length && (
+      results.length > 0 && (
         <aside class="py-8">
           <h1 class="text-xl md:text-3xl px-2 md:px-0">Similar Posts</h1>
           <div class="md:flex">
             {results.map((result) => (
-              <a
-                href={
-                  result.item.link
-                    ? result.item.link
-                    : `/blog/${result.item.slug}`
-                }
-                class="md:w-1/3"
-              >
+              <a href={`/blog/${result.item.slug}`} class="md:w-1/3">
                 <div class="m-2 bg-background rounded shadow-md">
                   <div>
                     <img
@@ -158,5 +180,13 @@ const canonicalUrl = `${details.permalink}/blog/${post.id}`
       font-size: var(--text-2xl);
       font-family: var(--font-title);
     }
+  }
+
+  /* Appearances are short blurbs — skip the drop-cap treatment */
+  .appearance-post article p:first-of-type:first-line {
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
   }
 </style>

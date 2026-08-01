@@ -19,7 +19,12 @@
     "sequoia:publish:dry": "tsx scripts/run-sequoia.ts publish --dry-run",
     "sequoia:login": "sequoia login",
     "mastodon:announce": "tsx scripts/announce-mastodon.ts",
-    "mastodon:announce:dry": "tsx scripts/announce-mastodon.ts --dry-run"
+    "mastodon:announce:dry": "tsx scripts/announce-mastodon.ts --dry-run",
+    "devto:announce": "tsx scripts/announce-devto.ts",
+    "devto:announce:dry": "tsx scripts/announce-devto.ts --dry-run",
+    "devto:sync": "tsx scripts/sync-devto-to-frontmatter.ts",
+    "sync:shows": "tsx scripts/sync-shows-rss.ts",
+    "migrate:content": "tsx scripts/migrate-shows-and-photos.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

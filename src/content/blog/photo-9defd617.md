@@ -1,0 +1,13 @@
+---
+pubDate: 2025-08-11
+title: "Perspective"
+author: "Lindsay Wardell"
+image: "/photos/9defd617-39d9-482a-8cd8-2fdbe9691101.jpg"
+tags: ["Perspective"]
+type: Photo
+snippet: "The view of Crater Lake overlooking Wizard Island."
+gazeId: "9defd617-39d9-482a-8cd8-2fdbe9691101"
+weekOf: "2025-08-10"
+---
+
+The view of Crater Lake overlooking Wizard Island.

@@ -10,8 +10,9 @@ tags:
   - Typescript
 snippet: I'm a big fan of Deno, but there must be an easier way to build a router-based HTTP client.
 type: Programming
-published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2bsu22t"
+devtoId: "344453"
+devtoUrl: "https://dev.to/lindsaykwardell/introduction-to-httpwrapper-for-deno-2da2"
 ---
 
 I'm a big fan of [Deno](https://deno.land), the new Javascript runtime by the creator of Node. I love that it is built with Typescript in mind, reducing the amount of configuration required to get work done. I like that packages (or modules, as they are referred to) can be imported via URL, and don't require a package manager. I also love how *fast* it is to start a Deno project for development.

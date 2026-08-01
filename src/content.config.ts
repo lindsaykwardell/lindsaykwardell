@@ -1,6 +1,5 @@
 import { z, defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
-import { getShows } from '@/content/show'
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
@@ -10,83 +9,37 @@ const blog = defineCollection({
     author: z.string(),
     image: z.string().nullable(),
     tags: z.array(z.string().optional()).optional().nullable(),
+    /**
+     * Content shape. Drives badges + distribute routing.
+     * Essay: Personal | Programming | Poetry | Fiction
+     * Media: Photo
+     * Appearances: Podcast | Video | Meetup | Conference
+     */
     type: z.string().nullable(),
     snippet: z.string().optional().nullable(),
+    /** External canonical URL (podcast episode, talk, guest post). */
     link: z.string().url().optional(),
+    /** Series / show name for appearances. */
     name: z.string().optional(),
-    published: z.boolean(),
-    /** Skip Sequoia publish when true (use alongside published: false). */
+    /** True when Lindsay hosted (podcasts/panels). */
+    host: z.boolean().optional(),
+    /** Sequoia + site: true = WIP (hidden in prod, not published to AT Proto). */
     draft: z.boolean().optional(),
-    /** AT-URI for site.standard.document, written by `sequoia publish`. */
+    /** Explicit opt-out of social announce (document publish still allowed). */
+    syndicate: z.boolean().optional(),
     atUri: z.string().optional(),
-    /** Bluesky announcement post for likes/comments. */
     blueskyUri: z.string().optional(),
     blueskyUrl: z.string().url().optional(),
-    /** Mastodon announcement status for likes. */
     mastodonId: z.coerce.string().optional(),
     mastodonUrl: z.string().url().optional(),
-  }),
-})
-
-const show = defineCollection({
-  loader: async () => {
-    const shows = await getShows()
-    return shows
-  },
-  schema: z.object({
-    id: z.string(),
-    url: z.string(),
-    title: z.string(),
-    snippet: z.string(),
-    pubDate: z.date(),
-    image: z.string(),
-    type: z.string(),
-    host: z.boolean(),
-    name: z.string(),
-  }),
-})
-
-const GAZE_API_URL = import.meta.env.GAZE_API_URL || process.env.GAZE_API_URL
-const GAZE_USER_ID = import.meta.env.GAZE_USER_ID || process.env.GAZE_USER_ID
-
-const photo = defineCollection({
-  loader: async () => {
-    if (!GAZE_API_URL || !GAZE_USER_ID) {
-      console.warn('GAZE_API_URL or GAZE_USER_ID not set, returning empty photo collection')
-      return []
-    }
-
-    try {
-      const res = await fetch(`${GAZE_API_URL}/public-photos?user_id=${GAZE_USER_ID}`)
-      if (!res.ok) {
-        console.error(`Failed to fetch photos: ${res.status} ${res.statusText}`)
-        return []
-      }
-      const data = await res.json()
-      return data.photos.map((p: any) => ({
-        id: p.id,
-        url: p.url,
-        alt: p.description || '',
-        tags: [p.word].filter(Boolean),
-        week_of: p.week_of,
-        created_at: p.created_at,
-      }))
-    } catch (err) {
-      console.error('Error fetching photos from Gaze:', err)
-      return []
-    }
-  },
-  schema: z.object({
-    url: z.string(),
-    alt: z.string(),
-    tags: z.array(z.string()),
-    week_of: z.string(),
-    created_at: z.string(),
+    devtoId: z.coerce.string().optional(),
+    devtoUrl: z.string().url().optional(),
+    /** Original Gaze photo id when imported. */
+    gazeId: z.string().optional(),
+    weekOf: z.string().optional(),
   }),
 })
 
 export const collections = {
   blog,
-  show,
-  photo,
 }

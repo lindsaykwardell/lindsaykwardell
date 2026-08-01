@@ -7,7 +7,6 @@ tags:
   - Poetry
 snippet: What could I say to her? What could I tell her of the life she would lead, of the people she would know?
 type: Poetry
-published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh4rov2z"
 ---
 

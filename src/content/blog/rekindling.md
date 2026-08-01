@@ -4,10 +4,9 @@ title: Rekindling
 author: Lindsay Wardell
 image: /blog/rekindling.webp
 tags:
-  - Blog
+  - Personal
 snippet: For 2026, I'm rekindling my website as a place for creativity and joy.
-type: Blog
-published: true
+type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4u54x2f"
 blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mcbvfrmiak2p"
 blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3mcbvfrmiak2p"

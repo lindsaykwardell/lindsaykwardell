@@ -5,7 +5,6 @@ image: https://images.unsplash.com/photo-1568920088183-3cce8a41a79f?q=80&w=3412&
 author: "Lindsay Wardell"
 snippet: I have no words.
 type: Poetry
-published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr56baq2h"
 ---
 I have no words.

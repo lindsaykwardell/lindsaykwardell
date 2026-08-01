@@ -5,16 +5,22 @@ interface Props {
 
 const { type } = Astro.props
 
+/** One soft wash per kind — distinct enough to scan, quiet enough for the essay site. */
 const colorMap: Record<string, string> = {
-  // Blog post types
-  Poetry: 'bg-badge-creative',
-  Programming: 'bg-accent',
-  Fiction: 'bg-badge-narrative',
-  Blog: 'bg-badge-journal',
-  // Show types
-  podcast: 'bg-badge-creative',
-  video: 'bg-accent',
-  conference: 'bg-badge-narrative',
+  Blog: 'bg-badge-blog', // legacy alias
+  Personal: 'bg-badge-blog',
+  Programming: 'bg-badge-programming',
+  Poetry: 'bg-badge-poetry',
+  Fiction: 'bg-badge-fiction',
+  Photo: 'bg-badge-photo',
+  Podcast: 'bg-badge-podcast',
+  Video: 'bg-badge-video',
+  Meetup: 'bg-badge-meetup',
+  Conference: 'bg-badge-conference',
+  // legacy lowercase
+  podcast: 'bg-badge-podcast',
+  video: 'bg-badge-video',
+  conference: 'bg-badge-conference',
 }
 
 const bgColor = colorMap[type] ?? 'bg-badge-default'

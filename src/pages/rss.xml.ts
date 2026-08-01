@@ -20,6 +20,7 @@ export async function GET(context: APIContext) {
     // Array of `<item>`s in output xml
     // See "Generating items" section for examples using content collections and glob imports
     items: posts
+      .filter((post) => !post.data.draft)
       .toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .map((post) => ({
         link: post.data.link ?? `/blog/${post.id}`,

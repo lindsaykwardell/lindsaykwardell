@@ -4,11 +4,10 @@ title: "Kindle: In Memorial"
 author: Lindsay Wardell
 image: /blog/kindle-header.png
 tags:
-  - Blog
+  - Personal
   - Personal
 snippet: If there's one thing that the Kindle got right, it was made to endure. And endure it did.
-type: Blog
-published: true
+type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqyvw5v22"
 blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mljcc66f222k"
 blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3mljcc66f222k"

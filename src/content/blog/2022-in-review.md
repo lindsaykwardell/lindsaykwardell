@@ -4,8 +4,7 @@ title: 2022 In Review
 image: https://images.unsplash.com/photo-1508093989287-061d64de7324?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80
 author: Lindsay Wardell
 snippet: 2022 was a year that never ends, with a lot of joy and a lot of painful experiences.
-type: Blog
-published: true
+type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh2cm522"
 blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqd5igab27"
 blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqd5igab27"

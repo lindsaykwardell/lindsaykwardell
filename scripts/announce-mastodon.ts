@@ -2,7 +2,8 @@
  * Announce newly published blog posts on Mastodon.
  *
  * Skips posts that already have mastodonId in frontmatter, drafts,
- * unpublished posts, and posts older than maxAgeDays (default 30).
+ * Skips drafts, already-announced posts, syndicate:false,
+ * and posts older than maxAgeDays (default 30).
  *
  * Requires MASTODON_ACCESS_TOKEN (write:statuses). Optional:
  *   MASTODON_URL (default https://mastodon.social)
@@ -12,6 +13,7 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseFrontmatter, upsertFrontmatter } from './lib/frontmatter.ts'
+import { destinationsFor } from '../src/lib/distribute.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
@@ -91,14 +93,23 @@ for (const file of files) {
   const raw = readFileSync(filePath, 'utf-8')
   const fm = parseFrontmatter(raw)
   if (fm.draft === true) continue
-  if (fm.published === false) continue
+  if (fm.syndicate === false) continue
   if (fm.mastodonId) continue
+  if (
+    !destinationsFor({
+      type: fm.type ? String(fm.type) : null,
+      draft: fm.draft === true,
+      syndicate: fm.syndicate === false ? false : undefined,
+    }).includes('mastodon')
+  )
+    continue
 
   const pubDate = fm.pubDate ? new Date(String(fm.pubDate)) : null
   if (!pubDate || Number.isNaN(pubDate.getTime())) continue
   if (pubDate.getTime() < cutoff) continue
 
   const slug = file.replace(/\.md$/, '')
+  // Prefer the on-site page; it carries the blurb + external link for appearances
   candidates.push({
     filePath,
     slug,

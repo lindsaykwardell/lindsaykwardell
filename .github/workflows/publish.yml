@@ -60,6 +60,16 @@ jobs:
           fi
           npx tsx scripts/announce-mastodon.ts
 
+      - name: Cross-post Programming articles to Dev.to
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+        run: |
+          if [ -z "$DEVTO_API_KEY" ]; then
+            echo "::warning::DEVTO_API_KEY secret not set — skipping Dev.to announce. Add it under repo Settings → Secrets."
+            exit 0
+          fi
+          npx tsx scripts/announce-devto.ts
+
       - name: Sync Sequoia Bluesky refs into frontmatter
         run: npx tsx scripts/sync-social-to-frontmatter.ts
 
