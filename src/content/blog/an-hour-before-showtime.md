@@ -10,6 +10,10 @@ snippet: I am grateful that time is passed. I regret that I walked into it at al
 type: Blog
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqzt3ln26"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mfsouegizk2w"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3mfsouegizk2w"
+mastodonId: "116140293841845163"
+mastodonUrl: "https://mastodon.social/@lindsaykwardell/116140293841845163"
 ---
 "I think we should start looking for other people."
 

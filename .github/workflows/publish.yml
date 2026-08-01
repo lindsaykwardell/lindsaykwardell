@@ -2,7 +2,7 @@ name: Publish Standard.site
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'src/content/blog/**'
       - 'sequoia.json'
@@ -39,7 +39,21 @@ jobs:
           ATP_APP_PASSWORD: ${{ secrets.ATP_APP_PASSWORD }}
         run: npx sequoia publish
 
-      - name: Commit AT URIs and state if changed
+      - name: Announce new posts on Mastodon
+        env:
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          MASTODON_URL: ${{ secrets.MASTODON_URL }}
+        run: |
+          if [ -z "$MASTODON_ACCESS_TOKEN" ]; then
+            echo "MASTODON_ACCESS_TOKEN not set; skipping Mastodon announce"
+            exit 0
+          fi
+          npx tsx scripts/announce-mastodon.ts
+
+      - name: Sync Sequoia Bluesky refs into frontmatter
+        run: npx tsx scripts/sync-social-to-frontmatter.ts
+
+      - name: Commit publish artifacts if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -48,5 +62,5 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git commit -m "Publish standard.site documents to AT Proto"
+          git commit -m "Publish standard.site documents and social announcements"
           git push

@@ -7,6 +7,8 @@ snippet: Astro is an innovative static site generator that focuses on static gen
 type: Programming
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrnkct72p"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hplerpy524"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hplerpy524"
 ---
 
 I don't remember exactly when I started hearing about [Astro](https://astro.build), one of the latest static site generators to help tackle the problem of building sites with less Javascript. The problem is one we're all familiar with - how can I build a static site (in my case, my personal site) using the languages and tools I know best, while performing at its best? After migrating from Wordpress, I first tried [Gatsby](https://www.gatsbyjs.com/), then [Gridsome](https://gridsome.org/), and most recently [Nuxt](https://nuxtjs.org/). All of these are excellent tools, and I highly recommend them. But one thing that is the same across all of them is that they are tied to their specific framework (React or Vue).

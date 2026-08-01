@@ -9,6 +9,8 @@ snippet: For now, I stand between hope, between joy, between lives.
 type: Poetry
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrikjjc2m"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hq53qgnw2r"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hq53qgnw2r"
 ---
 
 When I look to my past, \

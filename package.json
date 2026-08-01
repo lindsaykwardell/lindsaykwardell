@@ -12,12 +12,14 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "update-social-cache": "tsx scripts/update-social-cache.ts",
+    "sync-social": "tsx scripts/sync-social-to-frontmatter.ts",
     "generate:resume": "tsx scripts/generate-resume-pdf.ts",
     "sequoia:setup": "tsx scripts/setup-standard-site.ts",
     "sequoia:publish": "tsx scripts/run-sequoia.ts publish",
     "sequoia:publish:dry": "tsx scripts/run-sequoia.ts publish --dry-run",
-    "sequoia:login": "sequoia login"
+    "sequoia:login": "sequoia login",
+    "mastodon:announce": "tsx scripts/announce-mastodon.ts",
+    "mastodon:announce:dry": "tsx scripts/announce-mastodon.ts --dry-run"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

@@ -9,6 +9,8 @@ snippet: It's not something you pick up as a hobby, or go to watch at the movies
 type: Poetry
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr5v6ol2m"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3lfizia4atk2s"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3lfizia4atk2s"
 ---
 Grief is not a casual thing.
 

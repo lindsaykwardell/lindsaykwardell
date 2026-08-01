@@ -7,6 +7,8 @@ snippet: Elm is a fantastic language for building applications. But how can we o
 type: Programming
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrkaqw22x"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hpui2imv24"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hpui2imv24"
 ---
 The Elm programming language is a great way to model and write a modern web application. By utilizing functional programming and a strong type system, Elm encourages developers to build applications that are more reliable and more easily maintained. But as a compile-to-Javascript language, there is only so much that Elm can offer by default. Any tasks that require large computations in Javascript will, unfortunately, require the same computations in Elm. Such large tasks can block the main thread in browsers, causing visual issues and a non-responsive UI. Obviously this is not what we want for our users, so what can we do?
 

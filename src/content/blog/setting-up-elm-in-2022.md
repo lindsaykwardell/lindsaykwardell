@@ -7,6 +7,8 @@ snippet: Get started writing in Elm with the best tools available.
 type: Programming
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrlpup22t"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hpq5kk3k2t"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hpq5kk3k2t"
 ---
 If you haven't used Elm before, it can be a bit intimidating to get started. A pure functional programming language for building web applications, Elm provides a number of tools for writing Elm apps, including `elm reactor` for fast recompiling of specific modules and `elm make` for building JS assets. But this workflow can feel a bit lacking if you're coming from a Javascript ecosystem, where hot module reload (HMR), automatic bundling, and integration with CSS and other frontend technologies is common.
 

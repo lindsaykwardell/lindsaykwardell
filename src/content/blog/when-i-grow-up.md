@@ -10,6 +10,8 @@ snippet: "What do you want to be when you grow up?"
 type: Blog
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2yz2v2z"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hone7yci2w"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hone7yci2w"
 ---
 
 **"What do you want to be when you grow up?"** 

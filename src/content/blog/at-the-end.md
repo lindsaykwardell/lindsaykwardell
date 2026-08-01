@@ -9,6 +9,8 @@ snippet: At the end of grief, hope is reborn.
 type: Poetry
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrgxth723"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqenz6kg2r"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqenz6kg2r"
 ---
 
 At the end of winter, the flowers bloom.

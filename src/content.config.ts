@@ -19,6 +19,12 @@ const blog = defineCollection({
     draft: z.boolean().optional(),
     /** AT-URI for site.standard.document, written by `sequoia publish`. */
     atUri: z.string().optional(),
+    /** Bluesky announcement post for likes/comments. */
+    blueskyUri: z.string().optional(),
+    blueskyUrl: z.string().url().optional(),
+    /** Mastodon announcement status for likes. */
+    mastodonId: z.coerce.string().optional(),
+    mastodonUrl: z.string().url().optional(),
   }),
 })
 

@@ -11,6 +11,10 @@ snippet: If you're going to reach for AI, you are passing up learning opportunit
 type: Blog
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr2gych23"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mesetcme522s"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3mesetcme522s"
+mastodonId: "116067530378140553"
+mastodonUrl: "https://mastodon.social/@lindsaykwardell/116067530378140553"
 ---
 I have a long-running interest in taking technology that is either old, or underpowered, and pushing it as far as I can. I have fond memories of my [EeePC](https://en.wikipedia.org/wiki/Asus_Eee_PC) 701 from the mid-2000's, with it's 4GB of storage, and trying to figure out how to make it do something useful (I think I got Skype working on it). A later edition, the EeePC 1000HA, came with a bit more power, but running Windows XP in 2008. I managed to get that running a version of Photoshop, which could take ten minutes to save a PSD, but it _worked_, and at the time that was all that mattered.
 

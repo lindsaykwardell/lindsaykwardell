@@ -82,7 +82,12 @@ const publicationAtUri = getPublicationUri()
       <article>
         <Content />
       </article>
-      <SocialLikes postUrl={`/blog/${post.id}`} />
+      <SocialLikes
+        blueskyUri={post.data.blueskyUri}
+        blueskyUrl={post.data.blueskyUrl}
+        mastodonId={post.data.mastodonId}
+        mastodonUrl={post.data.mastodonUrl}
+      />
       {
         documentAtUri && (
           <div class="not-prose mt-8 flex flex-col gap-6">

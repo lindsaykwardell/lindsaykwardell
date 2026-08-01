@@ -11,6 +11,10 @@ snippet: AI is potentially helpful, but always harmful to creativity and express
 type: Blog
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr2uvmc2m"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mehmeqah5k2t"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3mehmeqah5k2t"
+mastodonId: "116043291145054148"
+mastodonUrl: "https://mastodon.social/@lindsaykwardell/116043291145054148"
 ---
 Artificial intelligence, as we regrettably know, is everywhere. I see articles praising it for its speed and efficiency at getting work done, but I also see [article](https://www.wheresyoured.at/the-case-against-generative-ai/) [after](https://henry.codes/writing/ai-at-work-is-anti-labor-by-design/?utm_source=the-index&utm_medium=newsletter) [article](https://gomakethings.com/ai-and-cigarettes/) talking about how AI is doing [more harm than good](https://www.engadget.com/ai/moltbook-the-ai-social-network-exposed-human-credentials-due-to-vibe-coded-security-flaw-230324567.html), [if it is doing any good at all](https://disconnect.blog/generative-ai-closes-off-a-better/).
 

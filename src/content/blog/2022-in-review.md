@@ -7,6 +7,10 @@ snippet: 2022 was a year that never ends, with a lot of joy and a lot of painful
 type: Blog
 published: true
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh2cm522"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3l7hqd5igab27"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3l7hqd5igab27"
+mastodonId: "109707564469595436"
+mastodonUrl: "https://mastodon.social/@lindsaykwardell/109707564469595436"
 ---
 2022 was, for me, the year that never ends. I started the year on the high of 2021; amazing opportunities, getting to work at two fantastic companies, and making great strides in my personal and professional lives. This year, I end on a low that was altogether unexpected. There was certainly good in this year, which I'll get to, but this year stands out as bitter compared to most.
 
