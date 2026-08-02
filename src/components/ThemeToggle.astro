@@ -1,0 +1,136 @@
+---
+/**
+ * Quiet light/dark toggle. Preference persists in localStorage;
+ * first visit follows prefers-color-scheme.
+ */
+---
+
+<button
+  type="button"
+  class="theme-toggle font-title"
+  data-theme-toggle
+  aria-label="Switch to dark mode"
+>
+  <span class="theme-toggle__label" data-theme-label>Dark</span>
+</button>
+
+<script>
+  const STORAGE_KEY = 'theme'
+
+  function preferredDark() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  }
+
+  function isDark() {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (stored === 'dark') return true
+    if (stored === 'light') return false
+    return preferredDark()
+  }
+
+  function applyTheme(dark: boolean, animate = false) {
+    document.documentElement.classList.toggle('dark', dark)
+    document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+    for (const btn of document.querySelectorAll('[data-theme-toggle]')) {
+      const label = btn.querySelector('[data-theme-label]')
+      if (label) {
+        if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          label.classList.remove('is-flipping')
+          // retrigger
+          void (label as HTMLElement).offsetWidth
+          label.classList.add('is-flipping')
+        }
+        label.textContent = dark ? 'Light' : 'Dark'
+      }
+      btn.setAttribute(
+        'aria-label',
+        dark ? 'Switch to light mode' : 'Switch to dark mode',
+      )
+    }
+  }
+
+  function sync() {
+    applyTheme(isDark())
+  }
+
+  function toggle() {
+    const next = !document.documentElement.classList.contains('dark')
+    localStorage.setItem(STORAGE_KEY, next ? 'dark' : 'light')
+    applyTheme(next, true)
+  }
+
+  sync()
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement | null
+    if (target?.closest('[data-theme-toggle]')) toggle()
+  })
+  document.addEventListener('astro:after-swap', sync)
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', () => {
+      if (!localStorage.getItem(STORAGE_KEY)) sync()
+    })
+</script>
+
+<style>
+  .theme-toggle {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--color-muted);
+    font-size: inherit;
+    line-height: inherit;
+    transition: color 0.2s ease;
+  }
+
+  .theme-toggle:hover {
+    color: var(--color-hover);
+  }
+
+  .theme-toggle:active .theme-toggle__label {
+    transform: translateY(1px);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-hover);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .theme-toggle__label {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .theme-toggle__label.is-flipping {
+    animation: theme-flip 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes theme-flip {
+    0% {
+      opacity: 0;
+      transform: translateY(0.35em);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle__label {
+      transition: none;
+    }
+
+    .theme-toggle__label.is-flipping {
+      animation: none;
+    }
+
+    .theme-toggle:active .theme-toggle__label {
+      transform: none;
+    }
+  }
+</style>

@@ -3,9 +3,111 @@ import Avatar from './Avatar.astro'
 import Nav from './Nav.astro'
 ---
 
-<header class="p-2 flex items-center max-w-[1000px] m-auto relative z-10">
-  <div class="flex-grow">
-    <a href="/"> <Avatar size="sm" /></a>
-  </div>
-  <Nav />
-</header>
+<div class="site-header sticky top-0 z-20" data-site-header>
+  <header class="site-header__inner">
+    <a href="/" class="site-header__home" aria-label="Home">
+      <Avatar size="sm" />
+    </a>
+    <Nav />
+  </header>
+</div>
+
+<script>
+  const THRESHOLD = 12
+
+  function syncHeader() {
+    const header = document.querySelector('[data-site-header]')
+    if (!header) return
+    header.classList.toggle('is-scrolled', window.scrollY > THRESHOLD)
+  }
+
+  syncHeader()
+  window.addEventListener('scroll', syncHeader, { passive: true })
+  document.addEventListener('astro:after-swap', syncHeader)
+  document.addEventListener('astro:page-load', syncHeader)
+</script>
+
+<style>
+  .site-header {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition:
+      background 0.28s ease,
+      border-color 0.28s ease,
+      box-shadow 0.28s ease,
+      backdrop-filter 0.28s ease;
+  }
+
+  .site-header.is-scrolled {
+    background: color-mix(in srgb, var(--color-background) 90%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom-color: color-mix(
+      in srgb,
+      var(--color-divider) 32%,
+      transparent
+    );
+    box-shadow: 0 8px 24px -18px
+      color-mix(in srgb, var(--color-foreground) 35%, transparent);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0.5rem 0.75rem;
+    gap: 1rem;
+  }
+
+  .site-header__home {
+    margin-right: auto;
+    display: inline-flex;
+    border-radius: 9999px;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .site-header__home:hover {
+    transform: scale(1.04);
+  }
+
+  .site-header__home:active {
+    transform: scale(0.98);
+  }
+
+  .site-header__home:focus-visible {
+    outline: 2px solid var(--color-hover);
+    outline-offset: 3px;
+  }
+
+  .site-header__home :global(.rounded-full.border) {
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .site-header__home:hover :global(.rounded-full.border) {
+    border-color: var(--color-hover);
+    box-shadow: 0 0 0 1px
+      color-mix(in srgb, var(--color-accent) 45%, transparent);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .site-header.is-scrolled {
+      background: var(--color-background);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .site-header__home,
+    .site-header__home :global(.rounded-full.border) {
+      transition: none;
+    }
+
+    .site-header__home:hover,
+    .site-header__home:active {
+      transform: none;
+    }
+  }
+</style>

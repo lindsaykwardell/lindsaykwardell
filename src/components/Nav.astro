@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content'
+import ThemeToggle from '@/components/ThemeToggle.astro'
 
 const url = new URL(Astro.request.url)
 const pathname = url.pathname
@@ -20,32 +21,145 @@ const isPhotos =
   viewingPhoto
 const isReading =
   currentPath.startsWith('blog') && type !== 'Photo' && !viewingPhoto
+
+const links = [
+  { href: '/', label: 'Home', active: false, hideMobile: true },
+  { href: '/about', label: 'About', active: currentPath.includes('about') },
+  { href: '/blog', label: 'Reading', active: isReading },
+  { href: '/blog?type=Photo', label: 'Photos', active: isPhotos },
+  {
+    href: '/@lindsay',
+    label: 'Social',
+    active: currentPath.includes('@lindsay'),
+  },
+]
 ---
 
-<nav class="flex gap-2 text-sm md:text-base" transition:name="nav">
-  <a class="font-title hidden md:block" href="/">Home</a>
-  <div class="text-divider hidden md:block">/</div>
-  <a
-    class={currentPath.includes('about')
-      ? 'underline font-title'
-      : 'font-title'}
-    href="/about">About</a
-  >
-  <div class="text-divider">/</div>
-  <a
-    class={isReading ? 'underline font-title' : 'font-title'}
-    href="/blog">Reading</a
-  >
-  <div class="text-divider">/</div>
-  <a
-    class={isPhotos ? 'underline font-title' : 'font-title'}
-    href="/blog?type=Photo">Photos</a
-  >
-  <div class="text-divider">/</div>
-  <a
-    class={currentPath.includes('@lindsay')
-      ? 'underline font-title'
-      : 'font-title'}
-    href="/@lindsay">Social</a
-  >
+<nav class="site-nav" transition:name="nav" aria-label="Primary">
+  {
+    links.map((link, i) => (
+      <>
+        <a
+          class:list={[
+            'site-nav__link font-title',
+            link.hideMobile && 'hidden md:inline',
+            link.active && 'is-active',
+          ]}
+          href={link.href}
+          aria-current={link.active ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+        {
+          i < links.length - 1 && (
+            <span
+              class:list={[
+                'site-nav__sep',
+                link.hideMobile && 'hidden md:inline',
+              ]}
+              aria-hidden="true"
+            >
+              /
+            </span>
+          )
+        }
+      </>
+    ))
+  }
+  <span class="site-nav__sep" aria-hidden="true">/</span>
+  <ThemeToggle />
 </nav>
+
+<style>
+  .site-nav {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    font-size: 0.875rem;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .site-nav {
+      gap: 0.65rem;
+      font-size: 1rem;
+    }
+  }
+
+  .site-nav__sep {
+    color: var(--color-divider);
+    opacity: 0.55;
+    user-select: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .site-nav:hover .site-nav__sep {
+    opacity: 0.35;
+  }
+
+  .site-nav__link {
+    position: relative;
+    color: var(--color-muted);
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .site-nav__link:hover {
+    color: var(--color-hover);
+  }
+
+  .site-nav__link:active {
+    transform: translateY(1px);
+  }
+
+  .site-nav__link.is-active {
+    color: var(--color-foreground);
+  }
+
+  .site-nav__link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0.05em;
+    right: 0.05em;
+    bottom: -0.18em;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--color-accent);
+    transform-origin: center;
+    animation: nav-mark 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .site-nav__link:focus-visible {
+    outline: 2px solid var(--color-hover);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @keyframes nav-mark {
+    from {
+      transform: scaleX(0.35);
+      opacity: 0;
+    }
+    to {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-nav__link,
+    .site-nav__sep {
+      transition: none;
+    }
+
+    .site-nav__link.is-active::after {
+      animation: none;
+    }
+
+    .site-nav__link:active {
+      transform: none;
+    }
+  }
+</style>

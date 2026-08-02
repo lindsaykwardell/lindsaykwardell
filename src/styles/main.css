@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-title: 'Philosopher', sans-serif;
   --font-body: 'Baloo Bhaina 2 Variable', system-ui;
@@ -28,6 +30,33 @@
   --color-badge-journal: var(--color-badge-blog);
 }
 
+/* Warm dark — invert lights/darks, keep earth accents */
+html.dark {
+  color-scheme: dark;
+  --color-foreground: #efeae2;
+  /* Brighter muted so secondary text holds up on the accent wash */
+  --color-muted: #c9bfab;
+  --color-divider: #756c5c;
+  --color-background: #1c1915;
+  --color-accent: #c47d4f;
+  --color-hover: #e07055;
+  --color-badge-blog: oklch(0.32 0.03 145);
+  --color-badge-programming: oklch(0.32 0.05 55);
+  --color-badge-poetry: oklch(0.32 0.04 320);
+  --color-badge-fiction: oklch(0.32 0.03 230);
+  --color-badge-photo: oklch(0.34 0.04 85);
+  --color-badge-podcast: oklch(0.32 0.04 25);
+  --color-badge-video: oklch(0.32 0.04 200);
+  --color-badge-meetup: oklch(0.33 0.02 70);
+  --color-badge-conference: oklch(0.32 0.04 280);
+  --color-badge-default: oklch(0.33 0.015 80);
+}
+
+html {
+  @apply bg-background;
+  color-scheme: light;
+}
+
 body {
   @apply bg-gradient-to-br from-background via-background to-accent text-foreground font-body min-h-screen;
 
@@ -39,6 +68,36 @@ body {
   --sequoia-border-radius: 4px;
   --sequoia-font-family: var(--font-body);
   --sequoia-title-font: var(--font-title);
+}
+
+/* Dark: keep the warm corner, but don't wash out body text */
+html.dark body {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-background),
+    var(--color-background) 58%,
+    color-mix(in srgb, var(--color-accent) 22%, var(--color-background))
+  );
+}
+
+/* Prose follows site tokens in both themes */
+.prose {
+  --tw-prose-body: var(--color-foreground);
+  --tw-prose-headings: var(--color-foreground);
+  --tw-prose-lead: var(--color-muted);
+  --tw-prose-links: var(--color-hover);
+  --tw-prose-bold: var(--color-foreground);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-divider);
+  --tw-prose-hr: var(--color-divider);
+  --tw-prose-quotes: var(--color-muted);
+  --tw-prose-quote-borders: var(--color-divider);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-foreground);
+  --tw-prose-pre-code: var(--color-foreground);
+  --tw-prose-pre-bg: color-mix(in srgb, var(--color-foreground) 6%, var(--color-background));
+  --tw-prose-th-borders: var(--color-divider);
+  --tw-prose-td-borders: color-mix(in srgb, var(--color-divider) 50%, transparent);
 }
 
 /* Quiet post afterword — engagement stays secondary to the essay */
@@ -108,10 +167,6 @@ body {
   .social-likes a:hover {
     transform: none;
   }
-}
-
-html {
-  @apply bg-background;
 }
 
 h1,
