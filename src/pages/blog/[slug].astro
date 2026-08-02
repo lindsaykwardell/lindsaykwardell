@@ -1,16 +1,14 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import Signoff from '@/components/Signoff.astro'
-import SocialLikes from '@/components/SocialLikes.astro'
-import PostComments from '@/components/PostComments.astro'
-import Webmentions from '@/components/Webmentions.astro'
+import PhotoPostLayout from '@/components/PhotoPostLayout.astro'
+import ArticlePostLayout from '@/components/ArticlePostLayout.astro'
 import { getCollection, getEntry, render } from 'astro:content'
 import Fuse from 'fuse.js'
 import {
   getDocumentAtUri,
   getPublicationUri,
 } from '@/lib/standard-site'
-import { readingBackLink, readingPostHref } from '@/lib/reading'
+import { readingBackLink } from '@/lib/reading'
 import details from '@/content/details/index.json'
 
 const { slug } = Astro.params
@@ -25,62 +23,67 @@ if (!post || (post.data.draft && !import.meta.env.DEV)) {
 const displayType =
   post.data.type === 'Blog' ? 'Personal' : (post.data.type ?? 'Personal')
 
-const formatDate = (date: Date) =>
-  Intl.DateTimeFormat('en-us', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(date)
-
 const hasImage = (image: string | undefined | null) =>
   Boolean(image && image !== 'null')
 
-const fuse = new Fuse(
-  posts
-    .filter(
-      (p) =>
-        p.id !== post.id && (import.meta.env.DEV || !p.data.draft),
-    )
-    .map((p) => {
-      const type = p.data.type === 'Blog' ? 'Personal' : p.data.type
-      return { ...p.data, type, slug: p.id }
-    }),
-  {
-    keys: ['type', 'title', 'snippet', 'name'],
-  },
+const isPhoto = displayType === 'Photo'
+const isExternalAppearance = Boolean(post.data.link)
+const skipDropCap =
+  isExternalAppearance || isPhoto || displayType === 'Poetry'
+
+const publishedOthers = posts.filter(
+  (p) => p.id !== post.id && (import.meta.env.DEV || !p.data.draft),
 )
-const results = fuse
-  .search({
-    $and: [
-      {
-        type: displayType,
-      },
-      {
-        $or: post.data.title?.split(' ').map((s) => ({ title: s })),
-      },
-    ],
+
+const relatedPhotos = isPhoto
+  ? publishedOthers
+      .filter((p) => p.data.type === 'Photo' && hasImage(p.data.image))
+      .toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+      .slice(0, 8)
+      .map((p) => ({
+        slug: p.id,
+        title: p.data.title,
+        image: p.data.image!,
+        alt: p.data.snippet || p.data.title,
+      }))
+  : []
+
+const sameKind = publishedOthers
+  .map((p) => {
+    const type = p.data.type === 'Blog' ? 'Personal' : p.data.type
+    return { ...p.data, type, slug: p.id }
   })
-  .slice(0, 3)
+  .filter((p) => p.type === displayType)
+
+const fuse = new Fuse(sameKind, {
+  keys: ['title', 'snippet', 'name'],
+  threshold: 0.45,
+})
+
+const relatedWriting = !isPhoto
+  ? fuse.search(post.data.title || '').slice(0, 3).map((r) => r.item)
+  : []
+
+const relatedFallback =
+  !isPhoto && relatedWriting.length === 0
+    ? sameKind
+        .toSorted((a, b) => b.pubDate.getTime() - a.pubDate.getTime())
+        .slice(0, 3)
+    : []
+
+const relatedPosts = relatedWriting.length > 0 ? relatedWriting : relatedFallback
+
+const relatedHeading =
+  displayType === 'Poetry'
+    ? 'More poetry'
+    : ['Podcast', 'Video', 'Meetup', 'Conference'].includes(displayType)
+      ? 'More appearances'
+      : 'More to read'
 
 const { Content } = await render(post)
 const documentAtUri = getDocumentAtUri(post.id, post.data.atUri)
 const publicationAtUri = getPublicationUri()
 const canonicalUrl = `${details.permalink}/blog/${post.id}`
-const isExternalAppearance = Boolean(post.data.link)
-const isPhoto = displayType === 'Photo'
-const skipDropCap =
-  isExternalAppearance ||
-  isPhoto ||
-  displayType === 'Poetry'
-
-const relatedHeading =
-  displayType === 'Poetry'
-    ? 'More poetry'
-    : displayType === 'Photo'
-      ? 'More photos'
-      : ['Podcast', 'Video', 'Meetup', 'Conference'].includes(displayType)
-        ? 'More appearances'
-        : 'More to read'
 
 const externalLabel =
   displayType === 'Podcast'
@@ -90,7 +93,22 @@ const externalLabel =
       : 'Watch / listen'
 
 const fromFilter = Astro.url.searchParams.get('from')
-const back = readingBackLink(fromFilter)
+/** Photos default back to the gallery when no archive context. */
+const back = readingBackLink(fromFilter ?? (isPhoto ? 'Photo' : null))
+
+const caption =
+  post.data.snippet &&
+  post.data.snippet !== post.data.title &&
+  !/^Photo:\s*/i.test(post.data.snippet)
+    ? post.data.snippet
+    : null
+
+const bodyText = (post.body || '').trim()
+const showPhotoBody =
+  isPhoto &&
+  bodyText.length > 0 &&
+  bodyText !== post.data.title &&
+  bodyText !== post.data.snippet
 ---
 
 <BaseLayout
@@ -101,311 +119,35 @@ const back = readingBackLink(fromFilter)
   documentAtUri={documentAtUri}
   publicationAtUri={publicationAtUri}
 >
-  <article class="post-page pb-16">
-    <header class="post-page-header flex flex-col gap-3 items-center text-center pb-10 md:pb-12 px-2 md:px-0">
-      <div class="post-page-meta flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-muted">
-        <a href={back.href} class="post-page-back">
-          <span class="post-page-back__arrow" aria-hidden="true">←</span>
-          {back.label}
-        </a>
-        <span class="text-divider/80" aria-hidden="true">·</span>
-        <time datetime={post.data.pubDate.toISOString()}>
-          {formatDate(post.data.pubDate)}
-        </time>
-      </div>
-
-      {
-        hasImage(post.data.image) && (
-          <div class="post-page-hero w-full overflow-hidden">
-            <img
-              src={post.data.image!}
-              alt=""
-              class:list={[
-                'post-page-hero__img w-full mx-auto',
-                isPhoto
-                  ? 'h-auto max-h-[min(80vh,52rem)] w-auto max-w-full object-contain'
-                  : 'aspect-video object-cover',
-              ]}
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-        )
-      }
-
-      <h1
-        class="post-page-title font-title text-3xl md:text-4xl text-foreground text-pretty max-w-3xl leading-tight"
-        transition:name={`${post.id}-name`}
+  {
+    isPhoto ? (
+      <PhotoPostLayout
+        post={post}
+        back={back}
+        caption={caption}
+        showBody={showPhotoBody}
+        relatedPhotos={relatedPhotos}
+        documentAtUri={documentAtUri}
+        canonicalUrl={canonicalUrl}
+        fromFilter={fromFilter}
       >
-        {post.data.title}
-      </h1>
-
-      {
-        post.data.name && (
-          <p class="text-sm text-muted">{post.data.name}</p>
-        )
-      }
-
-      {
-        post.data.link && (
-          <p class="blog-issue-links">
-            <a
-              href={post.data.link}
-              class="blog-issue-links__primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {externalLabel}
-            </a>
-          </p>
-        )
-      }
-
-      {
-        post.data.draft && (
-          <p class="text-sm italic text-hover tracking-wide">Draft</p>
-        )
-      }
-    </header>
-
-    <div
-      class:list={[
-        'post-page-surface prose max-w-full bg-background prose-lg md:prose-xl m-auto p-4 md:p-12 rounded shadow-md',
-        skipDropCap && 'post-page--plain',
-      ]}
-    >
-      <div class="post-page-body">
+        {showPhotoBody && <Content />}
+      </PhotoPostLayout>
+    ) : (
+      <ArticlePostLayout
+        post={post}
+        back={back}
+        externalLabel={externalLabel}
+        skipDropCap={skipDropCap}
+        isExternalAppearance={isExternalAppearance}
+        relatedPosts={relatedPosts}
+        relatedHeading={relatedHeading}
+        documentAtUri={documentAtUri}
+        canonicalUrl={canonicalUrl}
+        fromFilter={fromFilter}
+      >
         <Content />
-      </div>
-      {
-        !isExternalAppearance && (
-          <footer class="post-afterword not-prose">
-            <SocialLikes
-              blueskyUri={post.data.blueskyUri}
-              blueskyUrl={post.data.blueskyUrl}
-              mastodonId={post.data.mastodonId}
-              mastodonUrl={post.data.mastodonUrl}
-              devtoId={post.data.devtoId}
-              devtoUrl={post.data.devtoUrl}
-              documentAtUri={documentAtUri}
-              showRecommend={Boolean(documentAtUri)}
-            />
-            {(post.data.blueskyUri ||
-              post.data.mastodonId ||
-              post.data.devtoId) && (
-              <PostComments
-                blueskyUri={post.data.blueskyUri}
-                mastodonId={post.data.mastodonId}
-                devtoId={post.data.devtoId}
-                devtoUrl={post.data.devtoUrl}
-              />
-            )}
-            <Webmentions targetUrl={canonicalUrl} />
-          </footer>
-        )
-      }
-      <Signoff />
-    </div>
-
-    {
-      documentAtUri && !isExternalAppearance && (
-        <script>
-          import '@/components/sequoia-subscribe.js'
-        </script>
-      )
-    }
-
-    {
-      results.length > 0 && (
-        <aside
-          class="post-related px-2 md:px-0 pt-12 md:pt-14 mt-4 border-t border-divider/35"
-          aria-labelledby="related-heading"
-        >
-          <h2
-            id="related-heading"
-            class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
-          >
-            {relatedHeading}
-          </h2>
-          <ul class="flex flex-col gap-7">
-            {results.map((result) => {
-              const item = result.item
-              return (
-                <li class="post-related__item grid gap-1 md:grid-cols-[auto_1fr] md:gap-x-5 md:items-start">
-                  <time
-                    class="text-sm text-muted md:w-28 shrink-0 md:pt-1.5 tabular-nums"
-                    datetime={item.pubDate.toISOString()}
-                  >
-                    {formatDate(item.pubDate)}
-                  </time>
-                  <div>
-                    <a
-                      href={readingPostHref(item.slug, fromFilter)}
-                      class="post-related__title font-title text-xl md:text-2xl text-foreground"
-                      transition:name={`${item.slug}-name`}
-                    >
-                      {item.title}
-                    </a>
-                    {item.snippet && (
-                      <p class="mt-1.5 text-muted leading-relaxed max-w-2xl line-clamp-2 text-pretty">
-                        {item.snippet}
-                      </p>
-                    )}
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
-        </aside>
-      )
-    }
-  </article>
+      </ArticlePostLayout>
+    )
+  }
 </BaseLayout>
-
-<style>
-  .post-page-meta {
-    animation: post-settle 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .post-page-hero {
-    animation: post-settle 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
-  }
-
-  .post-page-hero__img {
-    transform: scale(1.03);
-    transform-origin: center;
-    animation: post-hero-ease 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
-  }
-
-  .post-page-title {
-    animation: post-settle 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
-  }
-
-  .post-page-surface {
-    animation: post-settle 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
-  }
-
-  .post-page-body {
-    p:first-of-type:first-line {
-      color: var(--color-hover);
-      font-weight: bold;
-      font-size: var(--text-2xl);
-      font-family: var(--font-title);
-    }
-  }
-
-  /* Appearances, photos, and poems skip the drop-cap treatment */
-  .post-page--plain .post-page-body p:first-of-type:first-line {
-    color: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-    font-family: inherit;
-  }
-
-  .post-page-back {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.3rem;
-    color: var(--color-muted);
-    text-decoration: none;
-    transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .post-page-back__arrow {
-    display: inline-block;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .post-page-back:hover {
-    color: var(--color-hover);
-  }
-
-  .post-page-back:hover .post-page-back__arrow {
-    transform: translateX(-0.2rem);
-  }
-
-  .post-page-back:focus-visible,
-  .post-related a:focus-visible,
-  .post-page-header a:focus-visible {
-    outline: 2px solid var(--color-hover);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  .post-related__title {
-    text-decoration: none;
-    transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .post-related__title:hover {
-    color: var(--color-hover);
-  }
-
-  .blog-issue-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.25rem 0.85rem;
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    line-height: 1.4;
-  }
-
-  .blog-issue-links__primary {
-    color: var(--color-hover);
-    text-decoration: none;
-    transition: text-underline-offset 0.2s ease;
-  }
-
-  .blog-issue-links__primary:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  @keyframes post-settle {
-    from {
-      opacity: 0;
-      transform: translateY(0.55rem);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes post-hero-ease {
-    from {
-      transform: scale(1.03);
-      opacity: 0.85;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .post-page-meta,
-    .post-page-hero,
-    .post-page-hero__img,
-    .post-page-title,
-    .post-page-surface {
-      animation: none;
-    }
-
-    .post-page-hero__img {
-      transform: none;
-      opacity: 1;
-    }
-
-    .post-page-back,
-    .post-page-back__arrow,
-    .post-related__title {
-      transition: none;
-    }
-
-    .post-page-back:hover .post-page-back__arrow {
-      transform: none;
-    }
-  }
-</style>

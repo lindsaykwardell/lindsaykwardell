@@ -1,0 +1,75 @@
+---
+/**
+ * Dense year archive for a content kind — `/blog?type=Poetry` etc.
+ */
+import type { CollectionEntry } from 'astro:content'
+import { formatReadingDate, readingPostHref } from '@/lib/reading'
+
+type Post = CollectionEntry<'blog'>
+
+interface Props {
+  type: string
+  postsByYear: Record<string, Post[]>
+  count: number
+}
+
+const { type, postsByYear, count } = Astro.props
+---
+
+<div class="blog-issue blog-issue--archive px-2 md:px-0 pb-12">
+  <header
+    class="flex flex-wrap items-baseline justify-between gap-3 pb-8 border-b border-divider/40"
+  >
+    <div>
+      <p class="font-title text-sm text-muted tracking-wide uppercase mb-1">
+        Archive
+      </p>
+      <h1 class="font-title text-3xl md:text-4xl text-foreground">{type}</h1>
+      <p class="text-muted mt-2 text-base">
+        {count} {count === 1 ? 'piece' : 'pieces'}
+      </p>
+    </div>
+    <a href="/blog" class="text-muted hover:text-hover text-sm">← Reading</a>
+  </header>
+
+  <ul class="pt-2">
+    {
+      Object.entries(postsByYear)
+        .toSorted((a, b) => +b[0] - +a[0])
+        .map(([year, posts]) => (
+          <li class="pt-10">
+            <h2 class="font-title text-xl text-muted mb-5">{year}</h2>
+            <ul class="flex flex-col gap-6">
+              {posts.map((post) => (
+                <li
+                  class:list={[
+                    'grid gap-1 md:grid-cols-[1fr_auto] md:gap-x-6 md:items-baseline',
+                    post.data.draft && 'italic opacity-80',
+                  ]}
+                >
+                  <div>
+                    <a
+                      href={readingPostHref(post.id, type)}
+                      class="font-title text-xl md:text-2xl text-foreground hover:text-hover"
+                      transition:name={`${post.id}-name`}
+                    >
+                      {post.data.title}
+                      {post.data.draft ? ' (Draft)' : ''}
+                    </a>
+                    {post.data.snippet && (
+                      <p class="text-muted mt-1 text-base leading-relaxed max-w-prose line-clamp-2">
+                        {post.data.snippet}
+                      </p>
+                    )}
+                  </div>
+                  <time class="text-sm text-muted shrink-0">
+                    {formatReadingDate(post.data.pubDate)}
+                  </time>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+    }
+  </ul>
+</div>

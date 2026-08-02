@@ -1,14 +1,25 @@
 ---
+import { getEntry } from 'astro:content'
+
 const url = new URL(Astro.request.url)
 const pathname = url.pathname
 const type = url.searchParams.get('type')
 const currentPath = pathname.slice(1) // remove the first "/"
 
+/** /blog/:slug — highlight Photos when the post itself is a photo. */
+const slugMatch = pathname.match(/^\/blog\/([^/]+)\/?$/)
+let viewingPhoto = false
+if (slugMatch) {
+  const entry = await getEntry('blog', decodeURIComponent(slugMatch[1]))
+  viewingPhoto = entry?.data.type === 'Photo'
+}
+
 const isPhotos =
   currentPath.startsWith('photos') ||
-  (currentPath.startsWith('blog') && type === 'Photo')
+  (currentPath.startsWith('blog') && type === 'Photo') ||
+  viewingPhoto
 const isReading =
-  currentPath.startsWith('blog') && type !== 'Photo'
+  currentPath.startsWith('blog') && type !== 'Photo' && !viewingPhoto
 ---
 
 <nav class="flex gap-2 text-sm md:text-base" transition:name="nav">

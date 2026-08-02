@@ -1,0 +1,58 @@
+---
+/**
+ * Quiet post afterword: likes, comments, webmentions.
+ */
+import SocialLikes from '@/components/SocialLikes.astro'
+import PostComments from '@/components/PostComments.astro'
+import Webmentions from '@/components/Webmentions.astro'
+
+interface Props {
+  blueskyUri?: string | null
+  blueskyUrl?: string | null
+  mastodonId?: string | null
+  mastodonUrl?: string | null
+  devtoId?: string | null
+  devtoUrl?: string | null
+  documentAtUri?: string | null
+  canonicalUrl: string
+  showRecommend?: boolean
+}
+
+const {
+  blueskyUri,
+  blueskyUrl,
+  mastodonId,
+  mastodonUrl,
+  devtoId,
+  devtoUrl,
+  documentAtUri,
+  canonicalUrl,
+  showRecommend = false,
+} = Astro.props
+
+const hasComments = Boolean(blueskyUri || mastodonId || devtoId)
+---
+
+<SocialLikes
+  blueskyUri={blueskyUri}
+  blueskyUrl={blueskyUrl}
+  mastodonId={mastodonId}
+  mastodonUrl={mastodonUrl}
+  devtoId={devtoId}
+  devtoUrl={devtoUrl}
+  documentAtUri={documentAtUri}
+  showRecommend={showRecommend}
+/>
+{
+  hasComments && (
+    <div class="mt-6">
+      <PostComments
+        blueskyUri={blueskyUri}
+        mastodonId={mastodonId}
+        devtoId={devtoId}
+        devtoUrl={devtoUrl}
+      />
+    </div>
+  )
+}
+<Webmentions targetUrl={canonicalUrl} />

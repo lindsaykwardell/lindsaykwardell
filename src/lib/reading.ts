@@ -44,3 +44,11 @@ export function readingBackLink(from?: string | null): {
     label: type === 'Photo' ? 'Photos' : type,
   }
 }
+
+export function formatReadingDate(date: Date): string {
+  return Intl.DateTimeFormat('en-us', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date)
+}
