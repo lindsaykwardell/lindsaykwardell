@@ -9,6 +9,7 @@ snippet: "Vue 3 introduced the Composition API, a new way to write component log
 link: "https://www.youtube.com/watch?v=0DhsIjTeN0c"
 name: "Javascript Marathon"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mkbi5426"
 ---
 
 Vue 3 introduced the Composition API, a new way to write component logic. We will explore the Composition API methods, and then take an existing Vue 3 application and convert it from the Options API to the Composition API.

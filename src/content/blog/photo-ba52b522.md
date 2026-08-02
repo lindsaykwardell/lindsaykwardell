@@ -8,6 +8,7 @@ type: Photo
 snippet: "Photo: Shadow"
 gazeId: "ba52b522-f878-4c54-a468-62583666aefd"
 weekOf: "2025-05-18"
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lm7uiy2x"
 ---
 
 

@@ -9,6 +9,7 @@ snippet: "A cheerful conversation between Rebekah and Lindsay as they introduce 
 link: "https://podcasters.spotify.com/pod/show/sureitmeansnothing/episodes/Introductions-e2eg8ho"
 name: "I'm Sure It Means Nothing"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lrxwh522"
 ---
 
 A cheerful conversation between Rebekah and Lindsay as they introduce themselves, their backgrounds, and their sense of humor.

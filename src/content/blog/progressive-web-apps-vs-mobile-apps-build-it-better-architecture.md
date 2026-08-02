@@ -9,6 +9,7 @@ snippet: "In this week's episode, we are joined by a roundtable of This Dot Labs
 link: "https://www.youtube.com/watch?v=bi0DIJxp178"
 name: "Build IT Better"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mkdwcf2l"
 ---
 
 In this week's episode, we are joined by a roundtable of This Dot Labs developers, Lindsay Wardell, Walter Kuppens, Jesse Tomchak, Simone Cuomo, + Chandler Baskins in a discussion about Progressive Web App development vs Mobile Apps!

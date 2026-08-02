@@ -9,6 +9,7 @@ snippet: "Rebekah and Lindsay explore some of the events that make them who they
 link: "https://podcasters.spotify.com/pod/show/sureitmeansnothing/episodes/Self-Discovery-e2frpic"
 name: "I'm Sure It Means Nothing"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lrsmmm22"
 ---
 
 Rebekah and Lindsay explore some of the events that make them who they are today.

@@ -9,6 +9,7 @@ snippet: "In this episode, Rob Ocel discusses the recent release of Tailwind's J
 link: "https://modernweb.podbean.com/e/s08e06-modern-web-podcast-tailwind-jit-and-utility-css/"
 name: "Modern Web"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mthmbv2l"
 ---
 
 In this episode, Rob Ocel discusses the recent release of Tailwind's Just-In-Time (JIT) CSS compiler with Hunter Miller and Lindsay Wardell. They discuss the new features the JIT compiler provides, as well as, the performance boost developers can expect on their own projects. They also talk about the benefits of utility CSS compared to other methods, and how Tailwind can be used to build out many types of design systems. They also explore other utility CSS frameworks, including Windi CSS, and discuss the future of utility CSS in the development world.

@@ -9,6 +9,7 @@ snippet: "In this episode of Views on Vue the panel shares what their set-ups lo
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-094-head-to-toe-development-set-up"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54neybiz2x"
 ---
 
 In this episode of Views on Vue the panel shares what their set-ups look like. They start by discussing IDE and text editors. Most of them use VScode for their setups but they like to use others when they need them. The panelist list some of their favorite plugins, Vetur, Prettier, Vue peeks, NPM, word counters, and spell checkers. They talk about Vue CLI and other CLIs they use. 

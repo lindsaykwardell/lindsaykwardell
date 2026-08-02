@@ -9,6 +9,7 @@ snippet: "Elm is a delightful language for building reliable web applications. I
 link: "https://www.youtube.com/watch?v=ZPVGK2OSTog"
 name: "ViteConf 2022"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ly6lwv2z"
 ---
 
 Elm is a delightful language for building reliable web applications. In this talk, we'll explore what Elm is, how it compares to Javascript, and how we can incorporate it into a Vite-based application.

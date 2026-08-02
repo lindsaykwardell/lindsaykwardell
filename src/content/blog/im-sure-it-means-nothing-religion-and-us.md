@@ -9,6 +9,7 @@ snippet: "Rebekah and Lindsay explore their past in organized religion and how i
 link: "https://podcasters.spotify.com/pod/show/sureitmeansnothing/episodes/Religion-and-Us-e2koa9f"
 name: "I'm Sure It Means Nothing"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lqtdfk26"
 ---
 
 Rebekah and Lindsay explore their past in organized religion and how it's impacted them.

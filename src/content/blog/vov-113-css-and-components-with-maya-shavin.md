@@ -9,6 +9,7 @@ snippet: "In this episode of Views on Vue, we talk with Maya Shavin, a Senior Fr
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-113-css-and-components-with-maya-shavin"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n6q2ie25"
 ---
 
 In this episode of Views on Vue, we talk with Maya Shavin, a Senior Frontend Developer at Cloudinary. We talk about CSS component libraries, CSS-in-JS with Vue, and pros and cons with using libraries like Tailwind CSS. We also discuss Storefront UI, a component library focused on eConmerce.

@@ -9,6 +9,7 @@ snippet: "Tech Academy graduate Lindsay Wardell discussed side projects and buil
 link: "https://www.youtube.com/watch?v=W13X7wjKejs"
 name: "The Tech Academy"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lzsa2o2m"
 ---
 
 Tech Academy graduate Lindsay Wardell discussed side projects and building in public! Lindsay shared how she has grown her development knowledge through the creation of an ongoing, engaging side project, and a few ways to think about the purpose of different side projects.

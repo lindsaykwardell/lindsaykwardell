@@ -9,6 +9,7 @@ snippet: "Vue Remote Conf 2020"
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-112-build-moblie-apps-with-nativescript-vue-with-tiago-alves"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n74ixl2i"
 ---
 
 Vue Remote Conf 2020

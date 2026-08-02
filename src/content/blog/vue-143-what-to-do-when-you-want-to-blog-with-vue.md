@@ -9,6 +9,7 @@ snippet: "Lindsay and Steve discuss building and hosting a blog using Vue. They 
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vue-143-what-to-do-when-you-want-to-blog-with-vue"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrkja42t"
 ---
 
 Lindsay and Steve discuss building and hosting a blog using Vue. They discuss their own blogs, and dive into options for managing content with markdown or headless CMS, building the site with Vue or Nuxt (and others), and where to host

@@ -8,6 +8,7 @@ type: Photo
 snippet: "A kid posing with a red leaf they found on a trail."
 gazeId: "21d54ca7-eab4-47b5-a6c3-fb169ea26a56"
 weekOf: "2025-11-23"
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kxyroa23"
 ---
 
 A kid posing with a red leaf they found on a trail.

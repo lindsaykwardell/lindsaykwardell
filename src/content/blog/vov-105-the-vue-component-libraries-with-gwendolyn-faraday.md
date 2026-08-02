@@ -9,6 +9,7 @@ snippet: "In this episode, Lindsay and Steve talk with Gwen Faraday about Vue co
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-105-the-vue-component-libraries-with-gwendolyn-faraday"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ncf3it2m"
 ---
 
 In this episode, Lindsay and Steve talk with Gwen Faraday about Vue component libraries: what they are, why you want them, and what they solve. We discuss a couple examples that Gwen likes (Vuetify and Element). We also talk about Gwen's upcoming courses on component libraries, and her live streaming on YouTube.

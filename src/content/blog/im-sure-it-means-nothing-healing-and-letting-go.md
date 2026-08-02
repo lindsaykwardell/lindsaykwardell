@@ -9,6 +9,7 @@ snippet: "Rebekah and Lindsay discuss different ways they have experienced heali
 link: "https://podcasters.spotify.com/pod/show/sureitmeansnothing/episodes/Healing-and-Letting-Go-e2qlesd"
 name: "I'm Sure It Means Nothing"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lpcsrd2i"
 ---
 
 Rebekah and Lindsay discuss different ways they have experienced healing, and share examples of what they have had to let go.

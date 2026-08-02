@@ -9,6 +9,7 @@ snippet: "In this episode of Views on Vue, Lindsay and Steve talk with Debbie Oâ
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-118-nuxtify-everything-with-debbie-o-brien"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n5hxgv2z"
 ---
 
 In this episode of Views on Vue, Lindsay and Steve talk with Debbie Oâ€™Brien, Head of Learning at Nuxt. We discuss Nuxt becoming a company, the new component and content modules, and the static module. We also talk about enhancements to the Nuxt documentation, providing new ways to learn Nuxt and ways to integrate it with other technologies.

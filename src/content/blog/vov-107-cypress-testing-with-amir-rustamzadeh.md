@@ -9,6 +9,7 @@ snippet: "In this episode, we talk to Amir Rustamzadeh about the end-to-end test
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-107-cypress-testing-with-amir-rustamzadeh"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54nb5i2t2i"
 ---
 
 In this episode, we talk to Amir Rustamzadeh about the end-to-end testing framework Cypress. We discuss what it is, what it's useful for, and how to test a Vue application. We also discuss mocking APIs, and how easy it is to get started with Cypress.

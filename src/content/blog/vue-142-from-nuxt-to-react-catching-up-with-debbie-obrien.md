@@ -9,6 +9,7 @@ snippet: "Lindsay and Steve talk with Debbie O'Brien, Head Developer Advocate at
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vue-142-from-nuxt-to-react-catching-up-with-debbie-o-brien"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54msjhed2m"
 ---
 
 Lindsay and Steve talk with Debbie O'Brien, Head Developer Advocate at Bit and former Head of Learning at Nuxt about her new position. We talk about what Bit is, and how they are bringing a new approach to component development. We also talk about how Debbie is having to learn React, what that looks like for an experienced Vue developer, and ways we learn new frameworks and libraries.

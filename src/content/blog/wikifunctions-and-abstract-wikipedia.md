@@ -9,6 +9,7 @@ snippet: "Wikifunctions is a collaboratively edited catalog of computer function
 link: "https://www.youtube.com/watch?v=LecYqXHvHfg&t=839s"
 name: "Wikimania"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mhvdme26"
 ---
 
 Wikifunctions is a collaboratively edited catalog of computer functions that aims to allow the creation, modification, and reuse of source code. It is closely related to Abstract Wikipedia, an extension to Wikidata that aims to create a language-independent version of Wikipedia using its structured data.

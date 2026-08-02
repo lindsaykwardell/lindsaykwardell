@@ -9,6 +9,7 @@ snippet: "Rebekah and Lindsay reflect on their own experiences with gender. (Exp
 link: "https://podcasters.spotify.com/pod/show/sureitmeansnothing/episodes/Transitions-and-Genders-e2j08fj"
 name: "I'm Sure It Means Nothing"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lr2i2v22"
 ---
 
 Rebekah and Lindsay reflect on their own experiences with gender. (Explicit content refers to body image)

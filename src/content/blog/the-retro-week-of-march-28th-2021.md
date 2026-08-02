@@ -9,6 +9,7 @@ snippet: "On this week's \"The Watercooler\", we're talking with Lindsay Wardell
 link: "https://www.youtube.com/watch?v=LPw8ZvEyOnQ"
 name: "The Retro"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrmwbl2m"
 ---
 
 On this week's "The Watercooler", we're talking with Lindsay Wardell, Software Engineer at This Dot Labs. She talks about what's new with the latest release of Vite, the build tool!

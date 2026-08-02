@@ -9,6 +9,7 @@ snippet: "Lindsay and Steve discuss Web Workers with Martins Onuoha. They talk a
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vue-144-web-workers-in-vue-with-martins-onuoha"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrbyre2t"
 ---
 
 Lindsay and Steve discuss Web Workers with Martins Onuoha. They talk about Martins' start in programming, and how he came to love Vue for its simplicity. Martins explains what Web Workers are, when they are useful, and how to integrate them with a Vue application.

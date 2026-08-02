@@ -9,6 +9,7 @@ snippet: "Sponsors"
 link: "https://topenddevs.com/podcasts/she-s-in-tech/episodes/how-to-get-involved-in-the-tech-community-with-shruti-kapoor-she-s-in-tech-019"
 name: "She's In Tech"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54md6emo2h"
 ---
 
 Sponsors

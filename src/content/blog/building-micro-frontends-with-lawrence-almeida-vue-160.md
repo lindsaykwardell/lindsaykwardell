@@ -9,6 +9,7 @@ snippet: "Lindsay meets with Lawrence Almeida, Lead Developer at Unbabel, to dis
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/building-micro-frontends-with-lawrence-almeida-vue-160"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mhqhge25"
 ---
 
 Lindsay meets with Lawrence Almeida, Lead Developer at Unbabel, to discuss building web applications with a micro frontend architecture. 

@@ -9,6 +9,7 @@ snippet: "Richard and Lindsay talk about their experiences with FP and OOP, and 
 link: "https://open.spotify.com/episode/64kMufOBufDspsLgJfskbD"
 name: "Software Unscripted"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lzpt252b"
 ---
 
 Richard and Lindsay talk about their experiences with FP and OOP, and some less obvious differences they've noticed between the two paradigms.

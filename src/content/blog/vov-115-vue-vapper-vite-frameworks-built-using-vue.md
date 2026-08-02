@@ -9,6 +9,7 @@ snippet: "This week the Views of Vue panelists discuss the frameworks built usin
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-115-vue-vapper-vite-frameworks-built-using-vue"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n6532u25"
 ---
 
 This week the Views of Vue panelists discuss the frameworks built using Vue. We start with the Vue CLI, then go into Gridsome and static site pros and cons, Nuxt and server side rendering, and Vuepress for simple setup and development. We also discuss other frameworks like Quasar, Vapper, and the experimental Vite.

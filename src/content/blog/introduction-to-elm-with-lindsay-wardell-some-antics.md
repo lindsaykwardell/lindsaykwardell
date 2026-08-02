@@ -9,6 +9,7 @@ snippet: "Elm is a delightful functional programming language with an emphasis o
 link: "https://www.youtube.com/watch?v=flUASpYouEw"
 name: "Some Antics"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m5rt542t"
 ---
 
 Elm is a delightful functional programming language with an emphasis on tooling. Join us as Lindsay Wardell shows us how we can get started with Elm today!

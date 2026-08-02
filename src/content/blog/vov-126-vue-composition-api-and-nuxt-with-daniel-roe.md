@@ -9,6 +9,7 @@ snippet: "In this episode of Views on Vue, Lindsay and Steve talk with Daniel Ro
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-126-vue-composition-api-and-nuxt-with-daniel-roe"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n3fdf426"
 ---
 
 In this episode of Views on Vue, Lindsay and Steve talk with Daniel Roe, CTO of Parent Scheme, about the Vue 3 Composition API. They discuss what the composition API is, and how it simplifies development of features in Vue. Daniel is also working on composition API hooks for Nuxt, and we dive into how these hooks work to enable SSR with Vue 3. We then talk about Vuex and the composition API, and whether you can (or should) replace it.

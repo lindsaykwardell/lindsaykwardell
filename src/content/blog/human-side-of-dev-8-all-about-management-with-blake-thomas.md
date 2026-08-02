@@ -6,9 +6,11 @@ image: "https://humansideofdev.lindsaykwardell.com/images/logo.jpg"
 tags: []
 type: Podcast
 snippet: "Blake Thomas is the Director of Engineer at NoRedInk, located in the United States. We talk about how Blake got into programming, and the path that led him from learning to code to a management position in an education tech company. We also talk..."
-link: "https://humansideofdev.lindsaykwardell.com/episode/8---all-about-management-with-blake-thomas"
+link: "https://humansideofdev.lindsaykwardell.com/episode/8atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lqy4ps26"
+---all-about-management-with-blake-thomas"
 name: "Human Side of Dev"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lqy4ps26"
 ---
 
 Blake Thomas is the Director of Engineer at NoRedInk, located in the United States. We talk about how Blake got into programming, and the path that led him from learning to code to a management position in an education tech company. We also talk...

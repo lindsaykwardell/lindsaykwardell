@@ -9,6 +9,7 @@ snippet: "With Christmas just around the corner, Santa brought us two amazing sp
 link: "https://www.youtube.com/watch?v=adkxGYeW97c"
 name: "VueJS Athens"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m7kz7m25"
 ---
 
 With Christmas just around the corner, Santa brought us two amazing speakers, and their talks about new APIs introduced in Vue 3. Lindsay will walk us through the script setup API while Ben will tackle the new Composition API. We hope you are ready and as excited as we are.

@@ -9,6 +9,7 @@ snippet: "With the release of Vue 3, Typescript support is built into the framew
 link: "https://www.youtube.com/watch?v=I9chpwvWWNA"
 name: "Javascript Marathon"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrphgo2h"
 ---
 
 With the release of Vue 3, Typescript support is built into the framework. In this session, we go through the upgrade process and integrate Typescript into a Vue 3 application.

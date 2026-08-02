@@ -9,6 +9,7 @@ snippet: "In this episode we discuss NoRedInk's experience using Elm in producti
 link: "https://fsjam.org/episodes/episode-72-elm-with-lindsay-wardell"
 name: "FSJam"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m2iuo62m"
 ---
 
 In this episode we discuss NoRedInk's experience using Elm in production, the combined power of functional programming and static type systems, building a language for the long term, and the difficulty of explaining the benefits of purely functional languages to developers who have never experienced them.

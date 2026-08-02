@@ -9,6 +9,7 @@ snippet: "In this episode, Lindsay Wardell (@lindsaykwardell) talks to James Sne
 link: "https://www.youtube.com/watch?v=79DWd9RR8Gs"
 name: "Build IT Better"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54me3zrm26"
 ---
 
 In this episode, Lindsay Wardell (@lindsaykwardell) talks to James Snell (@jasnell)- member of the Node.JS Technical Steering Committee. They talk about the near future advancements in the works for Node, the process of making TC39 proposals, and more.

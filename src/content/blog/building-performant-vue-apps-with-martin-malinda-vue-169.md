@@ -9,6 +9,7 @@ snippet: "Lindsay and Steve talk with Martin Malinda about building performant V
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/building-performant-vue-apps-with-martin-malinda-vue-169"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mblwk422"
 ---
 
 Lindsay and Steve talk with Martin Malinda about building performant Vue apps. They discuss his article on building a lazy loading component, and explore browser APIs like requestIdleCallback and intersectionObserver. They end with some general guidance on how to build performant websites.

@@ -9,6 +9,7 @@ snippet: "Lindsay, Steve, and Luke Diebold discuss SEO in Nuxt with Anamol Soman
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/talking-seo-in-nuxt-with-anamol-soman-vue-149"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mnze2x2m"
 ---
 
 Lindsay, Steve, and Luke Diebold discuss SEO in Nuxt with Anamol Soman. We talk about how he got started with Vue, and his initial blog posts on Nuxt. We dive into SEO, what it is and why it's important, and how to integrate plugins with Nuxt to improve search engine optimization. We also discuss some of the difficulties developers run into with optimizing their sites.

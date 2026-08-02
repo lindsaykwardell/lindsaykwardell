@@ -9,6 +9,7 @@ snippet: "Lindsay talks with John Lim about Progressive Web Apps - what they are
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/exploring-pwas-with-john-lim-vue-174"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m6x3g32m"
 ---
 
 Lindsay talks with John Lim about Progressive Web Apps - what they are, and how to utilize them in a Vue application. They talk about John’s work in the construction industry with Vue, and how he started working with Vue applications and writing articles at Vue Mastery. They then dive into PWAs, how best to implement one, and what drawbacks exist in the ecosystem today. They also discuss using Firebase with PWAs for real-time features like notifications.

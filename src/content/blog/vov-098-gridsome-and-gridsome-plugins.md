@@ -9,6 +9,7 @@ snippet: "Lindsay has been working with Gridsome for a while and leads the discu
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-098-gridsome-and-gridsome-plugins"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ne3epb2x"
 ---
 
 Lindsay has been working with Gridsome for a while and leads the discussion about what Gridsome is and how it works. A bit of time is spent comparing it to Gatsby from the React Ecosystem. Lindsay also walks the panel through the process of building a Gridsome plugin.

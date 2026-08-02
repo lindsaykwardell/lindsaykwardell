@@ -9,6 +9,7 @@ snippet: "This week's host is Lindsay Wardell (@lindsaykwardell), Software Engin
 link: "https://www.youtube.com/watch?v=RKtQOUzOano"
 name: "JAMhack"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mlfwen2z"
 ---
 
 This week's host is Lindsay Wardell (@lindsaykwardell), Software Engineer at This Dot Labs, and our guest is Brian Rindaldi (@remotesynth), Developer Advocate at StepZen! In this episode, our participants talk about building JAMstack and GraphQL APIs using StepZen.

@@ -9,6 +9,7 @@ snippet: "In this episode, Lindsay, Steve, Luke, and Solomon talk with Mariana P
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/a-tale-of-refactoring-with-mariana-picolo-vue-154"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mlpmox2m"
 ---
 
 In this episode, Lindsay, Steve, Luke, and Solomon talk with Mariana Picolo about her experience refactoring a large Vue application. They discuss the problems developers face with ever-growing applications, actionable steps to discuss these issues with management, and solutions for large bundle sizes, coding best practices, and reducing duplicated code in your codebase.

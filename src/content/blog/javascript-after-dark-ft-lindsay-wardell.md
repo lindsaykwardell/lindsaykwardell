@@ -9,6 +9,7 @@ snippet: "In this week's episode, we talk with Lindsay Wardell (@lindsaykwardell
 link: "https://www.youtube.com/watch?v=z4ta7r6yqVU&t=2s"
 name: "Javascript After Dark"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mo3r7p2m"
 ---
 
 In this week's episode, we talk with Lindsay Wardell (@lindsaykwardell), Software Engineer from This Dot Labs! Lindsay shares what she's been interested in lately in the world of Vue, plus we hear about how Lindsay started learning React and even built her own router while creating a turn based strategy game!

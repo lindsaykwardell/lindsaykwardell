@@ -9,6 +9,7 @@ snippet: "Lindsay is a software engineer at \"This Dot Labs\" and a host of the 
 link: "https://www.youtube.com/watch?v=G1FtGIAN2lo"
 name: "The Tech Academy"
 host: false
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mmntih2m"
 ---
 
 Lindsay is a software engineer at "This Dot Labs" and a host of the podcast Views on Vue. She graduated from the Tech Academy in 2018 and has since worked at three different companies as a developer.

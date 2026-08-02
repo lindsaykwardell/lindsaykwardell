@@ -9,6 +9,7 @@ snippet: "On this week's \"The Watercooler\", we're talking to David Khourshid (
 link: "https://www.youtube.com/watch?v=9FsDyDABSso"
 name: "The Retro"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mhsyet2m"
 ---
 
 On this week's "The Watercooler", we're talking to David Khourshid (@DavidKPiano) of Stately.ai.

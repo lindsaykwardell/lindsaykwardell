@@ -9,6 +9,7 @@ snippet: "Lindsay and Steve talk with Eric Gardner, Senior Software Engineer at 
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/adoping-vue-at-wikimedia-with-eric-gardner-vue-165"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54meg2hx2p"
 ---
 
 Lindsay and Steve talk with Eric Gardner, Senior Software Engineer at the Wikimedia Foundation, about his journey from graphic design to Vue and the adoption of Vue at the Wikimedia Foundation. They discuss the challenges faced in MediaWiki, the core application behind Wikipedia, and how and why the foundation moved to adopt Vue as its frontend framework of choice. They also discuss some of the future developments at the Foundation, as well as some of the challenges that they still face.

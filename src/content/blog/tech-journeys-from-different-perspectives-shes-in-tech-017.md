@@ -9,6 +9,7 @@ snippet: "Sponsors"
 link: "https://topenddevs.com/podcasts/she-s-in-tech/episodes/tech-journeys-from-different-perspectives-she-s-in-tech-017"
 name: "She's In Tech"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mfdksp2p"
 ---
 
 Sponsors

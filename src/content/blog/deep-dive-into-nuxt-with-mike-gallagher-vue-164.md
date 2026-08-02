@@ -9,6 +9,7 @@ snippet: "Lindsay and Steve talk to Mike Gallagher, Software Architect at Hip eC
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/deep-dive-into-nuxt-with-mike-gallagher-vue-164"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54meq5hf2b"
 ---
 
 Lindsay and Steve talk to Mike Gallagher, Software Architect at Hip eCommerce, about his blog post exploring server-side rendering and how Nuxt functions under the hood. They explore Mike's specific use case of needing to manage routing on the client, rather than the server, and how he was able to find a solution. 

@@ -9,6 +9,7 @@ snippet: "Lindsay, Steve, Luke, and Solomon talk with Ariel from Maison Futari a
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/using-vue-without-an-spa-with-ariel-from-maison-futari-vue-159"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54miao2v22"
 ---
 
 Lindsay, Steve, Luke, and Solomon talk with Ariel from Maison Futari about using Vue without building a full single-page application. We talk about using Vue with Wordpress and other backend frameworks to build widgets, as well as using Vue to build web components. We also explore libraries like Livewire and Inertia to integrate with a Laravel backend.

@@ -9,6 +9,7 @@ snippet: "Lindsay and Steve get to talk with Matias Capaletto (also known as Pat
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/all-about-vite-with-matias-capeletto-vue-181"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m3syc32m"
 ---
 
 Lindsay and Steve get to talk with Matias Capaletto (also known as Patak) about the explosive growth of the Vite ecosystem. They talk about how he got into Vite, and the work that’s gone into making it such a compelling ecosystem for a number of frameworks. They also discuss the origins of Vitest, the first-class test runner for Vite, and Matias’ recent hire by Stackblitz to work full time on Vite.

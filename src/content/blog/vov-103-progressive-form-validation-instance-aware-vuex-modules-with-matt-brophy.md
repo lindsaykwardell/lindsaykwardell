@@ -9,6 +9,7 @@ snippet: "In this episode of Views on Vue, guest, Matt Brophy of Urban Outfitter
 link: "https://topenddevs.com/podcasts/views-on-vue/episodes/vov-103-progressive-form-validation-instance-aware-vuex-modules-with-matt-brophy"
 name: "Views on Vue"
 host: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ncx3xf22"
 ---
 
 In this episode of Views on Vue, guest, Matt Brophy of Urban Outfitters speaks about how they do progressive form enhancement, and also dynamic Vuex modules for dynamic pages.
