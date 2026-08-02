@@ -27,7 +27,7 @@ Once, the dream died.
 
 But only once.
 
-Now, the stars’ flame is renewed,\
+Now, the stars'  flame is renewed,\
 The trees whisper once more,\
 Horizons call out, “Come back.”
 

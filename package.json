@@ -24,7 +24,8 @@
     "devto:announce:dry": "tsx scripts/announce-devto.ts --dry-run",
     "devto:sync": "tsx scripts/sync-devto-to-frontmatter.ts",
     "sync:shows": "tsx scripts/sync-shows-rss.ts",
-    "migrate:content": "tsx scripts/migrate-shows-and-photos.ts"
+    "migrate:content": "tsx scripts/migrate-shows-and-photos.ts",
+    "optimize:covers": "tsx scripts/optimize-cover-images.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
@@ -48,6 +49,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "sanitize-html": "^2.17.0",
+    "sharp": "^0.34.5",
     "simple-stack-query": "^0.2.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
