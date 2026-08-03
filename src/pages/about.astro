@@ -7,24 +7,20 @@ import Signoff from '@/components/Signoff.astro'
   title="About — Lindsay Wardell"
   description="Programmer and writer. Engineering Manager at Mangomint. Fiction, poetry, and tools that bring people together."
 >
-  <article class="about-page px-2 md:px-0 pb-16">
-    <div
-      class="about-page-surface prose prose-lg md:prose-xl bg-background rounded p-5 md:p-10 max-w-none"
-    >
-      <h1
-        class="about-page-title font-title text-3xl md:text-4xl text-center text-pretty !mb-8 !mt-0"
-      >
+  <article class="about-page px-2 md:px-0 pb-16 md:pb-20">
+    <div class="about-page-surface prose prose-lg bg-background rounded">
+      <h1 class="about-page-title font-title text-pretty">
         Hi, I'm Lindsay Wardell
       </h1>
 
       <img
         src="/lindsay2.jpg"
         alt="Lindsay Wardell"
-        class="about-page-portrait aspect-square object-cover object-top w-[min(100%,18rem)] rounded-lg border border-divider/40 mx-auto mb-6 md:float-right md:mx-0 md:ml-8 md:mb-4 md:mt-1"
+        class="about-page-portrait aspect-square object-cover object-top w-[min(100%,14rem)] rounded-lg border border-divider/40 mx-auto mb-6 md:float-right md:mx-0 md:ml-7 md:mb-3 md:mt-1"
         loading="eager"
         decoding="async"
-        width="288"
-        height="288"
+        width="224"
+        height="224"
       />
 
       <p class="text-pretty">
@@ -65,7 +61,7 @@ import Signoff from '@/components/Signoff.astro'
       </p>
     </div>
 
-    <div class="about-page-signoff max-w-2xl mx-auto pt-10 md:pt-12">
+    <div class="about-page-signoff pt-10 md:pt-12">
       <Signoff iconsOnly />
     </div>
   </article>
@@ -73,11 +69,35 @@ import Signoff from '@/components/Signoff.astro'
 
 <style>
   .about-page-surface {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding: 1.35rem 1.25rem 1.75rem;
     box-shadow: var(--shadow-paper);
     animation: about-settle 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
+  @media (min-width: 768px) {
+    .about-page-surface {
+      padding: 2.75rem 3rem 3rem;
+    }
+  }
+
+  .about-page-surface :global(p),
+  .about-page-surface :global(li) {
+    line-height: 1.75;
+  }
+
+  .about-page-surface :global(p + p) {
+    margin-top: 1.15em;
+  }
+
   .about-page-title {
+    margin: 0 0 1.5rem;
+    text-align: left;
+    color: var(--color-foreground);
+    font-size: clamp(1.85rem, 1.4rem + 1.6vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     animation: about-settle 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
@@ -88,7 +108,16 @@ import Signoff from '@/components/Signoff.astro'
   }
 
   .about-page-signoff {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
     animation: about-settle 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+  }
+
+  @media (min-width: 768px) {
+    .about-page-signoff {
+      padding-inline: 3rem;
+    }
   }
 
   .about-page-surface :global(a) {

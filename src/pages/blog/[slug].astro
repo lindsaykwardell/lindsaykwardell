@@ -35,32 +35,91 @@ const publishedOthers = posts.filter(
   (p) => p.id !== post.id && (import.meta.env.DEV || !p.data.draft),
 )
 
-const relatedPhotos = isPhoto
-  ? publishedOthers
-      .filter((p) => p.data.type === 'Photo' && hasImage(p.data.image))
-      .toSorted((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-      .slice(0, 8)
-      .map((p) => ({
+const relatedPhotos = (() => {
+  if (!isPhoto) return []
+
+  const photoCorpus = publishedOthers
+    .filter((p) => p.data.type === 'Photo' && hasImage(p.data.image))
+    .map((p) => {
+      const tags = (p.data.tags ?? []).filter(
+        (t): t is string => typeof t === 'string' && t.length > 0,
+      )
+      return {
         slug: p.id,
         title: p.data.title,
+        snippet: p.data.snippet ?? '',
         image: p.data.image!,
         alt: p.data.snippet || p.data.title,
-      }))
-  : []
+        tags,
+        weekOf: p.data.weekOf ?? '',
+        pubDate: p.data.pubDate,
+      }
+    })
 
-const relatedCorpus = publishedOthers.map((p) => {
-  const type = p.data.type === 'Blog' ? 'Personal' : (p.data.type ?? 'Personal')
-  const tags = (p.data.tags ?? []).filter(
+  const photoTags = (post.data.tags ?? []).filter(
     (t): t is string => typeof t === 'string' && t.length > 0,
   )
-  return {
-    ...p.data,
-    type,
-    slug: p.id,
-    tags,
-    bodyPreview: (p.body ?? '').slice(0, 1200),
-  }
-})
+  const photoQuery = [
+    post.data.title,
+    post.data.snippet,
+    post.data.weekOf,
+    ...photoTags,
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  const photoFuse = new Fuse(photoCorpus, {
+    keys: [
+      { name: 'title', weight: 0.35 },
+      { name: 'snippet', weight: 0.3 },
+      { name: 'tags', weight: 0.2 },
+      { name: 'weekOf', weight: 0.15 },
+    ],
+    threshold: 0.45,
+    ignoreLocation: true,
+  })
+
+  const related = photoFuse
+    .search(photoQuery)
+    .slice(0, 8)
+    .map((r) => ({
+      slug: r.item.slug,
+      title: r.item.title,
+      image: r.item.image,
+      alt: r.item.alt,
+    }))
+
+  if (related.length > 0) return related
+
+  return photoCorpus
+    .toSorted((a, b) => b.pubDate.getTime() - a.pubDate.getTime())
+    .slice(0, 8)
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      image: p.image,
+      alt: p.alt,
+    }))
+})()
+
+const relatedCorpus = publishedOthers
+  .filter((p) => {
+    const type = p.data.type === 'Blog' ? 'Personal' : (p.data.type ?? 'Personal')
+    return type !== 'Photo'
+  })
+  .map((p) => {
+    const type = p.data.type === 'Blog' ? 'Personal' : (p.data.type ?? 'Personal')
+    const tags = (p.data.tags ?? []).filter(
+      (t): t is string => typeof t === 'string' && t.length > 0,
+    )
+    return {
+      ...p.data,
+      type,
+      slug: p.id,
+      tags,
+      bodyPreview: (p.body ?? '').slice(0, 1200),
+    }
+  })
 
 const postTags = (post.data.tags ?? []).filter(
   (t): t is string => typeof t === 'string' && t.length > 0,

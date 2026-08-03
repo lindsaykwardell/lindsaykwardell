@@ -22,13 +22,13 @@ const { photos } = Astro.props
       </a>
     </p>
   ) : (
-    <div class="photo-grid columns-2 md:columns-3 gap-2 -mx-1 md:mx-0">
+    <div class="photo-grid">
       {photos.map((photo) => (
-        <a href={photo.href} class="mb-2 block break-inside-avoid">
+        <a href={photo.href} class="photo-grid__item">
           <img
             src={photo.url}
             alt={photo.alt}
-            class="rounded w-full transition-opacity duration-300"
+            class="photo-grid__img"
             loading="lazy"
             decoding="async"
           />
@@ -39,16 +39,61 @@ const { photos } = Astro.props
 }
 
 <style>
-  .photo-grid:hover img {
-    opacity: 0.6;
+  .photo-grid {
+    columns: 2;
+    column-gap: 0.85rem;
   }
-  .photo-grid a:hover img {
+
+  @media (min-width: 768px) {
+    .photo-grid {
+      columns: 3;
+      column-gap: 1.15rem;
+    }
+  }
+
+  .photo-grid__item {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 0.85rem;
+  }
+
+  @media (min-width: 768px) {
+    .photo-grid__item {
+      margin-bottom: 1.15rem;
+    }
+  }
+
+  .photo-grid__img {
+    display: block;
+    width: 100%;
+    border-radius: 0.2rem;
+    transition:
+      opacity 0.3s ease,
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .photo-grid:hover .photo-grid__img {
+    opacity: 0.55;
+  }
+
+  .photo-grid__item:hover .photo-grid__img {
     opacity: 1;
+    transform: scale(1.01);
+  }
+
+  .photo-grid__item:focus-visible {
+    outline: 2px solid var(--color-hover);
+    outline-offset: 3px;
+    border-radius: 0.25rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .photo-grid img {
+    .photo-grid__img {
       transition: none;
+    }
+
+    .photo-grid__item:hover .photo-grid__img {
+      transform: none;
     }
   }
 </style>
