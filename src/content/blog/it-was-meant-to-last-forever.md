@@ -4,7 +4,7 @@ title: "It Was Meant To Last Forever"
 author: "Lindsay Wardell"
 image: "/blog/it-was-meant-to-last-forever.jpg"
 tags:
-  - Poetry
+  - poetry
 snippet: One thought fills my essence – I want to stay here forever.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsbcvwg2i"

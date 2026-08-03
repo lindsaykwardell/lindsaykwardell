@@ -3,9 +3,7 @@ pubDate: 2026-05-10
 title: "Kindle: In Memorial"
 author: Lindsay Wardell
 image: /blog/kindle-header.png
-tags:
-  - Personal
-  - Personal
+tags: []
 snippet: If there's one thing that the Kindle got right, it was made to endure. And endure it did.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqyvw5v22"

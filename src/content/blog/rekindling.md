@@ -3,8 +3,7 @@ pubDate: 2026-01-12
 title: Rekindling
 author: Lindsay Wardell
 image: /blog/rekindling.webp
-tags:
-  - Personal
+tags: []
 snippet: For 2026, I'm rekindling my website as a place for creativity and joy.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4u54x2f"

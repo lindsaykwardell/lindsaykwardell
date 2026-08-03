@@ -4,8 +4,7 @@ title: "When I Grow Up..."
 author: "Lindsay Wardell"
 image: "/blog/mp.jpg"
 tags:
-  - Web Development
-  - Personal
+  - web-development
 snippet: "What do you want to be when you grow up?"
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2yz2v2z"

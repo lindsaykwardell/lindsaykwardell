@@ -13,7 +13,8 @@
   "frontmatter": {
     "publishDate": "pubDate",
     "description": "snippet",
-    "coverImage": "image"
+    "coverImage": "image",
+    "tags": "tags"
   },
   "bluesky": {
     "enabled": true,

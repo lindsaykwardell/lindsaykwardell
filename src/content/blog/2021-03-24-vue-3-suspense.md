@@ -5,9 +5,9 @@ title: "Improve User Experience in Vue 3 with Suspense"
 author: "Lindsay Wardell"
 image: "/blog/vue-3-suspense.png"
 tags:
-  - Vue
-  - Javascript
-  - Web Development
+  - vue
+  - javascript
+  - web-development
 name: 'This Dot Labs'
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrwenyc2p"

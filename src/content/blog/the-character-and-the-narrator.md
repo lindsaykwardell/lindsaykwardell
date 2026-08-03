@@ -3,8 +3,7 @@ pubDate: 2019-03-23
 title: "The Character and the Narrator"
 image: "/blog/character-narrator.jpg"
 author: "Lindsay Wardell"
-tags:
-  - Fiction
+tags: []
 snippet: Hello? I know you're there. Who are you? Hold on... who am I?
 type: Fiction
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs5b5mv2l"

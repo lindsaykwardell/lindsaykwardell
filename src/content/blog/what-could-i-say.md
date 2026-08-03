@@ -3,8 +3,7 @@ pubDate: 2022-12-21
 title: What Could I Say?
 author: Lindsay Wardell
 image: https://images.unsplash.com/photo-1487360920430-e18a62e59ad2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80
-tags:
-  - Poetry
+tags: []
 snippet: What could I say to her? What could I tell her of the life she would lead, of the people she would know?
 type: Poetry
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh4rov2z"

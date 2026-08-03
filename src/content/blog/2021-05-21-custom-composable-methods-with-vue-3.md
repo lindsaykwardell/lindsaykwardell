@@ -6,10 +6,10 @@ author: Lindsay Wardell
 image: /blog/custom_composable_methods_with_vue_3.png
 snippet: " "
 tags:
-  - Vue
-  - Javascript
-  - Composition API
-  - Web Development
+  - vue
+  - javascript
+  - composition-api
+  - web-development
 name: 'This Dot Labs'
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrtnhx22p"

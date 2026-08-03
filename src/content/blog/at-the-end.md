@@ -3,8 +3,7 @@ pubDate: 2023-03-09
 title: At the End
 author: Lindsay Wardell
 image: https://images.unsplash.com/photo-1523565304550-2b34a3031464?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80
-tags:
-  - Poetry
+tags: []
 snippet: At the end of grief, hope is reborn.
 type: Poetry
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrgxth723"

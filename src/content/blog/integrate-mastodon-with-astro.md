@@ -4,10 +4,10 @@ title: "Integrating Mastodon with Astro"
 author: "Lindsay Wardell"
 image: "/blog/mastodon-astro.webp"
 tags:
-  - Astro
-  - Javascript
-  - Mastodon
-  - SSR
+  - astro
+  - javascript
+  - mastodon
+  - ssr
 snippet: I didn't want to run a personal Mastodon instance, but I wanted to incorporate it into my personal domain. Let's explore what we can do to integrate with the Fediverse!
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhri2yhf2l"

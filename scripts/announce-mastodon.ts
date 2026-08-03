@@ -12,8 +12,16 @@
 import { readFileSync, readdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { parseFrontmatter, upsertFrontmatter } from './lib/frontmatter.ts'
+import {
+  parseFrontmatter,
+  parseTagsFromFrontmatter,
+  upsertFrontmatter,
+} from './lib/frontmatter.ts'
 import { destinationsFor } from '../src/lib/distribute.ts'
+import {
+  formatHashtags,
+  normalizeTopicTags,
+} from '../src/lib/tags.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
@@ -43,17 +51,33 @@ function loadDotEnv() {
   }
 }
 
-function buildStatus(title: string, snippet: string | undefined, url: string) {
-  const parts = [title]
-  if (snippet) {
-    const trimmed =
-      snippet.length > 280 ? `${snippet.slice(0, 277).trimEnd()}…` : snippet
-    parts.push('', trimmed)
-  }
+/** Snippet (or title fallback) + hashtags + URL. Title lives on the link card. */
+function buildStatus(
+  title: string,
+  snippet: string | undefined,
+  url: string,
+  tags: string[],
+) {
+  const body =
+    snippet && snippet.trim()
+      ? snippet.length > 280
+        ? `${snippet.slice(0, 277).trimEnd()}…`
+        : snippet.trim()
+      : title
+  const hashtags = formatHashtags(tags)
+  const parts = [body]
+  if (hashtags) parts.push('', hashtags)
   parts.push('', url)
   let status = parts.join('\n')
   if (status.length > 500) {
-    status = `${title}\n\n${url}`
+    const short = [body]
+    if (hashtags) short.push('', hashtags)
+    short.push('', url)
+    status = short.join('\n')
+    if (status.length > 500) {
+      status = hashtags ? `${body}\n\n${url}` : `${body}\n\n${url}`
+      if (status.length > 500) status = `${title}\n\n${url}`
+    }
   }
   return status
 }
@@ -83,6 +107,7 @@ type Candidate = {
   slug: string
   title: string
   snippet?: string
+  tags: string[]
   url: string
 }
 
@@ -109,12 +134,15 @@ for (const file of files) {
   if (pubDate.getTime() < cutoff) continue
 
   const slug = file.replace(/\.md$/, '')
+  const fmBlock = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? ''
+  const type = fm.type ? String(fm.type) : null
   // Prefer the on-site page; it carries the blurb + external link for appearances
   candidates.push({
     filePath,
     slug,
     title: String(fm.title || slug),
     snippet: fm.snippet ? String(fm.snippet) : undefined,
+    tags: normalizeTopicTags(parseTagsFromFrontmatter(fmBlock), type),
     url: `${SITE_URL}/blog/${slug}`,
   })
 }
@@ -129,7 +157,7 @@ let posted = 0
 let errors = 0
 
 for (const post of candidates) {
-  const status = buildStatus(post.title, post.snippet, post.url)
+  const status = buildStatus(post.title, post.snippet, post.url, post.tags)
   console.log(`\n→ /blog/${post.slug}`)
   console.log(status)
 

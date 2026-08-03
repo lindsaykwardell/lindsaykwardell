@@ -20,6 +20,8 @@
     "sequoia:login": "sequoia login",
     "mastodon:announce": "tsx scripts/announce-mastodon.ts",
     "mastodon:announce:dry": "tsx scripts/announce-mastodon.ts --dry-run",
+    "tags:normalize": "tsx scripts/normalize-tags.ts",
+    "tags:normalize:dry": "tsx scripts/normalize-tags.ts --dry-run",
     "devto:announce": "tsx scripts/announce-devto.ts",
     "devto:announce:dry": "tsx scripts/announce-devto.ts --dry-run",
     "devto:sync": "tsx scripts/sync-devto-to-frontmatter.ts",

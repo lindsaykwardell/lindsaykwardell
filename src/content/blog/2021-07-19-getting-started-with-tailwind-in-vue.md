@@ -6,10 +6,10 @@ author: Lindsay Wardell
 image: /blog/getting_started_with_tailwind_in_vue.png
 snippet: " "
 tags:
-  - Javascript
-  - Vue
-  - Tailwind
-  - CSS
+  - javascript
+  - vue
+  - tailwind
+  - css
 name: 'This Dot Labs'
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrs3wxc2m"

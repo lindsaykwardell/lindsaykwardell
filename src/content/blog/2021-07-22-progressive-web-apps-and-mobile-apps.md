@@ -6,9 +6,9 @@ author: Lindsay Wardell
 image: /blog/progressive_web_apps_and_mobile_apps.png
 snippet: " "
 tags:
-  - Javascript
-  - PWA
-  - Mobile Apps
+  - javascript
+  - pwa
+  - mobile-apps
 name: 'This Dot Labs'
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrr3gvj2h"

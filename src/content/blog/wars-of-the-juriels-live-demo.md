@@ -4,8 +4,8 @@ title: "Wars of the Juriels - Live Demo"
 image: "/blog/juriels-lobby.png"
 author: "Lindsay Wardell"
 tags:
-  - Javascript
-  - React
+  - javascript
+  - react
 snippet: My mind has been far too focused on this project, but the good news is that a live demo is now available to play!
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs6ul652z"

@@ -6,8 +6,8 @@ author: Lindsay Wardell
 image: /blog/tc39-how-changes-are-made-to-js.png
 snippet: " "
 tags:
-  - Javascript
-  - TC39
+  - javascript
+  - tc39
 name: 'This Dot Labs'
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrpt2xu2b"

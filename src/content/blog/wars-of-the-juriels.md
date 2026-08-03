@@ -4,9 +4,9 @@ title: "Wars of the Juriels"
 image: "/blog/warsofthejuriels.png"
 author: "Lindsay Wardell"
 tags:
-  - Programming
-  - Ilandrior
-  - Strategy
+  - programming
+  - ilandrior
+  - strategy
 snippet: As a learning experience, I have started building a turn-based strategy game based on Ilandrior.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs7gzy22p"

@@ -5,9 +5,9 @@ title: "Vue 3 Composition API - watch and watchEffect"
 author: "Lindsay Wardell"
 image: "/blog/vue-watch-watcheffect.png"
 tags:
-  - Vue
-  - Javascript
-  - Web Development
+  - vue
+  - javascript
+  - web-development
 name: 'This Dot Labs'
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrv3reh23"

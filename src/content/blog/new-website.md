@@ -4,8 +4,7 @@ title: "New Website"
 author: "Lindsay Wardell"
 image: "/blog/code.png"
 tags:
-  - Web Development
-  - Personal
+  - web-development
 snippet: I have never been satisfied with Wordpress as my platform of choice for my website.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs3mbas2t"

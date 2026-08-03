@@ -3,7 +3,8 @@ pubDate: 2025-10-20
 title: "Urban"
 author: "Lindsay Wardell"
 image: "/photos/bc32f2ff-a9e9-4702-a5d7-7c5e80af4460.jpg"
-tags: ["Urban"]
+tags:
+  - urban
 type: Photo
 snippet: "Reflection of the KOIN tower across the street."
 gazeId: "bc32f2ff-a9e9-4702-a5d7-7c5e80af4460"

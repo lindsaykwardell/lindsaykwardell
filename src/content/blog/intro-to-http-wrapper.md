@@ -4,10 +4,10 @@ title: "Introduction to Deno with http_wrapper"
 author: "Lindsay Wardell"
 image: "/blog/deno.png"
 tags:
-  - Web Development
-  - Deno
-  - Server-side
-  - Typescript
+  - web-development
+  - deno
+  - server-side
+  - typescript
 snippet: I'm a big fan of Deno, but there must be an easier way to build a router-based HTTP client.
 type: Programming
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2bsu22t"

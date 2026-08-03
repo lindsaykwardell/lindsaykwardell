@@ -3,8 +3,7 @@ pubDate: 2026-02-05
 title: Moments and Moonlight
 author: Lindsay Wardell
 image: /blog/moon.jpg
-tags:
-  - Personal
+tags: []
 snippet: The universe may never know we're there, but we can still enjoy its beauty in the quiet moments, watching starlight that has taken years to reach us.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4b7kz25"

@@ -3,8 +3,7 @@ pubDate: 2024-09-10
 title: Divorce
 author: Lindsay Wardell
 image: https://images.unsplash.com/photo-1501297875943-27f3803b4956?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-tags:
-  - Poetry
+tags: []
 snippet: I feared divorce because of what it meant.
 type: Poetry
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr6pdjw2i"

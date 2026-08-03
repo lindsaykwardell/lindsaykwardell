@@ -28,6 +28,9 @@ jobs:
       - name: Optimize cover images for Sequoia
         run: npm run optimize:covers
 
+      - name: Normalize post tags
+        run: npm run tags:normalize
+
       - name: Check publication is configured
         run: |
           uri=$(node -e "console.log(require('./sequoia.json').publicationUri||'')")
@@ -50,7 +53,7 @@ jobs:
         env:
           ATP_IDENTIFIER: ${{ secrets.ATP_IDENTIFIER }}
           ATP_APP_PASSWORD: ${{ secrets.ATP_APP_PASSWORD }}
-        run: npx sequoia publish
+        run: npm run sequoia:publish
 
       - name: Announce new posts on Mastodon
         env:

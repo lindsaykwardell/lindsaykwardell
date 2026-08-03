@@ -4,8 +4,8 @@ title: "For the Present"
 image: "/blog/for-the-present.jpg"
 author: "Lindsay Wardell"
 tags:
-  - Science Fiction
-  - Time Travel
+  - science-fiction
+  - time-travel
 snippet: “Then it worked,” he finally said, breathless. “Yes, professor,” I agree. “It worked. You traveled in time.”
 type: Fiction
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs63cim2i"

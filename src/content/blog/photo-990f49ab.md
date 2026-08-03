@@ -3,7 +3,8 @@ pubDate: 2025-07-13
 title: "Depth"
 author: "Lindsay Wardell"
 image: "/photos/990f49ab-aa22-4e16-82ad-97c598e5e4f2.jpg"
-tags: ["Depth"]
+tags:
+  - depth
 type: Photo
 snippet: "Photo: Depth"
 gazeId: "990f49ab-aa22-4e16-82ad-97c598e5e4f2"

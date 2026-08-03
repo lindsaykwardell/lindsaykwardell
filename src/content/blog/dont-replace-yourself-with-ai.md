@@ -4,9 +4,8 @@ title: Don't Replace Yourself With AI
 author: Lindsay Wardell
 image: /blog/tng-computer.jpg
 tags:
-  - Personal
-  - StarTrek
-  - AI
+  - startrek
+  - ai
 snippet: AI is potentially helpful, but always harmful to creativity and expression. We should not be relying on it, and yet we are.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr2uvmc2m"

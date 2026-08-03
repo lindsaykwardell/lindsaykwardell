@@ -5,10 +5,10 @@ title: "Introduction to Vite - Next Generation Frontend Tooling"
 author: "Lindsay Wardell"
 image: "/blog/intro-to-vite.png"
 tags:
-  - Vue
-  - Vite
-  - Javascript
-  - Web Development
+  - vue
+  - vite
+  - javascript
+  - web-development
 type: Programming
 name: 'This Dot Labs'
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrxyk5n2z"

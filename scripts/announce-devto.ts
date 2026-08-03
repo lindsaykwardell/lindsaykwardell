@@ -11,8 +11,13 @@
 import { readFileSync, readdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { parseFrontmatter, upsertFrontmatter } from './lib/frontmatter.ts'
+import {
+  parseFrontmatter,
+  parseTagsFromFrontmatter,
+  upsertFrontmatter,
+} from './lib/frontmatter.ts'
 import { destinationsFor } from '../src/lib/distribute.ts'
+import { normalizeTopicTags, toDevtoTags } from '../src/lib/tags.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
@@ -41,53 +46,6 @@ function loadDotEnv() {
   } catch {
     // optional
   }
-}
-
-function parseTags(frontmatterBlock: string): string[] {
-  const tags: string[] = []
-  const lines = frontmatterBlock.split('\n')
-  let inTags = false
-  for (const line of lines) {
-    if (/^tags:\s*$/.test(line)) {
-      inTags = true
-      continue
-    }
-    if (inTags) {
-      const item = line.match(/^\s+-\s+(.+)$/)
-      if (item) {
-        let v = item[1].trim()
-        if (
-          (v.startsWith('"') && v.endsWith('"')) ||
-          (v.startsWith("'") && v.endsWith("'"))
-        ) {
-          v = v.slice(1, -1)
-        }
-        if (v) tags.push(v)
-        continue
-      }
-      if (/^\w+:/.test(line)) break
-    }
-    const inline = line.match(/^tags:\s*\[(.*)\]\s*$/)
-    if (inline) {
-      for (const part of inline[1].split(',')) {
-        let v = part.trim().replace(/^["']|["']$/g, '')
-        if (v) tags.push(v)
-      }
-    }
-  }
-  return tags
-}
-
-/** Dev.to: max 4 alphanumeric tags. */
-function toDevtoTags(tags: string[]): string[] {
-  const out: string[] = []
-  for (const tag of tags) {
-    const cleaned = tag.toLowerCase().replace(/[^a-z0-9]/g, '')
-    if (!cleaned || out.includes(cleaned)) continue
-    out.push(cleaned)
-    if (out.length === 4) break
-  }
-  return out
 }
 
 function absoluteUrl(pathOrUrl: string | undefined): string | undefined {
@@ -164,13 +122,14 @@ for (const file of files) {
   if (pubDate.getTime() < cutoff) continue
 
   const slug = file.replace(/\.md$/, '')
+  const type = fm.type ? String(fm.type) : null
   candidates.push({
     filePath,
     slug,
     title: String(fm.title || slug),
     description: fm.snippet ? String(fm.snippet) : undefined,
     body: absolutizeMarkdown(body),
-    tags: toDevtoTags(parseTags(fmBlock)),
+    tags: toDevtoTags(normalizeTopicTags(parseTagsFromFrontmatter(fmBlock), type)),
     image: absoluteUrl(fm.image ? String(fm.image) : undefined),
     url: `${SITE_URL}/blog/${slug}`,
   })

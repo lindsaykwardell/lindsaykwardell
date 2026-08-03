@@ -3,8 +3,7 @@ pubDate: 2022-09-21
 title: "Between Hope"
 author: "Lindsay Wardell"
 image: "/blog/between-hope.jpeg"
-tags:
-  - Poetry
+tags: []
 snippet: For now, I stand between hope, between joy, between lives.
 type: Poetry
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrikjjc2m"

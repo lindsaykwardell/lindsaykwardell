@@ -4,9 +4,9 @@ title: "Short Story - The Last Wizard"
 image: "/blog/the-last-wizard.jpg"
 author: "Lindsay Wardell"
 tags:
-  - Magic
-  - Short Story
-  - Wizards
+  - magic
+  - short-story
+  - wizards
 snippet: "“Well, believe what you want,” Mr. Longfellow would say. “But mark my words: stay far away from Old Winters’ house. Strange goings-on are apt to happen there, I tell you.”"
 type: Fiction
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsa6xm22p"

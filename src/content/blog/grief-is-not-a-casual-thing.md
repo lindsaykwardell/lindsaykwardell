@@ -3,8 +3,7 @@ pubDate: 2025-01-11
 title: Grief Is Not A Casual Thing
 author: "Lindsay Wardell"
 image: "/blog/grief-is-not-a-casual-thing.jpg"
-tags:
-  - Poetry
+tags: []
 snippet: It's not something you pick up as a hobby, or go to watch at the movies. Grief is more than that.
 type: Poetry
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr5v6ol2m"

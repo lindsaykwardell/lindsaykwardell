@@ -3,7 +3,8 @@ pubDate: 2025-10-12
 title: "Micro"
 author: "Lindsay Wardell"
 image: "/photos/31de0f63-6534-4c58-b1cf-4ad543e0de18.jpg"
-tags: ["Micro"]
+tags:
+  - micro
 type: Photo
 snippet: "San Diego from above."
 gazeId: "31de0f63-6534-4c58-b1cf-4ad543e0de18"

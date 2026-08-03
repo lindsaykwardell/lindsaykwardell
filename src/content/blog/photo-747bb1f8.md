@@ -3,7 +3,8 @@ pubDate: 2025-08-07
 title: "Symmetry"
 author: "Lindsay Wardell"
 image: "/photos/747bb1f8-4bd8-49ec-a843-544224546fbc.jpg"
-tags: ["Symmetry"]
+tags:
+  - symmetry
 type: Photo
 snippet: "Crater Lake, from the Discovery Point trail."
 gazeId: "747bb1f8-4bd8-49ec-a843-544224546fbc"

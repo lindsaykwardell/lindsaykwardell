@@ -4,8 +4,7 @@ title: An Hour Before Showtime
 author: Lindsay Wardell
 image: /blog/showtime.jpg
 tags:
-  - Personal
-  - Divorce
+  - divorce
 snippet: I am grateful that time is passed. I regret that I walked into it at all.
 type: Personal
 atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqzt3ln26"
