@@ -2,11 +2,17 @@
 /**
  * Theme toggle. Stored in localStorage; otherwise follows prefers-color-scheme.
  */
+interface Props {
+  /** Softer presentation — utility, not a nav destination. */
+  quiet?: boolean
+}
+
+const { quiet = false } = Astro.props
 ---
 
 <button
   type="button"
-  class="theme-toggle font-title"
+  class:list={['theme-toggle font-title', quiet && 'theme-toggle--quiet']}
   data-theme-toggle
   aria-label="Switch to dark mode"
 >
@@ -84,7 +90,14 @@
     transition: color 0.2s ease;
   }
 
-  .theme-toggle:hover {
+  .theme-toggle--quiet {
+    font-size: 0.9em;
+    color: color-mix(in srgb, var(--color-muted) 72%, transparent);
+    letter-spacing: 0.02em;
+  }
+
+  .theme-toggle:hover,
+  .theme-toggle--quiet:hover {
     color: var(--color-hover);
   }
 

@@ -4,12 +4,13 @@ import ThemeToggle from '@/components/ThemeToggle.astro'
 const url = new URL(Astro.request.url)
 const pathname = url.pathname
 const currentPath = pathname.slice(1)
+const isHome = pathname === '/' || pathname === ''
 
 const isBlog =
   currentPath.startsWith('blog') || currentPath.startsWith('photos')
 
 const links = [
-  { href: '/', label: 'Home', active: false, hideMobile: true },
+  { href: '/', label: 'Home', active: isHome },
   { href: '/about', label: 'About', active: currentPath.includes('about') },
   { href: '/blog', label: 'Blog', active: isBlog },
 ]
@@ -20,11 +21,7 @@ const links = [
     links.map((link, i) => (
       <>
         <a
-          class:list={[
-            'site-nav__link font-title',
-            link.hideMobile && 'hidden md:inline',
-            link.active && 'is-active',
-          ]}
+          class:list={['site-nav__link font-title', link.active && 'is-active']}
           href={link.href}
           aria-current={link.active ? 'page' : undefined}
         >
@@ -32,13 +29,7 @@ const links = [
         </a>
         {
           i < links.length - 1 && (
-            <span
-              class:list={[
-                'site-nav__sep',
-                link.hideMobile && 'hidden md:inline',
-              ]}
-              aria-hidden="true"
-            >
+            <span class="site-nav__sep" aria-hidden="true">
               /
             </span>
           )
@@ -46,8 +37,8 @@ const links = [
       </>
     ))
   }
-  <span class="site-nav__sep" aria-hidden="true">/</span>
-  <ThemeToggle />
+  <span class="site-nav__theme-sep" aria-hidden="true"></span>
+  <ThemeToggle quiet />
 </nav>
 
 <style>
@@ -75,6 +66,12 @@ const links = [
 
   .site-nav:hover .site-nav__sep {
     opacity: 0.35;
+  }
+
+  /* Soft break before theme — not another destination slash */
+  .site-nav__theme-sep {
+    width: 0.55rem;
+    flex-shrink: 0;
   }
 
   .site-nav__link {

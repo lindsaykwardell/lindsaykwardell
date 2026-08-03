@@ -6,20 +6,121 @@ import Nav from '@/components/Nav.astro'
 ---
 
 <BaseLayout hideHeader fullScreen>
-  <section
-    class="flex flex-col sm:flex-row md:h-screen justify-center items-center max-w-[1000px] m-auto gap-7 p-7"
-  >
+  <section class="home-card">
     <Avatar />
-    <div class="flex flex-col gap-7 flex-shrink">
-      <h1 class="text-3xl md:text-5xl">Hi, I'm Lindsay Wardell!</h1>
-      <div class="text-lg md:text-xl">
-        I'm a programmer and writer who loves to learn about the world and build
-        tools to bring people together.
-      </div>
-      <div class="m-auto md:m-0">
+    <div class="home-card__copy">
+      <h1 class="home-card__title font-title">
+        <span class="home-card__greeting">Hi, I'm</span>
+        <span class="home-card__name">Lindsay Wardell</span>
+      </h1>
+      <p class="home-card__lede">
+        I am a programmer and writer. Join me as I explore the place where technology and emotion intersect. I write poetry, fiction, and observations of the world around us.
+      </p>
+      <div class="home-card__nav">
         <Nav />
       </div>
-      <div class="max-w-[450px]"><SocialLinks /></div>
+      <div class="home-card__socials">
+        <SocialLinks />
+      </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .home-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.35rem;
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 1.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .home-card {
+      flex-direction: row;
+      gap: 1.75rem;
+    }
+  }
+
+  .home-card__copy {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    gap: 0.85rem;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .home-card__copy {
+      text-align: left;
+      gap: 0.95rem;
+    }
+  }
+
+  .home-card__title {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    line-height: 1.1;
+  }
+
+  .home-card__greeting {
+    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
+    font-weight: 400;
+    color: var(--color-muted);
+    letter-spacing: 0.01em;
+  }
+
+  .home-card__name {
+    font-size: clamp(2.15rem, 1.55rem + 2.4vw, 3.35rem);
+    font-weight: 700;
+    color: var(--color-foreground);
+    letter-spacing: -0.02em;
+  }
+
+  .home-card__lede {
+    margin: 0;
+    max-width: 28rem;
+    font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--color-foreground);
+  }
+
+  @media (min-width: 640px) {
+    .home-card__lede {
+      margin-top: 0.15rem;
+    }
+  }
+
+  /* Larger gap before “where to go” */
+  .home-card__nav {
+    margin-top: 0.85rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .home-card__nav {
+      margin-top: 1.1rem;
+      justify-content: flex-start;
+    }
+  }
+
+  .home-card__socials {
+    margin-top: 0.15rem;
+    max-width: 18rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 640px) {
+    .home-card__socials {
+      margin-inline: 0;
+      max-width: 20rem;
+    }
+  }
+</style>
