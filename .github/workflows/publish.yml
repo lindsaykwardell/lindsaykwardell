@@ -90,3 +90,12 @@ jobs:
           fi
           git commit -m "Publish standard.site documents and social announcements"
           git push
+
+      # Best-effort: Netlify auto-deploys in parallel. Wait for live RSS, then
+      # ping outbound links on the latest feed item. Re-run workflow if a ping
+      # races ahead of deploy.
+      - name: Send outbound webmentions
+        run: |
+          echo "Waiting for Netlify deploy / live RSS…"
+          sleep 90
+          npm run webmentions:send
