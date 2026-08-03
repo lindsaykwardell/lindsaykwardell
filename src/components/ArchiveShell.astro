@@ -1,0 +1,74 @@
+---
+import ReadingSearch from '@/components/ReadingSearch.astro'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  title: string
+  count: number
+  countLabel: string
+  searchPosts: CollectionEntry<'blog'>[]
+  fromType?: string
+  placeholder?: string
+  class?: string
+}
+
+const {
+  title,
+  count,
+  countLabel,
+  searchPosts,
+  fromType,
+  placeholder,
+  class: className,
+} = Astro.props
+---
+
+<div
+  class:list={[
+    'reading reading--archive px-2 md:px-0 pb-16 md:pb-20',
+    className,
+  ]}
+  data-reading-page
+>
+  <header class="pb-8 md:pb-10 border-b border-divider/40">
+    <div class="flex flex-wrap items-baseline justify-between gap-3 mb-4">
+      <p class="font-title text-sm text-muted tracking-wide uppercase">
+        Archive
+      </p>
+      <a href="/blog" class="text-muted hover:text-hover text-sm shrink-0">
+        ← Blog
+      </a>
+    </div>
+    <div
+      class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
+    >
+      <div class="min-w-0">
+        <h1 class="font-title text-3xl md:text-4xl text-foreground">
+          {title}
+        </h1>
+        <p class="text-muted mt-2 text-base">
+          {count} {countLabel}
+        </p>
+      </div>
+      <ReadingSearch
+        posts={searchPosts}
+        fromType={fromType}
+        placeholder={placeholder}
+      />
+    </div>
+  </header>
+
+  <div
+    class="pt-10 md:pt-12"
+    data-reading-results
+    hidden
+    role="region"
+    aria-live="polite"
+    aria-label="Search results"
+  >
+  </div>
+
+  <div class="pt-10 md:pt-12" data-reading-catalog>
+    <slot />
+  </div>
+</div>

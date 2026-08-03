@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import ArchiveShell from '@/components/ArchiveShell.astro'
 import PostList from '@/components/PostList.astro'
-import ReadingSearch from '@/components/ReadingSearch.astro'
 import { readingPostHref } from '@/lib/reading'
 
 type Post = CollectionEntry<'blog'>
@@ -18,62 +18,33 @@ const { type, postsByYear, count, searchPosts } = Astro.props
 const years = Object.entries(postsByYear).toSorted((a, b) => +b[0] - +a[0])
 ---
 
-<div class="reading reading--archive px-2 md:px-0 pb-12" data-reading-page>
-  <header class="pb-8 md:pb-10 border-b border-divider/40">
-    <div class="flex flex-wrap items-baseline justify-between gap-3 mb-4">
-      <p class="font-title text-sm text-muted tracking-wide uppercase">
-        Archive
-      </p>
-      <a href="/blog" class="text-muted hover:text-hover text-sm shrink-0">
-        ← Blog
-      </a>
-    </div>
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-      <div class="min-w-0">
-        <h1 class="font-title text-3xl md:text-4xl text-foreground">{type}</h1>
-        <p class="text-muted mt-2 text-base">
-          {count} {count === 1 ? 'piece' : 'pieces'}
-        </p>
-      </div>
-      <ReadingSearch
-        posts={searchPosts}
-        fromType={type}
-        placeholder={`Search ${type.toLowerCase()}…`}
-      />
-    </div>
-  </header>
-
-  <div
-    class="pt-10 md:pt-12"
-    data-reading-results
-    hidden
-    role="region"
-    aria-live="polite"
-    aria-label="Search results"
-  >
-  </div>
-
-  <div class="pt-10 md:pt-12" data-reading-catalog>
-    <ul class="flex flex-col gap-10 md:gap-12">
-      {
-        years.map(([year, posts]) => (
-          <li>
-            <h2 class="font-title text-xl text-muted mb-7">{year}</h2>
-            <PostList
-              showType={false}
-              posts={posts.map((post) => ({
-                id: post.id,
-                href: readingPostHref(post.id, type),
-                title: post.data.title,
-                snippet: post.data.snippet,
-                pubDate: post.data.pubDate,
-                type: post.data.type,
-                draft: post.data.draft,
-              }))}
-            />
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-</div>
+<ArchiveShell
+  title={type}
+  count={count}
+  countLabel={count === 1 ? 'piece' : 'pieces'}
+  searchPosts={searchPosts}
+  fromType={type}
+  placeholder={`Search ${type.toLowerCase()}…`}
+>
+  <ul class="flex flex-col gap-10 md:gap-12">
+    {
+      years.map(([year, posts]) => (
+        <li>
+          <h2 class="font-title text-xl text-muted mb-7">{year}</h2>
+          <PostList
+            showType={false}
+            posts={posts.map((post) => ({
+              id: post.id,
+              href: readingPostHref(post.id, type),
+              title: post.data.title,
+              snippet: post.data.snippet,
+              pubDate: post.data.pubDate,
+              type: post.data.type,
+              draft: post.data.draft,
+            }))}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</ArchiveShell>

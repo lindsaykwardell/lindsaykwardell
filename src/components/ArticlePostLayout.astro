@@ -1,8 +1,10 @@
 ---
+import PaperSurface from '@/components/PaperSurface.astro'
 import PostEngagement from '@/components/PostEngagement.astro'
 import PostList from '@/components/PostList.astro'
 import type { PostListItem } from '@/components/PostList.astro'
-import { formatReadingDate, readingPostHref } from '@/lib/reading'
+import PostMeta from '@/components/PostMeta.astro'
+import { readingPostHref } from '@/lib/reading'
 import type { CollectionEntry } from 'astro:content'
 
 export type RelatedPost = {
@@ -53,16 +55,7 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
 
 <article class="post-page pb-16 md:pb-20">
   <header class="post-page-header">
-    <div class="post-page-meta text-sm text-muted">
-      <a href={back.href} class="post-page-back">
-        <span class="post-page-back__arrow" aria-hidden="true">←</span>
-        {back.label}
-      </a>
-      <span class="text-divider/80" aria-hidden="true">·</span>
-      <time datetime={post.data.pubDate.toISOString()}>
-        {formatReadingDate(post.data.pubDate)}
-      </time>
-    </div>
+    <PostMeta back={back} date={post.data.pubDate} />
 
     <h1
       class="post-page-title font-title text-pretty"
@@ -111,13 +104,8 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
     }
   </header>
 
-  <div
-    class:list={[
-      'post-page-surface prose prose-lg max-w-none bg-background m-auto rounded',
-      skipDropCap && 'post-page--plain',
-    ]}
-  >
-    <div class="post-page-body">
+  <PaperSurface plain={skipDropCap}>
+    <div class="paper-surface__body">
       <slot />
     </div>
     {
@@ -137,7 +125,7 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
         </footer>
       )
     }
-  </div>
+  </PaperSurface>
 
   {
     documentAtUri && !isExternalAppearance && (
@@ -153,10 +141,7 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
         class="post-related px-2 md:px-0 pt-14 md:pt-16"
         aria-labelledby="related-heading"
       >
-        <h2
-          id="related-heading"
-          class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
-        >
+        <h2 id="related-heading" class="section-label mb-7">
           {relatedHeading}
         </h2>
         <PostList posts={relatedItems} />
@@ -184,38 +169,7 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
     }
   }
 
-  .post-page-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.55rem 0.75rem;
-    animation: post-settle 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .post-page-back {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.3rem;
-    color: var(--color-muted);
-    text-decoration: none;
-    transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .post-page-back__arrow {
-    display: inline-block;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .post-page-back:hover {
-    color: var(--color-hover);
-  }
-
-  .post-page-back:hover .post-page-back__arrow {
-    transform: translateX(-0.2rem);
-  }
-
-  .post-page-back:focus-visible,
-  .post-page-header a:focus-visible {
+  .post-page-header :global(a:focus-visible) {
     outline: 2px solid var(--color-hover);
     outline-offset: 3px;
     border-radius: 2px;
@@ -227,7 +181,7 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
     font-size: clamp(1.85rem, 1.4rem + 1.6vw, 2.75rem);
     line-height: 1.15;
     letter-spacing: -0.01em;
-    animation: post-settle 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+    animation: settle-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
   }
 
   .post-page-show {
@@ -244,7 +198,7 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
     margin-top: 0.75rem;
     overflow: hidden;
     border-radius: 0.2rem;
-    animation: post-settle 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    animation: settle-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
   }
 
   .post-page-hero__img {
@@ -255,45 +209,7 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
     object-position: center;
     transform: scale(1.02);
     transform-origin: center;
-    animation: post-hero-ease 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-  }
-
-  .post-page-surface {
-    max-width: 42rem;
-    padding: 1.35rem 1.25rem 1.75rem;
-    box-shadow: var(--shadow-paper);
-    animation: post-settle 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-  }
-
-  @media (min-width: 768px) {
-    .post-page-surface {
-      padding: 2.75rem 3rem 3rem;
-    }
-  }
-
-  /* Comfortable essay measure + leading — share edge with title */
-  .post-page-body {
-    max-width: none;
-  }
-
-  .post-page-body :global(p),
-  .post-page-body :global(li) {
-    line-height: 1.75;
-  }
-
-  .post-page-body :global(p + p) {
-    margin-top: 1.15em;
-  }
-
-  /* Quiet opening — weight only, no accent hijack */
-  .post-page-body :global(> p:first-of-type) {
-    font-size: 1.08em;
-    line-height: 1.7;
-  }
-
-  .post-page--plain .post-page-body :global(> p:first-of-type) {
-    font-size: inherit;
-    line-height: 1.75;
+    animation: media-reveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
   .post-external {
@@ -318,49 +234,16 @@ const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
     text-underline-offset: 4px;
   }
 
-  @keyframes post-settle {
-    from {
-      opacity: 0;
-      transform: translateY(0.55rem);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes post-hero-ease {
-    from {
-      transform: scale(1.02);
-      opacity: 0.85;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .post-page-meta,
     .post-page-hero,
     .post-page-hero__img,
-    .post-page-title,
-    .post-page-surface {
+    .post-page-title {
       animation: none;
     }
 
     .post-page-hero__img {
       transform: none;
       opacity: 1;
-    }
-
-    .post-page-back,
-    .post-page-back__arrow {
-      transition: none;
-    }
-
-    .post-page-back:hover .post-page-back__arrow {
-      transform: none;
     }
   }
 </style>

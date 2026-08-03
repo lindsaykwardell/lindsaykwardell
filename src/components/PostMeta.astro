@@ -1,0 +1,22 @@
+---
+import { formatReadingDate } from '@/lib/reading'
+
+interface Props {
+  back: { href: string; label: string }
+  date: Date
+  class?: string
+}
+
+const { back, date, class: className } = Astro.props
+---
+
+<div class:list={['post-meta text-sm text-muted', className]}>
+  <a href={back.href} class="post-meta__back">
+    <span class="post-meta__arrow" aria-hidden="true">←</span>
+    {back.label}
+  </a>
+  <span class="text-divider/80" aria-hidden="true">·</span>
+  <time datetime={date.toISOString()}>
+    {formatReadingDate(date)}
+  </time>
+</div>

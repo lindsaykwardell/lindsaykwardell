@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import PaperSurface from '@/components/PaperSurface.astro'
 import Signoff from '@/components/Signoff.astro'
 ---
 
@@ -8,7 +9,7 @@ import Signoff from '@/components/Signoff.astro'
   description="Programmer and writer. Engineering Manager at Mangomint. Fiction, poetry, and tools that bring people together."
 >
   <article class="about-page px-2 md:px-0 pb-16 md:pb-20">
-    <div class="about-page-surface prose prose-lg bg-background rounded">
+    <PaperSurface>
       <h1 class="about-page-title font-title text-pretty">
         Hi, I'm Lindsay Wardell
       </h1>
@@ -59,7 +60,7 @@ import Signoff from '@/components/Signoff.astro'
         lens, because I find it helps me organize what I am doing, but I
         appreciate the power in object-oriented languages like Kotlin and C#.
       </p>
-    </div>
+    </PaperSurface>
 
     <div class="about-page-signoff pt-10 md:pt-12">
       <Signoff iconsOnly />
@@ -68,29 +69,6 @@ import Signoff from '@/components/Signoff.astro'
 </BaseLayout>
 
 <style>
-  .about-page-surface {
-    max-width: 42rem;
-    margin-inline: auto;
-    padding: 1.35rem 1.25rem 1.75rem;
-    box-shadow: var(--shadow-paper);
-    animation: about-settle 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  @media (min-width: 768px) {
-    .about-page-surface {
-      padding: 2.75rem 3rem 3rem;
-    }
-  }
-
-  .about-page-surface :global(p),
-  .about-page-surface :global(li) {
-    line-height: 1.75;
-  }
-
-  .about-page-surface :global(p + p) {
-    margin-top: 1.15em;
-  }
-
   .about-page-title {
     margin: 0 0 1.5rem;
     text-align: left;
@@ -98,20 +76,20 @@ import Signoff from '@/components/Signoff.astro'
     font-size: clamp(1.85rem, 1.4rem + 1.6vw, 2.75rem);
     line-height: 1.15;
     letter-spacing: -0.01em;
-    animation: about-settle 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: settle-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .about-page-portrait {
     transform: scale(1.02);
     transform-origin: center;
-    animation: about-portrait 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+    animation: media-reveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
   }
 
   .about-page-signoff {
     max-width: 42rem;
     margin-inline: auto;
     padding-inline: 1.25rem;
-    animation: about-settle 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+    animation: settle-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
   }
 
   @media (min-width: 768px) {
@@ -120,47 +98,24 @@ import Signoff from '@/components/Signoff.astro'
     }
   }
 
-  .about-page-surface :global(a) {
+  .about-page :global(.paper-surface a) {
     color: var(--color-hover);
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.15s ease;
   }
 
-  .about-page-surface :global(a:hover) {
+  .about-page :global(.paper-surface a:hover) {
     color: var(--color-foreground);
   }
 
-  .about-page-surface :global(a:focus-visible) {
+  .about-page :global(.paper-surface a:focus-visible) {
     outline: 2px solid var(--color-hover);
     outline-offset: 3px;
     border-radius: 2px;
   }
 
-  @keyframes about-settle {
-    from {
-      opacity: 0;
-      transform: translateY(0.55rem);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes about-portrait {
-    from {
-      transform: scale(1.02);
-      opacity: 0.85;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .about-page-surface,
     .about-page-title,
     .about-page-portrait,
     .about-page-signoff {
@@ -172,7 +127,7 @@ import Signoff from '@/components/Signoff.astro'
       opacity: 1;
     }
 
-    .about-page-surface :global(a) {
+    .about-page :global(.paper-surface a) {
       transition: none;
     }
   }

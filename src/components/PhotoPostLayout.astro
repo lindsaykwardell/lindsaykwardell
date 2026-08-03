@@ -1,6 +1,7 @@
 ---
 import PostEngagement from '@/components/PostEngagement.astro'
-import { formatReadingDate, readingPostHref } from '@/lib/reading'
+import PostMeta from '@/components/PostMeta.astro'
+import { readingPostHref } from '@/lib/reading'
 import type { CollectionEntry } from 'astro:content'
 
 export type RelatedPhoto = {
@@ -37,16 +38,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
 
 <article class="photo-page pb-16 md:pb-20">
   <header class="photo-page-header">
-    <div class="photo-page-meta text-sm text-muted">
-      <a href={back.href} class="photo-page-back">
-        <span class="photo-page-back__arrow" aria-hidden="true">←</span>
-        {back.label}
-      </a>
-      <span class="text-divider/80" aria-hidden="true">·</span>
-      <time datetime={post.data.pubDate.toISOString()}>
-        {formatReadingDate(post.data.pubDate)}
-      </time>
-    </div>
+    <PostMeta back={back} date={post.data.pubDate} />
   </header>
 
   {
@@ -117,14 +109,9 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     relatedPhotos.length > 0 && (
       <aside class="photo-page-more" aria-labelledby="photo-more-heading">
         <div class="photo-page-more__head">
-          <h2
-            id="photo-more-heading"
-            class="font-title text-sm tracking-[0.12em] uppercase text-muted"
-          >
-            Related
-          </h2>
+          <h2 id="photo-more-heading" class="section-label">Related</h2>
           <a href="/blog?type=Photo" class="photo-page-more__all">
-            All photos
+            All photos →
           </a>
         </div>
         <div class="photo-page-strip">
@@ -164,37 +151,6 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     }
   }
 
-  .photo-page-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.55rem 0.75rem;
-    animation: photo-settle 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .photo-page-back {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.3rem;
-    color: var(--color-muted);
-    text-decoration: none;
-    transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .photo-page-back__arrow {
-    display: inline-block;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .photo-page-back:hover {
-    color: var(--color-hover);
-  }
-
-  .photo-page-back:hover .photo-page-back__arrow {
-    transform: translateX(-0.2rem);
-  }
-
-  .photo-page-back:focus-visible,
   .photo-page-strip__link:focus-visible,
   .photo-page-more__all:focus-visible {
     outline: 2px solid var(--color-hover);
@@ -206,7 +162,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     display: flex;
     justify-content: center;
     padding-inline: 0.5rem;
-    animation: photo-settle 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+    animation: settle-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
   }
 
   @media (min-width: 768px) {
@@ -226,14 +182,14 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     box-shadow: var(--shadow-paper);
     transform: scale(1.015);
     transform-origin: center;
-    animation: photo-reveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+    animation: media-reveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
   }
 
   .photo-page-caption {
     max-width: 36rem;
     margin: 1.75rem auto 0;
     padding-inline: 1.25rem;
-    animation: photo-settle 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    animation: settle-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
   @media (min-width: 768px) {
@@ -274,7 +230,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     margin-inline: auto;
     padding-inline: 1.25rem;
     margin-top: 2.5rem;
-    animation: photo-settle 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+    animation: settle-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
   }
 
   @media (min-width: 768px) {
@@ -366,42 +322,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     transform: scale(1.04);
   }
 
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  @keyframes photo-settle {
-    from {
-      opacity: 0;
-      transform: translateY(0.55rem);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes photo-reveal {
-    from {
-      transform: scale(1.02);
-      opacity: 0.85;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .photo-page-meta,
     .photo-page-figure,
     .photo-page-figure__img,
     .photo-page-caption,
@@ -414,15 +335,9 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
       opacity: 1;
     }
 
-    .photo-page-back,
-    .photo-page-back__arrow,
     .photo-page-strip__img,
     .photo-page-more__all {
       transition: none;
-    }
-
-    .photo-page-back:hover .photo-page-back__arrow {
-      transform: none;
     }
 
     .photo-page-strip:hover .photo-page-strip__img,

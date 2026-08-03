@@ -36,7 +36,7 @@ const recentItems = recent.map((post) => ({
 }))
 ---
 
-<div class="reading px-2 md:px-0 pb-16" data-reading-page>
+<div class="reading px-2 md:px-0 pb-16 md:pb-20" data-reading-page>
   <header class="reading-masthead pb-8 md:pb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
     <h1 class="font-title text-3xl md:text-4xl text-foreground shrink-0">
       Blog
@@ -124,15 +124,10 @@ const recentItems = recent.map((post) => ({
     {
       recentItems.length > 0 && (
         <section
-          class="reading-recent pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/35"
+          class="reading-recent pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/40"
           aria-labelledby="recent-heading"
         >
-          <h2
-            id="recent-heading"
-            class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
-          >
-            Recent
-          </h2>
+          <h2 id="recent-heading" class="section-label mb-7">Recent</h2>
           <PostList posts={recentItems} />
         </section>
       )
@@ -141,16 +136,11 @@ const recentItems = recent.map((post) => ({
     {
       recentPhotos.length > 0 && (
         <section
-          class="reading-photos pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/35"
+          class="reading-photos pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/40"
           aria-labelledby="recent-photos"
         >
           <div class="flex flex-wrap items-baseline justify-between gap-3 mb-7">
-            <h2
-              id="recent-photos"
-              class="font-title text-sm tracking-[0.12em] uppercase text-muted"
-            >
-              Recent photos
-            </h2>
+            <h2 id="recent-photos" class="section-label">Recent photos</h2>
             <a
               href="/blog?type=Photo"
               class="text-sm text-muted hover:text-hover"
@@ -164,15 +154,10 @@ const recentItems = recent.map((post) => ({
     }
 
     <section
-      class="pt-10 md:pt-12 border-t border-divider/35"
+      class="pt-10 md:pt-12 border-t border-divider/40"
       aria-labelledby="browse-types"
     >
-      <h2
-        id="browse-types"
-        class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
-      >
-        Browse by kind
-      </h2>
+      <h2 id="browse-types" class="section-label mb-7">Browse by kind</h2>
       <ul class="flex flex-wrap gap-x-5 gap-y-3">
         {
           browseTypes.map((t) => (
@@ -197,18 +182,7 @@ const recentItems = recent.map((post) => ({
 <style>
   .reading-masthead,
   .reading-lead {
-    animation: reading-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  @keyframes reading-in {
-    from {
-      opacity: 0;
-      transform: translateY(0.55rem);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
+    animation: settle-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @media (prefers-reduced-motion: reduce) {

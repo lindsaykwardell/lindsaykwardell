@@ -226,3 +226,130 @@ h6 {
     font-size: 1.5rem;
   }
 }
+
+/* Shared section labels (Related, Recent, Browse by kind, …) */
+.section-label {
+  font-family: var(--font-title);
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Paper surface — About + article body */
+.paper-surface {
+  max-width: 42rem;
+  margin-inline: auto;
+  padding: 1.35rem 1.25rem 1.75rem;
+  box-shadow: var(--shadow-paper);
+  animation: settle-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@media (min-width: 768px) {
+  .paper-surface {
+    padding: 2.75rem 3rem 3rem;
+  }
+}
+
+.paper-surface :where(p),
+.paper-surface :where(li) {
+  line-height: 1.75;
+}
+
+.paper-surface :where(p + p) {
+  margin-top: 1.15em;
+}
+
+/* Quiet opening paragraph on essays (skipped with --plain) */
+.paper-surface:not(.paper-surface--plain) .paper-surface__body > p:first-of-type {
+  font-size: 1.08em;
+  line-height: 1.7;
+}
+
+/* Post meta: back link + date */
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.75rem;
+  animation: settle-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.post-meta__back {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-meta__arrow {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-meta__back:hover {
+  color: var(--color-hover);
+}
+
+.post-meta__back:hover .post-meta__arrow {
+  transform: translateX(-0.2rem);
+}
+
+.post-meta__back:focus-visible {
+  outline: 2px solid var(--color-hover);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@keyframes settle-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes media-reveal {
+  from {
+    transform: scale(1.02);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-surface,
+  .post-meta {
+    animation: none;
+  }
+
+  .post-meta__back,
+  .post-meta__arrow {
+    transition: none;
+  }
+
+  .post-meta__back:hover .post-meta__arrow {
+    transform: none;
+  }
+}
