@@ -1,7 +1,6 @@
 ---
 /**
- * Quiet light/dark toggle. Preference persists in localStorage;
- * first visit follows prefers-color-scheme.
+ * Theme toggle. Stored in localStorage; otherwise follows prefers-color-scheme.
  */
 ---
 
@@ -36,7 +35,7 @@
       if (label) {
         if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           label.classList.remove('is-flipping')
-          // retrigger
+          // force animation restart
           void (label as HTMLElement).offsetWidth
           label.classList.add('is-flipping')
         }

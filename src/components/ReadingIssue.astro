@@ -1,276 +1,74 @@
 ---
-/**
- * Magazine-style Reading issue — featured writing, poem, photo, appearances, browse.
- */
 import type { CollectionEntry } from 'astro:content'
 import { formatReadingDate } from '@/lib/reading'
 
 type Post = CollectionEntry<'blog'>
 
-interface PoemPreview {
-  lines: string
-  truncated: boolean
-}
-
 interface Props {
   lead?: Post
-  poem?: Post
-  poemPreview: PoemPreview | null
-  photo?: Post
-  appearance?: Post
   recentWriting: Post[]
-  recentAppearances: Post[]
   browseTypes: string[]
   typeCounts: Record<string, number>
 }
 
-const {
-  lead,
-  poem,
-  poemPreview,
-  photo,
-  appearance,
-  recentWriting,
-  recentAppearances,
-  browseTypes,
-  typeCounts,
-} = Astro.props
+const { lead, recentWriting, browseTypes, typeCounts } = Astro.props
 ---
 
-<div class="blog-issue px-2 md:px-0 pb-16">
-  <header class="blog-issue-masthead pb-6 md:pb-8">
+<div class="reading px-2 md:px-0 pb-16">
+  <header class="reading-masthead pb-6 md:pb-8">
     <h1 class="font-title text-3xl md:text-4xl text-foreground">Reading</h1>
   </header>
 
-  <div
-    class="blog-issue-top grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] lg:gap-12 lg:items-start pb-14 md:pb-16"
-  >
-    {
-      lead && (
-        <section class="blog-issue-lead" aria-labelledby="lead-title">
-          <div class="flex flex-wrap items-center gap-3 text-sm text-muted mb-4">
-            <span class="font-title tracking-wide uppercase text-xs">
-              Latest writing
-            </span>
-            <span class="text-divider/80" aria-hidden="true">
-              ·
-            </span>
-            <time datetime={lead.data.pubDate.toISOString()}>
-              {formatReadingDate(lead.data.pubDate)}
-            </time>
-          </div>
-
-          {lead.data.image && lead.data.image !== 'null' && (
-            <a
-              href={`/blog/${lead.id}`}
-              class="block mb-5 -mx-2 md:mx-0 overflow-hidden"
-              tabindex="-1"
-              aria-hidden="true"
-            >
-              <img
-                src={lead.data.image}
-                alt=""
-                class="w-full aspect-[16/9] object-cover"
-                loading="eager"
-              />
-            </a>
-          )}
-
-          <h2
-            id="lead-title"
-            class="font-title text-3xl md:text-4xl leading-tight"
-          >
-            <a
-              href={`/blog/${lead.id}`}
-              class="text-foreground hover:text-hover"
-              transition:name={`${lead.id}-name`}
-            >
-              {lead.data.title}
-            </a>
-          </h2>
-          {lead.data.snippet && (
-            <p class="mt-3 text-lg text-muted leading-relaxed max-w-2xl">
-              {lead.data.snippet}
-            </p>
-          )}
-          <p class="mt-4">
-            <a
-              href={`/blog/${lead.id}`}
-              class="font-title text-hover hover:underline underline-offset-4"
-            >
-              Read
-            </a>
-          </p>
-        </section>
-      )
-    }
-
-    {
-      poem && poemPreview?.lines && (
-        <aside
-          class="blog-issue-poem p-4 md:p-5 hidden lg:block"
-          aria-labelledby="poem-title"
-        >
-          <div class="flex flex-wrap items-center gap-2 text-xs text-muted mb-2">
-            <span class="font-title tracking-wide uppercase">A poem</span>
-            <span class="text-divider/80" aria-hidden="true">
-              ·
-            </span>
-            <time datetime={poem.data.pubDate.toISOString()}>
-              {formatReadingDate(poem.data.pubDate)}
-            </time>
-          </div>
-
-          <h2 id="poem-title" class="font-title text-base mb-2">
-            <a
-              href={`/blog/${poem.id}`}
-              class="text-muted hover:text-hover"
-              transition:name={`${poem.id}-name`}
-            >
-              {poem.data.title}
-            </a>
-          </h2>
-
-          <blockquote class="blog-issue-poem-body text-sm text-muted leading-relaxed whitespace-pre-line">
-            {poemPreview.lines}
-            {poemPreview.truncated && (
-              <span aria-hidden="true">
-                {'\n\n'}…
-              </span>
-            )}
-          </blockquote>
-
-          <p class="blog-issue-links mt-3">
-            <a href={`/blog/${poem.id}`} class="blog-issue-links__secondary">
-              {poemPreview.truncated ? 'Continue reading' : 'Open poem'}
-            </a>
-            <a href="/blog?type=Poetry" class="blog-issue-links__secondary">
-              More poetry
-            </a>
-          </p>
-        </aside>
-      )
-    }
-  </div>
-
   {
-    (photo || appearance) && (
+    lead && (
       <section
-        class="grid md:grid-cols-2 gap-10 md:gap-12 py-14 md:py-16"
-        aria-label="Photo and appearance"
+        class="reading-lead pb-10 md:pb-12"
+        aria-labelledby="lead-title"
       >
-        {photo && (
-          <div>
-            <div class="flex items-center gap-3 text-sm text-muted mb-4">
-              <span class="font-title tracking-wide uppercase text-xs">
-                Latest photo
-              </span>
-              <span class="text-divider/80" aria-hidden="true">
-                ·
-              </span>
-              <time datetime={photo.data.pubDate.toISOString()}>
-                {formatReadingDate(photo.data.pubDate)}
-              </time>
-            </div>
-            <a href={`/blog/${photo.id}`} class="group block">
-              {photo.data.image && (
-                <img
-                  src={photo.data.image}
-                  alt={photo.data.snippet || photo.data.title}
-                  class="w-full h-auto max-h-[28rem] object-contain mb-4"
-                  loading="lazy"
-                />
-              )}
-              <h2
-                class="font-title text-2xl text-foreground group-hover:text-hover"
-                transition:name={`${photo.id}-name`}
-              >
-                {photo.data.title}
-              </h2>
-              {photo.data.snippet &&
-                photo.data.snippet !== photo.data.title && (
-                  <p class="mt-2 text-muted leading-relaxed">
-                    {photo.data.snippet}
-                  </p>
-                )}
-            </a>
-            <p class="mt-4">
-              <a
-                href="/blog?type=Photo"
-                class="text-sm text-muted hover:text-hover"
-              >
-                Photo gallery
-              </a>
-            </p>
-          </div>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-muted mb-4">
+          <span class="font-title tracking-wide uppercase text-xs">
+            Latest writing
+          </span>
+          <span class="text-divider/80" aria-hidden="true">
+            ·
+          </span>
+          <time datetime={lead.data.pubDate.toISOString()}>
+            {formatReadingDate(lead.data.pubDate)}
+          </time>
+        </div>
+
+        {lead.data.image && lead.data.image !== 'null' && (
+          <a
+            href={`/blog/${lead.id}`}
+            class="block mb-5 -mx-2 md:mx-0 overflow-hidden"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <img
+              src={lead.data.image}
+              alt=""
+              class="w-full aspect-[16/9] object-cover"
+              loading="eager"
+            />
+          </a>
         )}
 
-        {appearance && (
-          <div class="flex flex-col">
-            <div class="flex flex-wrap items-center gap-3 text-sm text-muted mb-4">
-              <span class="font-title tracking-wide uppercase text-xs">
-                Latest appearance
-              </span>
-              <span class="text-divider/80" aria-hidden="true">
-                ·
-              </span>
-              <time datetime={appearance.data.pubDate.toISOString()}>
-                {formatReadingDate(appearance.data.pubDate)}
-              </time>
-            </div>
-
-            {appearance.data.image && appearance.data.image !== 'null' && (
-              <a
-                href={`/blog/${appearance.id}`}
-                class="block mb-4"
-                tabindex="-1"
-                aria-hidden="true"
-              >
-                <img
-                  src={appearance.data.image}
-                  alt=""
-                  class="w-full aspect-video object-cover"
-                  loading="lazy"
-                />
-              </a>
-            )}
-
-            {appearance.data.name && (
-              <p class="text-sm text-muted mb-1">{appearance.data.name}</p>
-            )}
-            <h2 class="font-title text-2xl md:text-3xl leading-snug">
-              <a
-                href={`/blog/${appearance.id}`}
-                class="text-foreground hover:text-hover"
-                transition:name={`${appearance.id}-name`}
-              >
-                {appearance.data.title}
-              </a>
-            </h2>
-            {appearance.data.snippet && (
-              <p class="mt-3 text-muted leading-relaxed line-clamp-4 flex-1">
-                {appearance.data.snippet}
-              </p>
-            )}
-            <p class="blog-issue-links mt-5">
-              <a
-                href={`/blog/${appearance.id}`}
-                class="blog-issue-links__primary"
-              >
-                On this site
-              </a>
-              {appearance.data.link && (
-                <a
-                  href={appearance.data.link}
-                  class="blog-issue-links__secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Watch / listen
-                </a>
-              )}
-            </p>
-          </div>
+        <h2
+          id="lead-title"
+          class="font-title text-3xl md:text-4xl leading-tight max-w-3xl"
+        >
+          <a
+            href={`/blog/${lead.id}`}
+            class="text-foreground hover:text-hover"
+            transition:name={`${lead.id}-name`}
+          >
+            {lead.data.title}
+          </a>
+        </h2>
+        {lead.data.snippet && (
+          <p class="mt-3 text-lg text-muted leading-relaxed max-w-2xl">
+            {lead.data.snippet}
+          </p>
         )}
       </section>
     )
@@ -279,14 +77,14 @@ const {
   {
     recentWriting.length > 0 && (
       <section
-        class="py-12 md:py-14 border-t border-divider/35"
-        aria-labelledby="more-writing"
+        class="reading-recent pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/35"
+        aria-labelledby="recent-writing"
       >
         <h2
-          id="more-writing"
+          id="recent-writing"
           class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
         >
-          More writing
+          Recent
         </h2>
         <ul class="flex flex-col gap-7">
           {recentWriting.map((post) => (
@@ -318,37 +116,8 @@ const {
     )
   }
 
-  {
-    recentAppearances.length > 0 && (
-      <section
-        class="py-12 md:py-14 border-t border-divider/35"
-        aria-labelledby="more-appearances"
-      >
-        <h2
-          id="more-appearances"
-          class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
-        >
-          More appearances
-        </h2>
-        <ul class="flex flex-col gap-5">
-          {recentAppearances.map((post) => (
-            <li>
-              <a
-                href={`/blog/${post.id}`}
-                class="font-title text-lg md:text-xl text-foreground hover:text-hover"
-                transition:name={`${post.id}-name`}
-              >
-                {post.data.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
   <section
-    class="pt-12 md:pt-14 border-t border-divider/35"
+    class="pt-10 md:pt-12 border-t border-divider/35"
     aria-labelledby="browse-types"
   >
     <h2
@@ -378,60 +147,15 @@ const {
 </div>
 
 <style>
-  .blog-issue-masthead {
-    animation: blog-issue-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  .reading-masthead,
+  .reading-lead {
+    animation: reading-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  .blog-issue-top {
-    animation: blog-issue-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
-  }
-
-  .blog-issue-poem {
-    background: color-mix(
-      in srgb,
-      var(--color-accent) 4%,
-      var(--color-background)
-    );
-  }
-
-  .blog-issue-poem-body {
-    text-wrap: pretty;
-    font-family: var(--font-body);
-  }
-
-  .blog-issue-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.25rem 0.85rem;
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    line-height: 1.4;
-  }
-
-  .blog-issue-links__primary {
-    color: var(--color-hover);
-    text-decoration: none;
-  }
-
-  .blog-issue-links__primary:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .blog-issue-links__secondary {
-    color: var(--color-muted);
-    text-decoration: none;
-  }
-
-  .blog-issue-links__secondary:hover {
-    color: var(--color-hover);
-  }
-
-  @keyframes blog-issue-in {
+  @keyframes reading-in {
     from {
       opacity: 0;
-      transform: translateY(0.6rem);
+      transform: translateY(0.55rem);
     }
     to {
       opacity: 1;
@@ -440,8 +164,8 @@ const {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .blog-issue-masthead,
-    .blog-issue-top {
+    .reading-masthead,
+    .reading-lead {
       animation: none;
     }
   }

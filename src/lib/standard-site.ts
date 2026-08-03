@@ -22,16 +22,13 @@ function loadState(): SequoiaState | null {
   }
 }
 
-/** Publication AT-URI from sequoia.json, or null if setup has not run yet. */
+/** From sequoia.json; null until setup has run. */
 export function getPublicationUri(): string | null {
   const uri = sequoiaConfig.publicationUri?.trim()
   return uri || null
 }
 
-/**
- * Resolve a post's standard.site document AT-URI.
- * Prefers frontmatter (written by `sequoia publish`), then falls back to state.
- */
+/** Frontmatter atUri first, then .sequoia-state.json. */
 export function getDocumentAtUri(
   postId: string,
   frontmatterAtUri?: string | null,

@@ -1,8 +1,4 @@
 ---
-/**
- * Image-first layout for Photo posts — gallery feel, quiet afterword.
- */
-import Signoff from '@/components/Signoff.astro'
 import PostEngagement from '@/components/PostEngagement.astro'
 import { readingPostHref } from '@/lib/reading'
 import type { CollectionEntry } from 'astro:content'
@@ -105,7 +101,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
   </div>
 
   <footer
-    class="photo-page-afterword not-prose max-w-2xl mx-auto px-4 md:px-0 pt-8 md:pt-10"
+    class="photo-page-afterword post-afterword not-prose max-w-2xl mx-auto px-4 md:px-0"
   >
     <PostEngagement
       blueskyUri={post.data.blueskyUri}
@@ -163,10 +159,6 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
       </aside>
     )
   }
-
-  <div class="max-w-2xl mx-auto px-4 pt-10 md:pt-12">
-    <Signoff hideIntro />
-  </div>
 </article>
 
 <style>

@@ -2,47 +2,142 @@
 import SocialLinks from './SocialLinks.astro'
 
 interface Props {
-  hideIntro?: boolean
+  /** Icons only (About). Default is the post credit block. */
+  iconsOnly?: boolean
+  variant?: 'icons' | 'post'
 }
 
-const { hideIntro = false } = Astro.props
+const { iconsOnly = false, variant = iconsOnly ? 'icons' : 'post' } = Astro.props
 ---
 
-{!hideIntro && <hr class="mx-auto my-4 border-foreground" />}
-
-<section class="prose m-auto">
-  <div
-    class={`flex flex-col ${hideIntro ? 'items-center gap-4' : 'md:flex-row justify-between md:gap-8 items-center'}`}
-  >
-    {
-      !hideIntro && (
-        <div class="flex justify-center">
-          <img
-            src="/lindsay2.jpg"
-            alt="Lindsay Wardell"
-            class="aspect-square object-cover rounded-lg shadow-md h-32 min-w-[8rem] object-top"
-          />
+{
+  variant === 'post' ? (
+    <section class="post-signoff not-prose" aria-label="About the author">
+      <a href="/about" class="post-signoff__portrait">
+        <img
+          src="/lindsay2.jpg"
+          alt=""
+          width="72"
+          height="72"
+          loading="lazy"
+          decoding="async"
+          class="post-signoff__img"
+        />
+      </a>
+      <div class="post-signoff__copy">
+        <a href="/about" class="post-signoff__name font-title">
+          Lindsay Wardell
+        </a>
+        <p class="post-signoff__line">Programmer and writer.</p>
+        <div class="post-signoff__links">
+          <SocialLinks class="post-signoff__social" />
         </div>
-      )
-    }
-    <div class={hideIntro ? '' : 'px-3'}>
-      {
-        !hideIntro && (
-          <>
-            <div class="font-title text-2xl">Hi, I'm Lindsay Wardell!</div>
-            <p>
-              I am a programmer and writer. I work as an Engineering Manager at{' '}
-              <a class="underline" href="https://mangomint.com">
-                Mangomint
-              </a>
-              . Join me as I explore the place where technology and feelings
-              intersect. I write poetry, fiction, and observations of the world
-              around us.
-            </p>
-          </>
-        )
-      }
-      <SocialLinks class={hideIntro ? 'justify-center gap-4' : ''} />
+      </div>
+    </section>
+  ) : (
+    <div class="signoff-icons">
+      <SocialLinks class="justify-center gap-4" />
     </div>
-  </div>
-</section>
+  )
+}
+
+<style>
+  .post-signoff {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid
+      color-mix(in srgb, var(--color-divider) 40%, transparent);
+    max-width: 28rem;
+  }
+
+  .post-signoff__portrait {
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    line-height: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .post-signoff__portrait:hover {
+    opacity: 0.88;
+  }
+
+  .post-signoff__img {
+    width: 4.5rem;
+    height: 4.5rem;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .post-signoff__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+    padding-top: 0.1rem;
+  }
+
+  .post-signoff__name {
+    font-size: 1.125rem;
+    color: var(--color-foreground);
+    text-decoration: none;
+    line-height: 1.25;
+    transition: color 0.15s ease;
+  }
+
+  .post-signoff__name:hover {
+    color: var(--color-hover);
+  }
+
+  .post-signoff__line {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--color-muted);
+  }
+
+  .post-signoff__links {
+    margin-top: 0.45rem;
+  }
+
+  .post-signoff__links :global(a) {
+    color: var(--color-muted);
+  }
+
+  .post-signoff__links :global(a:hover) {
+    color: var(--color-hover);
+  }
+
+  /* SVG width/height attrs fight CSS sizing — scale the row instead */
+  .post-signoff__links :global(.post-signoff__social) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    width: auto;
+    transform: scale(0.72);
+    transform-origin: left center;
+  }
+
+  .post-signoff__portrait:focus-visible,
+  .post-signoff__name:focus-visible {
+    outline: 2px solid var(--color-hover);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 480px) {
+    .post-signoff {
+      gap: 0.85rem;
+    }
+
+    .post-signoff__img {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+  }
+</style>

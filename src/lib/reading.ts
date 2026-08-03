@@ -1,6 +1,4 @@
-/**
- * Preserve Reading archive context when opening a post from ?type=.
- */
+/** Keep ?type= context when linking into a post from an archive. */
 
 const KNOWN_TYPES = new Set([
   'Personal',
@@ -15,7 +13,7 @@ const KNOWN_TYPES = new Set([
   'Conference',
 ])
 
-/** Normalize legacy Blog → Personal; drop unknown values. */
+/** Map legacy Blog → Personal; ignore unknown values. */
 export function normalizeReadingFrom(
   raw: string | null | undefined,
 ): string | null {

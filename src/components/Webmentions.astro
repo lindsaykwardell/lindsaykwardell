@@ -1,7 +1,7 @@
 ---
 /**
- * Soft webmention display via webmention.io.
- * Account: www.lindsaykwardell.com — discovery endpoints are in BaseLayout.
+ * Webmentions from webmention.io (account: www.lindsaykwardell.com).
+ * Discovery endpoints live in BaseLayout.
  */
 interface Props {
   targetUrl: string
@@ -118,9 +118,9 @@ const hasAny = likes.length + replies.length + reposts.length > 0
       )}
 
       {replies.length > 0 && (
-        <ul class="flex flex-col gap-4">
+        <ul class="webmentions__replies flex flex-col gap-4">
           {replies.map((m) => (
-            <li class="border-l-2 border-divider pl-4">
+            <li class="webmentions__reply">
               <div class="flex items-center gap-2 text-sm">
                 {m.author?.photo && (
                   <img

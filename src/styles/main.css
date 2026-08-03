@@ -13,48 +13,27 @@
   --color-background: #f5f5f5;
   --color-accent: #e69563;
   --color-hover: #cf492b;
-  /* Type badges — each kind its own quiet wash, tinted toward the site hue */
-  --color-badge-blog: oklch(0.88 0.03 145);
-  --color-badge-programming: oklch(0.86 0.06 55);
-  --color-badge-poetry: oklch(0.88 0.04 320);
-  --color-badge-fiction: oklch(0.88 0.03 230);
-  --color-badge-photo: oklch(0.9 0.04 85);
-  --color-badge-podcast: oklch(0.87 0.05 25);
-  --color-badge-video: oklch(0.86 0.05 200);
-  --color-badge-meetup: oklch(0.89 0.02 70);
-  --color-badge-conference: oklch(0.87 0.04 280);
-  --color-badge-default: oklch(0.89 0.015 80);
-  /* legacy aliases used elsewhere */
-  --color-badge-creative: var(--color-badge-poetry);
-  --color-badge-narrative: var(--color-badge-fiction);
-  --color-badge-journal: var(--color-badge-blog);
 }
 
-/* Warm dark — invert lights/darks, keep earth accents */
 html.dark {
   color-scheme: dark;
   --color-foreground: #efeae2;
-  /* Brighter muted so secondary text holds up on the accent wash */
   --color-muted: #c9bfab;
   --color-divider: #756c5c;
   --color-background: #1c1915;
   --color-accent: #c47d4f;
   --color-hover: #e07055;
-  --color-badge-blog: oklch(0.32 0.03 145);
-  --color-badge-programming: oklch(0.32 0.05 55);
-  --color-badge-poetry: oklch(0.32 0.04 320);
-  --color-badge-fiction: oklch(0.32 0.03 230);
-  --color-badge-photo: oklch(0.34 0.04 85);
-  --color-badge-podcast: oklch(0.32 0.04 25);
-  --color-badge-video: oklch(0.32 0.04 200);
-  --color-badge-meetup: oklch(0.33 0.02 70);
-  --color-badge-conference: oklch(0.32 0.04 280);
-  --color-badge-default: oklch(0.33 0.015 80);
+  --shadow-paper:
+    0 1px 2px color-mix(in srgb, #000 22%, transparent),
+    0 10px 28px -12px color-mix(in srgb, #000 45%, transparent);
 }
 
 html {
   @apply bg-background;
   color-scheme: light;
+  --shadow-paper:
+    0 1px 2px color-mix(in srgb, var(--color-foreground) 5%, transparent),
+    0 8px 24px -10px color-mix(in srgb, var(--color-foreground) 10%, transparent);
 }
 
 body {
@@ -70,7 +49,6 @@ body {
   --sequoia-title-font: var(--font-title);
 }
 
-/* Dark: keep the warm corner, but don't wash out body text */
 html.dark body {
   background-image: linear-gradient(
     to bottom right,
@@ -100,7 +78,6 @@ html.dark body {
   --tw-prose-td-borders: color-mix(in srgb, var(--color-divider) 50%, transparent);
 }
 
-/* Quiet post afterword — engagement stays secondary to the essay */
 .post-afterword {
   display: flex;
   flex-direction: column;
@@ -109,9 +86,7 @@ html.dark body {
   padding-top: 0.5rem;
 }
 
-/* Recommend sits in the likes meta row — same weight as action links */
 .social-likes sequoia-recommend::part(button),
-.social-likes .social-action-link,
 .social-likes .social-like-count {
   background: transparent;
   color: var(--color-muted);
@@ -129,26 +104,18 @@ html.dark body {
     background-color 0.15s ease;
 }
 
-.social-likes .social-action-link {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
-
 .social-likes .social-like-count {
   display: inline-flex;
   align-items: center;
   cursor: default;
 }
 
-.social-likes sequoia-recommend::part(button):hover:not(:disabled),
-.social-likes .social-action-link:hover {
+.social-likes sequoia-recommend::part(button):hover:not(:disabled) {
   background: color-mix(in srgb, var(--color-accent) 16%, transparent);
   color: var(--color-hover);
 }
 
-.social-likes sequoia-recommend::part(button):focus-visible,
-.social-likes .social-action-link:focus-visible {
+.social-likes sequoia-recommend::part(button):focus-visible {
   outline: 2px solid var(--color-hover);
   outline-offset: 2px;
 }
@@ -159,8 +126,7 @@ html.dark body {
 
 @media (prefers-reduced-motion: reduce) {
   .social-likes a,
-  .social-likes sequoia-recommend::part(button),
-  .social-likes .social-action-link {
+  .social-likes sequoia-recommend::part(button) {
     transition: none;
   }
 

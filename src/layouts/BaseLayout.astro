@@ -14,9 +14,7 @@ interface Props {
   permalink?: string
   hideHeader?: boolean
   fullScreen?: boolean
-  /** site.standard.document AT-URI for verification */
   documentAtUri?: string | null
-  /** site.standard.publication AT-URI for verification */
   publicationAtUri?: string | null
 }
 
@@ -107,12 +105,6 @@ permalink = permalink ? details.permalink + permalink : details.permalink
         <link rel="site.standard.document" href={documentAtUri} />
       )
     }
-
-    <!-- Bluesky comments -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.css"
-    />
 
     <slot name="head" />
 

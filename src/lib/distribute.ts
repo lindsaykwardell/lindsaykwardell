@@ -1,9 +1,6 @@
 /**
- * Content → destination routing.
- * Site remains source of truth; these flags guide announce / cross-post scripts.
- *
- * Appearances (Podcast, etc.) syndicate as description + link to the on-site page
- * (which points at the external episode/talk).
+ * Where each post type should be announced. Site stays source of truth.
+ * Appearances go out as a short blurb + link back to the on-site page.
  */
 export type Destination =
   | 'bluesky'

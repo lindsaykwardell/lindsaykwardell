@@ -1,7 +1,4 @@
 ---
-/**
- * Dense year archive for a content kind — `/blog?type=Poetry` etc.
- */
 import type { CollectionEntry } from 'astro:content'
 import { formatReadingDate, readingPostHref } from '@/lib/reading'
 
@@ -16,7 +13,7 @@ interface Props {
 const { type, postsByYear, count } = Astro.props
 ---
 
-<div class="blog-issue blog-issue--archive px-2 md:px-0 pb-12">
+<div class="reading reading--archive px-2 md:px-0 pb-12">
   <header
     class="flex flex-wrap items-baseline justify-between gap-3 pb-8 border-b border-divider/40"
   >

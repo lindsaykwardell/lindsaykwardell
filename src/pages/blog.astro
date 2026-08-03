@@ -1,8 +1,4 @@
 ---
-/**
- * /blog — a reading issue: featured pieces by kind, short shelves, browse by type.
- * ?type= falls back to a denser archive for that kind (Photos uses its own gallery).
- */
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ReadingIssue from '@/components/ReadingIssue.astro'
 import PhotosArchive from '@/components/PhotosArchive.astro'
@@ -15,7 +11,6 @@ import { readingPostHref } from '@/lib/reading'
 type Post = CollectionEntry<'blog'>
 
 const WRITING_TYPES = new Set(['Personal', 'Blog', 'Programming', 'Fiction'])
-const APPEARANCE_TYPES = new Set(['Podcast', 'Video', 'Meetup', 'Conference'])
 
 const TYPE_ORDER = [
   'Personal',
@@ -30,7 +25,7 @@ const TYPE_ORDER = [
 ]
 
 const rawTypeFilter = Astro.url.searchParams.get('type')
-/** Old ?type=Blog bookmarks still work. */
+// ?type=Blog still works (renamed to Personal)
 const typeFilter =
   rawTypeFilter === 'Blog' ? 'Personal' : rawTypeFilter
 const publicationAtUri = getPublicationUri()
@@ -73,45 +68,13 @@ const filteredByYear = filtered.reduce(
 )
 
 const lead = allPosts.find((p) => WRITING_TYPES.has(p.data.type || ''))
-const poems = allPosts.filter((p) => p.data.type === 'Poetry')
-const poem =
-  poems.length > 0
-    ? poems[Math.floor(Math.random() * poems.length)]
-    : undefined
-const photo = allPosts.find((p) => p.data.type === 'Photo')
-const appearance = allPosts.find((p) =>
-  APPEARANCE_TYPES.has(p.data.type || ''),
-)
-
-const featuredIds = new Set(
-  [lead, poem, photo, appearance].filter(Boolean).map((p) => p!.id),
-)
 
 const recentWriting = allPosts
-  .filter((p) => WRITING_TYPES.has(p.data.type || '') && !featuredIds.has(p.id))
-  .slice(0, 5)
-
-const recentAppearances = allPosts
   .filter(
-    (p) => APPEARANCE_TYPES.has(p.data.type || '') && !featuredIds.has(p.id),
+    (p) =>
+      WRITING_TYPES.has(p.data.type || '') && (!lead || p.id !== lead.id),
   )
   .slice(0, 5)
-
-function poemExcerpt(body: string | undefined, stanzas = 2): {
-  lines: string
-  truncated: boolean
-} {
-  const text = (body || '').trim().replace(/\\\n/g, '\n')
-  if (!text) return { lines: '', truncated: false }
-  const parts = text.split(/\n\s*\n/)
-  if (parts.length <= stanzas) return { lines: text, truncated: false }
-  return {
-    lines: parts.slice(0, stanzas).join('\n\n'),
-    truncated: true,
-  }
-}
-
-const poemPreview = poem ? poemExcerpt(poem.body, 4) : null
 
 const photoArchive =
   typeFilter === 'Photo'
@@ -133,7 +96,7 @@ const pageTitle = typeFilter
 
 <BaseLayout
   title={pageTitle}
-  description="Essays, poetry, photos, and appearances — a reading issue of Lindsay Wardell's writing."
+  description="Essays, poetry, photos, and appearances by Lindsay Wardell."
   publicationAtUri={publicationAtUri}
 >
   {
@@ -148,12 +111,7 @@ const pageTitle = typeFilter
     ) : (
       <ReadingIssue
         lead={lead}
-        poem={poem}
-        poemPreview={poemPreview}
-        photo={photo}
-        appearance={appearance}
         recentWriting={recentWriting}
-        recentAppearances={recentAppearances}
         browseTypes={browseTypes}
         typeCounts={typeCounts}
       />

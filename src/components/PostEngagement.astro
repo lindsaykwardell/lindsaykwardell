@@ -1,8 +1,6 @@
 ---
-/**
- * Quiet post afterword: likes, comments, webmentions.
- */
 import SocialLikes from '@/components/SocialLikes.astro'
+import Signoff from '@/components/Signoff.astro'
 import PostComments from '@/components/PostComments.astro'
 import Webmentions from '@/components/Webmentions.astro'
 
@@ -43,16 +41,17 @@ const hasComments = Boolean(blueskyUri || mastodonId || devtoId)
   documentAtUri={documentAtUri}
   showRecommend={showRecommend}
 />
+
 {
   hasComments && (
-    <div class="mt-6">
-      <PostComments
-        blueskyUri={blueskyUri}
-        mastodonId={mastodonId}
-        devtoId={devtoId}
-        devtoUrl={devtoUrl}
-      />
-    </div>
+    <PostComments
+      blueskyUri={blueskyUri}
+      mastodonId={mastodonId}
+      devtoId={devtoId}
+      devtoUrl={devtoUrl}
+    />
   )
 }
 <Webmentions targetUrl={canonicalUrl} />
+
+<Signoff variant="post" />

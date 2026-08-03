@@ -1,7 +1,4 @@
 ---
-/**
- * Photos gallery archive — `/blog?type=Photo`.
- */
 import PhotoGrid from '@/components/PhotoGrid.astro'
 import type { PhotoCard } from '@/components/PhotoGrid.astro'
 
@@ -13,7 +10,7 @@ interface Props {
 const { photos, count } = Astro.props
 ---
 
-<div class="blog-issue blog-issue--photos px-2 md:px-0 pb-12">
+<div class="reading reading--photos px-2 md:px-0 pb-12">
   <header class="pb-8 border-b border-divider/40">
     <h1 class="font-title text-3xl md:text-4xl text-foreground">Photos</h1>
     <p class="text-muted mt-2 text-base">
