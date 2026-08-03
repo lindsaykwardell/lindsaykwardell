@@ -13,6 +13,25 @@ const KNOWN_TYPES = new Set([
   'Conference',
 ])
 
+export const APPEARANCE_TYPES = new Set([
+  'Podcast',
+  'Video',
+  'Meetup',
+  'Conference',
+])
+
+/** Lead story: on-site writing only (not photos or external appearances). */
+export function isReadingLeadType(type: string | null | undefined): boolean {
+  const t = type === 'Blog' ? 'Personal' : type || 'Personal'
+  return t !== 'Photo' && !APPEARANCE_TYPES.has(t)
+}
+
+/** Recent list: anything except photos. */
+export function isReadingRecentType(type: string | null | undefined): boolean {
+  const t = type === 'Blog' ? 'Personal' : type || 'Personal'
+  return t !== 'Photo'
+}
+
 /** Map legacy Blog → Personal; ignore unknown values. */
 export function normalizeReadingFrom(
   raw: string | null | undefined,
@@ -36,7 +55,7 @@ export function readingBackLink(from?: string | null): {
   label: string
 } {
   const type = normalizeReadingFrom(from)
-  if (!type) return { href: '/blog', label: 'Reading' }
+  if (!type) return { href: '/blog', label: 'Blog' }
   return {
     href: `/blog?type=${encodeURIComponent(type)}`,
     label: type === 'Photo' ? 'Photos' : type,

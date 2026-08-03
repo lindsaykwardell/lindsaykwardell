@@ -48,37 +48,73 @@ const relatedPhotos = isPhoto
       }))
   : []
 
-const sameKind = publishedOthers
-  .map((p) => {
-    const type = p.data.type === 'Blog' ? 'Personal' : p.data.type
-    return { ...p.data, type, slug: p.id }
-  })
-  .filter((p) => p.type === displayType)
-
-const fuse = new Fuse(sameKind, {
-  keys: ['title', 'snippet', 'name'],
-  threshold: 0.45,
+const relatedCorpus = publishedOthers.map((p) => {
+  const type = p.data.type === 'Blog' ? 'Personal' : (p.data.type ?? 'Personal')
+  const tags = (p.data.tags ?? []).filter(
+    (t): t is string => typeof t === 'string' && t.length > 0,
+  )
+  return {
+    ...p.data,
+    type,
+    slug: p.id,
+    tags,
+    bodyPreview: (p.body ?? '').slice(0, 1200),
+  }
 })
 
+const postTags = (post.data.tags ?? []).filter(
+  (t): t is string => typeof t === 'string' && t.length > 0,
+)
+
+const fuse = new Fuse(relatedCorpus, {
+  keys: [
+    { name: 'title', weight: 0.35 },
+    { name: 'snippet', weight: 0.2 },
+    { name: 'tags', weight: 0.2 },
+    { name: 'bodyPreview', weight: 0.15 },
+    { name: 'name', weight: 0.05 },
+    { name: 'type', weight: 0.05 },
+  ],
+  threshold: 0.42,
+  ignoreLocation: true,
+})
+
+const relatedQuery = [
+  post.data.title,
+  post.data.snippet,
+  post.data.name,
+  ...postTags,
+]
+  .filter(Boolean)
+  .join(' ')
+
 const relatedWriting = !isPhoto
-  ? fuse.search(post.data.title || '').slice(0, 3).map((r) => r.item)
+  ? fuse.search(relatedQuery).slice(0, 3).map((r) => ({
+      slug: r.item.slug,
+      title: r.item.title,
+      snippet: r.item.snippet ?? undefined,
+      pubDate: r.item.pubDate,
+      type: r.item.type,
+    }))
   : []
 
 const relatedFallback =
   !isPhoto && relatedWriting.length === 0
-    ? sameKind
+    ? relatedCorpus
         .toSorted((a, b) => b.pubDate.getTime() - a.pubDate.getTime())
         .slice(0, 3)
+        .map((item) => ({
+          slug: item.slug,
+          title: item.title,
+          snippet: item.snippet ?? undefined,
+          pubDate: item.pubDate,
+          type: item.type,
+        }))
     : []
 
 const relatedPosts = relatedWriting.length > 0 ? relatedWriting : relatedFallback
 
-const relatedHeading =
-  displayType === 'Poetry'
-    ? 'More poetry'
-    : ['Podcast', 'Video', 'Meetup', 'Conference'].includes(displayType)
-      ? 'More appearances'
-      : 'More to read'
+const relatedHeading = 'Related'
 
 const { Content } = await render(post)
 const documentAtUri = getDocumentAtUri(post.id, post.data.atUri)

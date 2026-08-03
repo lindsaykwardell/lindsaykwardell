@@ -6,11 +6,13 @@ import TypeArchive from '@/components/TypeArchive.astro'
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import { getPublicationUri } from '@/lib/standard-site'
-import { readingPostHref } from '@/lib/reading'
+import {
+  isReadingLeadType,
+  isReadingRecentType,
+  readingPostHref,
+} from '@/lib/reading'
 
 type Post = CollectionEntry<'blog'>
-
-const WRITING_TYPES = new Set(['Personal', 'Blog', 'Programming', 'Fiction'])
 
 const TYPE_ORDER = [
   'Personal',
@@ -67,14 +69,29 @@ const filteredByYear = filtered.reduce(
   {} as Record<string, Post[]>,
 )
 
-const lead = allPosts.find((p) => WRITING_TYPES.has(p.data.type || ''))
+const lead = allPosts.find((p) => isReadingLeadType(p.data.type))
 
-const recentWriting = allPosts
+const recent = allPosts
   .filter(
     (p) =>
-      WRITING_TYPES.has(p.data.type || '') && (!lead || p.id !== lead.id),
+      isReadingRecentType(p.data.type) && (!lead || p.id !== lead.id),
   )
   .slice(0, 5)
+
+const recentPhotos = allPosts
+  .filter(
+    (post) =>
+      post.data.type === 'Photo' &&
+      post.data.image &&
+      post.data.image !== 'null',
+  )
+  .slice(0, 9)
+  .map((post) => ({
+    id: post.id,
+    href: readingPostHref(post.id, 'Photo'),
+    url: post.data.image!,
+    alt: post.data.snippet || post.data.title,
+  }))
 
 const photoArchive =
   typeFilter === 'Photo'
@@ -91,7 +108,7 @@ const photoArchive =
 const archiveTitle = typeFilter === 'Photo' ? 'Photos' : typeFilter
 const pageTitle = typeFilter
   ? `${archiveTitle} — Lindsay Wardell`
-  : 'Reading — Lindsay Wardell'
+  : 'Blog — Lindsay Wardell'
 ---
 
 <BaseLayout
@@ -101,19 +118,26 @@ const pageTitle = typeFilter
 >
   {
     typeFilter === 'Photo' ? (
-      <PhotosArchive photos={photoArchive} count={filtered.length} />
+      <PhotosArchive
+        photos={photoArchive}
+        count={filtered.length}
+        searchPosts={filtered}
+      />
     ) : typeFilter ? (
       <TypeArchive
         type={typeFilter}
         postsByYear={filteredByYear}
         count={filtered.length}
+        searchPosts={filtered}
       />
     ) : (
       <ReadingIssue
         lead={lead}
-        recentWriting={recentWriting}
+        recent={recent}
+        recentPhotos={recentPhotos}
         browseTypes={browseTypes}
         typeCounts={typeCounts}
+        searchPosts={allPosts}
       />
     )
   }

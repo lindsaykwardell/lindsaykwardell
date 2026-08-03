@@ -1,6 +1,8 @@
 ---
 import PostEngagement from '@/components/PostEngagement.astro'
-import { readingPostHref } from '@/lib/reading'
+import PostList from '@/components/PostList.astro'
+import type { PostListItem } from '@/components/PostList.astro'
+import { formatReadingDate, readingPostHref } from '@/lib/reading'
 import type { CollectionEntry } from 'astro:content'
 
 export type RelatedPost = {
@@ -8,6 +10,7 @@ export type RelatedPost = {
   title: string
   snippet?: string
   pubDate: Date
+  type?: string
 }
 
 interface Props {
@@ -36,14 +39,16 @@ const {
   fromFilter,
 } = Astro.props
 
-const formatDate = (date: Date) =>
-  Intl.DateTimeFormat('en-us', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(date)
-
 const hasImage = Boolean(post.data.image && post.data.image !== 'null')
+
+const relatedItems: PostListItem[] = relatedPosts.map((item) => ({
+  id: item.slug,
+  href: readingPostHref(item.slug, fromFilter),
+  title: item.title,
+  snippet: item.snippet,
+  pubDate: item.pubDate,
+  type: item.type,
+}))
 ---
 
 <article class="post-page pb-16">
@@ -59,7 +64,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
       </a>
       <span class="text-divider/80" aria-hidden="true">·</span>
       <time datetime={post.data.pubDate.toISOString()}>
-        {formatDate(post.data.pubDate)}
+        {formatReadingDate(post.data.pubDate)}
       </time>
     </div>
 
@@ -145,7 +150,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
   }
 
   {
-    relatedPosts.length > 0 && (
+    relatedItems.length > 0 && (
       <aside
         class="post-related px-2 md:px-0 pt-12 md:pt-14 mt-4"
         aria-labelledby="related-heading"
@@ -156,32 +161,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
         >
           {relatedHeading}
         </h2>
-        <ul class="flex flex-col gap-7">
-          {relatedPosts.map((item) => (
-            <li class="post-related__item grid gap-1 md:grid-cols-[auto_1fr] md:gap-x-5 md:items-start">
-              <time
-                class="text-sm text-muted md:w-28 shrink-0 md:pt-1.5 tabular-nums"
-                datetime={item.pubDate.toISOString()}
-              >
-                {formatDate(item.pubDate)}
-              </time>
-              <div>
-                <a
-                  href={readingPostHref(item.slug, fromFilter)}
-                  class="post-related__title font-title text-xl md:text-2xl text-foreground"
-                  transition:name={`${item.slug}-name`}
-                >
-                  {item.title}
-                </a>
-                {item.snippet && (
-                  <p class="mt-1.5 text-foreground/75 leading-relaxed max-w-2xl line-clamp-2 text-pretty">
-                    {item.snippet}
-                  </p>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
+        <PostList posts={relatedItems} />
       </aside>
     )
   }
@@ -211,7 +191,6 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
   }
 
   .post-page-back:focus-visible,
-  .post-related a:focus-visible,
   .post-page-header a:focus-visible {
     outline: 2px solid var(--color-hover);
     outline-offset: 3px;
@@ -255,15 +234,6 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     font-weight: inherit;
     font-size: inherit;
     font-family: inherit;
-  }
-
-  .post-related__title {
-    text-decoration: none;
-    transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .post-related__title:hover {
-    color: var(--color-hover);
   }
 
   .post-external {
@@ -324,8 +294,7 @@ const hasImage = Boolean(post.data.image && post.data.image !== 'null')
     }
 
     .post-page-back,
-    .post-page-back__arrow,
-    .post-related__title {
+    .post-page-back__arrow {
       transition: none;
     }
 

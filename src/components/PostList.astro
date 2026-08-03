@@ -1,0 +1,61 @@
+---
+import { formatReadingDate } from '@/lib/reading'
+
+export type PostListItem = {
+  id: string
+  href: string
+  title: string
+  snippet?: string | null
+  pubDate: Date
+  type?: string | null
+  draft?: boolean
+}
+
+interface Props {
+  posts: PostListItem[]
+  /** Show the type label above the title (default true). */
+  showType?: boolean
+}
+
+const { posts, showType = true } = Astro.props
+---
+
+{
+  posts.length > 0 && (
+    <ul class="post-list">
+      {posts.map((post) => {
+        const type =
+          post.type === 'Blog' ? 'Personal' : post.type || undefined
+        return (
+          <li
+            class:list={[
+              'post-list__item',
+              post.draft && 'post-list__item--draft',
+            ]}
+          >
+            <time
+              class="post-list__date"
+              datetime={post.pubDate.toISOString()}
+            >
+              {formatReadingDate(post.pubDate)}
+            </time>
+            <div class="post-list__body">
+              {showType && type && <p class="post-list__type">{type}</p>}
+              <a
+                href={post.href}
+                class="post-list__title"
+                transition:name={`${post.id}-name`}
+              >
+                {post.title}
+                {post.draft ? ' (Draft)' : ''}
+              </a>
+              {post.snippet && (
+                <p class="post-list__snippet">{post.snippet}</p>
+              )}
+            </div>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}

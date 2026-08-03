@@ -1,149 +1,197 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import PhotoGrid from '@/components/PhotoGrid.astro'
+import type { PhotoCard } from '@/components/PhotoGrid.astro'
+import PostList from '@/components/PostList.astro'
+import ReadingSearch from '@/components/ReadingSearch.astro'
 import { formatReadingDate } from '@/lib/reading'
 
 type Post = CollectionEntry<'blog'>
 
 interface Props {
   lead?: Post
-  recentWriting: Post[]
+  recent: Post[]
+  recentPhotos: PhotoCard[]
   browseTypes: string[]
   typeCounts: Record<string, number>
+  searchPosts: Post[]
 }
 
-const { lead, recentWriting, browseTypes, typeCounts } = Astro.props
+const {
+  lead,
+  recent,
+  recentPhotos,
+  browseTypes,
+  typeCounts,
+  searchPosts,
+} = Astro.props
+
+const recentItems = recent.map((post) => ({
+  id: post.id,
+  href: `/blog/${post.id}`,
+  title: post.data.title,
+  snippet: post.data.snippet,
+  pubDate: post.data.pubDate,
+  type: post.data.type,
+}))
 ---
 
-<div class="reading px-2 md:px-0 pb-16">
-  <header class="reading-masthead pb-6 md:pb-8">
-    <h1 class="font-title text-3xl md:text-4xl text-foreground">Reading</h1>
+<div class="reading px-2 md:px-0 pb-16" data-reading-page>
+  <header class="reading-masthead pb-8 md:pb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+    <h1 class="font-title text-3xl md:text-4xl text-foreground shrink-0">
+      Blog
+    </h1>
+    <ReadingSearch
+      posts={searchPosts}
+      placeholder="Search essays, poems, photos…"
+    />
   </header>
 
-  {
-    lead && (
-      <section
-        class="reading-lead pb-10 md:pb-12"
-        aria-labelledby="lead-title"
-      >
-        <div class="flex flex-wrap items-center gap-3 text-sm text-muted mb-4">
-          <span class="font-title tracking-wide uppercase text-xs">
-            Latest writing
-          </span>
-          <span class="text-divider/80" aria-hidden="true">
-            ·
-          </span>
-          <time datetime={lead.data.pubDate.toISOString()}>
-            {formatReadingDate(lead.data.pubDate)}
-          </time>
-        </div>
-
-        {lead.data.image && lead.data.image !== 'null' && (
-          <a
-            href={`/blog/${lead.id}`}
-            class="block mb-5 -mx-2 md:mx-0 overflow-hidden"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <img
-              src={lead.data.image}
-              alt=""
-              class="w-full aspect-[16/9] object-cover"
-              loading="eager"
-            />
-          </a>
-        )}
-
-        <h2
-          id="lead-title"
-          class="font-title text-3xl md:text-4xl leading-tight max-w-3xl"
-        >
-          <a
-            href={`/blog/${lead.id}`}
-            class="text-foreground hover:text-hover"
-            transition:name={`${lead.id}-name`}
-          >
-            {lead.data.title}
-          </a>
-        </h2>
-        {lead.data.snippet && (
-          <p class="mt-3 text-lg text-muted leading-relaxed max-w-2xl">
-            {lead.data.snippet}
-          </p>
-        )}
-      </section>
-    )
-  }
-
-  {
-    recentWriting.length > 0 && (
-      <section
-        class="reading-recent pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/35"
-        aria-labelledby="recent-writing"
-      >
-        <h2
-          id="recent-writing"
-          class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
-        >
-          Recent
-        </h2>
-        <ul class="flex flex-col gap-7">
-          {recentWriting.map((post) => (
-            <li class="grid gap-1 md:grid-cols-[auto_1fr] md:gap-x-5 md:items-start">
-              <time
-                class="text-sm text-muted md:w-28 shrink-0 md:pt-1"
-                datetime={post.data.pubDate.toISOString()}
-              >
-                {formatReadingDate(post.data.pubDate)}
-              </time>
-              <div>
-                <a
-                  href={`/blog/${post.id}`}
-                  class="font-title text-xl md:text-2xl text-foreground hover:text-hover"
-                  transition:name={`${post.id}-name`}
-                >
-                  {post.data.title}
-                </a>
-                {post.data.snippet && (
-                  <p class="mt-1.5 text-muted leading-relaxed max-w-2xl line-clamp-2">
-                    {post.data.snippet}
-                  </p>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  <section
-    class="pt-10 md:pt-12 border-t border-divider/35"
-    aria-labelledby="browse-types"
+  <div
+    class="pt-10 md:pt-12"
+    data-reading-results
+    hidden
+    role="region"
+    aria-live="polite"
+    aria-label="Search results"
   >
-    <h2
-      id="browse-types"
-      class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
-    >
-      Browse by kind
-    </h2>
-    <ul class="flex flex-wrap gap-x-5 gap-y-3">
-      {
-        browseTypes.map((t) => (
-          <li>
+  </div>
+
+  <div class="pt-10 md:pt-12" data-reading-catalog>
+    {
+      lead && (
+        <section
+          class="reading-lead pb-10 md:pb-12"
+          aria-labelledby="lead-title"
+        >
+          <div class="flex flex-wrap items-center gap-3 text-sm text-muted mb-4">
+            <span class="font-title tracking-wide uppercase text-xs">
+              Latest
+            </span>
+            {lead.data.type && (
+              <>
+                <span class="text-divider/80" aria-hidden="true">
+                  ·
+                </span>
+                <span>{lead.data.type === 'Blog' ? 'Personal' : lead.data.type}</span>
+              </>
+            )}
+            <span class="text-divider/80" aria-hidden="true">
+              ·
+            </span>
+            <time datetime={lead.data.pubDate.toISOString()}>
+              {formatReadingDate(lead.data.pubDate)}
+            </time>
+          </div>
+
+          {lead.data.image && lead.data.image !== 'null' && (
             <a
-              href={`/blog?type=${encodeURIComponent(t)}`}
-              class="font-title text-lg md:text-xl text-foreground hover:text-hover inline-flex items-baseline gap-2"
+              href={`/blog/${lead.id}`}
+              class="block mb-5 -mx-2 md:mx-0 overflow-hidden"
+              tabindex="-1"
+              aria-hidden="true"
             >
-              <span>{t}</span>
-              <span class="text-sm text-muted font-body font-normal">
-                {typeCounts[t]}
-              </span>
+              <img
+                src={lead.data.image}
+                alt=""
+                class="w-full aspect-[16/9] object-cover"
+                loading="eager"
+              />
             </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+          )}
+
+          <h2
+            id="lead-title"
+            class="font-title text-3xl md:text-4xl leading-tight max-w-3xl"
+          >
+            <a
+              href={`/blog/${lead.id}`}
+              class="text-foreground hover:text-hover"
+              transition:name={`${lead.id}-name`}
+            >
+              {lead.data.title}
+            </a>
+          </h2>
+          {lead.data.snippet && (
+            <p class="mt-3 text-lg text-muted leading-relaxed max-w-2xl">
+              {lead.data.snippet}
+            </p>
+          )}
+        </section>
+      )
+    }
+
+    {
+      recentItems.length > 0 && (
+        <section
+          class="reading-recent pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/35"
+          aria-labelledby="recent-heading"
+        >
+          <h2
+            id="recent-heading"
+            class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
+          >
+            Recent
+          </h2>
+          <PostList posts={recentItems} />
+        </section>
+      )
+    }
+
+    {
+      recentPhotos.length > 0 && (
+        <section
+          class="reading-photos pt-10 md:pt-12 pb-10 md:pb-12 border-t border-divider/35"
+          aria-labelledby="recent-photos"
+        >
+          <div class="flex flex-wrap items-baseline justify-between gap-3 mb-7">
+            <h2
+              id="recent-photos"
+              class="font-title text-sm tracking-[0.12em] uppercase text-muted"
+            >
+              Recent photos
+            </h2>
+            <a
+              href="/blog?type=Photo"
+              class="text-sm text-muted hover:text-hover"
+            >
+              All photos →
+            </a>
+          </div>
+          <PhotoGrid photos={recentPhotos} />
+        </section>
+      )
+    }
+
+    <section
+      class="pt-10 md:pt-12 border-t border-divider/35"
+      aria-labelledby="browse-types"
+    >
+      <h2
+        id="browse-types"
+        class="font-title text-sm tracking-[0.12em] uppercase text-muted mb-7"
+      >
+        Browse by kind
+      </h2>
+      <ul class="flex flex-wrap gap-x-5 gap-y-3">
+        {
+          browseTypes.map((t) => (
+            <li>
+              <a
+                href={`/blog?type=${encodeURIComponent(t)}`}
+                class="font-title text-lg md:text-xl text-foreground hover:text-hover inline-flex items-baseline gap-2"
+              >
+                <span>{t}</span>
+                <span class="text-sm text-muted font-body font-normal">
+                  {typeCounts[t]}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
 </div>
 
 <style>

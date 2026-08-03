@@ -1,0 +1,236 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { formatReadingDate, readingPostHref } from '@/lib/reading'
+
+export type SearchItem = {
+  id: string
+  title: string
+  snippet: string
+  type: string
+  name: string
+  tags: string[]
+  href: string
+  date: string
+  dateLabel: string
+  image: string | null
+}
+
+interface Props {
+  posts: CollectionEntry<'blog'>[]
+  /** When set, links keep ?from= archive context. */
+  fromType?: string | null
+  placeholder?: string
+}
+
+const {
+  posts,
+  fromType = null,
+  placeholder = 'Search blog…',
+} = Astro.props
+
+const inputId = `reading-search-${Math.random().toString(36).slice(2, 9)}`
+
+const items: SearchItem[] = posts.map((post) => {
+  const type =
+    post.data.type === 'Blog' ? 'Personal' : post.data.type || 'Personal'
+  const tags = (post.data.tags ?? []).filter(
+    (t): t is string => typeof t === 'string' && t.length > 0,
+  )
+  return {
+    id: post.id,
+    title: post.data.title,
+    snippet: post.data.snippet || '',
+    type,
+    name: post.data.name || '',
+    tags,
+    href: readingPostHref(post.id, fromType ?? type),
+    date: post.data.pubDate.toISOString(),
+    dateLabel: formatReadingDate(post.data.pubDate),
+    image:
+      type === 'Photo' && post.data.image && post.data.image !== 'null'
+        ? post.data.image
+        : null,
+  }
+})
+---
+
+<div class="reading-search" data-reading-search>
+  <label class="sr-only" for={inputId}>Search</label>
+  <input
+    id={inputId}
+    class="reading-search__input"
+    type="search"
+    name="q"
+    placeholder={placeholder}
+    autocomplete="off"
+    spellcheck="false"
+  />
+  <template
+    data-reading-search-index
+    set:html={JSON.stringify(items).replaceAll('<', '\\u003c')}
+  />
+</div>
+
+<script>
+  import Fuse from 'fuse.js'
+
+  type Item = {
+    id: string
+    title: string
+    snippet: string
+    type: string
+    name: string
+    tags: string[]
+    href: string
+    date: string
+    dateLabel: string
+    image: string | null
+  }
+
+  function init(root: HTMLElement) {
+    if (root.dataset.searchReady === '1') return
+    root.dataset.searchReady = '1'
+
+    const page = root.closest('[data-reading-page]')
+    const input = root.querySelector<HTMLInputElement>('.reading-search__input')
+    const indexEl = root.querySelector('[data-reading-search-index]')
+    const results = page?.querySelector<HTMLElement>('[data-reading-results]')
+    const catalog = page?.querySelector<HTMLElement>('[data-reading-catalog]')
+
+    if (!input || !indexEl || !results) return
+
+    let items: Item[] = []
+    try {
+      items = JSON.parse(indexEl.innerHTML || '[]') as Item[]
+    } catch {
+      return
+    }
+
+    const fuse = new Fuse(items, {
+      keys: [
+        { name: 'title', weight: 0.45 },
+        { name: 'snippet', weight: 0.25 },
+        { name: 'tags', weight: 0.15 },
+        { name: 'name', weight: 0.1 },
+        { name: 'type', weight: 0.05 },
+      ],
+      threshold: 0.4,
+      ignoreLocation: true,
+    })
+
+    const escape = (s: string) =>
+      s
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+
+    const render = (hits: Item[], query: string) => {
+      if (!query) {
+        results.hidden = true
+        results.innerHTML = ''
+        if (catalog) catalog.hidden = false
+        return
+      }
+
+      if (catalog) catalog.hidden = true
+      results.hidden = false
+
+      if (hits.length === 0) {
+        results.innerHTML = `<p class="reading-search__empty text-muted">No matches for “${escape(query)}”.</p>`
+        return
+      }
+
+      results.innerHTML = `<ul class="post-list">${hits
+        .map((item) => {
+          const type =
+            item.type === 'Blog' ? 'Personal' : item.type || 'Personal'
+          const snippet = item.snippet
+            ? `<p class="post-list__snippet">${escape(item.snippet)}</p>`
+            : ''
+          return `<li class="post-list__item">
+            <time class="post-list__date" datetime="${escape(item.date)}">${escape(item.dateLabel)}</time>
+            <div class="post-list__body">
+              <p class="post-list__type">${escape(type)}</p>
+              <a href="${escape(item.href)}" class="post-list__title">${escape(item.title)}</a>
+              ${snippet}
+            </div>
+          </li>`
+        })
+        .join('')}</ul>`
+    }
+
+    let timer = 0
+    input.addEventListener('input', () => {
+      window.clearTimeout(timer)
+      timer = window.setTimeout(() => {
+        const q = input.value.trim()
+        if (!q) {
+          render([], '')
+          return
+        }
+        render(
+          fuse.search(q).slice(0, 24).map((r) => r.item),
+          q,
+        )
+      }, 120)
+    })
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    document
+      .querySelectorAll<HTMLElement>('[data-reading-search]')
+      .forEach(init)
+  })
+</script>
+
+<style>
+  .reading-search {
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  .reading-search__input {
+    width: 100%;
+    appearance: none;
+    background: color-mix(in srgb, var(--color-foreground) 4%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-divider) 70%, transparent);
+    border-radius: 0.15rem;
+    color: var(--color-foreground);
+    font-family: var(--font-body, inherit);
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .reading-search__input::placeholder {
+    color: var(--color-muted);
+  }
+
+  .reading-search__input:focus {
+    outline: 2px solid color-mix(in srgb, var(--color-hover) 55%, transparent);
+    outline-offset: 2px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<style is:global>
+  [data-reading-results] {
+    width: 100%;
+  }
+
+  [data-reading-results] .reading-search__empty {
+    font-size: 1.05rem;
+  }
+</style>
