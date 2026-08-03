@@ -1,543 +1,543 @@
 {
   "posts": {
     "src/content/blog/kindle-in-memorial.md": {
-      "contentHash": "02d1b31a080ba9801282be0e5c3787e1ac14e7a7ca4b6d91a93942cb5759a4ea",
+      "contentHash": "26518c08108b42f0e9c8ce149e781582209e43adffe23fd2c06a151bb6e0a3f5",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqyvw5v22",
-      "lastPublished": "2026-08-02T23:17:42.084Z",
+      "lastPublished": "2026-08-03T03:43:55.787Z",
       "slug": "kindle-in-memorial"
     },
     "src/content/blog/an-hour-before-showtime.md": {
-      "contentHash": "70df5c0259c7d9155ea57815e8178e2a7e28019174cb7a3b5557e77248d039b1",
+      "contentHash": "a2a0279fd1f0a820a1a88e9133aa05d32c6903a69e53c8f5881bd8f8d5b75def",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhqzt3ln26",
-      "lastPublished": "2026-08-02T23:17:47.751Z",
+      "lastPublished": "2026-08-03T03:43:57.727Z",
       "slug": "an-hour-before-showtime"
     },
     "src/content/blog/keep-learning.md": {
-      "contentHash": "8d5022bc9e75608fde1aa165b88c88d560d60ebc031275172af68044651ac228",
+      "contentHash": "f6fc0f3326b84193ca130cced30c9d215d53de064b8cb48f18f8ab37d97cae75",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr2gych23",
-      "lastPublished": "2026-08-02T23:17:48.855Z",
+      "lastPublished": "2026-08-03T03:43:58.051Z",
       "slug": "keep-learning"
     },
     "src/content/blog/dont-replace-yourself-with-ai.md": {
-      "contentHash": "e80c292231cc9c020ced4e68acebedf59e673d5f999164846c3e625df6768c8e",
+      "contentHash": "d1e5ef433eef452d2d3cfe63ca0a6d28bea1bebb7614a403114c3aeb2e03e5e0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr2uvmc2m",
-      "lastPublished": "2026-08-02T23:17:49.280Z",
+      "lastPublished": "2026-08-03T03:43:58.267Z",
       "slug": "dont-replace-yourself-with-ai"
     },
     "src/content/blog/moments-and-moonlight.md": {
-      "contentHash": "d6a362678f49931b5e115801d990a752c0a317e1ec5a6ede992f8b63b622d89c",
+      "contentHash": "cb86923ea81668e6d385e8f3e25ced52d8262e9b214cc9121002ff233f13d95a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4b7kz25",
-      "lastPublished": "2026-08-02T23:17:50.645Z",
+      "lastPublished": "2026-08-03T03:43:58.777Z",
       "slug": "moments-and-moonlight"
     },
     "src/content/blog/rekindling.md": {
-      "contentHash": "8e8f605dd29a63169ad80e081e64c7449f68584ccdc39c552284e567c872e096",
+      "contentHash": "d08898a7002071a44eea93c3de30e3eb45f7d0f8d4491cea8d933f2bbe695e13",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr4u54x2f",
-      "lastPublished": "2026-08-02T23:17:53.128Z",
+      "lastPublished": "2026-08-03T03:43:59.771Z",
       "slug": "rekindling"
     },
     "src/content/blog/no-words.md": {
-      "contentHash": "1634b3206bea4f456e7b1fb2b5fcd5ec8a0f7961bc0e30b592fc0ba6a2d6b980",
+      "contentHash": "5dd6bd5b18e89cab426cf37d57e7dba87c26ba5a41f39e83ac2cebf7353b55e9",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr56baq2h",
-      "lastPublished": "2026-08-02T23:18:20.824Z",
+      "lastPublished": "2026-08-03T03:44:10.737Z",
       "slug": "no-words"
     },
     "src/content/blog/grief-is-not-a-casual-thing.md": {
-      "contentHash": "7d6b8aae674d46012c3f57ba09886a17771abd7c06a539ad73744ae8eba206ee",
+      "contentHash": "8cd8e08fcd9ab351ab7ce7b0e04d8ec89c1350b0f2d2676c89b7a8d8ebf0762a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr5v6ol2m",
-      "lastPublished": "2026-08-02T23:18:22.813Z",
+      "lastPublished": "2026-08-03T03:44:11.721Z",
       "slug": "grief-is-not-a-casual-thing"
     },
     "src/content/blog/to-the-past.md": {
-      "contentHash": "fd9f958b3026ffe8d46449f95f2b541c3063b70cda8fb04a4230f33023d8d4d1",
+      "contentHash": "c09e7b2a2f9973c4eda23491c9576cb345679e9e39f734605f85398c040144e9",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr6etnn2l",
-      "lastPublished": "2026-08-02T23:18:23.121Z",
+      "lastPublished": "2026-08-03T03:44:11.792Z",
       "slug": "to-the-past"
     },
     "src/content/blog/divorce.md": {
-      "contentHash": "461983537b496f20b7c4c58208996b91ea0e9e777a0f2bdbf8a3e67333198e4a",
+      "contentHash": "815f824e84668219eec1127572aa4c7b4fc9f25b61e0e27f7b2bf2a6ce9ce5bc",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhr6pdjw2i",
-      "lastPublished": "2026-08-02T23:18:23.270Z",
+      "lastPublished": "2026-08-03T03:44:11.823Z",
       "slug": "divorce"
     },
     "src/content/blog/a-mistake.md": {
-      "contentHash": "9f63fefffd3a2a12898806a823491aec7430b3a2c6b7b009871314b09b434f4c",
+      "contentHash": "6350539e4d3bc5c4381bcb34118f0f18ccf1694f49fcd924c835dbfa9db40edb",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrbfieo2i",
-      "lastPublished": "2026-08-02T23:18:23.671Z",
+      "lastPublished": "2026-08-03T03:44:12.022Z",
       "slug": "a-mistake"
     },
     "src/content/blog/when-you-dream.md": {
-      "contentHash": "bee7e8163f43715f986b705d7d89483ef5ca17060618e0275e622ec67fdfb2e9",
+      "contentHash": "86dc07423984d6dbc0bb6f4cdc2458e31a875aa02f75da9ea4f4b15b5b5fe9aa",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrfj5f72f",
-      "lastPublished": "2026-08-02T23:18:23.816Z",
+      "lastPublished": "2026-08-03T03:44:12.052Z",
       "slug": "when-you-dream"
     },
     "src/content/blog/the-life.md": {
-      "contentHash": "7f3a8404b9e0385718f5f5dc82c6233b4f6d623797a1245585d7a34dbde8ae70",
+      "contentHash": "270a23bcb8814664e548bce2ab09ecca0716e9025ef8492d3e6b93a842625cc0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrfxmam2b",
-      "lastPublished": "2026-08-02T23:18:26.973Z",
+      "lastPublished": "2026-08-03T03:44:13.151Z",
       "slug": "the-life"
     },
     "src/content/blog/once.md": {
-      "contentHash": "1b08a54e5026328cbde9edf71ff0759504b372212d1c0392595f5edd2d3f132a",
+      "contentHash": "95d8b30a5dc3a9b96c8eaec1c478a4cb8c9de8cd4eb214c82e20eff46c3d92f8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrgnr6v2l",
-      "lastPublished": "2026-08-02T23:18:28.318Z",
+      "lastPublished": "2026-08-03T03:44:13.769Z",
       "slug": "once"
     },
     "src/content/blog/at-the-end.md": {
-      "contentHash": "34c534e24b9ad3d29a961f668a4801c087943e9761ceb65dc356fcf471729e05",
+      "contentHash": "18ca12cbb077600b209009db04dd6ae372de49610d3791eb63a9f57446c280e0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrgxth723",
-      "lastPublished": "2026-08-02T23:18:28.632Z",
+      "lastPublished": "2026-08-03T03:44:13.808Z",
       "slug": "at-the-end"
     },
     "src/content/blog/2022-in-review.md": {
-      "contentHash": "3980cdc6e4d97db4fe9004ec1fa303132a9f3389bd7e7f4edb08c864f78f039d",
+      "contentHash": "4ad66dd1450e4bc366d2e9f96605d55e4cae42046b983b1519631defbc999b21",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh2cm522",
-      "lastPublished": "2026-08-02T23:18:30.405Z",
+      "lastPublished": "2026-08-03T03:44:14.297Z",
       "slug": "2022-in-review"
     },
     "src/content/blog/what-could-i-say.md": {
-      "contentHash": "0dbbb89f4e8f93a5f5fe50e5d3a02c82dcdab99f81713f85055bcb0bd08cb72d",
+      "contentHash": "41bf2a109d87b2d279e290f22bd46d1a40a86e8c33bfb531b9b961bb7a36afe7",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrh4rov2z",
-      "lastPublished": "2026-08-02T23:18:31.259Z",
+      "lastPublished": "2026-08-03T03:44:14.583Z",
       "slug": "what-could-i-say"
     },
     "src/content/blog/i-am-not-dead.md": {
-      "contentHash": "b99ce966f6c64348b9d5b8a60018efb0082d9193c1fd09fa789fff10e9656aaa",
+      "contentHash": "d1c16dd647056ea4b0470a29ed4e5cdfc15a5dcb0b40b92cb3ca64c6f080d695",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrhjzjf2z",
-      "lastPublished": "2026-08-02T23:18:31.684Z",
+      "lastPublished": "2026-08-03T03:44:14.921Z",
       "slug": "i-am-not-dead"
     },
     "src/content/blog/integrate-mastodon-with-astro.md": {
-      "contentHash": "38173073c972d65687f56b50205d7e28e35dc7bf6d4c4f8db76a8cb99477a731",
+      "contentHash": "f088cc2a53f646166617d941bb5b2445887b664ef53473d11cd17d89624151c4",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhri2yhf2l",
-      "lastPublished": "2026-08-02T23:18:32.017Z",
+      "lastPublished": "2026-08-03T03:44:15.204Z",
       "slug": "integrate-mastodon-with-astro"
     },
     "src/content/blog/between-hope.md": {
-      "contentHash": "ecaf86216873508f1722431793deb5de2803c8f349007db409301d1d3af8e962",
+      "contentHash": "066ae2e27cb7d65d77e615c3e7871679f250e1316a52d60a2eaec9e5934f0cd4",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrikjjc2m",
-      "lastPublished": "2026-08-02T23:18:33.164Z",
+      "lastPublished": "2026-08-03T03:44:15.561Z",
       "slug": "between-hope"
     },
     "src/content/blog/native-dialog-in-elm.md": {
-      "contentHash": "9ba489b1f0176f249ec9e8f88e16f1cbbdf57fafe9a871b111cf187231143375",
+      "contentHash": "15742741d84efbca19705989c1035ed8212eb00cbfc84537a07a2f3b1bfc2e2c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrjfzez2h",
-      "lastPublished": "2026-08-02T23:18:34.405Z",
+      "lastPublished": "2026-08-03T03:44:16.045Z",
       "slug": "native-dialog-in-elm"
     },
     "src/content/blog/shipping-side-projects.md": {
-      "contentHash": "79bdedd011e5f94c7c8146da8078f732bea2fe52669bcd74a2314ce77a1643a5",
+      "contentHash": "1a51315ae1c16b53bd32b8e997b39794eb689cf68242b72ef7a881c431b6778d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrjtsr62i",
-      "lastPublished": "2026-08-02T23:18:35.810Z",
+      "lastPublished": "2026-08-03T03:44:16.448Z",
       "slug": "shipping-side-projects"
     },
     "src/content/blog/utilizing-elm-in-a-web-worker.md": {
-      "contentHash": "fd536577dd4e27c7184b00efed05b1d48176de480074cc3bef8f46497220e660",
+      "contentHash": "f6c5e4d55561d6cbbcbaa1d9ddaf3445f4a85f720919b6cd1c89e28d0b78310c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrkaqw22x",
-      "lastPublished": "2026-08-02T23:18:37.212Z",
+      "lastPublished": "2026-08-03T03:44:17.064Z",
       "slug": "utilizing-elm-in-a-web-worker"
     },
     "src/content/blog/coming-into-vue-whats-next-vue-3.md": {
-      "contentHash": "e5a2a612de8648a26146b3599415b58456e4a58dccbffd5531d174204bf4cf75",
+      "contentHash": "844f26ccfb1cdaed6c05cf8dc402e820ad8db53b137953b156b9b6ec54678267",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrkvsph26",
-      "lastPublished": "2026-08-02T23:18:38.071Z",
+      "lastPublished": "2026-08-03T03:44:17.480Z",
       "slug": "coming-into-vue-whats-next-vue-3"
     },
     "src/content/blog/2021-in-review.md": {
-      "contentHash": "78e9c3c371ce0e0cde77bf1cb608abbe5419a6fe91459b0fdbbb15432031a60d",
+      "contentHash": "f8b9b80e21dd3a73c20a3a5d8bb81dc67e2b7a5fd333aaf509e4bb2d46b935dd",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrlckuz2h",
-      "lastPublished": "2026-08-02T23:18:39.025Z",
+      "lastPublished": "2026-08-03T03:44:17.917Z",
       "slug": "2021-in-review"
     },
     "src/content/blog/setting-up-elm-in-2022.md": {
-      "contentHash": "811930cf34b3bb883144627e4dce8dc33372698fccc2ef71ed8c5086e21bcd2e",
+      "contentHash": "8ddf25f859363cd717af38900d50670a56949d22b44346c75ed7b19f387fc42f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrlpup22t",
-      "lastPublished": "2026-08-02T23:18:39.945Z",
+      "lastPublished": "2026-08-03T03:44:18.407Z",
       "slug": "setting-up-elm-in-2022"
     },
     "src/content/blog/upgrade-astro-0-21.md": {
-      "contentHash": "c36bca3f993b0ecba135b88e486a6db4e99ec3c556000f63019b8b8b60428cd3",
+      "contentHash": "3ee2d6df95f817c619bffff5d9eb13354e78a9f546fa2f8ba4055cb0cc076d9a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrmbqx723",
-      "lastPublished": "2026-08-02T23:18:40.722Z",
+      "lastPublished": "2026-08-03T03:44:18.931Z",
       "slug": "upgrade-astro-0-21"
     },
     "src/content/blog/2021-11-04-styling-sfc.md": {
-      "contentHash": "d655cdbdb0664f7c027b23e1300c5f0bbbb21ee0809c43b81866f7f37b8bf217",
+      "contentHash": "1aa7f96f20e0ad159c667a1927afdac6d9b3e016e7001277f4ce93a3428e397e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrmspwf2l",
-      "lastPublished": "2026-08-02T23:18:41.873Z",
+      "lastPublished": "2026-08-03T03:44:19.556Z",
       "slug": "2021-11-04-styling-sfc"
     },
     "src/content/blog/rebuilding-site-with-astro.md": {
-      "contentHash": "64be9a31655c3806edc650a9846e12b01c78a64a1c9571853fd9bd69a3c17772",
+      "contentHash": "edb874950982e4ef3c42237a43a762ea30ee6357e209072900812ecd55020da1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrnkct72p",
-      "lastPublished": "2026-08-02T23:18:42.917Z",
+      "lastPublished": "2026-08-03T03:44:20.184Z",
       "slug": "rebuilding-site-with-astro"
     },
     "src/content/blog/2021-10-09-building-web-components-with-vue-3-2.md": {
-      "contentHash": "edbe75beb69f60b559589a80477b6628246baa7b4d33122ad099991322b46635",
+      "contentHash": "d637be3eb41615c0dbb06850e53ab05c64182b859a962d7b714548a73034c2ef",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhro62sn22",
-      "lastPublished": "2026-08-02T23:18:43.501Z",
+      "lastPublished": "2026-08-03T03:44:20.415Z",
       "slug": "2021-10-09-building-web-components-with-vue-3-2"
     },
     "src/content/blog/2021-09-20-vue-3-2-using-composition-api-with-script-setup.md": {
-      "contentHash": "e46a1d89f0b00847a0aedbd8eaee7807c223686cc90603cd0823ba801ffd2d63",
+      "contentHash": "c841af253368485acafa48addab86e32f5bdabac31788cf29479bd1d3ce7cb74",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrp45jp23",
-      "lastPublished": "2026-08-02T23:18:47.082Z",
+      "lastPublished": "2026-08-03T03:44:21.944Z",
       "slug": "2021-09-20-vue-3-2-using-composition-api-with-script-setup"
     },
     "src/content/blog/2021-08-18-tc39-how-changes-are-made-to-javascript.md": {
-      "contentHash": "a3e4e916064f4fa965dc77aa14c76512f22b1aef6861e981122453e52416a7df",
+      "contentHash": "49a7028bc85ba1a361456c21567b4a3b30bbf82b97efc29b604db5c528c66d1a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrpt2xu2b",
-      "lastPublished": "2026-08-02T23:18:48.253Z",
+      "lastPublished": "2026-08-03T03:44:22.451Z",
       "slug": "2021-08-18-tc39-how-changes-are-made-to-javascript"
     },
     "src/content/blog/2021-07-22-progressive-web-apps-and-mobile-apps.md": {
-      "contentHash": "7c84318ace11194e31709751f213d83dbfd5bc4096e765c36abeeecbdff61be2",
+      "contentHash": "a8b78e63662009e9b70b4ac985a3a160166f692a7c8b1c2218132be6cf541204",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrr3gvj2h",
-      "lastPublished": "2026-08-02T23:18:51.167Z",
+      "lastPublished": "2026-08-03T03:44:23.901Z",
       "slug": "2021-07-22-progressive-web-apps-and-mobile-apps"
     },
     "src/content/blog/2021-07-19-getting-started-with-tailwind-in-vue.md": {
-      "contentHash": "e43b4b56cec626f6372c0681722a1b628bc1cfbd4652117b456f48fda73e7c9c",
+      "contentHash": "50d0d267e7949eb9b0e75242e73c3d4443d3da5cce546f20e7548f8bc3d5e74b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrs3wxc2m",
-      "lastPublished": "2026-08-02T23:18:52.069Z",
+      "lastPublished": "2026-08-03T03:44:24.591Z",
       "slug": "2021-07-19-getting-started-with-tailwind-in-vue"
     },
     "src/content/blog/2021-06-30-vue-3-1-official-migration-build-from-vue-2-to-3.md": {
-      "contentHash": "897827169b4acb8711514d811541c5588fb1305f15e88f362e3a081ebdf8210f",
+      "contentHash": "84f42b5a0d02c0ed67a4cd48cb2515beff04fb2abb2dc7fc02525538df40bc37",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrt35y22m",
-      "lastPublished": "2026-08-02T23:18:53.342Z",
+      "lastPublished": "2026-08-03T03:44:25.517Z",
       "slug": "2021-06-30-vue-3-1-official-migration-build-from-vue-2-to-3"
     },
     "src/content/blog/2021-05-21-custom-composable-methods-with-vue-3.md": {
-      "contentHash": "46d3e4f14f9422070c8f2f0cf59d3b46d693cd86a84b5f68938e9b1724cd4e11",
+      "contentHash": "8b70b97086ac005c84943b8325603906bd76fcdb6a891e8808ed91cc9747cf62",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrtnhx22p",
-      "lastPublished": "2026-08-02T23:18:55.630Z",
+      "lastPublished": "2026-08-03T03:44:26.914Z",
       "slug": "2021-05-21-custom-composable-methods-with-vue-3"
     },
     "src/content/blog/2021-05-18-provide-inject-api-with-vue-3.md": {
-      "contentHash": "5735f01d7deea20b7ae02bb16a94ea41b8303d94989f90a43f8c537cbab7125a",
+      "contentHash": "e0dcdf12aa3050218b440e12d1fcdf05dcd4765635cf1c9a0f8347f4dc74877b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhruegd22p",
-      "lastPublished": "2026-08-02T23:18:56.496Z",
+      "lastPublished": "2026-08-03T03:44:27.352Z",
       "slug": "2021-05-18-provide-inject-api-with-vue-3"
     },
     "src/content/blog/2021-04-29-watch-watcheffect.md": {
-      "contentHash": "e0e7773bed43b11b7e90e1bd5395dc96c4bdbd92339593805e4efa0859b52445",
+      "contentHash": "db8ef22dfcc0f2166d59fea08ad41c5e84ea9cd327364745ed052eed260080f8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrv3reh23",
-      "lastPublished": "2026-08-02T23:18:56.949Z",
+      "lastPublished": "2026-08-03T03:44:27.640Z",
       "slug": "2021-04-29-watch-watcheffect"
     },
     "src/content/blog/2021-04-27-computed-application-state.md": {
-      "contentHash": "968fe6155f9fdd800acc597fe52baa7e4251813120e9256f021c780cb3354b8f",
+      "contentHash": "96e025b50f1de893f735c5ec0253f3801ad054bdeb33a65c31f25514c1a3de64",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrvuv3h26",
-      "lastPublished": "2026-08-02T23:18:57.667Z",
+      "lastPublished": "2026-08-03T03:44:28.294Z",
       "slug": "2021-04-27-computed-application-state"
     },
     "src/content/blog/2021-03-24-vue-3-suspense.md": {
-      "contentHash": "25569b36af8031f78df50659cb4261eb24d5a67459a533c61253a21cf6f74f27",
+      "contentHash": "06d891422130de943349026da904183222428b7b2f4b9928457cba0e3622da17",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrwenyc2p",
-      "lastPublished": "2026-08-02T23:18:59.573Z",
+      "lastPublished": "2026-08-03T03:44:29.407Z",
       "slug": "2021-03-24-vue-3-suspense"
     },
     "src/content/blog/2021-03-23-vue-3-ref-reactive.md": {
-      "contentHash": "fcd73ded7e4a5b7aa64166c5ca4757ec09f541af11556e822cc3cdf45720baad",
+      "contentHash": "ac216b091104fa69368cd5cfccac23d735e43913922997b47b76d7a7857cf59b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrwybv22m",
-      "lastPublished": "2026-08-02T23:19:00.371Z",
+      "lastPublished": "2026-08-03T03:44:29.836Z",
       "slug": "2021-03-23-vue-3-ref-reactive"
     },
     "src/content/blog/2021-03-16-intro-to-vite.md": {
-      "contentHash": "60266c8b2707e189ad8aff1966c0c28a81c142fcf03b8aa6538ca0c7963bb899",
+      "contentHash": "65d46decaed0512d5e1a96f9eb618c1b771d5604b9ec9fa56033f8eb2bedcf4d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrxyk5n2z",
-      "lastPublished": "2026-08-02T23:19:01.777Z",
+      "lastPublished": "2026-08-03T03:44:30.490Z",
       "slug": "2021-03-16-intro-to-vite"
     },
     "src/content/blog/git-comment-system.md": {
-      "contentHash": "42d75330fb9f63da5e6881af6371c35717b1e1fb63892750298172af60c4e11c",
+      "contentHash": "583c4b0e6cc878b5d7b139529e1a6c081af23c3e8699e8d53e70f50c3773ab88",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhrzgtq522",
-      "lastPublished": "2026-08-02T23:19:08.665Z",
+      "lastPublished": "2026-08-03T03:44:33.066Z",
       "slug": "git-comment-system"
     },
     "src/content/blog/intro-to-http-wrapper.md": {
-      "contentHash": "a4f3e5314987151ee175e5f0f095935c06992162aec233fb4a76187785c787c7",
+      "contentHash": "3d2a23ffbd90126acd5c8a32851e279c5e8642335167dfd69fc7318948f92402",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2bsu22t",
-      "lastPublished": "2026-08-02T23:19:14.942Z",
+      "lastPublished": "2026-08-03T03:44:36.643Z",
       "slug": "intro-to-http-wrapper"
     },
     "src/content/blog/when-i-grow-up.md": {
-      "contentHash": "f89354142a9088ac73ec1009e7580ba8973770b18c1923f2cb4fcc7227aea71c",
+      "contentHash": "a34000220c5e9cf20222ff7bda10d24fab0f792555712fa81e1a88eb950abff6",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs2yz2v2z",
-      "lastPublished": "2026-08-02T23:19:15.863Z",
+      "lastPublished": "2026-08-03T03:44:37.045Z",
       "slug": "when-i-grow-up"
     },
     "src/content/blog/new-website.md": {
-      "contentHash": "4f9729f61fcfb753bce6b70437309fa5f9a031bb3aeba56b648ce5df0613133f",
+      "contentHash": "76b930d658088b1f0cdf73782a81af7c70911246f3caee573c8b1331da0190a7",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs3mbas2t",
-      "lastPublished": "2026-08-02T23:19:20.467Z",
+      "lastPublished": "2026-08-03T03:44:39.618Z",
       "slug": "new-website"
     },
     "src/content/blog/where-do-you-turn.md": {
-      "contentHash": "e51816670a258bd4d2db3ecbf213dd4707e2b7a6e02f95d4146b3a9277ea4920",
+      "contentHash": "f578db53997b5b2c8f61371939e5cf02eddb3607db5c23ec51747bb01c06d452",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs4lahl2m",
-      "lastPublished": "2026-08-02T23:19:21.144Z",
+      "lastPublished": "2026-08-03T03:44:39.818Z",
       "slug": "where-do-you-turn"
     },
     "src/content/blog/the-character-and-the-narrator.md": {
-      "contentHash": "082e0d6c01a29e4c1f2a6f93967dacc2b8186c4d2da985bff52b0669ec338ebd",
+      "contentHash": "96f68c88a0af41b4be0f18d2b52727a9ca351dc3058eac626c2a2bbb9373bce8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs5b5mv2l",
-      "lastPublished": "2026-08-02T23:19:21.519Z",
+      "lastPublished": "2026-08-03T03:44:40.031Z",
       "slug": "the-character-and-the-narrator"
     },
     "src/content/blog/for-the-present.md": {
-      "contentHash": "c10411234b578c80ef39060bbb058df503fa9fce446b177df8a9158b10a8120c",
+      "contentHash": "ad846a15b57b094cbb418eae04986eabcda73bf4ac217fefe14c81148e80785b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs63cim2i",
-      "lastPublished": "2026-08-02T23:19:21.970Z",
+      "lastPublished": "2026-08-03T03:44:40.252Z",
       "slug": "for-the-present"
     },
     "src/content/blog/wars-of-the-juriels-live-demo.md": {
-      "contentHash": "984ba446afb8fac27fd7b3f3a6f0384fe4594b114d7370b0207e32d0eff5876e",
+      "contentHash": "2e2bb6bac2bfb9b61b113189ec6e8b25d9874eb69379170cb5968159a01a45d7",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs6ul652z",
-      "lastPublished": "2026-08-02T23:19:22.317Z",
+      "lastPublished": "2026-08-03T03:44:40.448Z",
       "slug": "wars-of-the-juriels-live-demo"
     },
     "src/content/blog/wars-of-the-juriels.md": {
-      "contentHash": "e47a90f357b0f3bb24bc9a8b7b06a75d9b309e25827453c180491286bf63c899",
+      "contentHash": "d8e5f4828799dce4e7f19b857f6d57d321b8b39334b61478e9c9cfac2a702d98",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhs7gzy22p",
-      "lastPublished": "2026-08-02T23:19:22.686Z",
+      "lastPublished": "2026-08-03T03:44:40.635Z",
       "slug": "wars-of-the-juriels"
     },
     "src/content/blog/short-story-the-last-wizard.md": {
-      "contentHash": "829598abb8956e1ff0e4ac974a3c7b8a5e6bbcc61f032400d85b783dd4b5a204",
+      "contentHash": "8a756dc919f291af4eab760d863f99b7758d1a588ee48241d3b59bd8e43bf091",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsa6xm22p",
-      "lastPublished": "2026-08-02T23:19:23.135Z",
+      "lastPublished": "2026-08-03T03:44:40.823Z",
       "slug": "short-story-the-last-wizard"
     },
     "src/content/blog/a-song-unsung.md": {
-      "contentHash": "671189801013fba42e842a6918e85581af4002a9625dfbb059c4c3ea48762fbe",
+      "contentHash": "088410543aef19b57d83c1dd3937527ff49ff338d1ef5a3630377a3146cff818",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsajlg22m",
-      "lastPublished": "2026-08-02T23:19:23.281Z",
+      "lastPublished": "2026-08-03T03:44:40.853Z",
       "slug": "a-song-unsung"
     },
     "src/content/blog/it-was-meant-to-last-forever.md": {
-      "contentHash": "574a3f3d22259fcb6869f32cc389c5ffa9680d33075dabdaeee7de6b4facab1f",
+      "contentHash": "86c1d5451c59225e3409f0ae4f4c8a6f5f1be0d9724af4064171af0fe95551c4",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mryhsbcvwg2i",
-      "lastPublished": "2026-08-02T23:19:23.736Z",
+      "lastPublished": "2026-08-03T03:44:41.031Z",
       "slug": "it-was-meant-to-last-forever"
     },
     "src/content/blog/photo-07398058.md": {
-      "contentHash": "10627ba60c43d23c4a486486b9d51d31836bb77cee78bec8d1c7e09a4bce2678",
+      "contentHash": "668a485afd9f4babc5ad29b64519314be0ac3dbe8e0dbc002e00a32fa647f659",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kilhke25",
-      "lastPublished": "2026-08-02T23:17:42.695Z",
+      "lastPublished": "2026-08-03T03:43:56.017Z",
       "slug": "photo-07398058"
     },
     "src/content/blog/photo-850ad79e.md": {
-      "contentHash": "938547ba29ec517209b7d1e57c324a7c18df860d6c52c4b8ffa638f76ea371eb",
+      "contentHash": "13fa51dc21b59e216c6ef9e4d42a1b636125c49fa8966ab51bbe8e496a143d8b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kjapbj2i",
-      "lastPublished": "2026-08-02T23:17:43.408Z",
+      "lastPublished": "2026-08-03T03:43:56.339Z",
       "slug": "photo-850ad79e"
     },
     "src/content/blog/photo-61dbca06.md": {
-      "contentHash": "38b3af9ca3207592bdfeb64a261c78a3e6c3e7518544f030ddb4a4d01589bd42",
+      "contentHash": "005dc437067d97b85ff3b61dd7e818e71d05dd3eff1273c245996ea532cc329f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kk22r42t",
-      "lastPublished": "2026-08-02T23:17:44.171Z",
+      "lastPublished": "2026-08-03T03:43:56.587Z",
       "slug": "photo-61dbca06"
     },
     "src/content/blog/photo-18b4776c.md": {
-      "contentHash": "a43c9cde108c502c9d9ceca5c6d370fc99ee3e57dc697df4b211bf656358af08",
+      "contentHash": "7a51da02e45f4d4343e8011333b4a8d8fdbb52ede6cc3e614522c7636416010f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kkuyfx2p",
-      "lastPublished": "2026-08-02T23:17:45.074Z",
+      "lastPublished": "2026-08-03T03:43:56.781Z",
       "slug": "photo-18b4776c"
     },
     "src/content/blog/photo-c30047bf.md": {
-      "contentHash": "a93516eeb0826e53fc138ce2952c0f4e3ed98122f300d65e449be74682fcd56e",
+      "contentHash": "9f8c0cdd849abbb5d14a9e49180754e7a010fe9c7c98d693d781a685b0b4d2a1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54klh5a522",
-      "lastPublished": "2026-08-02T23:17:45.677Z",
+      "lastPublished": "2026-08-03T03:43:56.994Z",
       "slug": "photo-c30047bf"
     },
     "src/content/blog/photo-dc31db1c.md": {
-      "contentHash": "413037283fdf38123c7f863cac29b797e69f223755dd18ebc72e593358462d60",
+      "contentHash": "6bcf0acf8b955f7967dd055bd5490eb52efab7e80e6d2bc5306017a3a8e2793f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54km62p52z",
-      "lastPublished": "2026-08-02T23:17:46.344Z",
+      "lastPublished": "2026-08-03T03:43:57.264Z",
       "slug": "photo-dc31db1c"
     },
     "src/content/blog/photo-e46224ef.md": {
-      "contentHash": "e457519c2ec0c2b295c0f8b559250e8bc8ed8b553b32a2c455315070187e4906",
+      "contentHash": "42fe73ed2366864e962be3d4fdb96d86c6b38097f85135ab37f70c34855df032",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kmpdai2f",
-      "lastPublished": "2026-08-02T23:17:47.258Z",
+      "lastPublished": "2026-08-03T03:43:57.501Z",
       "slug": "photo-e46224ef"
     },
     "src/content/blog/photo-1db70e22.md": {
-      "contentHash": "c79072174947e068b7e627ec7f42a2a36316e2d9d720a2623e3b29a49486ccca",
+      "contentHash": "498b480b1d7214a7f0496bd21c20159a07374c8cc736f82ddbf0c3e3ecbfba54",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54koc6bd2i",
-      "lastPublished": "2026-08-02T23:17:48.699Z",
+      "lastPublished": "2026-08-03T03:43:58.019Z",
       "slug": "photo-1db70e22"
     },
     "src/content/blog/photo-19efddd5.md": {
-      "contentHash": "e72e3a978d1bd162e689df4aaabd9d9183fb3166f42cd85512bf65ee034a6cc1",
+      "contentHash": "ddc77d19af455bfb16f6dad89e9451347587f49fa508b66207254c48fba3c01b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kplv3l2m",
-      "lastPublished": "2026-08-02T23:17:50.179Z",
+      "lastPublished": "2026-08-03T03:43:58.504Z",
       "slug": "photo-19efddd5"
     },
     "src/content/blog/photo-cce6bd91.md": {
-      "contentHash": "6fe496dfa7c9ac9959e2da5bbb817620231362014f186cb16b62317420d47266",
+      "contentHash": "211f88af4ed66a53c354eee22269bcc43b24def0797cc3ceae67b232a6d5b71d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kqqzlz26",
-      "lastPublished": "2026-08-02T23:17:51.219Z",
+      "lastPublished": "2026-08-03T03:43:59.137Z",
       "slug": "photo-cce6bd91"
     },
     "src/content/blog/photo-dc3c310a.md": {
-      "contentHash": "87df76791957aaa655cb19ac29cfb015d70d442025ad84c48dbbe555a0101916",
+      "contentHash": "e32cba93a0fba6dd9fc014997c2628a882c65f1c9a779f1b231e54b53a4f02f6",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54krj4e422",
-      "lastPublished": "2026-08-02T23:17:52.148Z",
+      "lastPublished": "2026-08-03T03:43:59.381Z",
       "slug": "photo-dc3c310a"
     },
     "src/content/blog/photo-cdb694bf.md": {
-      "contentHash": "1ace6632e047079c9b5d357198de152e27933c2404190af312c6e29843dc0017",
+      "contentHash": "c33f0232c458e165ecdf1178eea24e1494bac9fe03cab7735d12fd5bae8e8128",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ksbje62m",
-      "lastPublished": "2026-08-02T23:17:52.796Z",
+      "lastPublished": "2026-08-03T03:43:59.577Z",
       "slug": "photo-cdb694bf"
     },
     "src/content/blog/photo-59fe1194.md": {
-      "contentHash": "170a4fd3b34984d79796478e95b69e418881d75d1a921c91d52f5af139e6ef9d",
+      "contentHash": "7a6002f78ceef75eccaea6928ca4251525073f7f5b3fc33275fc210cd561a5a0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kteaqi23",
-      "lastPublished": "2026-08-02T23:17:54.107Z",
+      "lastPublished": "2026-08-03T03:44:00.021Z",
       "slug": "photo-59fe1194"
     },
     "src/content/blog/photo-a8515c69.md": {
-      "contentHash": "e794900c196f4059b059504a267d27b5fed0c028f91ddb54c965fcd0186eeaa1",
+      "contentHash": "ff355ea2f9d8d14552f0ab54cca20e87d64e057c29fd2a10a1918a9e01591c8b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ku4tta2f",
-      "lastPublished": "2026-08-02T23:17:54.737Z",
+      "lastPublished": "2026-08-03T03:44:00.201Z",
       "slug": "photo-a8515c69"
     },
     "src/content/blog/photo-cfecb98d.md": {
-      "contentHash": "e4ab9e3fbad203843cf2fa6fec39de1eaa0b6e08bc9c4670de6e6969eca63088",
+      "contentHash": "5846901d475a1a0658561be54137699e80c069138005784bc82febc65645c14e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kutt5j26",
-      "lastPublished": "2026-08-02T23:17:55.560Z",
+      "lastPublished": "2026-08-03T03:44:00.496Z",
       "slug": "photo-cfecb98d"
     },
     "src/content/blog/photo-4b47d51a.md": {
-      "contentHash": "8e963ee46936a07d47935d2b69fdf054dc4628694fed9e5df336223add8773e2",
+      "contentHash": "060822618ca36edbf6d103e8827a040561a29acd2e090818795c650f53ea1a0c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kvkf3422",
-      "lastPublished": "2026-08-02T23:17:56.240Z",
+      "lastPublished": "2026-08-03T03:44:00.721Z",
       "slug": "photo-4b47d51a"
     },
     "src/content/blog/photo-3c87cdf2.md": {
-      "contentHash": "451b29e1d1ac97103e776caa441b9634b4ca6c0a31e6df7ab5992c84ae8eafae",
+      "contentHash": "e0cd58aae0277dd7d74a7d6796b2221764b8ea5c6bf815479d860e8c36e01638",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kwf4k422",
-      "lastPublished": "2026-08-02T23:17:57.129Z",
+      "lastPublished": "2026-08-03T03:44:01.055Z",
       "slug": "photo-3c87cdf2"
     },
     "src/content/blog/photo-1ccf3374.md": {
-      "contentHash": "49dd8ee44d0dba7fc19d276a95e9564f695649062ae5b7a9cac52cdec695d65a",
+      "contentHash": "4c139e22b739d7e4a8bb7887668d43107f8e5b8e59658be73a716ce10c7c8acf",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kx4t5m25",
-      "lastPublished": "2026-08-02T23:17:58.006Z",
+      "lastPublished": "2026-08-03T03:44:01.461Z",
       "slug": "photo-1ccf3374"
     },
     "src/content/blog/photo-21d54ca7.md": {
-      "contentHash": "cba99fd188d645778389d8453cca9b6625558f416e3d75445f792e4aef33d78f",
+      "contentHash": "6b5f5b46cebab9cecac2ed3d74a327ef3732a9f1844609d3113b7b5b2debccfe",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kxyroa23",
-      "lastPublished": "2026-08-02T23:17:58.827Z",
+      "lastPublished": "2026-08-03T03:44:01.704Z",
       "slug": "photo-21d54ca7"
     },
     "src/content/blog/photo-31ef7954.md": {
-      "contentHash": "ea6ed947cc3342eaf17bd48444bf452f0c9753c08a51569b8859768aaa128585",
+      "contentHash": "3e04828717dcda96a9131919bfb34f7e24e806e40bbc1a39ae586f29db8f82fc",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kypryf2l",
-      "lastPublished": "2026-08-02T23:17:59.641Z",
+      "lastPublished": "2026-08-03T03:44:01.910Z",
       "slug": "photo-31ef7954"
     },
     "src/content/blog/photo-fd1d3156.md": {
-      "contentHash": "ef159bcbfc0549afc8c4dab3a91d408009918f415d35d11dd5688e75dcf85e3d",
+      "contentHash": "cd1a0cbb3f55002b713af5db271f96efe76723b329c5debcce97f41608ef2716",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kzg5sa2f",
-      "lastPublished": "2026-08-02T23:18:00.309Z",
+      "lastPublished": "2026-08-03T03:44:04.843Z",
       "slug": "photo-fd1d3156"
     },
     "src/content/blog/photo-1715900d.md": {
-      "contentHash": "7ccc79cab9c40224cb5289846b489ecaa5181cded7c79eb6b7cb7d84c4f41fe3",
+      "contentHash": "f7ce4a3542f78ab2089b675632619b01175b87b26847bf68be34c716542f3cc8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54kzybto2m",
-      "lastPublished": "2026-08-02T23:18:01.000Z",
+      "lastPublished": "2026-08-03T03:44:05.056Z",
       "slug": "photo-1715900d"
     },
     "src/content/blog/photo-76f683a3.md": {
-      "contentHash": "6ce8e841ec897f02fedc39851178836c1dbca0908d182841b1891fc7ea6e6657",
+      "contentHash": "862bfd55f5c0c846510701b63722b6489af616c1182e55d4a6df2c36924d92c4",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54l2rnme22",
-      "lastPublished": "2026-08-02T23:18:01.705Z",
+      "lastPublished": "2026-08-03T03:44:05.265Z",
       "slug": "photo-76f683a3"
     },
     "src/content/blog/photo-bc32f2ff.md": {
-      "contentHash": "7a8269ca70eb0a77bedb71a7fb7fa39dbfc50586d0e1191763551e8512fe8a80",
+      "contentHash": "07a68241672c7c10321c74bce3c8df0d44b533d88b760d36edaed330c55cd92b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54l3h2ut2m",
-      "lastPublished": "2026-08-02T23:18:04.792Z",
+      "lastPublished": "2026-08-03T03:44:05.538Z",
       "slug": "photo-bc32f2ff"
     },
     "src/content/blog/photo-e85d3d15.md": {
-      "contentHash": "4831739457d59515acf480d060d5e0c2ee7d19f838dd22971fdccb1a89e722b2",
+      "contentHash": "e73e7affb5e94582f3080d0e6f525c02f9b976a5c0e9bf27f1101f40dca300bd",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54l6kqgo2h",
-      "lastPublished": "2026-08-02T23:18:05.660Z",
+      "lastPublished": "2026-08-03T03:44:05.793Z",
       "slug": "photo-e85d3d15"
     },
     "src/content/blog/photo-31de0f63.md": {
-      "contentHash": "0bd6cad95e42afbabf799e998bd89156402fa3f9a40342f84a1fea4c4e0c7ba4",
+      "contentHash": "afd8df4633bbc4e3b47404874164e6f3d5152143296b62b29c3d10189a24dbce",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54l7cm3q23",
-      "lastPublished": "2026-08-02T23:18:06.589Z",
+      "lastPublished": "2026-08-03T03:44:06.010Z",
       "slug": "photo-31de0f63"
     },
     "src/content/blog/photo-6060e954.md": {
-      "contentHash": "0bf41f08b4c62e3451427e1ba1665ab468020debdc6cca1ae739fa9e6c18644f",
+      "contentHash": "3e9940f266b2113e2a2a35186b6a3a4800bdbf56ea50022cc353bd14369c69fb",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54l7yyva23",
-      "lastPublished": "2026-08-02T23:18:07.152Z",
+      "lastPublished": "2026-08-03T03:44:06.245Z",
       "slug": "photo-6060e954"
     },
     "src/content/blog/photo-158a336e.md": {
-      "contentHash": "dfc2db50eff9b4557c601d1a0aa1b552b5fe7eccdf0e23dbd3b6e27bdbce26fa",
+      "contentHash": "c91afeaa20024e054e0e507cba0fb32a73b9a8247c4bcbdc8e42afbe40f99d4a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54laludw2m",
-      "lastPublished": "2026-08-02T23:18:07.798Z",
+      "lastPublished": "2026-08-03T03:44:06.457Z",
       "slug": "photo-158a336e"
     },
     "src/content/blog/photo-853281e7.md": {
-      "contentHash": "71764f55d749dfdd369f6da3277bbfb417ab55a9bf2fdd6208bdbd03a2d2c2d7",
+      "contentHash": "5d34dda630ec3478052d9335ab0d4e64d2ea8e3a921ec2e78e6eb02c1a2923c4",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lbbnmj26",
-      "lastPublished": "2026-08-02T23:18:08.528Z",
+      "lastPublished": "2026-08-03T03:44:06.721Z",
       "slug": "photo-853281e7"
     },
     "src/content/blog/photo-bd502389.md": {
-      "contentHash": "86257dc40bcd22c7c4d9b9a93d31a9ebe08923b767d9091c304f2613d6638aae",
+      "contentHash": "70ce8460e971129cee810a2e1fe338e3974bcc0bb468acb1107cb84f4fc7aed5",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lbxguz26",
-      "lastPublished": "2026-08-02T23:18:09.231Z",
+      "lastPublished": "2026-08-03T03:44:06.914Z",
       "slug": "photo-bd502389"
     },
     "src/content/blog/photo-d3e56d17.md": {
-      "contentHash": "d2d16a83f30fcc484edfcc957c0c82ed10c6ae2569b3d7a1fdb81db9cf8e252c",
+      "contentHash": "ea970c236326ad66b1411ad7b911c845a4dc94f1e23a5f6a360bd51c0b6f7c3a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lcl7qf2l",
-      "lastPublished": "2026-08-02T23:18:09.850Z",
+      "lastPublished": "2026-08-03T03:44:07.119Z",
       "slug": "photo-d3e56d17"
     },
     "src/content/blog/photo-5c0132c3.md": {
-      "contentHash": "221a00a335a9e137753fd4d2b44fa6b7eb97c54956a9a435f9c35fb74754dbdd",
+      "contentHash": "f440c73f38b038f2796fe232cd6b7f0ff481baec46947772a010d73169c616dd",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ldbwf42b",
-      "lastPublished": "2026-08-02T23:18:10.685Z",
+      "lastPublished": "2026-08-03T03:44:07.468Z",
       "slug": "photo-5c0132c3"
     },
     "src/content/blog/photo-ed9b7b04.md": {
-      "contentHash": "9eed8690a9fcacd1ef90f29cdfaebd5d5f6af4317473b95d0dc39be471a49975",
+      "contentHash": "78e44a718a69d45b70ed83eee2bb20b6daad59801d86ebe06bb722c47e8e1215",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ldvm7g2h",
-      "lastPublished": "2026-08-02T23:18:11.321Z",
+      "lastPublished": "2026-08-03T03:44:07.645Z",
       "slug": "photo-ed9b7b04"
     },
     "src/content/blog/photo-9defd617.md": {
-      "contentHash": "6740533a4f2c2f8d7207d19aff39b8791fd42665412eb569161a736e9e216804",
+      "contentHash": "19b12dff2b22ffb42ad50d0d86df38e24cfa24ec0c8c8f510c4796ff87476c5f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lemwcg2h",
-      "lastPublished": "2026-08-02T23:18:12.043Z",
+      "lastPublished": "2026-08-03T03:44:07.825Z",
       "slug": "photo-9defd617"
     },
     "src/content/blog/photo-747bb1f8.md": {
-      "contentHash": "087b381201aabb6026942009215b5170ca690520180f00efdf8503557e5a1e65",
+      "contentHash": "749359d8c5d12aba819d0b5412a5c1742adbcb7c2771c9cfdef1aa70856b66f0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lffpan2l",
-      "lastPublished": "2026-08-02T23:18:12.858Z",
+      "lastPublished": "2026-08-03T03:44:08.046Z",
       "slug": "photo-747bb1f8"
     },
     "src/content/blog/photo-f4a0ea09.md": {
-      "contentHash": "43a6803b4f30131efe5095dedb13d57843c30517bf206d2a24a5b60f8551f425",
+      "contentHash": "612f6198815d9142444f981fbe36d09c31174ccaa94834ed777c64c25009768d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lg3pem25",
-      "lastPublished": "2026-08-02T23:18:13.665Z",
+      "lastPublished": "2026-08-03T03:44:08.337Z",
       "slug": "photo-f4a0ea09"
     },
     "src/content/blog/human-side-of-dev-13-opening-doors-and-having-fun-with-jason-lengstorf.md": {
@@ -547,69 +547,69 @@
       "slug": "human-side-of-dev-13-opening-doors-and-having-fun-with-jason-lengstorf"
     },
     "src/content/blog/photo-49e0430e.md": {
-      "contentHash": "516468094a46a244121976de9ff95fe51d311c6eef899c43f412ba78d7d666b7",
+      "contentHash": "c2ad964a749ecdc8154d44f696734b77b78075987cb2d4d45386eae5ab57afc6",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lh46ht2i",
-      "lastPublished": "2026-08-02T23:18:14.864Z",
+      "lastPublished": "2026-08-03T03:44:08.599Z",
       "slug": "photo-49e0430e"
     },
     "src/content/blog/photo-990f49ab.md": {
-      "contentHash": "1eefc88cde45e1795bd59a244980a5211320bd4a20921e8ad2eb9d09da07a94f",
+      "contentHash": "7427b4f1981bfc533f5168447c84cc91df141981f535576e0eaf4b157bbcdff8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lhygpf2l",
-      "lastPublished": "2026-08-02T23:18:15.703Z",
+      "lastPublished": "2026-08-03T03:44:08.808Z",
       "slug": "photo-990f49ab"
     },
     "src/content/blog/photo-b25f8509.md": {
-      "contentHash": "0e5f7a777d1c845c3a2a2654e7509bf4d2290926c1caa18eb8751ad27ab732ff",
+      "contentHash": "396cb6e4e57a1605ce2f80e2e1a969eeb78e9a4e40ad53e9e3c42204c2434f52",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54livcji2f",
-      "lastPublished": "2026-08-02T23:18:16.451Z",
+      "lastPublished": "2026-08-03T03:44:08.989Z",
       "slug": "photo-b25f8509"
     },
     "src/content/blog/photo-84e22451.md": {
-      "contentHash": "0de2122a44b5ecd50b3dd30b132b425246c9503e0871044ba7d4e6ea716e2fe9",
+      "contentHash": "5e8bf69d8e6dc2d1254a1c69e986ff220764a7398a448e79a4fef835adc21312",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ljjoui2f",
-      "lastPublished": "2026-08-02T23:18:17.216Z",
+      "lastPublished": "2026-08-03T03:44:09.238Z",
       "slug": "photo-84e22451"
     },
     "src/content/blog/photo-79f06d1e.md": {
-      "contentHash": "071bea3dc279a7e3b881f1e5aad0a7493cbda7185a0ee80806e330a57c7db99a",
+      "contentHash": "32fa8bf36f1bc58f81ee1c624b60716783fe36755391a57e9e142e53d9deb42f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lkdga522",
-      "lastPublished": "2026-08-02T23:18:18.006Z",
+      "lastPublished": "2026-08-03T03:44:09.626Z",
       "slug": "photo-79f06d1e"
     },
     "src/content/blog/photo-89493490.md": {
-      "contentHash": "ed3a29808d6d3b06f3f32305449bce94b1fd5e3d158ef22103bb1df4bb5010d3",
+      "contentHash": "18649cf0c62fb6b18827bef527df5ba4266fcfdebcb94c3ed97476e81e37cb3c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lkz6jf22",
-      "lastPublished": "2026-08-02T23:18:18.746Z",
+      "lastPublished": "2026-08-03T03:44:09.856Z",
       "slug": "photo-89493490"
     },
     "src/content/blog/photo-c821a8a3.md": {
-      "contentHash": "97019fd51522831c1405ea3b62347f875d27a00b20a68064c0788fd13e554560",
+      "contentHash": "2ac74edea4ba72e0c802bd1d864dee157e03b6ae8f6cd3d762dda536cdeaac2e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54llntjq2f",
-      "lastPublished": "2026-08-02T23:18:19.384Z",
+      "lastPublished": "2026-08-03T03:44:10.258Z",
       "slug": "photo-c821a8a3"
     },
     "src/content/blog/photo-ba52b522.md": {
-      "contentHash": "b991bfe57ed826a059f68032a71bd30996e071f793d2115d8ed5759e2593590f",
+      "contentHash": "f92d0d8b06d9c3fc354b9885a17a6cf47e7b4b5f2fc291d677a2ad0f1d5bb58e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lm7uiy2x",
-      "lastPublished": "2026-08-02T23:18:19.982Z",
+      "lastPublished": "2026-08-03T03:44:10.502Z",
       "slug": "photo-ba52b522"
     },
     "src/content/blog/photo-6cb1a558.md": {
-      "contentHash": "7651ae67591ee4388ef48c6e6f53119fc79f67de2ea7624e49844e172f91b1c9",
+      "contentHash": "1f43633b14532de18920fdbeaab27e4af4cdf8fcc620d3cf3378bd8cdc435863",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lmvtta23",
-      "lastPublished": "2026-08-02T23:18:20.678Z",
+      "lastPublished": "2026-08-03T03:44:10.704Z",
       "slug": "photo-6cb1a558"
     },
     "src/content/blog/photo-9283b441.md": {
-      "contentHash": "1dc94f1d3baf26e67232d16ee3601bf5a313257a7d1ffa02409b00deb5eeef60",
+      "contentHash": "77d95851dc2cc358af3c0c8623dbd240133483c45e03047150f6f3f917201754",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lnqdlf22",
-      "lastPublished": "2026-08-02T23:18:21.746Z",
+      "lastPublished": "2026-08-03T03:44:11.064Z",
       "slug": "photo-9283b441"
     },
     "src/content/blog/photo-748820b1.md": {
-      "contentHash": "c1487d474a363f5fd674c3cd821fc4b5f3da30b944b9256a99fd8fa6d1ed0c8d",
+      "contentHash": "7628bdf607e423a3ec6a20a2b6db65d1c70bfd18996aa6586f227677d08172b8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54loiyjv2l",
-      "lastPublished": "2026-08-02T23:18:22.396Z",
+      "lastPublished": "2026-08-03T03:44:11.476Z",
       "slug": "photo-748820b1"
     },
     "src/content/blog/human-side-of-dev-12-php-courses-and-receipt-printers-with-andrew-schmelyun.md": {
@@ -619,9 +619,9 @@
       "slug": "human-side-of-dev-12-php-courses-and-receipt-printers-with-andrew-schmelyun"
     },
     "src/content/blog/im-sure-it-means-nothing-healing-and-letting-go.md": {
-      "contentHash": "d7943c98372d3a6980a302524b0fd4b62a0b7fe4631a8d01894962942cebec4d",
+      "contentHash": "358e5ee5372e273080a6d3b52382914bdaece7543944c4008a88b6aa49f83220",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lpcsrd2i",
-      "lastPublished": "2026-08-02T23:18:22.978Z",
+      "lastPublished": "2026-08-03T03:44:11.758Z",
       "slug": "im-sure-it-means-nothing-healing-and-letting-go"
     },
     "src/content/blog/human-side-of-dev-11-open-source-whiteboarding-with-ben-holmes.md": {
@@ -637,15 +637,15 @@
       "slug": "human-side-of-dev-10-shifting-careers-with-chris-ferdinandi"
     },
     "src/content/blog/build-a-retro-gaming-app-web-dev-challenge-s1e2.md": {
-      "contentHash": "ff0ec7adf70884ce605c36c4d18a33c25b3870d3b16d46b1c3e9e458732a4423",
+      "contentHash": "aef0ed296a5e603ded6ada341ac008534f10675063e7f2aceca55c8b774f66bb",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lqjkzn2b",
-      "lastPublished": "2026-08-02T23:18:24.489Z",
+      "lastPublished": "2026-08-03T03:44:12.258Z",
       "slug": "build-a-retro-gaming-app-web-dev-challenge-s1e2"
     },
     "src/content/blog/im-sure-it-means-nothing-religion-and-us.md": {
-      "contentHash": "e9071b4ad971afe5b8f7d1a9a4a5b5eae81211a3319247c84dd3dd37efa78929",
+      "contentHash": "5c4cb3073395ffc5349c989825429cddc75cf0d232a6b3ab35b8ea832ab1842b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lqtdfk26",
-      "lastPublished": "2026-08-02T23:18:24.568Z",
+      "lastPublished": "2026-08-03T03:44:12.290Z",
       "slug": "im-sure-it-means-nothing-religion-and-us"
     },
     "src/content/blog/human-side-of-dev-9-from-architect-to-management-with-dustin-goodman.md": {
@@ -661,21 +661,21 @@
       "slug": "human-side-of-dev-8-all-about-management-with-blake-thomas"
     },
     "src/content/blog/im-sure-it-means-nothing-transitions-and-genders.md": {
-      "contentHash": "7f1f4041ea568a15d005921ac298b4c90deacabcb3cb5016f5a2b6ed3b89c816",
+      "contentHash": "cb2fdc9a3f2dd8ab60822dab4d210dccf406e6a9a556563c9b19551cd2f8b755",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lr2i2v22",
-      "lastPublished": "2026-08-02T23:18:24.809Z",
+      "lastPublished": "2026-08-03T03:44:12.319Z",
       "slug": "im-sure-it-means-nothing-transitions-and-genders"
     },
     "src/content/blog/modern-web-podcast-s11e32-why-every-developer-should-try-elm-are-we-abandoning-j.md": {
-      "contentHash": "838fe1fe1218381f8adb81326ff69dab20e763aa3dc002360915cba907d7d150",
+      "contentHash": "13b3de8fd33f7ea6dfe2d6344c877b41c0c64635b1eed3c38bfdc1347e37046c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lril6t2i",
-      "lastPublished": "2026-08-02T23:18:25.513Z",
+      "lastPublished": "2026-08-03T03:44:12.604Z",
       "slug": "modern-web-podcast-s11e32-why-every-developer-should-try-elm-are-we-abandoning-j"
     },
     "src/content/blog/im-sure-it-means-nothing-self-discovery.md": {
-      "contentHash": "31a794ddd02d04a7cf7193e911a49354bb1129ebb87c6777188c95ba1797faf3",
+      "contentHash": "e65802dc274575376fbc5bd5ec2ed19fb5685f2625ccf88b98a87b9a55ffbfff",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lrsmmm22",
-      "lastPublished": "2026-08-02T23:18:25.593Z",
+      "lastPublished": "2026-08-03T03:44:12.638Z",
       "slug": "im-sure-it-means-nothing-self-discovery"
     },
     "src/content/blog/human-side-of-dev-7-learning-by-teaching-with-eddie-freeman.md": {
@@ -685,27 +685,27 @@
       "slug": "human-side-of-dev-7-learning-by-teaching-with-eddie-freeman"
     },
     "src/content/blog/im-sure-it-means-nothing-introductions.md": {
-      "contentHash": "51f715948dd9c8556d5327078d8e4e9c8d76c73f3b2d308334d71c73014839f9",
+      "contentHash": "dcb1cde784fea932fab7bdf2918b844026fa6bcfc97144bd084c1a159039ffa2",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lrxwh522",
-      "lastPublished": "2026-08-02T23:18:25.766Z",
+      "lastPublished": "2026-08-03T03:44:12.666Z",
       "slug": "im-sure-it-means-nothing-introductions"
     },
     "src/content/blog/im-sure-it-means-nothing-trailer.md": {
-      "contentHash": "4029ea054e7afdb787e98376eda15de14fb2bd024315e91c5f7c908bf8256561",
+      "contentHash": "ed20f2e88ee3d1310e8239933a084429bed71ee444ae433467d63c301764917b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ls2ehy23",
-      "lastPublished": "2026-08-02T23:18:25.854Z",
+      "lastPublished": "2026-08-03T03:44:12.696Z",
       "slug": "im-sure-it-means-nothing-trailer"
     },
     "src/content/blog/elm-town-71-embracing-wins-with-lindsay-wardell.md": {
-      "contentHash": "b4f67abfb1de052a8347922b59440b6a899613b39ad53195dd3fcbbb4e947a09",
+      "contentHash": "aba0d2b774b0b3d8d80c139c80ffa5a03f3b5cbf2ba6aa6cfbaa63d14a16c231",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lse65e22",
-      "lastPublished": "2026-08-02T23:18:26.489Z",
+      "lastPublished": "2026-08-03T03:44:12.863Z",
       "slug": "elm-town-71-embracing-wins-with-lindsay-wardell"
     },
     "src/content/blog/functional-programming-in-vite.md": {
-      "contentHash": "f683ecc5a94d930f7c255b2c5598f413b98d02f1275256691714d7609e2b115f",
+      "contentHash": "7c52999ec7f45dcd2f80f871de8ee8b68e290723ed235e56145e02e1f94f3d03",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ltjr4t2i",
-      "lastPublished": "2026-08-02T23:18:27.870Z",
+      "lastPublished": "2026-08-03T03:44:13.453Z",
       "slug": "functional-programming-in-vite"
     },
     "src/content/blog/human-side-of-dev-6-exploring-edge-cases-with-rho-oof.md": {
@@ -745,189 +745,189 @@
       "slug": "human-side-of-dev-1-supporting-junior-devs-and-social-media-with-luiz-oliveira"
     },
     "src/content/blog/the-launch-pad-with-lindsay-wardell-and-tejas-kumar.md": {
-      "contentHash": "a06e1bf7491e9086604fc708394a7fe797d5e9c2eb129279e338910f1f02a6f5",
+      "contentHash": "479adea3209fc1ceaaf0911f27d300587b6420a2669e5e7c3002c4398a81f2c1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lvcaon2l",
-      "lastPublished": "2026-08-02T23:18:29.708Z",
+      "lastPublished": "2026-08-03T03:44:14.034Z",
       "slug": "the-launch-pad-with-lindsay-wardell-and-tejas-kumar"
     },
     "src/content/blog/human-side-of-dev-welcome-to-the-human-side-of-dev.md": {
-      "contentHash": "94c0e2a4cdbdbe6513e07fc92a3f49d6f4860b73b1dbdb5fca485564e17fb7f6",
+      "contentHash": "a5bdaa64889d552b603e8caf837bf008545fae715e31611d3c85edcc47d7af52",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lvsn4m2t",
-      "lastPublished": "2026-08-02T23:18:29.787Z",
+      "lastPublished": "2026-08-03T03:44:14.063Z",
       "slug": "human-side-of-dev-welcome-to-the-human-side-of-dev"
     },
     "src/content/blog/elm-and-vite.md": {
-      "contentHash": "b436f5a043b194bb9cc2b6301a045ebee99912d63aad11355e585d3006bdd2d8",
+      "contentHash": "1de6a64d59d333508fcc53fc307700e41aabfdf9e8c8c1e5d089530e26cd5c19",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lw2adv2b",
-      "lastPublished": "2026-08-02T23:18:30.256Z",
+      "lastPublished": "2026-08-03T03:44:14.262Z",
       "slug": "elm-and-vite"
     },
     "src/content/blog/functional-programming-with-elm-with-lindsay-wardell.md": {
-      "contentHash": "aca52c593be43f431d01940c7bf6abfaa4452f2e649125adeddf0efb8fcd600f",
+      "contentHash": "facfd7fb3a5bce3e771ece3ae258c9155e03abcff53affa40d173f8f7d2532fd",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lwslnf2b",
-      "lastPublished": "2026-08-02T23:18:31.111Z",
+      "lastPublished": "2026-08-03T03:44:14.543Z",
       "slug": "functional-programming-with-elm-with-lindsay-wardell"
     },
     "src/content/blog/functional-programming-in-vite-with-elm.md": {
-      "contentHash": "1c8c171536c60dffba1d7c210157ac1c3b677b6a1b9015d1ad045cd408e84199",
+      "contentHash": "b8ff3df37b6c4e1045888368f56ef562a91d701289c352044046c5b45f9c8033",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ly6lwv2z",
-      "lastPublished": "2026-08-02T23:18:32.681Z",
+      "lastPublished": "2026-08-03T03:44:15.397Z",
       "slug": "functional-programming-in-vite-with-elm"
     },
     "src/content/blog/build-elm-apps-with-lindsay-wardell.md": {
-      "contentHash": "7507aa619517aacd3b466a565c3654955eb5db27f8dcbe5d57d788bc8929fcf1",
+      "contentHash": "9b4e67be9191babd353fe1184608c12b17b55bce0269f8736345f0c4059586f3",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lzh7id2m",
-      "lastPublished": "2026-08-02T23:18:33.811Z",
+      "lastPublished": "2026-08-03T03:44:15.759Z",
       "slug": "build-elm-apps-with-lindsay-wardell"
     },
     "src/content/blog/functional-and-object-oriented-programming-with-lindsay-wardell.md": {
-      "contentHash": "cf6ea2e6226526777a129af550be5d2a0012fd6a14d80268290adfe02bb19a13",
+      "contentHash": "4cc7578ab1e9f2342d587063c47e2433bba5788a321e05f8e6a2e80f541422dd",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lzpt252b",
-      "lastPublished": "2026-08-02T23:18:33.890Z",
+      "lastPublished": "2026-08-03T03:44:15.787Z",
       "slug": "functional-and-object-oriented-programming-with-lindsay-wardell"
     },
     "src/content/blog/side-projects-the-value-of-building-in-public.md": {
-      "contentHash": "7ec1d6ba58f981650139ec5c4cd6c713d6ab4f1903fa4b4bb54a34b79d862b10",
+      "contentHash": "7be293c2a42fbb817f48922e38607938183503b4a022d95361dc6057215aefd1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54lzsa2o2m",
-      "lastPublished": "2026-08-02T23:18:33.968Z",
+      "lastPublished": "2026-08-03T03:44:15.816Z",
       "slug": "side-projects-the-value-of-building-in-public"
     },
     "src/content/blog/episode-72-elm-with-lindsay-wardell.md": {
-      "contentHash": "4b4710386807dbb6b2a627cb24e2f7f9f182fa506085ba97616862780bcfe355",
+      "contentHash": "d51756bd1a4057be03d4037d3b9209d44e2b81d01d193d3e8a1d935b1366a20e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m2iuo62m",
-      "lastPublished": "2026-08-02T23:18:35.051Z",
+      "lastPublished": "2026-08-03T03:44:16.214Z",
       "slug": "episode-72-elm-with-lindsay-wardell"
     },
     "src/content/blog/whats-new-with-elm-ft-lindsay-wardell-jsj-527.md": {
-      "contentHash": "18fdb90babab64ecb590ef2a539e26ba2517dad27e104799d371b9bf1600506c",
+      "contentHash": "05a1aa750a04c7a0ae48d08f4c5771fe72a0e74287dba4b21fb7dd41f735073d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m3666a2x",
-      "lastPublished": "2026-08-02T23:18:35.665Z",
+      "lastPublished": "2026-08-03T03:44:16.418Z",
       "slug": "whats-new-with-elm-ft-lindsay-wardell-jsj-527"
     },
     "src/content/blog/all-about-vite-with-matias-capeletto-vue-181.md": {
-      "contentHash": "f6ce1dc0cbc7a6c5654a1e9d3dc4aa3cc651b6d32f38ba2131e033024bdb9219",
+      "contentHash": "5c111301b7dddbcd1ae46c4423700ddc7df8edca0546b9e3dd494a42d845a671",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m3syc32m",
-      "lastPublished": "2026-08-02T23:18:36.375Z",
+      "lastPublished": "2026-08-03T03:44:16.707Z",
       "slug": "all-about-vite-with-matias-capeletto-vue-181"
     },
     "src/content/blog/tools-that-inspire-us-with-subha-chanda-vue-180.md": {
-      "contentHash": "7897dd5a5ec986cab11caa08f96228c5e45729e38cdb050f43add6ae4149318f",
+      "contentHash": "fbd1bbda30171857de16f15f81212998b93814f352ec6fbe16349883172ecc12",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m4gcpn2z",
-      "lastPublished": "2026-08-02T23:18:36.730Z",
+      "lastPublished": "2026-08-03T03:44:16.893Z",
       "slug": "tools-that-inspire-us-with-subha-chanda-vue-180"
     },
     "src/content/blog/going-3d-with-alvaro-saburido-vue-179.md": {
-      "contentHash": "beafb89e99ffc323abe902c893f7408e6ed6ee026ca6e43db9c4141daa6cdf27",
+      "contentHash": "0a863eb4b9d4ecdcd19db622dec6b5e348ce6a626f13fd71656bb0ec93adb9c8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m55sj42t",
-      "lastPublished": "2026-08-02T23:18:37.495Z",
+      "lastPublished": "2026-08-03T03:44:17.242Z",
       "slug": "going-3d-with-alvaro-saburido-vue-179"
     },
     "src/content/blog/introduction-to-elm-with-lindsay-wardell-some-antics.md": {
-      "contentHash": "dc396c22b32038944e96b2e74f177d1520dc93d4cb2979ea51b85fa57e0de726",
+      "contentHash": "d80ed59d99b6bb614cb88c61016070f1ab8de8b044cb6b7239ab34369c042e73",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m5rt542t",
-      "lastPublished": "2026-08-02T23:18:38.148Z",
+      "lastPublished": "2026-08-03T03:44:17.517Z",
       "slug": "introduction-to-elm-with-lindsay-wardell-some-antics"
     },
     "src/content/blog/writing-good-tests-for-vue-with-markus-oberlehner-vue-176.md": {
-      "contentHash": "3f4571fe473680c06d0cbcec7a7bfd119173b285420447cad9faedc5054d3c51",
+      "contentHash": "282a00530f8d82597389df93648a6856e38da7b31a332267168439a06607bf12",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m62ao62h",
-      "lastPublished": "2026-08-02T23:18:38.426Z",
+      "lastPublished": "2026-08-03T03:44:17.680Z",
       "slug": "writing-good-tests-for-vue-with-markus-oberlehner-vue-176"
     },
     "src/content/blog/tech-to-follow-in-2022-vue-175.md": {
-      "contentHash": "144eef85eaf59bfa3fd56d6165fa190eb6b57c552d5cb7e63d01fa1dabe8207b",
+      "contentHash": "45db4824589e6314fd7315fe2c8d4b010363fd55c89de049300ea0dbd38ba5b2",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m6i35522",
-      "lastPublished": "2026-08-02T23:18:38.879Z",
+      "lastPublished": "2026-08-03T03:44:17.888Z",
       "slug": "tech-to-follow-in-2022-vue-175"
     },
     "src/content/blog/exploring-pwas-with-john-lim-vue-174.md": {
-      "contentHash": "4e8d19b0cbb0453fcd9c8f6106b567eace89c35c83ee0e6ac8cf22a991f2a627",
+      "contentHash": "0e7b617afe91ab266ae66c82d703fe252575dcdb9f1111fdd19479b8aeeb13ed",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m6x3g32m",
-      "lastPublished": "2026-08-02T23:18:39.369Z",
+      "lastPublished": "2026-08-03T03:44:18.169Z",
       "slug": "exploring-pwas-with-john-lim-vue-174"
     },
     "src/content/blog/vuejs-athens-meetup-7.md": {
-      "contentHash": "3dc4637d3f92e800b4e88c13a7dc5dad82bbfe5041a7f93349e1b01d6ff706e3",
+      "contentHash": "0e7075a3d0126f236cdb66e64f248ef0faad351b658df53cf25a91337e9c9338",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m7kz7m25",
-      "lastPublished": "2026-08-02T23:18:40.028Z",
+      "lastPublished": "2026-08-03T03:44:18.445Z",
       "slug": "vuejs-athens-meetup-7"
     },
     "src/content/blog/modern-package-development-vue-172.md": {
-      "contentHash": "0a8e4a21c649b9e68754d4db5d544070f806d4f9ea40be9f7a4519ba79be0f74",
+      "contentHash": "7136bfa1de1c64a2778357a21b100efa8def9e879ba7c92ad12f78301ec72dee",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54m7ty7t2m",
-      "lastPublished": "2026-08-02T23:18:40.317Z",
+      "lastPublished": "2026-08-03T03:44:18.685Z",
       "slug": "modern-package-development-vue-172"
     },
     "src/content/blog/building-a-global-state-management-library-with-andrew-courtice-vue-171.md": {
-      "contentHash": "a9a6078023650af571de468d218cf5027574d809bf6adb012791d9819c7c6434",
+      "contentHash": "53c21bcbb1e084975e50c3f084d216c32c9f46e4cf3d875373519186e13a11e1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54maj34u25",
-      "lastPublished": "2026-08-02T23:18:41.010Z",
+      "lastPublished": "2026-08-03T03:44:19.101Z",
       "slug": "building-a-global-state-management-library-with-andrew-courtice-vue-171"
     },
     "src/content/blog/islands-architecture-in-vue-with-maximo-mussini-vue-170.md": {
-      "contentHash": "618c3d3be934603ce2816c5829609d5b78a73a3f111fb113ac4f39b80f51b7c9",
+      "contentHash": "e9ece02620c43727f4c4b4d9ee348a1481932e35658f70a3af2989080e4ade85",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mat7du25",
-      "lastPublished": "2026-08-02T23:18:41.344Z",
+      "lastPublished": "2026-08-03T03:44:19.357Z",
       "slug": "islands-architecture-in-vue-with-maximo-mussini-vue-170"
     },
     "src/content/blog/building-performant-vue-apps-with-martin-malinda-vue-169.md": {
-      "contentHash": "0d1d1b88eaad468b0336c13e8a6e03434298cc6a2ee9fbedb54c496c86acb3d2",
+      "contentHash": "fdecc470e79ac6c706a1c08213d58bea7e2869d02cb1b06e9d02786d2a850c8b",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mblwk422",
-      "lastPublished": "2026-08-02T23:18:42.155Z",
+      "lastPublished": "2026-08-03T03:44:19.736Z",
       "slug": "building-performant-vue-apps-with-martin-malinda-vue-169"
     },
     "src/content/blog/alternative-ways-to-build-vue-apps-vue-168.md": {
-      "contentHash": "ff35756f5a79e020f63e6a0a149f8c1ccd5c05912c2d341a568f9600c43d67c0",
+      "contentHash": "365b10d73695685708d05589a8a0f23caed19c1c3d956fa9eae3334ae83ed755",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mbyum422",
-      "lastPublished": "2026-08-02T23:18:42.578Z",
+      "lastPublished": "2026-08-03T03:44:19.945Z",
       "slug": "alternative-ways-to-build-vue-apps-vue-168"
     },
     "src/content/blog/how-to-get-involved-in-the-tech-community-with-shruti-kapoor-shes-in-tech-019.md": {
-      "contentHash": "07616e32abd3a21f27f68aeb745230afed97846d6584ab1cc624091583a172ec",
+      "contentHash": "5b96583c32993d11479bf0d8c912efcb9a6ac76fb40f2f28ccec6827b4a94ec5",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54md6emo2h",
-      "lastPublished": "2026-08-02T23:18:44.015Z",
+      "lastPublished": "2026-08-03T03:44:20.616Z",
       "slug": "how-to-get-involved-in-the-tech-community-with-shruti-kapoor-shes-in-tech-019"
     },
     "src/content/blog/s08e018-modern-web-podcast-staying-curious-with-michael-chan.md": {
-      "contentHash": "64de4b70eaa13314c94b0fa5eca42d0703588cd7a5e2914df4a12fff04609eb7",
+      "contentHash": "694b261b7ab0a8cc11736ae47e92940a4bf32312096d36b8a530289e70350d3d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mdryjn2l",
-      "lastPublished": "2026-08-02T23:18:44.696Z",
+      "lastPublished": "2026-08-03T03:44:20.816Z",
       "slug": "s08e018-modern-web-podcast-staying-curious-with-michael-chan"
     },
     "src/content/blog/the-near-future-of-node-development-with-james-snell-build-it-better-architectur.md": {
-      "contentHash": "2c712b89c10090b6b1b1a3faf90235fe26f57f3120a987dd2e65affc217294e8",
+      "contentHash": "08df3f94c945039c08a62b56018d82f3f451085f2e3ee543e8646063366f4468",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54me3zrm26",
-      "lastPublished": "2026-08-02T23:18:44.775Z",
+      "lastPublished": "2026-08-03T03:44:20.844Z",
       "slug": "the-near-future-of-node-development-with-james-snell-build-it-better-architectur"
     },
     "src/content/blog/adoping-vue-at-wikimedia-with-eric-gardner-vue-165.md": {
-      "contentHash": "bd6ae6fddaaf04d2b4b153ef714d845e8a889ce1078e6d559787bbec5b01f587",
+      "contentHash": "371a1d5ab7d0720fb1dbfb23af94bfd7f96a4c25d27f69ceeb02a54fd80fb378",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54meg2hx2p",
-      "lastPublished": "2026-08-02T23:18:45.110Z",
+      "lastPublished": "2026-08-03T03:44:21.025Z",
       "slug": "adoping-vue-at-wikimedia-with-eric-gardner-vue-165"
     },
     "src/content/blog/deep-dive-into-nuxt-with-mike-gallagher-vue-164.md": {
-      "contentHash": "1e9a573766c85a0b65692c258b2b840f7dcaef7c9e2c7ca835784189a970abe0",
+      "contentHash": "27afcb5d73c7a671b4db6e5523f052849f046f0498c24b6fa38103a5d53a15aa",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54meq5hf2b",
-      "lastPublished": "2026-08-02T23:18:45.445Z",
+      "lastPublished": "2026-08-03T03:44:21.229Z",
       "slug": "deep-dive-into-nuxt-with-mike-gallagher-vue-164"
     },
     "src/content/blog/exploring-code-design-vue-163.md": {
-      "contentHash": "5d7951eedc21f9fd24dce37c31b6add646313044e3539292c125777b2d9778fe",
+      "contentHash": "f29e9c5db999f5be1b582f6158801ac206e25230450df67886fc937957ea73e6",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54meyovf2b",
-      "lastPublished": "2026-08-02T23:18:45.720Z",
+      "lastPublished": "2026-08-03T03:44:21.419Z",
       "slug": "exploring-code-design-vue-163"
     },
     "src/content/blog/tech-journeys-from-different-perspectives-shes-in-tech-017.md": {
-      "contentHash": "d66659b78c77d159d2881a0bc09ea93017d7753a922af9672f757e9b0a90abd7",
+      "contentHash": "611e519ed50491f0346f16a1013260dae3be4416b85e09b58d997b724b44589f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mfdksp2p",
-      "lastPublished": "2026-08-02T23:18:46.071Z",
+      "lastPublished": "2026-08-03T03:44:21.577Z",
       "slug": "tech-journeys-from-different-perspectives-shes-in-tech-017"
     },
     "src/content/blog/scaling-vue-up-and-down-with-shawn-wildermuth-vue-162.md": {
-      "contentHash": "49f4198faa8e707c36d36bff297100a6ffdebab48f59842d0f9a54b896708cae",
+      "contentHash": "94c07cafcc48bcb5c399cac88fa7b55531fbd4f664092e3e19aadd94b273e58f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mfmd3h2p",
-      "lastPublished": "2026-08-02T23:18:46.365Z",
+      "lastPublished": "2026-08-03T03:44:21.746Z",
       "slug": "scaling-vue-up-and-down-with-shawn-wildermuth-vue-162"
     },
     "src/content/blog/s08e016-modern-web-podcast-quasar-with-luke-diebold.md": {
@@ -937,465 +937,465 @@
       "slug": "s08e016-modern-web-podcast-quasar-with-luke-diebold"
     },
     "src/content/blog/building-a-real-time-game-with-steffen-baumgart-vue-161.md": {
-      "contentHash": "1edd21de6e6798d90c8e03796f293b9908fb10f87eaabb304e7c27c359d226f9",
+      "contentHash": "95fa6a8b6507eadc0c2008bd18b33f782cfd360d28b2425e774b45fb32c37483",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mgxr6i2x",
-      "lastPublished": "2026-08-02T23:18:47.782Z",
+      "lastPublished": "2026-08-03T03:44:22.130Z",
       "slug": "building-a-real-time-game-with-steffen-baumgart-vue-161"
     },
     "src/content/blog/building-micro-frontends-with-lawrence-almeida-vue-160.md": {
-      "contentHash": "fdef25ff58634cfde0724ba7c8539150673ab5e80d48dc27f853fe8377d2001e",
+      "contentHash": "201c8690c937b8b6f5c4b5629f305be162241a19b44b71c3fb22ee42e3f6a7c0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mhqhge25",
-      "lastPublished": "2026-08-02T23:18:48.595Z",
+      "lastPublished": "2026-08-03T03:44:22.620Z",
       "slug": "building-micro-frontends-with-lawrence-almeida-vue-160"
     },
     "src/content/blog/brand-new-libraries-and-open-source-projects-dropping-with-david-khourshid-the-r.md": {
-      "contentHash": "bd5935cf3ecd171cb08a7aa98532d79cddfa06660e84afab3d6ce2fc02098969",
+      "contentHash": "6f07ee265bfed9b055c873d4f1b290490a329beeb0226c9a5c34915d291b276c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mhsyet2m",
-      "lastPublished": "2026-08-02T23:18:48.672Z",
+      "lastPublished": "2026-08-03T03:44:22.646Z",
       "slug": "brand-new-libraries-and-open-source-projects-dropping-with-david-khourshid-the-r"
     },
     "src/content/blog/wikifunctions-and-abstract-wikipedia.md": {
-      "contentHash": "62d20c73fba0be31961c54f3ceb29862064b73d06e82565314e20198518d1fcd",
+      "contentHash": "47acf8eaa10d08077902a7ad5af397bedd0af802c8777fa44d34f429a15c5b95",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mhvdme26",
-      "lastPublished": "2026-08-02T23:18:48.749Z",
+      "lastPublished": "2026-08-03T03:44:22.673Z",
       "slug": "wikifunctions-and-abstract-wikipedia"
     },
     "src/content/blog/using-vue-without-an-spa-with-ariel-from-maison-futari-vue-159.md": {
-      "contentHash": "69e466b2a4f34e3d13d87bfd1d98b836440574bdc7c8c5a1000a253478ddd77c",
+      "contentHash": "65795f302b045c6ba31e0c0dec792a78a1e6f46ec21f152cf692be7418b3da6f",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54miao2v22",
-      "lastPublished": "2026-08-02T23:18:49.122Z",
+      "lastPublished": "2026-08-03T03:44:22.900Z",
       "slug": "using-vue-without-an-spa-with-ariel-from-maison-futari-vue-159"
     },
     "src/content/blog/turning-a-side-project-into-business-with-ire-aderinokun-shes-in-tech-015.md": {
-      "contentHash": "b10c797513f1e05c3a5a98da552d52fda10642013951853a2ffc22cb5cc4dd92",
+      "contentHash": "caa051ab0b875d9c0bf1c169195dd31e617408e250338843d829eed4bc2642e0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mij5hm2t",
-      "lastPublished": "2026-08-02T23:18:49.400Z",
+      "lastPublished": "2026-08-03T03:44:23.070Z",
       "slug": "turning-a-side-project-into-business-with-ire-aderinokun-shes-in-tech-015"
     },
     "src/content/blog/product-design-and-authentication-with-david-atanda-vue-158.md": {
-      "contentHash": "ada78df5a43505fdfe3c56897082a886ae587df107337decb95ea6031f67f146",
+      "contentHash": "7ff38a46e5f98ee0e0112b4b286909b6e34e86de83cf8a6dee16def70d7c5368",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54misv6522",
-      "lastPublished": "2026-08-02T23:18:49.724Z",
+      "lastPublished": "2026-08-03T03:44:23.268Z",
       "slug": "product-design-and-authentication-with-david-atanda-vue-158"
     },
     "src/content/blog/developing-desktop-apps-with-vue-vue-157.md": {
-      "contentHash": "5f62dc35f7d94a548702757f4a52749d85ff841bb48aded7a92c6a32bdd3c352",
+      "contentHash": "073619843e26eb4c940605fed1805a3b323f58374d28a94e697acd7a3022b3a7",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mj4ind2i",
-      "lastPublished": "2026-08-02T23:18:50.034Z",
+      "lastPublished": "2026-08-03T03:44:23.454Z",
       "slug": "developing-desktop-apps-with-vue-vue-157"
     },
     "src/content/blog/s08e014-modern-web-podcast-elm-with-richard-feldman.md": {
-      "contentHash": "cdfa6be7c3c9ebe70a15efee2d33695348116d628e460ace303fa4ff9968ef5d",
+      "contentHash": "2c76d0ec6985f3b14cbe9ed9012f5a750e995feaa88eb2ec1a8cd5a76dee3d08",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mjms3o2h",
-      "lastPublished": "2026-08-02T23:18:50.573Z",
+      "lastPublished": "2026-08-03T03:44:23.674Z",
       "slug": "s08e014-modern-web-podcast-elm-with-richard-feldman"
     },
     "src/content/blog/javascript-marathon-vue-composition-api-in-action.md": {
-      "contentHash": "6c022bef547718dd4ff4a1efa24551251247b4fbca8166c557db548b5c1e9a24",
+      "contentHash": "b1a251d0e6120e75c93c1e20b6ee986d69081f2574f38e3634340826eebb057c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mkbi5426",
-      "lastPublished": "2026-08-02T23:18:51.246Z",
+      "lastPublished": "2026-08-03T03:44:23.930Z",
       "slug": "javascript-marathon-vue-composition-api-in-action"
     },
     "src/content/blog/progressive-web-apps-vs-mobile-apps-build-it-better-architecture.md": {
-      "contentHash": "b9010b6700b46123c773851fa615dd147dfcf7f8ddd2d08e1bb31602f9cfbd9d",
+      "contentHash": "33d676281ec6ba017db06d7e80ae3941eb639fcd44a716407a2235ec969b944d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mkdwcf2l",
-      "lastPublished": "2026-08-02T23:18:51.326Z",
+      "lastPublished": "2026-08-03T03:44:23.970Z",
       "slug": "progressive-web-apps-vs-mobile-apps-build-it-better-architecture"
     },
     "src/content/blog/developing-vuetify-with-john-leider-and-kael-watts-deuchar-vue-156.md": {
-      "contentHash": "ed43d7df241f7732640b05a4213f24ec2249433fe21f02c6161d29277acd5385",
+      "contentHash": "bc201494302287a693e799a955ee0a996e4cd7e7591a0062ba445dc81b6596b0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mkm4xe26",
-      "lastPublished": "2026-08-02T23:18:51.594Z",
+      "lastPublished": "2026-08-03T03:44:24.271Z",
       "slug": "developing-vuetify-with-john-leider-and-kael-watts-deuchar-vue-156"
     },
     "src/content/blog/diving-into-stackblitz-with-eric-simons-vue-155.md": {
-      "contentHash": "c680aa20865a67a1c5c84ff3691e1d725e4f24a17f64f09bf4b916485df7dee9",
+      "contentHash": "1f4896098bdee48f6810933cb6827377fdca52eefae21a451fd5e301b297929e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mld3hf2b",
-      "lastPublished": "2026-08-02T23:18:52.360Z",
+      "lastPublished": "2026-08-03T03:44:24.771Z",
       "slug": "diving-into-stackblitz-with-eric-simons-vue-155"
     },
     "src/content/blog/jamstack-graphql-apis-with-stepzen-ft-brian-rinaldi-jamhack.md": {
-      "contentHash": "12767b6bdc658750c248e4f52d6c6b057a1c84d10de6ec1066aa73d94d2b622f",
+      "contentHash": "5e6e7b0953c544b7527d371c7ba72cc2fb953cee37850a0e54473a2c971a207a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mlfwen2z",
-      "lastPublished": "2026-08-02T23:18:52.438Z",
+      "lastPublished": "2026-08-03T03:44:24.823Z",
       "slug": "jamstack-graphql-apis-with-stepzen-ft-brian-rinaldi-jamhack"
     },
     "src/content/blog/a-tale-of-refactoring-with-mariana-picolo-vue-154.md": {
-      "contentHash": "d4fd889b6cb0d5d2ac5bb74fbafa774d1fbc9bdffa8c8b14f8d956b4d0c4d65b",
+      "contentHash": "b9cd4ae758b685728a45168348c08e751f2e76e9ffe400f379df107fc40c3945",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mlpmox2m",
-      "lastPublished": "2026-08-02T23:18:52.757Z",
+      "lastPublished": "2026-08-03T03:44:25.224Z",
       "slug": "a-tale-of-refactoring-with-mariana-picolo-vue-154"
     },
     "src/content/blog/localize-any-vue-app-in-less-than-an-hour-with-titus-decali-vue-153.md": {
-      "contentHash": "f78ac8645bdc8a94b7e610f4dc0a9320aab535f5e3344c8af6f8c898db6befbe",
+      "contentHash": "a144e08b2e6df9b5eac17e9b86b7d0bf20ecd9c0366a55bede83fd13da834081",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mmlef72m",
-      "lastPublished": "2026-08-02T23:18:53.669Z",
+      "lastPublished": "2026-08-03T03:44:25.704Z",
       "slug": "localize-any-vue-app-in-less-than-an-hour-with-titus-decali-vue-153"
     },
     "src/content/blog/tech-talk-with-lindsay-wardell-the-importance-of-side-projects-and-networking.md": {
-      "contentHash": "02f33c9660ade0b1aafbfefe0a2539ffa04b97efe3a21526451cdd473a48e564",
+      "contentHash": "9aa03f74b92e0b82b7a63cd656507fdc8da71e4a732492c9f625c0038ef49e91",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mmntih2m",
-      "lastPublished": "2026-08-02T23:18:53.747Z",
+      "lastPublished": "2026-08-03T03:44:25.736Z",
       "slug": "tech-talk-with-lindsay-wardell-the-importance-of-side-projects-and-networking"
     },
     "src/content/blog/panelist-career-retrospective-vue-152.md": {
-      "contentHash": "d3b0f97f55a60ba1f8742722a99e1631a34f9f63b84e5dbbc4dd0db6b3dc5b86",
+      "contentHash": "11aceb7af83eac9ae73a96f131bf47299f85f5e0f3c35241dd3818c50a37438c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mmw22b2x",
-      "lastPublished": "2026-08-02T23:18:54.026Z",
+      "lastPublished": "2026-08-03T03:44:25.904Z",
       "slug": "panelist-career-retrospective-vue-152"
     },
     "src/content/blog/reactivity-in-vue-with-timi-omoyeni-vue-150.md": {
-      "contentHash": "ceab749024a9a0cbc2f08af2ae80572478b329b085580e22304da2d7fa6037cf",
+      "contentHash": "8db874522afb8a6453968a654e91e8077e6e27dab1ebc2e218e242c36836b642",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mn6kqt2i",
-      "lastPublished": "2026-08-02T23:18:54.303Z",
+      "lastPublished": "2026-08-03T03:44:26.074Z",
       "slug": "reactivity-in-vue-with-timi-omoyeni-vue-150"
     },
     "src/content/blog/s08e012-modern-web-podcast-modern-css-accessibility-with-stephanie-eckles.md": {
-      "contentHash": "90f8f2a62d466b12385a1c0060bdeb6ac789cb74c69289a466ea5b50221c68e0",
+      "contentHash": "e1d1654f341ef8dd894ef88b85903175435925991144cf589a08e31b690ba569",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mnqkty2f",
-      "lastPublished": "2026-08-02T23:18:54.889Z",
+      "lastPublished": "2026-08-03T03:44:26.318Z",
       "slug": "s08e012-modern-web-podcast-modern-css-accessibility-with-stephanie-eckles"
     },
     "src/content/blog/talking-seo-in-nuxt-with-anamol-soman-vue-149.md": {
-      "contentHash": "6e111abb239eed95d42c50c138c9f6b40168bdec20530ccad6854c59887c9bce",
+      "contentHash": "35c6071dfce32d30bd65c6850ea418707ac9ec93e9e2ba7b4da6e86e691ec796",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mnze2x2m",
-      "lastPublished": "2026-08-02T23:18:55.174Z",
+      "lastPublished": "2026-08-03T03:44:26.718Z",
       "slug": "talking-seo-in-nuxt-with-anamol-soman-vue-149"
     },
     "src/content/blog/javascript-after-dark-ft-lindsay-wardell.md": {
-      "contentHash": "ce94431a8fd14c20f9ccf78e55f7245af0586cc9e42dbcebd5dedc3f1a1fbc82",
+      "contentHash": "f5a9526d280ee794cac5ebe96fb7b58038fd8e5977681df1ae16a53d382b4ff8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mo3r7p2m",
-      "lastPublished": "2026-08-02T23:18:55.259Z",
+      "lastPublished": "2026-08-03T03:44:26.758Z",
       "slug": "javascript-after-dark-ft-lindsay-wardell"
     },
     "src/content/blog/ecstatic-for-xstate-with-maya-shavin-vue-147.md": {
-      "contentHash": "558626c3130f8889e8ca71a9cf444e69525eae543bf90fb263010c8617aa0d37",
+      "contentHash": "04f21e62ba2565b91a4fd76a1a0877ffe730a2cb7e4313eeb06760d5e26a7491",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54moqo5x2m",
-      "lastPublished": "2026-08-02T23:18:55.939Z",
+      "lastPublished": "2026-08-03T03:44:27.153Z",
       "slug": "ecstatic-for-xstate-with-maya-shavin-vue-147"
     },
     "src/content/blog/building-scalable-applications-with-quasar-vue-146.md": {
-      "contentHash": "c7eedb9071bb936aff658e2e0508949ed385532de52618bcc126ff19dfac9be6",
+      "contentHash": "f4282401502a811491de3638bb72d3cd7ab42f258f49532b2385a63b33a57b93",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mpxfie2t",
-      "lastPublished": "2026-08-02T23:18:57.207Z",
+      "lastPublished": "2026-08-03T03:44:27.805Z",
       "slug": "building-scalable-applications-with-quasar-vue-146"
     },
     "src/content/blog/s08e09-modern-web-podcast-sides-projects-with-shawn-wang.md": {
-      "contentHash": "7f8b340d1f0661a432f73d02f22f739f9ae951c0628ada155a34535bda2ae8b0",
+      "contentHash": "5d88947b9ac710ece73799f3ee32d080a4629b903d0617c3d7363f50a1e7e7b4",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mqr7hb2x",
-      "lastPublished": "2026-08-02T23:18:58.052Z",
+      "lastPublished": "2026-08-03T03:44:28.526Z",
       "slug": "s08e09-modern-web-podcast-sides-projects-with-shawn-wang"
     },
     "src/content/blog/vue-145-vue-3-and-socket-io-with-solomon-eseme.md": {
-      "contentHash": "0d83c9b1cc9ce59374c54d78cf4805f6766b5334f2d373cc0227a28acb30d164",
+      "contentHash": "e055ec828f5dc7a4d383365f36bc4b245b0e76eb5df2c10db004da328d9048bf",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mqzu6n2z",
-      "lastPublished": "2026-08-02T23:18:58.338Z",
+      "lastPublished": "2026-08-03T03:44:28.741Z",
       "slug": "vue-145-vue-3-and-socket-io-with-solomon-eseme"
     },
     "src/content/blog/vue-144-web-workers-in-vue-with-martins-onuoha.md": {
-      "contentHash": "2a915a8e75e17921891d5c5130e500402c4517f2228f7d9e16c5537a1667d57b",
+      "contentHash": "3788f55e88cf03d6dd1d8d503334a94ac3cc44171fb0f8e98bb16885218bb974",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrbyre2t",
-      "lastPublished": "2026-08-02T23:18:58.605Z",
+      "lastPublished": "2026-08-03T03:44:28.965Z",
       "slug": "vue-144-web-workers-in-vue-with-martins-onuoha"
     },
     "src/content/blog/vue-143-what-to-do-when-you-want-to-blog-with-vue.md": {
-      "contentHash": "bb732f7f3b38d6e5e008c31b37f8b8ede76f4d84a7b936eaeade23383e2f7fa2",
+      "contentHash": "99a80804cceefd9ee023924c4da377824778d4d11dfb1183ad6dfe00f1cb48fd",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrkja42t",
-      "lastPublished": "2026-08-02T23:18:58.882Z",
+      "lastPublished": "2026-08-03T03:44:29.126Z",
       "slug": "vue-143-what-to-do-when-you-want-to-blog-with-vue"
     },
     "src/content/blog/the-retro-week-of-march-28th-2021.md": {
-      "contentHash": "b31edd7f017f1a3903f3e23196b386492922ce6e55098dc09e8c4bac7bd79633",
+      "contentHash": "8f16287c242c7af36b68df54baedbb491b6a16825f1ef6aeabf0929231269f56",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrmwbl2m",
-      "lastPublished": "2026-08-02T23:18:58.963Z",
+      "lastPublished": "2026-08-03T03:44:29.159Z",
       "slug": "the-retro-week-of-march-28th-2021"
     },
     "src/content/blog/javascript-marathon-upgrade-to-typescript-with-vue-3.md": {
-      "contentHash": "0a7a40eff5b911c5e4dccf45671310bffacfe0f225650ee137c26f5a7750de97",
+      "contentHash": "817910d199b6ff537cf4ac9633718f648edaeda8bc43107d3b2a7b97b9438b1e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mrphgo2h",
-      "lastPublished": "2026-08-02T23:18:59.048Z",
+      "lastPublished": "2026-08-03T03:44:29.198Z",
       "slug": "javascript-marathon-upgrade-to-typescript-with-vue-3"
     },
     "src/content/blog/vue-142-from-nuxt-to-react-catching-up-with-debbie-obrien.md": {
-      "contentHash": "40aedc8320ff3fac3ed4b7ebb5394ef23b7eb94d3ca7c61e2ea9723b5ef86da0",
+      "contentHash": "3eb44eaf5fb1894ab0b7c7ad0fc24354d3feeaf55aafe65f26282ac24190c6a7",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54msjhed2m",
-      "lastPublished": "2026-08-02T23:18:59.904Z",
+      "lastPublished": "2026-08-03T03:44:29.626Z",
       "slug": "vue-142-from-nuxt-to-react-catching-up-with-debbie-obrien"
     },
     "src/content/blog/s08e06-modern-web-podcast-tailwind-jit-and-utility-css.md": {
-      "contentHash": "170adc1acf2a66a47c6c5d8102160c4b69a687d112f0eec370865933fca11409",
+      "contentHash": "dd24dbf15bd7f5e521d334cc03dcfac515cd806a1c41b0d76422c6701e6e6775",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mthmbv2l",
-      "lastPublished": "2026-08-02T23:19:00.890Z",
+      "lastPublished": "2026-08-03T03:44:30.093Z",
       "slug": "s08e06-modern-web-podcast-tailwind-jit-and-utility-css"
     },
     "src/content/blog/vue-141-diving-into-nuxt-3-with-daniel-roe.md": {
-      "contentHash": "63dd6fa798b71d52465f6f1d2ff7c666a7a9c0e7a7cef19734ab3bb5bde83ca8",
+      "contentHash": "468ff729d24b5bb2569caa12ff60d52c2d00c2ff95065b93a1bb8ed8c2cf4bf8",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mtq5pi2f",
-      "lastPublished": "2026-08-02T23:19:01.164Z",
+      "lastPublished": "2026-08-03T03:44:30.283Z",
       "slug": "vue-141-diving-into-nuxt-3-with-daniel-roe"
     },
     "src/content/blog/vue-140-exploring-vitesse-with-anthony-fu.md": {
-      "contentHash": "71c7ed8d3abeeffb20e7a82d37728cacafdc92c98124cb6f7e7d9b60233cee29",
+      "contentHash": "368b6836f6203ef97906e1356065b13e801f105df679a307a1c16fa0f9067d33",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mulpqf2z",
-      "lastPublished": "2026-08-02T23:19:04.780Z",
+      "lastPublished": "2026-08-03T03:44:30.683Z",
       "slug": "vue-140-exploring-vitesse-with-anthony-fu"
     },
     "src/content/blog/vue-139-exploring-inkline-with-alex-grozav.md": {
-      "contentHash": "a006ee4bc176d7b0e178869efc685a42d6ae3be911d415b325e3e152ab10b573",
+      "contentHash": "91483f149c6a1f6929c0a98085c89a02cee2f1b9cf5c2da8a408880b3bdd777a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mxj6uv22",
-      "lastPublished": "2026-08-02T23:19:05.130Z",
+      "lastPublished": "2026-08-03T03:44:30.887Z",
       "slug": "vue-139-exploring-inkline-with-alex-grozav"
     },
     "src/content/blog/vue-138-vue-and-ruby-with-austin-story.md": {
-      "contentHash": "d6b725046cc2866552947833c0b10aa16a3a314924083da6b98e9074c79b6e52",
+      "contentHash": "d11cf35178660d8e1b1b77ef3ddd6365dd7e69e5e7667045d88bfb8ec8d7b55e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mxtzhw2h",
-      "lastPublished": "2026-08-02T23:19:05.485Z",
+      "lastPublished": "2026-08-03T03:44:31.060Z",
       "slug": "vue-138-vue-and-ruby-with-austin-story"
     },
     "src/content/blog/vue-137-using-laravel-and-vuejs-in-an-enterprise-application.md": {
-      "contentHash": "7d9645f29a4c4b6634a7720c8b1f8f3a7c8cb92eae68205f20f7ee95c61f4e54",
+      "contentHash": "52247ca17258e4cc5a43a13683ba2525370f1ff656a5578f1b3ecdfc8150efc1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54my6blu25",
-      "lastPublished": "2026-08-02T23:19:05.823Z",
+      "lastPublished": "2026-08-03T03:44:31.236Z",
       "slug": "vue-137-using-laravel-and-vuejs-in-an-enterprise-application"
     },
     "src/content/blog/vue-136-ionic-and-vue-with-michael-tintiuc.md": {
-      "contentHash": "1cebc6ab1ca7c74355289f1585e8175fedadff73d22cb6c36ffe5fd5b678e232",
+      "contentHash": "f02264ae9cf199cfbe439f44a31bb684e8e6cc4da8e990f13779965151ef941e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54myhz3i2f",
-      "lastPublished": "2026-08-02T23:19:06.138Z",
+      "lastPublished": "2026-08-03T03:44:31.421Z",
       "slug": "vue-136-ionic-and-vue-with-michael-tintiuc"
     },
     "src/content/blog/vue-135-netlify-cms-and-nuxt-with-daniel-kelly.md": {
-      "contentHash": "a3e50a35c58744955ab34a536060bdc96a8e234775ddc414425e17080c519fdd",
+      "contentHash": "f273ec084c99710e4734e102d78076ff55383375cc2ba5343161c61d274b656a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mypq3l2m",
-      "lastPublished": "2026-08-02T23:19:06.398Z",
+      "lastPublished": "2026-08-03T03:44:31.575Z",
       "slug": "vue-135-netlify-cms-and-nuxt-with-daniel-kelly"
     },
     "src/content/blog/vue-133-teach-vuejs-with-erik-hanchett.md": {
-      "contentHash": "97638eec027b91321f1f94a6a57e2db4f6c1f7014c4721f29d51e2ae989cfca2",
+      "contentHash": "f1df6d961042980447e437034028df8228ae1a6e25f5e1ab0614e814232650f2",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54myytef2z",
-      "lastPublished": "2026-08-02T23:19:06.692Z",
+      "lastPublished": "2026-08-03T03:44:31.781Z",
       "slug": "vue-133-teach-vuejs-with-erik-hanchett"
     },
     "src/content/blog/vue-132-vue-reactivity-with-oscar-spencer.md": {
-      "contentHash": "be6e1dc5b77dd89321bd7f5d40cdbf3af124b531fd5c6aab015a8f03026f0b5a",
+      "contentHash": "f00e279b49db3a7a287a362b7ed5ca837ab0d34e0a1dd9d3f5a18f98139c4851",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mzdzfj2x",
-      "lastPublished": "2026-08-02T23:19:07.059Z",
+      "lastPublished": "2026-08-03T03:44:31.979Z",
       "slug": "vue-132-vue-reactivity-with-oscar-spencer"
     },
     "src/content/blog/vue-131-creating-content-with-mitchell-romney.md": {
-      "contentHash": "e965cee20cc2e8f513ab7587fd2dc743e4c99a4fe85a0b152da8b33cf6595365",
+      "contentHash": "66efedd754718f42d7662acc8e3451bd9d5c942369c93dd69cde5cca5f7b4287",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mznffu25",
-      "lastPublished": "2026-08-02T23:19:07.371Z",
+      "lastPublished": "2026-08-03T03:44:32.172Z",
       "slug": "vue-131-creating-content-with-mitchell-romney"
     },
     "src/content/blog/vue-129-graphql-and-vue-with-anjolaoluwa-adebayo-oyetoro.md": {
-      "contentHash": "f8534905d43a195ee3d9ecda281a29ddc159986b80ea7fa987834c1e0c1171bd",
+      "contentHash": "a505047a70876c6f91168e22d4f4bb3f5f9be0ce9e95ab8926254211b0ec6a46",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54mzvvzn2z",
-      "lastPublished": "2026-08-02T23:19:07.649Z",
+      "lastPublished": "2026-08-03T03:44:32.369Z",
       "slug": "vue-129-graphql-and-vue-with-anjolaoluwa-adebayo-oyetoro"
     },
     "src/content/blog/vue-130-nuxt-and-storyblok-with-alba-silvente-fuentes.md": {
-      "contentHash": "79c07ad5be7d5a615cd533c8c51c6f31bef406bc62ac90ed67468a45a781c5bf",
+      "contentHash": "8ae23015d72ced11263a6f509f42ed28425228c4849ba443715d9db1c2fe9fab",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n265gt2m",
-      "lastPublished": "2026-08-02T23:19:07.920Z",
+      "lastPublished": "2026-08-03T03:44:32.608Z",
       "slug": "vue-130-nuxt-and-storyblok-with-alba-silvente-fuentes"
     },
     "src/content/blog/vue-128-templates-to-scoped-slots-reusable-components-with-michael-thiessen.md": {
-      "contentHash": "2a75df7af0880e7a9b92a87e8651862bd80b722486543047fa8c37a068684f05",
+      "contentHash": "ca2886e2ebfda5c26d69b425ad7fdb947e43f452555acba62bd9d506e967886a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n2jpsv2z",
-      "lastPublished": "2026-08-02T23:19:08.292Z",
+      "lastPublished": "2026-08-03T03:44:32.805Z",
       "slug": "vue-128-templates-to-scoped-slots-reusable-components-with-michael-thiessen"
     },
     "src/content/blog/vue-127-introduction-to-svelte-with-mark-volkmann.md": {
-      "contentHash": "6a9240dabc2f669d75c46afc54b14c08ab020d03ddcc1eeaeebb590e5e57954e",
+      "contentHash": "e763d219d0ca4717dc686b5baa7f1022505c793d1afaad8c17c0d2f1e17c8a06",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n35kfn2l",
-      "lastPublished": "2026-08-02T23:19:08.948Z",
+      "lastPublished": "2026-08-03T03:44:33.225Z",
       "slug": "vue-127-introduction-to-svelte-with-mark-volkmann"
     },
     "src/content/blog/vov-126-vue-composition-api-and-nuxt-with-daniel-roe.md": {
-      "contentHash": "69068e2b39cc4657b893c6696f1877e08c565ebd85b494a119b925ac130ed146",
+      "contentHash": "7b202173b745ed85e62c8fd96d9b316157e326889bcd20f11055a7d082c013f1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n3fdf426",
-      "lastPublished": "2026-08-02T23:19:09.198Z",
+      "lastPublished": "2026-08-03T03:44:33.486Z",
       "slug": "vov-126-vue-composition-api-and-nuxt-with-daniel-roe"
     },
     "src/content/blog/vov-125-react-and-typescript-for-a-vue-developer-with-john-datserakis.md": {
-      "contentHash": "17389e1ff0f0a9e898bb29767b97855dfa0e34de66c20f6eba7fe888562d871a",
+      "contentHash": "b50fc729330eacd4b48115f16380ec803be94868546d4910e715291d2825b218",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n3ou5425",
-      "lastPublished": "2026-08-02T23:19:09.515Z",
+      "lastPublished": "2026-08-03T03:44:33.685Z",
       "slug": "vov-125-react-and-typescript-for-a-vue-developer-with-john-datserakis"
     },
     "src/content/blog/vov-124-why-end-to-end-test-using-cypress-with-gleb-bahmutov.md": {
-      "contentHash": "830a80814d7d68cfff7da9df779c3b30200e4a525d0487f43547b1cffffa1ffb",
+      "contentHash": "cc59b5104196db044fa0634980545c1476ad377c4fd3702ff53a06092b1331ca",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n3ynme2t",
-      "lastPublished": "2026-08-02T23:19:09.836Z",
+      "lastPublished": "2026-08-03T03:44:33.880Z",
       "slug": "vov-124-why-end-to-end-test-using-cypress-with-gleb-bahmutov"
     },
     "src/content/blog/vov-123-what-to-expect-when-youre-expecting-vue-3-with-raymond-camden.md": {
-      "contentHash": "021bb8942f97e17dad93b0e738c84d6fe3a4d7e6d4fd2da6578fe47bc1b0e3f9",
+      "contentHash": "1866b851fdcfc3fa8cdcf6f560bb67af3c1c6ae7443529241e478ddacd95247c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n4coui2f",
-      "lastPublished": "2026-08-02T23:19:10.163Z",
+      "lastPublished": "2026-08-03T03:44:34.083Z",
       "slug": "vov-123-what-to-expect-when-youre-expecting-vue-3-with-raymond-camden"
     },
     "src/content/blog/vov-121-reusable-components-with-michael-thiessen.md": {
-      "contentHash": "967988d18a59515299fb102b80dd031c59664ce6904a570dabe83a627d88126c",
+      "contentHash": "bd2f77f56c052fedb4d3bd487cac5a7389e3be8debf9e185693e3dbe3cd41da3",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n4ly3x2p",
-      "lastPublished": "2026-08-02T23:19:10.464Z",
+      "lastPublished": "2026-08-03T03:44:34.254Z",
       "slug": "vov-121-reusable-components-with-michael-thiessen"
     },
     "src/content/blog/vov-120-vue-formulate-with-justin-schroeder.md": {
-      "contentHash": "9457caceb3c0291cb4077bd903f12e645116e697b680b300727899c786a92d6c",
+      "contentHash": "50b2dd3ffd4e1d06b58b6c561954df67c2ef259eded8ecbd9b8622ccb7ebde97",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n4wjyh2p",
-      "lastPublished": "2026-08-02T23:19:10.814Z",
+      "lastPublished": "2026-08-03T03:44:34.522Z",
       "slug": "vov-120-vue-formulate-with-justin-schroeder"
     },
     "src/content/blog/vov-119-climate-change-and-the-tech-community-with-callum-macrae.md": {
-      "contentHash": "36504590047e6ff7c586766652a87cc8bba864205b266095fc40837ab68f5416",
+      "contentHash": "87fd2c1a7e9874acb08c39e03ca80d6d2ecb7e6587257ce130b137568332cb26",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n56t7x2m",
-      "lastPublished": "2026-08-02T23:19:11.082Z",
+      "lastPublished": "2026-08-03T03:44:34.678Z",
       "slug": "vov-119-climate-change-and-the-tech-community-with-callum-macrae"
     },
     "src/content/blog/vov-118-nuxtify-everything-with-debbie-obrien.md": {
-      "contentHash": "8157c79c0f0ba077fbdabf2399f88dc005b972b38839287db1969ccd33d05ca8",
+      "contentHash": "7573f1232cc1788726964740e4a050bfaf8566656c01ce161b4654f99e04a2a3",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n5hxgv2z",
-      "lastPublished": "2026-08-02T23:19:11.379Z",
+      "lastPublished": "2026-08-03T03:44:34.852Z",
       "slug": "vov-118-nuxtify-everything-with-debbie-obrien"
     },
     "src/content/blog/vov-117-building-vue-storefront-with-filip-rakowski.md": {
-      "contentHash": "eef336ca021498859e0711cca7f9be4527dffa6a4f96ac171f17a3cd48f0e51f",
+      "contentHash": "e3794b920f12e9f4094ded1830df7e993b06d78fd707e5682f8c950394d7761c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n5tncm2t",
-      "lastPublished": "2026-08-02T23:19:11.770Z",
+      "lastPublished": "2026-08-03T03:44:35.008Z",
       "slug": "vov-117-building-vue-storefront-with-filip-rakowski"
     },
     "src/content/blog/vov-115-vue-vapper-vite-frameworks-built-using-vue.md": {
-      "contentHash": "b51dce760cd5f8a500fd8f4c1bf63522c6c94c2709535fd35cea475d68d83fd1",
+      "contentHash": "6f15a19cf15b130c5a60b0c7d328db73d80f51d76eef6e40a95100499bd8cd1a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n6532u25",
-      "lastPublished": "2026-08-02T23:19:12.078Z",
+      "lastPublished": "2026-08-03T03:44:35.210Z",
       "slug": "vov-115-vue-vapper-vite-frameworks-built-using-vue"
     },
     "src/content/blog/vov-114-pro-tips-on-building-vue-applications.md": {
-      "contentHash": "2b0fc45d1271f83f22fc48b25949a856a476befd587b293f1dcd79bd914c09be",
+      "contentHash": "05c15fd5263dfb771efc95dc1ded4bfe5c493008bc6cd4b34fc95a56ef5c7984",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n6gaz425",
-      "lastPublished": "2026-08-02T23:19:12.379Z",
+      "lastPublished": "2026-08-03T03:44:35.363Z",
       "slug": "vov-114-pro-tips-on-building-vue-applications"
     },
     "src/content/blog/vov-113-css-and-components-with-maya-shavin.md": {
-      "contentHash": "fcb2403305d72f1ea58e2481fc9bc3a2e741016f0360fb6a02696bbe2c2571ff",
+      "contentHash": "5c9576b8e3c6937bb8d98954a635302d4d222e3e602fc6be9c298ef6be4e468a",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n6q2ie25",
-      "lastPublished": "2026-08-02T23:19:12.702Z",
+      "lastPublished": "2026-08-03T03:44:35.597Z",
       "slug": "vov-113-css-and-components-with-maya-shavin"
     },
     "src/content/blog/vov-112-build-moblie-apps-with-nativescript-vue-with-tiago-alves.md": {
-      "contentHash": "b1d2b5eb9ae4c01380eca6fb3ef364dd20aa0993c1406391b6d96ff42c350acd",
+      "contentHash": "c678483d0c1412816d42c393365a03f73b1f518ca86f4cae89d564b048748c3d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n74ixl2i",
-      "lastPublished": "2026-08-02T23:19:13.130Z",
+      "lastPublished": "2026-08-03T03:44:35.753Z",
       "slug": "vov-112-build-moblie-apps-with-nativescript-vue-with-tiago-alves"
     },
     "src/content/blog/vov-111-educating-about-vuejs-with-erik-hanchett.md": {
-      "contentHash": "44f369d1a21b3c91fd8015c7ede7fdb5c50dc0a16e6707606c1faa5a8d7ab4f9",
+      "contentHash": "ad0c4a361de6f01a62037f51dbd39655ae5926ab63e64467161b24174e4b68b0",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n7ftwn22",
-      "lastPublished": "2026-08-02T23:19:13.408Z",
+      "lastPublished": "2026-08-03T03:44:35.939Z",
       "slug": "vov-111-educating-about-vuejs-with-erik-hanchett"
     },
     "src/content/blog/vov-110-vuetify-next-with-john-leider.md": {
-      "contentHash": "9ec249766addaf3c2e0bcd68b8cee39775df89d6d82f6563a40f62f32627c272",
+      "contentHash": "46259966e66a63b1b32487d82d237e64d11e33226a6166a5f201951faf88fd6d",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54n7pidi23",
-      "lastPublished": "2026-08-02T23:19:13.725Z",
+      "lastPublished": "2026-08-03T03:44:36.102Z",
       "slug": "vov-110-vuetify-next-with-john-leider"
     },
     "src/content/blog/vov-109-migrating-from-backbone-to-vue-with-brad-balfour.md": {
-      "contentHash": "4bf0244e5143b4c268e0347b2461b06ed58f7417706862fd64fa624cb33be47a",
+      "contentHash": "896202278da3dc644923ac8a505c75ad3a4c482a8c0a13141ab71e91cec8b065",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54na2qmx2m",
-      "lastPublished": "2026-08-02T23:19:14.102Z",
+      "lastPublished": "2026-08-03T03:44:36.280Z",
       "slug": "vov-109-migrating-from-backbone-to-vue-with-brad-balfour"
     },
     "src/content/blog/vov-108-inside-vue-3-with-gregg-pollack.md": {
-      "contentHash": "9924b2ad7477754e86c6936f41817287fdc05a7eb25a1f30eed139d4886629f7",
+      "contentHash": "dc1cb1e103c352dcd38b0f118a5996771e4deddf49aa9870ed5db484eb9b85c3",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54nah27q2f",
-      "lastPublished": "2026-08-02T23:19:14.496Z",
+      "lastPublished": "2026-08-03T03:44:36.499Z",
       "slug": "vov-108-inside-vue-3-with-gregg-pollack"
     },
     "src/content/blog/vov-107-cypress-testing-with-amir-rustamzadeh.md": {
-      "contentHash": "6de9c2f84f0429022753809dbebbb53157fc2f899bbc59f470f8b2afbb854fc4",
+      "contentHash": "614027197b7b528a8761f473ab0ff14be7d3e91d5350061e90e16b81ec092717",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54nb5i2t2i",
-      "lastPublished": "2026-08-02T23:19:15.231Z",
+      "lastPublished": "2026-08-03T03:44:36.818Z",
       "slug": "vov-107-cypress-testing-with-amir-rustamzadeh"
     },
     "src/content/blog/vov-106-component-communication.md": {
-      "contentHash": "d6eb1ba3960e4c457dc13f5d9eed5fd15feb2b5c3961ae79881b66a93ae50612",
+      "contentHash": "5fb04ed731bb9ca7252fd8a29d5455c91628ac1daf32f86a8c12850620beb77e",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54nbzkrx2p",
-      "lastPublished": "2026-08-02T23:19:16.157Z",
+      "lastPublished": "2026-08-03T03:44:37.199Z",
       "slug": "vov-106-component-communication"
     },
     "src/content/blog/vov-105-the-vue-component-libraries-with-gwendolyn-faraday.md": {
-      "contentHash": "2322fb2b287ab38c3d40ea86738652a8590052fe65c072769359d231e767b0a5",
+      "contentHash": "48dc52605eb94a2dd66cf174f39f5db734633e533f84337305be95bf83c49322",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ncf3it2m",
-      "lastPublished": "2026-08-02T23:19:16.535Z",
+      "lastPublished": "2026-08-03T03:44:37.372Z",
       "slug": "vov-105-the-vue-component-libraries-with-gwendolyn-faraday"
     },
     "src/content/blog/vov-104-exploring-graphql-in-vue-with-vladimir-novick.md": {
-      "contentHash": "e0a090a1377e9a9f2e317121eb75ac2e205f5abc316353c705dd9f2483487b69",
+      "contentHash": "dd0d046398e3623087ada46def6d3b0e35c3ff5c5daeb4a7dce829826c847812",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ncokdo2h",
-      "lastPublished": "2026-08-02T23:19:16.840Z",
+      "lastPublished": "2026-08-03T03:44:37.561Z",
       "slug": "vov-104-exploring-graphql-in-vue-with-vladimir-novick"
     },
     "src/content/blog/vov-103-progressive-form-validation-instance-aware-vuex-modules-with-matt-brophy.md": {
-      "contentHash": "143f8cee8a976b80db9af2b09ec426c2139e7aefe6c7e02abf4e75225cb8324a",
+      "contentHash": "aa65d60275fb7a90d4bc2558f9d699bbc3bcf5834aa588d8f03401219aeb53b1",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ncx3xf22",
-      "lastPublished": "2026-08-02T23:19:17.119Z",
+      "lastPublished": "2026-08-03T03:44:37.725Z",
       "slug": "vov-103-progressive-form-validation-instance-aware-vuex-modules-with-matt-brophy"
     },
     "src/content/blog/vov-102-components-from-the-ground-up.md": {
-      "contentHash": "cb1be11cb62351cc195a9da9b4ea4497bd21c0c208729b92105790931be54115",
+      "contentHash": "3998aed06223ad76cd8beab64effb0e8fbf95bb2f0b38a3f26eb9c9eb2b87b24",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ndbok32m",
-      "lastPublished": "2026-08-02T23:19:17.467Z",
+      "lastPublished": "2026-08-03T03:44:37.894Z",
       "slug": "vov-102-components-from-the-ground-up"
     },
     "src/content/blog/vov-101-real-life-projects-using-vue.md": {
-      "contentHash": "ff8eea53059910575a39a4bf57eddeb0a18a1180a2e7e1b411bebdf0f7cd7e0d",
+      "contentHash": "f45e9be4d2cdcdda33f281d123e7baf5baf996a15b088577e99dcc339416e3b3",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ndjzdf22",
-      "lastPublished": "2026-08-02T23:19:17.739Z",
+      "lastPublished": "2026-08-03T03:44:38.083Z",
       "slug": "vov-101-real-life-projects-using-vue"
     },
     "src/content/blog/vov-100-views-on-vue-celebrates-100th-episode.md": {
-      "contentHash": "2105751884fbfa6867e882efdbec4275a696aef8d45c1b6a2a379316584610d2",
+      "contentHash": "5b2cd245269b57c441a65de4966aabdd5723d239d3e573d5bcd9f8418e0b976c",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ndskqn2b",
-      "lastPublished": "2026-08-02T23:19:18.026Z",
+      "lastPublished": "2026-08-03T03:44:38.264Z",
       "slug": "vov-100-views-on-vue-celebrates-100th-episode"
     },
     "src/content/blog/vov-098-gridsome-and-gridsome-plugins.md": {
-      "contentHash": "2cda5f86f19a31ce12a621405b31910e43c39038b97062bb197943277561188f",
+      "contentHash": "da6a1d80fc96941b0272644ef3524d5c4d815799679e501162d57bef2dd4a997",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54ne3epb2x",
-      "lastPublished": "2026-08-02T23:19:18.313Z",
+      "lastPublished": "2026-08-03T03:44:38.422Z",
       "slug": "vov-098-gridsome-and-gridsome-plugins"
     },
     "src/content/blog/vov-096-cordova-and-vue-with-daniel-purcell.md": {
-      "contentHash": "46f5fc5217ff10114219ce6c4b927321ed85fe14925bfd0425d935f5afb32965",
+      "contentHash": "b644cba3090829c8cab6bd1d25673818cffd59a76b3ab287d7bd22923903d732",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54neewl425",
-      "lastPublished": "2026-08-02T23:19:18.622Z",
+      "lastPublished": "2026-08-03T03:44:38.624Z",
       "slug": "vov-096-cordova-and-vue-with-daniel-purcell"
     },
     "src/content/blog/vov-095-new-to-vue-with-mirjam-bauerlein.md": {
-      "contentHash": "6f9e5a4349e78f7f21d676a4f51a5bb05567ddd3634788f6132013f95303da16",
+      "contentHash": "64b79d5b4d45eab2c6c162189c6f610eda59085bfa01c5497a803d3edf1080dd",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54neovvw2h",
-      "lastPublished": "2026-08-02T23:19:18.949Z",
+      "lastPublished": "2026-08-03T03:44:38.801Z",
       "slug": "vov-095-new-to-vue-with-mirjam-bauerlein"
     },
     "src/content/blog/vov-094-head-to-toe-development-set-up.md": {
-      "contentHash": "ae72641fca05e06391f2aa0e89720c26dcd8fd34fe91fe230ec6f30e455ebac5",
+      "contentHash": "8e08989183f2fc56f6258a4ffe00072a98c3f9e80e68aa7cc32002bc05430216",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54neybiz2x",
-      "lastPublished": "2026-08-02T23:19:19.256Z",
+      "lastPublished": "2026-08-03T03:44:39.004Z",
       "slug": "vov-094-head-to-toe-development-set-up"
     },
     "src/content/blog/vov-093-vuetensils-with-austin-gil.md": {
-      "contentHash": "13e4e8873d45b5ea06a1330f6ec9adc7df9a7d3290868d1da99a4c6e18f892bc",
+      "contentHash": "a179e121fb33a68594ab6faa396edffec554bfa02104d383ab911493c451cb97",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54nfaw3e25",
-      "lastPublished": "2026-08-02T23:19:19.540Z",
+      "lastPublished": "2026-08-03T03:44:39.162Z",
       "slug": "vov-093-vuetensils-with-austin-gil"
     },
     "src/content/blog/vov-091-meet-our-new-panel.md": {
-      "contentHash": "6abc442c574163b800b371efac3e0c5f761d9dac9a7fd91634c55be3e3cbb512",
+      "contentHash": "62795f1805e439902b97ca1b9486bc8bc7e191f9237eb3bc96b84648b600c7fe",
       "atUri": "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3ms54nfjbn52l",
-      "lastPublished": "2026-08-02T23:19:19.814Z",
+      "lastPublished": "2026-08-03T03:44:39.313Z",
       "slug": "vov-091-meet-our-new-panel"
     }
   },
