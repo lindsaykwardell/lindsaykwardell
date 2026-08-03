@@ -76,6 +76,16 @@ jobs:
           fi
           npx tsx scripts/announce-devto.ts
 
+      - name: Create Buttondown email drafts
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: |
+          if [ -z "$BUTTONDOWN_API_KEY" ]; then
+            echo "::warning::BUTTONDOWN_API_KEY secret not set — skipping Buttondown drafts. Add it under repo Settings → Secrets."
+            exit 0
+          fi
+          npx tsx scripts/announce-buttondown.ts
+
       - name: Sync Sequoia Bluesky refs into frontmatter
         run: npx tsx scripts/sync-social-to-frontmatter.ts
 

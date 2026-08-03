@@ -1,5 +1,6 @@
 ---
 import SocialLinks from './SocialLinks.astro'
+import EmailSubscribe from './EmailSubscribe.astro'
 
 interface Props {
   /** Icons only (About). Default is the post credit block. */
@@ -33,6 +34,9 @@ const { iconsOnly = false, variant = iconsOnly ? 'icons' : 'post' } = Astro.prop
           <SocialLinks class="post-signoff__social" />
         </div>
       </div>
+      <div class="post-signoff__email">
+        <EmailSubscribe />
+      </div>
     </section>
   ) : (
     <div class="signoff-icons">
@@ -44,13 +48,14 @@ const { iconsOnly = false, variant = iconsOnly ? 'icons' : 'post' } = Astro.prop
 <style>
   .post-signoff {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.25rem;
     margin: 0;
     padding-top: 1.5rem;
     border-top: 1px solid
       color-mix(in srgb, var(--color-divider) 40%, transparent);
-    max-width: 28rem;
+    max-width: 40rem;
   }
 
   .post-signoff__portrait {
@@ -78,7 +83,15 @@ const { iconsOnly = false, variant = iconsOnly ? 'icons' : 'post' } = Astro.prop
     flex-direction: column;
     gap: 0.35rem;
     min-width: 0;
-    padding-top: 0.1rem;
+    flex: 0 1 auto;
+  }
+
+  .post-signoff__email {
+    flex: 0 1 17rem;
+    width: 17rem;
+    max-width: 100%;
+    height: fit-content;
+    align-self: center;
   }
 
   .post-signoff__name {
@@ -130,14 +143,28 @@ const { iconsOnly = false, variant = iconsOnly ? 'icons' : 'post' } = Astro.prop
     border-radius: 2px;
   }
 
-  @media (max-width: 480px) {
+  /* Side-by-side gets tight: keep email compact under the bio, not stretched */
+  @media (max-width: 720px) {
     .post-signoff {
-      gap: 0.85rem;
+      align-items: flex-start;
     }
 
+    .post-signoff__email {
+      flex: 1 1 100%;
+      width: auto;
+      margin-left: calc(4.5rem + 0.85rem);
+      align-self: stretch;
+    }
+  }
+
+  @media (max-width: 480px) {
     .post-signoff__img {
       width: 3.75rem;
       height: 3.75rem;
+    }
+
+    .post-signoff__email {
+      margin-left: calc(3.75rem + 0.85rem);
     }
   }
 </style>

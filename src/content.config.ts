@@ -28,6 +28,7 @@ const blog = defineCollection({
     mastodonUrl: z.string().url().optional(),
     devtoId: z.coerce.string().optional(),
     devtoUrl: z.string().url().optional(),
+    buttondownId: z.coerce.string().optional(),
     gazeId: z.string().optional(),
     weekOf: z.string().optional(),
   }),

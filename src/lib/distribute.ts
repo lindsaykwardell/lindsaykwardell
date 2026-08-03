@@ -7,19 +7,20 @@ export type Destination =
   | 'mastodon'
   | 'standard-site'
   | 'devto'
+  | 'buttondown'
   | 'pixelfed'
 
 export const DESTINATIONS_BY_TYPE: Record<string, Destination[]> = {
-  Programming: ['bluesky', 'mastodon', 'standard-site', 'devto'],
-  Personal: ['bluesky', 'mastodon', 'standard-site'],
-  Blog: ['bluesky', 'mastodon', 'standard-site'], // legacy
-  Poetry: ['bluesky', 'mastodon', 'standard-site'],
-  Fiction: ['bluesky', 'mastodon', 'standard-site'],
+  Programming: ['bluesky', 'mastodon', 'standard-site', 'devto', 'buttondown'],
+  Personal: ['bluesky', 'mastodon', 'standard-site', 'buttondown'],
+  Blog: ['bluesky', 'mastodon', 'standard-site', 'buttondown'], // legacy
+  Poetry: ['bluesky', 'mastodon', 'standard-site', 'buttondown'],
+  Fiction: ['bluesky', 'mastodon', 'standard-site', 'buttondown'],
   Photo: ['bluesky', 'mastodon'],
-  Podcast: ['bluesky', 'mastodon', 'standard-site'],
-  Video: ['bluesky', 'mastodon', 'standard-site'],
-  Meetup: ['bluesky', 'mastodon', 'standard-site'],
-  Conference: ['bluesky', 'mastodon', 'standard-site'],
+  Podcast: ['bluesky', 'mastodon', 'standard-site', 'buttondown'],
+  Video: ['bluesky', 'mastodon', 'standard-site', 'buttondown'],
+  Meetup: ['bluesky', 'mastodon', 'standard-site', 'buttondown'],
+  Conference: ['bluesky', 'mastodon', 'standard-site', 'buttondown'],
 }
 
 export function destinationsFor(post: {

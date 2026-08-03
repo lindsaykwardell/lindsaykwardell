@@ -1,0 +1,83 @@
+---
+/** Buttondown signup — sits beside post author credit. */
+const username =
+  import.meta.env.PUBLIC_BUTTONDOWN_USERNAME?.trim() || 'lindsaykwardell'
+const action = `https://buttondown.com/api/emails/embed-subscribe/${username}`
+---
+
+<form action={action} method="post" class="email-subscribe">
+  <label class="email-subscribe__label" for="email-subscribe-input">
+    Get new posts by email
+  </label>
+  <div class="email-subscribe__row">
+    <input
+      id="email-subscribe-input"
+      type="email"
+      name="email"
+      required
+      autocomplete="email"
+      placeholder="you@example.com"
+      class="email-subscribe__input"
+    />
+    <button type="submit" class="email-subscribe__button">Subscribe</button>
+  </div>
+</form>
+
+<style>
+  .email-subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .email-subscribe__label {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .email-subscribe__row {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  .email-subscribe__input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.4rem 0;
+    border: none;
+    border-bottom: 1px solid var(--color-divider);
+    background: transparent;
+    color: var(--color-foreground);
+    font-size: 0.875rem;
+    font-family: var(--font-body);
+  }
+
+  .email-subscribe__input::placeholder {
+    color: color-mix(in srgb, var(--color-muted) 65%, transparent);
+  }
+
+  .email-subscribe__input:focus {
+    outline: none;
+    border-bottom-color: var(--color-hover);
+  }
+
+  .email-subscribe__button {
+    flex-shrink: 0;
+    padding: 0.35rem 0;
+    border: none;
+    background: transparent;
+    color: var(--color-hover);
+    font-size: 0.875rem;
+    font-family: var(--font-title);
+    cursor: pointer;
+  }
+
+  .email-subscribe__button:hover {
+    opacity: 0.8;
+  }
+</style>

@@ -29,7 +29,9 @@
     "migrate:content": "tsx scripts/migrate-shows-and-photos.ts",
     "optimize:covers": "tsx scripts/optimize-cover-images.ts",
     "webmentions:send": "tsx scripts/send-webmentions.ts",
-    "webmentions:send:dry": "tsx scripts/send-webmentions.ts --dry-run"
+    "webmentions:send:dry": "tsx scripts/send-webmentions.ts --dry-run",
+    "buttondown:draft": "tsx scripts/announce-buttondown.ts",
+    "buttondown:draft:dry": "tsx scripts/announce-buttondown.ts --dry-run"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
