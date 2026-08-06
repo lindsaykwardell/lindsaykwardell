@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import ReadingIssue from '@/components/ReadingIssue.astro'
 import PhotosArchive from '@/components/PhotosArchive.astro'
 import TypeArchive from '@/components/TypeArchive.astro'
+import Signoff from '@/components/Signoff.astro'
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import { getPublicationUri } from '@/lib/standard-site'
@@ -28,8 +29,7 @@ const TYPE_ORDER = [
 
 const rawTypeFilter = Astro.url.searchParams.get('type')
 // ?type=Blog still works (renamed to Personal)
-const typeFilter =
-  rawTypeFilter === 'Blog' ? 'Personal' : rawTypeFilter
+const typeFilter = rawTypeFilter === 'Blog' ? 'Personal' : rawTypeFilter
 const publicationAtUri = getPublicationUri()
 
 const allPosts = (await getCollection('blog'))
@@ -73,8 +73,7 @@ const lead = allPosts.find((p) => isReadingLeadType(p.data.type))
 
 const recent = allPosts
   .filter(
-    (p) =>
-      isReadingRecentType(p.data.type) && (!lead || p.id !== lead.id),
+    (p) => isReadingRecentType(p.data.type) && (!lead || p.id !== lead.id),
   )
   .slice(0, 5)
 
@@ -141,4 +140,5 @@ const pageTitle = typeFilter
       />
     )
   }
+  <Signoff variant="footer" />
 </BaseLayout>

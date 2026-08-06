@@ -3,14 +3,25 @@
 const username =
   import.meta.env.PUBLIC_BUTTONDOWN_USERNAME?.trim() || 'lindsaykwardell'
 const action = `https://buttondown.com/api/emails/embed-subscribe/${username}`
+
+interface Props {
+  noHeader?: boolean
+}
+
+const noHeader = Astro.props.noHeader ?? false
 ---
 
 <form action={action} method="post" class="email-subscribe">
-  <label class="email-subscribe__label" for="email-subscribe-input">
-    Get new posts by email
-  </label>
+  {
+    !noHeader && (
+      <label class="email-subscribe__label" for="email-subscribe-input">
+        Want updates sent to your email?
+      </label>
+    )
+  }
   <div class="email-subscribe__row">
     <input
+      aria-label={noHeader ? 'Want updates sent to your email?' : null}
       id="email-subscribe-input"
       type="email"
       name="email"

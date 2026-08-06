@@ -3,12 +3,10 @@ import SocialLinks from './SocialLinks.astro'
 import EmailSubscribe from './EmailSubscribe.astro'
 
 interface Props {
-  /** Icons only (About). Default is the post credit block. */
-  iconsOnly?: boolean
-  variant?: 'icons' | 'post'
+  variant?: 'footer' | 'post'
 }
 
-const { iconsOnly = false, variant = iconsOnly ? 'icons' : 'post' } = Astro.props
+const variant = Astro.props.variant ?? 'post'
 ---
 
 {
@@ -40,7 +38,10 @@ const { iconsOnly = false, variant = iconsOnly ? 'icons' : 'post' } = Astro.prop
     </section>
   ) : (
     <div class="signoff-icons">
-      <SocialLinks class="justify-center gap-4" />
+      <SocialLinks class="justify-center gap-4 pb-8" />
+      <div class="max-w-125 m-auto pb-12">
+        <EmailSubscribe />
+      </div>
     </div>
   )
 }

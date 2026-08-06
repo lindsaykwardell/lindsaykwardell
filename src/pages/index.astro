@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import SocialLinks from '@/components/SocialLinks.astro'
 import Avatar from '@/components/Avatar.astro'
 import Nav from '@/components/Nav.astro'
+import EmailSubscribe from '@/components/EmailSubscribe.astro'
 ---
 
 <BaseLayout hideHeader fullScreen>
@@ -14,13 +15,18 @@ import Nav from '@/components/Nav.astro'
         <span class="home-card__name">Lindsay Wardell</span>
       </h1>
       <p class="home-card__lede">
-        I am a programmer and writer. Join me as I explore the place where technology and emotion intersect. I write poetry, fiction, and observations of the world around us.
+        I am a programmer and writer. Join me as I explore the place where
+        technology and emotion intersect. I write poetry, fiction, and
+        observations of the world around us.
       </p>
       <div class="home-card__nav">
         <Nav />
       </div>
       <div class="home-card__socials">
         <SocialLinks />
+        <div class="pt-4">
+          <EmailSubscribe noHeader />
+        </div>
       </div>
     </div>
   </section>
