@@ -11,6 +11,12 @@ snippet: I love studying languages. Learning a new language takes time, and some
 type: Personal
 draft: false
 syndicate: true
+atUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/site.standard.document/3mslvxfvz4x2s"
+mastodonId: "117061777989898085"
+mastodonUrl: "https://mastodon.social/@lindsaykwardell/117061777989898085"
+buttondownId: "em_6xc7tq54ky97wv0ajgwfz1bq11"
+blueskyUri: "at://did:plc:dfffydq7eqa5yof4cfeh23vh/app.bsky.feed.post/3mslvxgayng2n"
+blueskyUrl: "https://bsky.app/profile/lindsaykwardell.com/post/3mslvxgayng2n"
 ---
 "O que?"
 
