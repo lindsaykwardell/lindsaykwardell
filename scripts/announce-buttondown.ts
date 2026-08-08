@@ -5,6 +5,9 @@
  * Skips drafts, syndicate:false, already-drafted (buttondownId),
  * and posts older than maxAgeDays (default 30).
  *
+ * Body is the full post markdown (subject = title), with a site link
+ * and site-relative image paths rewritten to absolute URLs.
+ *
  * Requires BUTTONDOWN_API_KEY. Optional: BUTTONDOWN_MAX_AGE_DAYS.
  *
  * Usage: npx tsx scripts/announce-buttondown.ts [--dry-run]
@@ -13,6 +16,10 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseFrontmatter, upsertFrontmatter } from './lib/frontmatter.ts'
+import {
+  buildButtondownBody,
+  extractMarkdownBody,
+} from './lib/buttondown-body.ts'
 import { destinationsFor } from '../src/lib/distribute.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -44,16 +51,6 @@ function loadDotEnv() {
   }
 }
 
-function buildBody(snippet: string | undefined, url: string, title: string) {
-  const parts: string[] = []
-  if (snippet && snippet.trim()) {
-    parts.push(snippet.trim())
-    parts.push('')
-  }
-  parts.push(`[Read “${title}” on the site](${url})`)
-  return parts.join('\n')
-}
-
 loadDotEnv()
 
 const dryRun = process.argv.includes('--dry-run')
@@ -74,7 +71,7 @@ type Candidate = {
   filePath: string
   slug: string
   title: string
-  snippet?: string
+  markdown: string
   url: string
 }
 
@@ -105,7 +102,7 @@ for (const file of files) {
     filePath,
     slug,
     title: String(fm.title || slug),
-    snippet: fm.snippet ? String(fm.snippet) : undefined,
+    markdown: extractMarkdownBody(raw),
     url: `${SITE_URL}/blog/${slug}`,
   })
 }
@@ -120,10 +117,19 @@ let created = 0
 let errors = 0
 
 for (const post of candidates) {
-  const body = buildBody(post.snippet, post.url, post.title)
+  const body = buildButtondownBody(post.title, post.url, post.markdown)
+  const lines = body.split('\n')
+  const preview = lines.slice(0, 12).join('\n')
+  const more =
+    lines.length > 12 ? `\n    … (${body.length} chars total)` : ''
   console.log(`\n→ /blog/${post.slug}`)
   console.log(`  subject: ${post.title}`)
-  console.log(`  body:\n${body.split('\n').map((l) => `    ${l}`).join('\n')}`)
+  console.log(
+    `  body:\n${preview
+      .split('\n')
+      .map((l) => `    ${l}`)
+      .join('\n')}${more}`,
+  )
 
   if (dryRun) continue
 

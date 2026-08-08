@@ -28,6 +28,7 @@
     "sync:shows": "tsx scripts/sync-shows-rss.ts",
     "migrate:content": "tsx scripts/migrate-shows-and-photos.ts",
     "optimize:covers": "tsx scripts/optimize-cover-images.ts",
+    "optimize:images": "tsx scripts/optimize-cover-images.ts",
     "webmentions:send": "tsx scripts/send-webmentions.ts",
     "webmentions:send:dry": "tsx scripts/send-webmentions.ts --dry-run",
     "buttondown:draft": "tsx scripts/announce-buttondown.ts",

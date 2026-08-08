@@ -25,8 +25,8 @@ jobs:
 
       - run: npm ci
 
-      - name: Optimize cover images for Sequoia
-        run: npm run optimize:covers
+      - name: Optimize images (resize + Sequoia covers)
+        run: npm run optimize:images
 
       - name: Normalize post tags
         run: npm run tags:normalize
